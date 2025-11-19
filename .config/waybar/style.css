@@ -120,7 +120,7 @@ window#waybar {
 }
 
 #battery.discharging {
-    color: #e5e7eb; /* sáng trắng xám */
+    color: @on_surface;
 }
 
 #battery.full {

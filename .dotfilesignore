@@ -4,3 +4,14 @@
 !.gitconfig
 !.dotfilesignore
 !.config/
+
+
+!.config/hypr/
+!.config/walker/
+!.config/fastfetch/
+!.config/waybar/
+!.config/kitty/
+!.config/swaync/
+!.config/wlogout/
+!.config/matugen/
+!.config/batsignal/

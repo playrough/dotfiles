@@ -1,0 +1,27 @@
+# --- Run batsignal in the background ---
+-b
+
+# --- Notify when battery starts charging/discharging ---
+-p
+
+# --- Battery warning levels ---
+-w
+30          # warning at 20%
+-c
+15          # critical at 10%
+
+# --- Messages when charging/discharging starts ---
+-P
+Battery charging ⚡
+-U
+Battery discharging 🔋
+
+# --- Custom messages for warning/critical levels ---
+-W
+Battery low! %s%%
+-C
+Battery critical! %s%%
+
+# --- Polling interval in seconds ---
+-m
+5

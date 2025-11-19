@@ -3,7 +3,7 @@
   // "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   // "height": 32, // Waybar height (to be removed for auto height)
-  "margin-top": 8,
+  "margin-top": 10,
   "margin-left": 10,
   "margin-right": 10,
   // "width": 1280, // Waybar width
@@ -95,7 +95,7 @@
   },
 
   "battery": {
-      "interval": 60,
+      "interval": 1,
       "states": {
           "warning": 30,
           "critical": 15
@@ -103,7 +103,6 @@
       "format": "{icon} {capacity}%",
       "format-charging": "󰂄 {capacity}%",
       "format-full": "󰁹 {capacity}%",
-      "format-discharging": "󰁹 {capacity}%",
       "format-icons": ["󰂎", "󰁾", "󰁿", "󰂀", "󰂁", "󰁹"]
   },
 

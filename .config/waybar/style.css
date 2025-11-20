@@ -119,15 +119,7 @@ window#waybar {
     color: #4ade80; /* xanh lá sáng */
 }
 
-#battery.discharging {
-    color: @on_surface;
-}
-
 #battery.full {
     color: #22d3ee; /* xanh biển neon */
 }
 
-#battery.notcharging {
-    color: #9ca3af; /* xám nhẹ */
-    font-style: italic;
-}

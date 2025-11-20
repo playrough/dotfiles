@@ -18,9 +18,9 @@ Battery discharging 🔋
 
 # --- Custom messages for warning/critical levels ---
 -W
-Battery low! %s%%
+Battery low!
 -C
-Battery critical! %s%%
+Battery critical!
 
 # --- Polling interval in seconds ---
 -m

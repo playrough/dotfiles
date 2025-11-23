@@ -1,6 +1,6 @@
 [config.wallpaper]
 command = "swww"
-arguments = ["img", "--transition-type", "wave"]
+arguments = ["img", "--transition-type", "simple"]
 set = true
 
 

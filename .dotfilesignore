@@ -1,17 +1,77 @@
-*
 
-!.zshrc
-!.gitconfig
-!.dotfilesignore
-!.config/
+# Shell history & config
+.bash_history
+.bash_logout
+.bash_profile
+.bashrc
+.zprofile
+.zsh_history
+.zshrc.pre-oh-my-zsh
+.zcompdump-*
+.zcompdump-*.zwc
 
+# Hidden user stuff
+.gnupg/
+.ssh/
+.local/
+.mozilla/
+.librewolf/
+.dotnet/
+.dotfiles/
+.oh-my-zsh/
+.poshthemes/
+.pki/
+.npm/
+.vmware/
+.vscode/
+.themes/
+.icons/
+.viminfo
 
-!.config/hypr/
-!.config/walker/
-!.config/fastfetch/
-!.config/waybar/
-!.config/kitty/
-!.config/swaync/
-!.config/wlogout/
-!.config/matugen/
-!.config/batsignal/
+# Cache
+.cache/
+.cargo/
+
+# Config directories you want to ignore
+.config/Code/
+.config/QtProject.conf
+.config/Thunar/
+.config/alacritty/
+.config/baloofileinformationrc
+.config/chromium/
+.config/dconf/
+.config/fcitx/
+.config/fcitx5/
+.config/fontconfig/
+.config/fontforge/
+.config/ghostty/
+.config/go/
+.config/ibus/
+.config/inkscape/
+.config/kdeglobals
+.config/kiorc
+.config/kservicemenurc
+.config/ktrashrc
+.config/mimeapps.list
+.config/mozilla/
+.config/nemo/
+.config/nwg-look/
+.config/pulse/
+.config/qBittorrent/
+.config/session/
+.config/systemd/
+.config/trashrc
+.config/user-dirs.dirs
+.config/user-dirs.locale
+.config/vim.bak
+.config/xfce4/
+.config/xsettingsd/
+.config/zathura/
+.config/zed/
+
+# User folders
+Coding/
+Downloads/
+Screenshots/
+Videos/
+QTM/

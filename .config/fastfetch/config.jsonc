@@ -101,10 +101,15 @@
             "format": "{#1}│",
         },
         // Colors
+        // {
+        //     "type": "colors",
+        //     "key": "{#separator}│",
+        //     "symbol": "circle",
+        // },
         {
-            "type": "colors",
+            "type": "custom",
             "key": "{#separator}│",
-            "symbol": "circle",
+            "format":"{#37}󰮯 {#37} • {#37}• {#37}• {#31} 󰊠 {#32} 󰊠 {#33} 󰊠 {#34} 󰊠 {#35} 󰊠 {#36} 󰊠 "
         },
         // Footer
         {

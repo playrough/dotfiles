@@ -28,7 +28,7 @@ theme[selected_bg]="{{colors.primary.default.hex}}"
 theme[selected_fg]="{{colors.on_primary.default.hex}}"
 
 # Color of inactive/disabled text
-theme[inactive_fg]="{{colors.on_surface_variant.default.hex}}"
+theme[inactive_fg]="{{colors.surface_container_highest.default.hex}}"
 
 # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
 theme[proc_misc]="{{colors.tertiary.default.hex}}"
@@ -54,8 +54,8 @@ theme[temp_mid]="{{colors.primary.default.hex}}"
 theme[temp_end]="{{colors.error.default.hex}}"
 
 # CPU graph colors
-theme[cpu_start]="{{colors.secondary.default.hex}}"
-theme[cpu_mid]="{{colors.primary.default.hex}}"
+theme[cpu_start]="{{colors.primary.default.hex}}"
+theme[cpu_mid]=""
 theme[cpu_end]="{{colors.error.default.hex}}"
 
 # Mem/Disk free meter

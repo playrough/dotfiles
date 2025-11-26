@@ -20,9 +20,9 @@
      inkscape:pageopacity="0"
      inkscape:pagecheckerboard="0"
      showgrid="true"
-     inkscape:zoom="1.0000001"
-     inkscape:cx="352.99996"
-     inkscape:cy="812.9999"
+     inkscape:zoom="0.70710685"
+     inkscape:cx="192.33303"
+     inkscape:cy="448.30565"
      inkscape:window-width="1898"
      inkscape:window-height="1008"
      inkscape:window-x="0"
@@ -33,7 +33,8 @@
      inkscape:bbox-nodes="true"
      inkscape:snap-bbox-edge-midpoints="true"
      inkscape:showpageshadow="2"
-     inkscape:deskcolor="#525252">
+     inkscape:deskcolor="#525252"
+     showguides="false">
     <inkscape:grid
        type="xygrid"
        id="grid51489"
@@ -42,7 +43,8 @@
        spacingy="1"
        spacingx="1"
        units="px"
-       visible="true" />
+       visible="true"
+       enabled="false" />
   </sodipodi:namedview>
   <defs
      id="defs24">

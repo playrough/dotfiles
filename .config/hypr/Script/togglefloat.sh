@@ -2,7 +2,7 @@
 
 hyprctl dispatch togglefloating
 
-if hyprctl activewindow | grep -Eq "class: (kitty|org.kde.dolphin)" && \
+if hyprctl activewindow | grep -Eq "class: (kitty|org.kde.dolphin|nemo)" && \
     hyprctl activewindow | grep -q "floating: 1";
 then
     hyprctl dispatch resizeactive exact 890 520

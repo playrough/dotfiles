@@ -77,11 +77,11 @@ eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/emodipt-extend.omp.json)"
 plugins=(
     git
     zsh-autosuggestions
+    zsh-vi-mode
 )
 
 
 source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"

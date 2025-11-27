@@ -27,13 +27,14 @@
 .themes/
 .icons/
 .viminfo
+.python_history
 
 # Cache
 .cache/
 .cargo/
 
 # Config directories you want to ignore
-.config/Code/
+.config/easyeffects/
 .config/QtProject.conf
 .config/Thunar/
 .config/alacritty/
@@ -75,3 +76,16 @@ Downloads/
 Screenshots/
 Videos/
 QTM/
+
+
+# Ignore toàn bộ thư mục Code, nhưng cho phép override
+.config/Code/*
+
+# Cho phép truy cập thư mục User
+!.config/Code/User/
+
+# Ignore toàn bộ thứ trong User
+.config/Code/User/*
+
+# Nhưng unignore lại file settings.json
+!.config/Code/User/settings.json

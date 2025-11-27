@@ -1,0 +1,38 @@
+{
+  "breadcrumbs.enabled": false,
+  "chat.commandCenter.enabled": false,
+
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontSize": 12,
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "600",
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.overviewRulerBorder": false,
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "none",
+  "editor.stickyScroll.enabled": false,
+
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.fontWeight": "600",
+  "terminal.integrated.fontWeightBold": "700",
+
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "toggle",
+  "window.titleBarStyle": "native",
+
+  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "HyprLuna Material",
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.revealIfOpen": true,
+  "workbench.layoutControl.enabled": false,
+
+  "zenMode.centerLayout": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.showTabs": "single",
+
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+}

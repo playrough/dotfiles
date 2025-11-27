@@ -65,3 +65,7 @@ post_hook = 'pywalfox update'
 [templates.vscode]
 input_path = "~/.config/matugen/templates/hyprlunavsc.json"
 output_path = "~/.vscode/extensions/hyprluna.hyprluna-theme-1.0.2/themes/hyprluna.json"
+
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi-theme.toml'
+output_path = '~/.config/yazi/theme.toml'

@@ -20,8 +20,6 @@
   "window.commandCenter": false,
   "window.menuBarVisibility": "toggle",
   "window.titleBarStyle": "native",
-
-  "workbench.activityBar.location": "hidden",
   "workbench.colorTheme": "HyprLuna Material",
   "workbench.editor.enablePreviewFromCodeNavigation": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,

@@ -118,8 +118,6 @@ source $ZSH/oh-my-zsh.sh
 # cuối .zshrc
 #
 
-export VISUAL=vim
-export EDITOR=vim
 
 
 # Created by `pipx` on 2025-10-29 08:50:16
@@ -127,3 +125,12 @@ export PATH="$PATH:/home/ether/.local/bin"
 
 
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+# Use lsd instead of ls
+if command -v lsd >/dev/null 2>&1; then
+  alias ls="lsd"
+  alias l="lsd -l"
+  alias la="lsd -a"
+  alias lla="lsd -la"
+  alias lt="lsd --tree"
+fi

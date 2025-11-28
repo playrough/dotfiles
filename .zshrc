@@ -116,6 +116,10 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # cuối .zshrc
 # cuối .zshrc
+#
+
+export VISUAL=vim
+export EDITOR=vim
 
 
 # Created by `pipx` on 2025-10-29 08:50:16

@@ -35,6 +35,7 @@
 
 # Config directories you want to ignore
 .config/easyeffects/
+.config/libaccounts-glib/
 .config/QtProject.conf
 .config/Thunar/
 .config/alacritty/
@@ -68,6 +69,7 @@
 .config/xsettingsd/
 .config/zathura/
 .config/zed/
+.config/rclone/rclone.conf
 
 # User folders
 Coding/
@@ -75,6 +77,8 @@ Downloads/
 Screenshots/
 Videos/
 QTM/
+GoogleDrive/
+
 
 
 # Ignore toàn bộ thư mục Code, nhưng cho phép override
@@ -88,3 +92,7 @@ QTM/
 
 # Nhưng unignore lại file settings.json
 !.config/Code/User/settings.json
+
+
+# Obsidian caches and temp files
+.config/obsidian/*

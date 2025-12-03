@@ -1861,7 +1861,7 @@
         "merge.commonContentBackground": "{{colors.outline.default.hex}}20",
         "merge.border": "{{colors.outline.default.hex}}00",
         "panel.background": "{{colors.surface.default.hex}}",
-        "panel.border": "{{colors.outline.default.hex}}00",
+        "panel.border": "{{colors.outline.default.hex}}20",
         "panel.dropBorder": "{{colors.primary.default.hex}}",
         "panelTitle.activeBorder": "{{colors.primary.default.hex}}",
         "panelTitle.activeForeground": "{{colors.primary.default.hex}}",

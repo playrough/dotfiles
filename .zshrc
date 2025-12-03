@@ -134,3 +134,9 @@ if command -v lsd >/dev/null 2>&1; then
   alias lla="lsd -la"
   alias lt="lsd --tree"
 fi
+
+
+alias nvc='cd ~/.config && nvim'   # ncv = "nvim config"
+
+
+alias dwall="cd ~/Downloads/Wallpapers"

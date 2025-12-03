@@ -3,3 +3,5 @@
 	email = 106418248+playrough@users.noreply.github.com
 [core]
 	editor = nvim
+[init]
+	defaultBranch = main

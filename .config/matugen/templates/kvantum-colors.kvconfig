@@ -76,7 +76,7 @@ menu_blur_radius=0
 tooltip_blur_radius=0
 
 [GeneralColors]
-window.color={{colors.surface.default.hex}}
+window.color={{colors.background_custom_value.default.hex}}
 base.color={{colors.surface.default.hex}}
 alt.base.color={{colors.primary.default.hex}}
 button.color={{colors.tertiary.default.hex}}

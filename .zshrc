@@ -7,7 +7,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/emodipt-extend.omp.json)"
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -136,7 +136,7 @@ if command -v lsd >/dev/null 2>&1; then
 fi
 
 
-alias nvc='cd ~/.config && nvim'   # ncv = "nvim config"
+alias nc='cd ~/.config && nvim'   # ncv = "nvim config"
 
 
 alias dwall="cd ~/Downloads/Wallpapers"

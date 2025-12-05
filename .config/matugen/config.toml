@@ -3,6 +3,10 @@ command = "swww"
 arguments = ["img", "--transition-type", "wipe", "--transition-fps", "60" ]
 set = true
 
+[config.custom_colors]
+black = { color = "#000000", blend = false }
+white = { color = "#ffffff", blend = false }
+background_custom = { color = "#141318", blend = false }
 
 [templates.waybar]
 input_path = './templates/colors.css'
@@ -36,27 +40,22 @@ output_path = '~/.config/qt5ct/colors/matugen.conf'
 input_path = '~/.config/matugen/templates/qtct-colors.conf'
 output_path = '~/.config/qt6ct/colors/matugen.conf'
 
-# Kvantum
 [templates.kvantum]
 input_path = '~/.config/matugen/templates/kvantum-colors.kvconfig'
 output_path = '~/.config/Kvantum/matugen/matugen.kvconfig'
 
-# Gtk3
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-3.0/gtk.css'
 
-# Gtk4
 [templates.gtk4]
 input_path = '~/.config/matugen/templates/gtk.css'
 output_path = '~/.config/gtk-4.0/gtk.css'
 
-# Zathura
 [templates.zathura]
 input_path = '~/.config/matugen/templates/zathurarc'
 output_path = '~/.config/zathura/matugen-zathurarc'
 
-# Pywalfox
 [templates.pywalfox]
 input_path = '~/.config/matugen/templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'

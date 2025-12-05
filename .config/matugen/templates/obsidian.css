@@ -7,10 +7,10 @@ HyprLuna Obsidian Theme
 
 .theme-dark {
     /* Keep soft backgrounds */
-    --background-primary: #{{colors.surface.default.hex_stripped}};
+    --background-primary: #{{colors.background_custom_value.default.hex_stripped}};
     --background-primary-alt: #{{colors.surface_variant.default.hex_stripped}}40;
-    --background-secondary: #{{colors.surface_container.default.hex_stripped}};
-    --background-secondary-alt: #{{colors.surface_variant.default.hex_stripped}}10;
+    --background-secondary: #{{colors.background_custom_value.default.hex_stripped}};
+    --background-secondary-alt: #{{colors.background_custom_value.default.hex_stripped}}10;
     
     /* Subtle borders and modifiers */
     --background-modifier-border: #{{colors.outline.default.hex_stripped}}20;
@@ -62,8 +62,8 @@ HyprLuna Obsidian Theme
 
     /* Tags at 94% with subtle backgrounds */
     --tag-color: #{{colors.secondary.default.hex_stripped}}f0;
-    --tag-background: #{{colors.secondary.default.hex_stripped}}15;
-    --tag-background-hover: #{{colors.secondary.default.hex_stripped}}25;
+    --tag-background: #{{colors.background_custom_value.default.hex_stripped}}15;
+    --tag-background-hover: #{{colors.background_custom_value.default.hex_stripped}}25;
 
     --titlebar-text-color-focused: #{{colors.on_surface.default.hex_stripped}}f0;
 

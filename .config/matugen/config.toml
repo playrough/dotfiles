@@ -6,7 +6,7 @@ set = true
 [config.custom_colors]
 black = { color = "#000000", blend = false }
 white = { color = "#ffffff", blend = false }
-background_custom = { color = "#141318", blend = false }
+background_custom = { color = "#121212", blend = false }
 
 [templates.waybar]
 input_path = './templates/colors.css'

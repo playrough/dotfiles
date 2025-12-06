@@ -22,19 +22,20 @@ button {
     box-shadow: none;
     text-shadow: none;
     animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s;
 }
 
 button:focus {
-    background-color: alpha(@primary_container, .75);
+    background-color: alpha(@on_secondary, 0.75);
     background-size: 40%;
 }
 
 button:hover {
-    background-color: alpha(@primary_container, .75);
+    background-color: alpha(@on_secondary, 0.75);
     background-size: 50%;
     border-radius: ${active_rad}px;
     animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682);
+    transition: all 0.5s cubic-bezier(.55,0.0,.28,1.682);
 }
 
 button:hover#lock {

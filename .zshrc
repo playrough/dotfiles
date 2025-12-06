@@ -136,7 +136,6 @@ if command -v lsd >/dev/null 2>&1; then
 fi
 
 
-alias nc='cd ~/.config && nvim'   # ncv = "nvim config"
+alias v='nvim'
 
 
-alias dwall="cd ~/Downloads/Wallpapers"

@@ -9,7 +9,8 @@
 .zshrc.pre-oh-my-zsh
 .zcompdump-*
 .zcompdump-*.zwc
-
+tmux-client-*
+.tmux/
 # Hidden user stuff
 .gnupg/
 .ssh/

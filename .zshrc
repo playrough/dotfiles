@@ -136,6 +136,6 @@ if command -v lsd >/dev/null 2>&1; then
 fi
 
 
-alias v='nvim'
+alias nv='nvim'
 
 

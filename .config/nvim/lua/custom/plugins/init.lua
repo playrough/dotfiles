@@ -5,4 +5,5 @@
 return {
   require 'custom.plugins.noice',
   require 'custom.plugins.lualine',
+  require 'custom.plugins.yazi',
 }

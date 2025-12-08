@@ -179,6 +179,34 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Lưu buffer terminal và window
+local term_buf = nil
+local term_win = nil
+
+vim.keymap.set('n', '<space>st', function()
+  -- Nếu terminal window đang hiển thị, ẩn nó
+  if term_win and vim.api.nvim_win_is_valid(term_win) then
+    vim.api.nvim_win_hide(term_win)
+    term_win = nil
+  else
+    -- Nếu buffer terminal tồn tại, mở lại buffer cũ
+    if term_buf and vim.api.nvim_buf_is_valid(term_buf) then
+      -- Mở terminal buffer cũ trong split nếu chưa có window
+      vim.cmd 'botright split' -- bottom split
+      term_win = vim.api.nvim_get_current_win()
+      vim.api.nvim_win_set_buf(term_win, term_buf)
+      vim.api.nvim_win_set_height(term_win, 15)
+    else
+      -- Nếu chưa có buffer terminal → tạo mới
+      vim.cmd 'botright split'
+      vim.cmd 'term'
+      term_win = vim.api.nvim_get_current_win()
+      term_buf = vim.api.nvim_get_current_buf()
+      vim.api.nvim_win_set_height(term_win, 15)
+    end
+  end
+end)
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -415,7 +443,9 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = { hidden = true },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -709,7 +739,11 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-
+        phpactor = {
+          cmd = { 'phpactor', 'language-server' },
+          filetypes = { 'php' },
+          root_markers = { 'composer.json' },
+        },
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -742,6 +776,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'phpactor', -- Used to format PHP code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -1055,4 +1090,4 @@ require('lazy').setup({
 })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-require('core.matugen').setup()
+-- require('core.matugen').setup()

@@ -8,7 +8,7 @@ return {
       For a full list of options, see :help lualine-options
       --]]
       icons_enabled = true, -- Do you want to use icons?
-      theme = 'base16', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
+      theme = 'tokyonight', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
       -- 'auto' will try to match your colorscheme
       component_separators = { left = '', right = '' }, -- Separators between components
       section_separators = { left = '', right = '' }, -- Separators between sections (A,B,C and X,Y,Z)

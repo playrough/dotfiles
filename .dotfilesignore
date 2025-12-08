@@ -31,6 +31,8 @@ backup/
 .viminfo
 .python_history
 
+.config/composer/
+#
 # Cache
 .cache/
 .cargo/

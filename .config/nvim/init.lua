@@ -99,7 +99,6 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 vim.o.wrap = false
-vim.opt.pumblend = 100
 
 -- Make line numbers default
 vim.o.number = true
@@ -231,10 +230,10 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
--- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
--- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
--- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
--- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+vim.keymap.set('n', '<C-S-h>', '<C-w>H', { desc = 'Move window to the left' })
+vim.keymap.set('n', '<C-S-l>', '<C-w>L', { desc = 'Move window to the right' })
+vim.keymap.set('n', '<C-S-j>', '<C-w>J', { desc = 'Move window to the lower' })
+vim.keymap.set('n', '<C-S-k>', '<C-w>K', { desc = 'Move window to the upper' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -375,9 +374,11 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>s', group = '[S]earch' },
+        { '<leader>s', group = '[S]plit' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>f', group = '[F]ind' },
+        { '<leader>c', group = '[C]hange' },
       },
     },
   },
@@ -475,7 +476,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-          winblend = 10,
+          winblend = 0,
           previewer = false,
         })
       end, { desc = '[/] Fuzzily search in current buffer' })
@@ -817,11 +818,14 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         php = { 'php_cs_fixer' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        javascriptreact = { 'prettier' },
+        typescriptreact = { 'prettier' },
+        css = { 'prettier' },
+        html = { 'prettier' },
+        json = { 'prettier' },
+        markdown = { 'prettier' },
       },
       formatters = {
         php = {
@@ -953,6 +957,7 @@ require('lazy').setup({
           floats = 'transparent',
           comments = { italic = false }, -- Disable italics in comments
         },
+        lualine_bold = true,
       }
 
       -- Load the colorscheme here.
@@ -986,17 +991,17 @@ require('lazy').setup({
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
-      local statusline = require 'mini.statusline'
+      -- local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
+      -- statusline.setup { use_icons = vim.g.have_nerd_font }
 
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
       -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
+      -- ---@diagnostic disable-next-line: duplicate-set-field
+      -- statusline.section_location = function()
+      --   return '%2l:%-2v'
+      -- end
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
@@ -1083,6 +1088,7 @@ require('lazy').setup({
         desc = 'Resume the last yazi session',
       },
     },
+
     ---@type YaziConfig | {}
     opts = {
       -- if you want to open yazi instead of netrw, see below for more info
@@ -1098,6 +1104,144 @@ require('lazy').setup({
       -- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
       vim.g.loaded_netrwPlugin = 1
     end,
+  },
+
+  -- lazy.nvim
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      'MunifTanjim/nui.nvim',
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      'rcarriga/nvim-notify',
+    },
+  },
+
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }, -- Optional, but recommended for icons
+    opts = {
+      options = {
+        --[[
+      General options for lualine.
+      For a full list of options, see :help lualine-options
+      --]]
+        icons_enabled = true, -- Do you want to use icons?
+        theme = 'tokyonight', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
+        -- 'auto' will try to match your colorscheme
+        component_separators = { left = '', right = '' }, -- Separators between components
+        section_separators = { left = '', right = '' }, -- Separators between sections (A,B,C and X,Y,Z)
+        disabled_filetypes = { -- Filetypes for which lualine will be disabled
+          statusline = {},
+          winbar = {},
+        },
+        ignore_focus = {}, -- List of buffer types to ignore when checking focus
+        always_divide_middle = true, -- If true, separates middle sections with section_separators
+        globalstatus = false, -- If true, Components on statuslines of inactive windows are hidden
+        -- and statusline for the last active window is used.
+        refresh = { -- How often to refresh the statusline and tabline
+          statusline = 1000, -- (in ms)
+          tabline = 1000,
+          winbar = 1000,
+        },
+      },
+      sections = {
+        --[[
+      These are the main sections, 'lualine_a' through 'lualine_c' on the left,
+      and 'lualine_x' through 'lualine_z' on the right.
+      Each section is a table of components.
+      A component can be a string (a built-in component name) or a table for more control.
+      For a full list of built-in components, see :help lualine-components
+      --]]
+        lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+        -- lualine_b = { 'branch', 'diff', 'diagnostics' },
+        -- lualine_c = {
+        --   { 'filename', path = 1 }, -- path = 1 shows filename relative to CWD
+        --   -- You could also add things like:
+        --   -- 'filesize',
+        --   -- {
+        --   --   'lsp_progress', -- Shows LSP progress messages
+        --   --   display_components = {'lsp_client_name', 'progress'},
+        --   --   colors = { MaterialDark = { progress_done =โซ '#a6e3a1' } },
+        --   -- },
+        --   -- {
+        --   --  'searchcount',
+        --   --  max_searches = 999, -- Maximum number of search results to display
+        --   --  timeout = 500,      -- Timeout in milliseconds for search results
+        --   -- },
+        -- },
+        -- lualine_x = { 'filetype' },
+        lualine_y = {
+          { 'progress', separator = ' ', padding = { left = 1, right = 0 } },
+          { 'location', padding = { left = 0, right = 1 } },
+        },
+        lualine_z = {
+          {
+            function()
+              return ' ' .. os.date '%R'
+            end,
+            separator = { right = '' },
+          },
+        },
+      },
+      inactive_sections = {
+        --[[
+      Sections for inactive windows. Same structure as `sections`.
+      Often simplified.
+      --]]
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { { 'filename', path = 1 } },
+        lualine_x = { 'location' },
+        lualine_y = {},
+        lualine_z = {},
+      },
+      tabline = {
+        --[[
+      Lualine can also act as a tabline.
+      --]]
+        -- lualine_a = {'tabs'},
+        -- lualine_b = {},
+        -- lualine_c = {},
+        -- lualine_x = {},
+        -- lualine_y = {},
+        -- lualine_z = {},
+      },
+      winbar = {
+        --[[
+      Lualine can also act as a winbar (a bar at the top of each window).
+      --]]
+        -- lualine_a = {},
+        -- lualine_b = {},
+        -- lualine_c = {{'filename', path = 1}},
+        -- lualine_x = {},
+        -- lualine_y = {},
+        -- lualine_z = {}
+      },
+      inactive_winbar = {
+        -- lualine_c = {{'filename', path = 1}},
+      },
+      extensions = {
+        --[[
+      Lualine has extensions for integration with other plugins.
+      --]]
+        -- 'nvim-tree',
+        -- 'toggleterm',
+        -- 'quickfix',
+        -- 'mason',
+        -- 'fugitive', -- Example for git blame
+        -- {
+        --   'nvim-dap-ui',
+        --   sections = {lualine_c = {'dap-state', 'dap-session'}}
+        -- }
+      },
+    },
   },
 }, {
   ui = {

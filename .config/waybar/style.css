@@ -1,21 +1,21 @@
 @import "colors.css";
 
 * {
-    font-family: "JetBrainsMono Nerd Font Propo", "Material Icons";
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    min-height: 0;
-    box-shadow: none;
-    outline: none;
-    text-shadow: none;
+	font-family: "JetBrainsMono Nerd Font Propo", "Material Icons";
+	font-size: 14px;
+	font-weight: bold;
+	border: none;
+	min-height: 0;
+	box-shadow: none;
+	outline: none;
+	text-shadow: none;
 }
 
 window#waybar {
-    background: alpha(@background_custom_value, .75);
-    color: @on_surface;
-    border-radius: 10px;
-    border: 1px solid @outline_variant;
+	background: alpha(@background_custom_value, .8);
+	color: @on_surface;
+	border-radius: 10px;
+	border: 1px solid @outline_variant;
 }
 
 /* Nút workspace và custom */
@@ -31,17 +31,17 @@ window#waybar {
 #network,
 #battery,
 #tray {
-    background: transparent;
-    border-radius: 20px;
-    padding: 4px 12px;
-    margin: 2px 3px;
-    transition:
-        background 0.2s,
-        color 0.2s;
+	background: transparent;
+	border-radius: 20px;
+	padding: 4px 12px;
+	margin: 2px 3px;
+	transition:
+		background 0.2s,
+		color 0.2s;
 }
 
 #workspaces {
-    padding: 8px 4px;
+	padding: 8px 4px;
 }
 
 /* Hover effect */
@@ -55,72 +55,78 @@ window#waybar {
 #pulseaudio:hover,
 #network:hover,
 #battery:hover {
-    background: rgba(137, 180, 250, 0.3);
-    color: #cdd6f4;
+	background: rgba(137, 180, 250, 0.3);
+	color: #cdd6f4;
 }
 
 /* Khi đang phát nhạc */
 #custom-playerctl.playing {
-    background: rgba(137, 180, 250, 0.6); /* xanh dương nhạt */
-    color: #1e1e2e;
+	background: rgba(137, 180, 250, 0.6);
+	/* xanh dương nhạt */
+	color: #1e1e2e;
 }
 
 /* Khi tạm dừng */
 #custom-playerctl.paused {
-    background: rgba(249, 226, 175, 0.6); /* vàng nhẹ */
-    color: #1e1e2e;
+	background: rgba(249, 226, 175, 0.6);
+	/* vàng nhẹ */
+	color: #1e1e2e;
 }
 
 /* Khi dừng hẳn */
 #custom-playerctl.stopped {
-    background: rgba(243, 139, 168, 0.6); /* đỏ nhạt */
-    color: #1e1e2e;
+	background: rgba(243, 139, 168, 0.6);
+	/* đỏ nhạt */
+	color: #1e1e2e;
 }
 
 #workspaces button {
-    color: #cdd6f4;
-    min-width: 24px;
-    margin: 0 4px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
-    border-radius: 20px;
+	color: #cdd6f4;
+	min-width: 24px;
+	margin: 0 4px;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	padding: 0;
+	border-radius: 20px;
 }
 
 #workspaces button.active {
-    background: @primary;
-    color: #1e1e2e;
-    font-weight: bold;
-    padding-left: 14px;
-    padding-right: 14px;
-    border-radius: 20px;
-    animation: 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+	background: @primary;
+	color: #1e1e2e;
+	font-weight: bold;
+	padding-left: 14px;
+	padding-right: 14px;
+	border-radius: 20px;
+	animation: 20s ease-in infinite;
+	transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 /* Menu icon */
 #custom-menu {
-    color: @primary;
+	color: @primary;
 }
 
 /* Padding cho tray */
 #tray {
-    padding: 0 6px;
+	padding: 0 6px;
 }
 
 
 #battery.warning {
-    color: #facc15; /* vàng tươi */
+	color: #facc15;
+	/* vàng tươi */
 }
 
 #battery.critical {
-    color: #ef4444; /* đỏ tươi */
+	color: #ef4444;
+	/* đỏ tươi */
 }
 
 #battery.charging {
-    color: #4ade80; /* xanh lá sáng */
+	color: #4ade80;
+	/* xanh lá sáng */
 }
 
 #battery.full {
-    color: #22d3ee; /* xanh biển neon */
+	color: #22d3ee;
+	/* xanh biển neon */
 }
-

@@ -2,21 +2,21 @@
 
 require("base16-colorscheme").setup({
 	base00 = "",
-	base01 = "#0f0d13",
-	base02 = "#1c1b20",
-	base03 = "#48454e",
-	base04 = "#cac4cf",
-	base05 = "#e6e1e9",
-	base06 = "#312f35",
-	base07 = "#3a383e",
+	base01 = "#0d0e13",
+	base02 = "#1a1b21",
+	base03 = "#45464f",
+	base04 = "#c5c6d0",
+	base05 = "#e3e2e9",
+	base06 = "#2f3036",
+	base07 = "#38393f",
 
 	base08 = "#ffb4ab",
-	base09 = "#eeb8cb",
-	base0A = "#cac3dc",
-	base0B = "#cbbeff",
-	base0C = "#623b4b",
-	base0D = "#cbbeff",
-	base0E = "#484458",
+	base09 = "#e2bbdb",
+	base0A = "#c1c5dd",
+	base0B = "#b4c5ff",
+	base0C = "#5b3d58",
+	base0D = "#b4c5ff",
+	base0E = "#414659",
 	base0F = "#93000a",
 })
 
@@ -32,27 +32,27 @@ end
 
 -- Make selected text stand out more
 vim.api.nvim_set_hl(0, "Visual", {
-	bg = "#4a3e76",
-	fg = "#141318",
+	bg = "#334478",
+	fg = "#121318",
 })
 
 set_hl_mutliple({ "TSComment", "Comment" }, {
-	fg = "#ffd9e5",
+	fg = "#ffd6f8",
 })
 
 set_hl_mutliple({ "TSMethod", "Method" }, {
-	fg = "#eeb8cb",
+	fg = "#e2bbdb",
 })
 
 set_hl_mutliple({ "TSFunction", "Function" }, {
-	fg = "#cac3dc",
+	fg = "#c1c5dd",
 })
 
 vim.api.nvim_set_hl(0, "Keyword", {
-	fg = "#625690",
+	fg = "#4b5c92",
 })
 
 vim.api.nvim_set_hl(0, "MsgArea", {
-	bg = "#0f0d13",
-	fg = "#cbbeff",
+	bg = "#0d0e13",
+	fg = "#b4c5ff",
 })

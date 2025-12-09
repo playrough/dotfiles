@@ -98,8 +98,8 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
-vim.opt.pumblend = 100
 vim.o.wrap = false
+vim.opt.pumblend = 100
 
 -- Make line numbers default
 vim.o.number = true
@@ -169,17 +169,6 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-vim.keymap.set('n', '<leader>cd', vim.cmd.Ex)
-vim.keymap.set({ 'n', 'x' }, '<leader>p', [["0p]], { desc = 'paste from yank register' })
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
 -- Lưu buffer terminal và window
 local term_buf = nil
 local term_win = nil
@@ -208,6 +197,16 @@ vim.keymap.set('n', '<space>st', function()
   end
 end)
 
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
+
+-- Clear highlights on search when pressing <Esc> in normal mode
+--  See `:help hlsearch`
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -217,10 +216,10 @@ end)
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
-vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+-- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+-- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+-- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+-- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -376,7 +375,7 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>f', group = '[F]ind' },
+        { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       },
@@ -532,15 +531,7 @@ require('lazy').setup({
         opts = {
           notification = {
             window = {
-              -- Giảm winblend xuống 0 để mờ đục hoàn toàn (không trong suốt)
-              -- hoặc một giá trị nhỏ hơn 100 (ví dụ 50) để ít trong suốt hơn.
               winblend = 0,
-
-              -- Bạn có thể thêm các tùy chọn khác nếu muốn:
-              -- normal_hl = "Normal",
-              -- border = "rounded",
-              -- max_width = 30,
-              -- ...
             },
           },
         },
@@ -740,163 +731,21 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
-        -- phpactor = {
-        --   cmd = { 'phpactor', 'language-server' },
-        --   filetypes = { 'php' },
-        --   root_markers = { 'composer.json' },
-        -- },
-        -- lua_ls = {
-        --   -- cmd = { ... },
-        --   -- filetypes = { ... },
-        --   -- capabilities = {},
-        --   settings = {
-        --     Lua = {
-        --       completion = {
-        --         callSnippet = 'Replace',
-        --       },
-        --       -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-        --       -- diagnostics = { disable = { 'missing-fields' } },
-        --     },
-        --   },
-        -- },
-        -- cssls = {
-        --   cmd = { 'vscode-css-language-server', '--stdio' },
-        --   filetypes = { 'css', 'scss', 'less' },
-        --   init_options = { provideFormatter = true }, -- needed to enable formatting capabilities
-        --   root_markers = { 'package.json', '.git' },
-        --   settings = {
-        --     css = { validate = true },
-        --     scss = { validate = true },
-        --     less = { validate = true },
-        --   },
-        -- },
-        -- html = {
-        --   cmd = { 'vscode-html-language-server', '--stdio' },
-        --   filetypes = { 'html', 'templ', 'blade' },
-        --   root_markers = { 'package.json', '.git' },
-        --   settings = {},
-        --   init_options = {
-        --     provideFormatter = true,
-        --     embeddedLanguages = { css = true, javascript = true },
-        --     configurationSection = { 'html', 'css', 'javascript' },
-        --   },
-        -- },
-        -- ts_ls = {
-        --   init_options = { hostInfo = 'neovim' },
-        --   cmd = { 'typescript-language-server', '--stdio' },
-        --   filetypes = {
-        --     'javascript',
-        --     'javascriptreact',
-        --     'javascript.jsx',
-        --     'typescript',
-        --     'typescriptreact',
-        --     'typescript.tsx',
-        --   },
-        --   root_dir = function(bufnr, on_dir)
-        --     -- The project root is where the LSP can be started from
-        --     -- As stated in the documentation above, this LSP supports monorepos and simple projects.
-        --     -- We select then from the project root, which is identified by the presence of a package
-        --     -- manager lock file.
-        --     local root_markers = { 'package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', 'bun.lock' }
-        --     -- Give the root markers equal priority by wrapping them in a table
-        --     root_markers = vim.fn.has 'nvim-0.11.3' == 1 and { root_markers, { '.git' } } or vim.list_extend(root_markers, { '.git' })
-        --     -- exclude deno
-        --     local deno_path = vim.fs.root(bufnr, { 'deno.json', 'deno.jsonc', 'deno.lock' })
-        --     local project_root = vim.fs.root(bufnr, root_markers)
-        --     if deno_path and (not project_root or #deno_path >= #project_root) then
-        --       return
-        --     end
-        --     -- We fallback to the current working directory if no project root is found
-        --     on_dir(project_root or vim.fn.getcwd())
-        --   end,
-        --   handlers = {
-        --     -- handle rename request for certain code actions like extracting functions / types
-        --     ['_typescript.rename'] = function(_, result, ctx)
-        --       local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
-        --       vim.lsp.util.show_document({
-        --         uri = result.textDocument.uri,
-        --         range = {
-        --           start = result.position,
-        --           ['end'] = result.position,
-        --         },
-        --       }, client.offset_encoding)
-        --       vim.lsp.buf.rename()
-        --       return vim.NIL
-        --     end,
-        --   },
-        --   commands = {
-        --     ['editor.action.showReferences'] = function(command, ctx)
-        --       local client = assert(vim.lsp.get_client_by_id(ctx.client_id))
-        --       local file_uri, position, references = unpack(command.arguments)
-        --
-        --       local quickfix_items = vim.lsp.util.locations_to_items(references --[[@as any]], client.offset_encoding)
-        --       vim.fn.setqflist({}, ' ', {
-        --         title = command.title,
-        --         items = quickfix_items,
-        --         context = {
-        --           command = command,
-        --           bufnr = ctx.bufnr,
-        --         },
-        --       })
-        --
-        --       vim.lsp.util.show_document({
-        --         uri = file_uri --[[@as string]],
-        --         range = {
-        --           start = position --[[@as lsp.Position]],
-        --           ['end'] = position --[[@as lsp.Position]],
-        --         },
-        --       }, client.offset_encoding)
-        --       ---@diagnostic enable: assign-type-mismatch
-        --
-        --       vim.cmd 'botright copen'
-        --     end,
-        --   },
-        --   on_attach = function(client, bufnr)
-        --     -- ts_ls provides `source.*` code actions that apply to the whole file. These only appear in
-        --     -- `vim.lsp.buf.code_action()` if specified in `context.only`.
-        --     vim.api.nvim_buf_create_user_command(bufnr, 'LspTypescriptSourceAction', function()
-        --       local source_actions = vim.tbl_filter(function(action)
-        --         return vim.startswith(action, 'source.')
-        --       end, client.server_capabilities.codeActionProvider.codeActionKinds)
-        --
-        --       vim.lsp.buf.code_action {
-        --         context = {
-        --           only = source_actions,
-        --           diagnostics = {},
-        --         },
-        --       }
-        --     end, {})
-        --
-        --     -- Go to source definition command
-        --     vim.api.nvim_buf_create_user_command(bufnr, 'LspTypescriptGoToSourceDefinition', function()
-        --       local win = vim.api.nvim_get_current_win()
-        --       local params = vim.lsp.util.make_position_params(win, client.offset_encoding)
-        --       client:exec_cmd({
-        --         command = '_typescript.goToSourceDefinition',
-        --         title = 'Go to source definition',
-        --         arguments = { params.textDocument.uri, params.position },
-        --       }, { bufnr = bufnr }, function(err, result)
-        --         if err then
-        --           vim.notify('Go to source definition failed: ' .. err.message, vim.log.levels.ERROR)
-        --           return
-        --         end
-        --         if not result or vim.tbl_isempty(result) then
-        --           vim.notify('No source definition found', vim.log.levels.INFO)
-        --           return
-        --         end
-        --         vim.lsp.util.show_document(result[1], client.offset_encoding, { focus = true })
-        --       end)
-        --     end, { desc = 'Go to source definition' })
-        --   end,
-        -- },
-        -- jsonls = {
-        --   cmd = { 'vscode-json-language-server', '--stdio' },
-        --   filetypes = { 'json', 'jsonc' },
-        --   init_options = {
-        --     provideFormatter = true,
-        --   },
-        --   root_markers = { '.git' },
-        -- },
+
+        lua_ls = {
+          -- cmd = { ... },
+          -- filetypes = { ... },
+          -- capabilities = {},
+          settings = {
+            Lua = {
+              completion = {
+                callSnippet = 'Replace',
+              },
+              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+              -- diagnostics = { disable = { 'missing-fields' } },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -914,12 +763,7 @@ require('lazy').setup({
       -- for you, so that they are available from within Neovim.
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua',
-        'phpactor',
-        'html',
-        'cssls',
-        'ts_ls',
-        'jsonls',
+        'stylua', -- Used to format Lua code
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -972,11 +816,24 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        php = { 'php_cs_fixer' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+      },
+      formatters = {
+        php = {
+          command = 'php-cs-fixer',
+          args = {
+            'fix',
+            '$FILENAME',
+            '--config=/your/path/to/config/file/[filename].php',
+            '--allow-risky=yes', -- if you have risky stuff in config, if not you dont need it.
+          },
+          stdin = false,
+        },
       },
     },
   },
@@ -1080,15 +937,6 @@ require('lazy').setup({
     },
   },
 
-  {
-    { -- Show CSS Colors
-      'brenoprata10/nvim-highlight-colors',
-      config = function()
-        require('nvim-highlight-colors').setup {}
-      end,
-    },
-  },
-
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -1105,7 +953,6 @@ require('lazy').setup({
           floats = 'transparent',
           comments = { italic = false }, -- Disable italics in comments
         },
-        lualine_bold = true,
       }
 
       -- Load the colorscheme here.
@@ -1139,21 +986,18 @@ require('lazy').setup({
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
-      -- local statusline = require 'mini.statusline'
-      -- -- set use_icons to true if you have a Nerd Font
-      -- statusline.setup {
-      --   use_icons = vim.g.have_nerd_font,
-      --   trunc_width = nil,
-      -- }
-      --
-      -- -- You can configure sections in the statusline by overriding their
-      -- -- default behavior. For example, here we set the section for
-      -- -- cursor location to LINE:COLUMN
-      -- ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_location = function()
-      --   return '%2l:%-2v'
-      -- end
-      --
+      local statusline = require 'mini.statusline'
+      -- set use_icons to true if you have a Nerd Font
+      statusline.setup { use_icons = vim.g.have_nerd_font }
+
+      -- You can configure sections in the statusline by overriding their
+      -- default behavior. For example, here we set the section for
+      -- cursor location to LINE:COLUMN
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_location = function()
+        return '%2l:%-2v'
+      end
+
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
@@ -1204,12 +1048,57 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  { import = 'custom.plugins' },
+  -- { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
   -- you can continue same window with `<space>sr` which resumes last telescope search
+  --
+  ---@type LazySpec
+  {
+    'mikavilpas/yazi.nvim',
+    version = '*', -- use the latest stable version
+    event = 'VeryLazy',
+    dependencies = {
+      { 'nvim-lua/plenary.nvim', lazy = true },
+    },
+    keys = {
+      -- 👇 in this section, choose your own keymappings!
+      {
+        '<leader>-',
+        mode = { 'n', 'v' },
+        '<cmd>Yazi<cr>',
+        desc = 'Open yazi at the current file',
+      },
+      {
+        -- Open in the current working directory
+        '<leader>cw',
+        '<cmd>Yazi cwd<cr>',
+        desc = "Open the file manager in nvim's working directory",
+      },
+      {
+        '<c-up>',
+        '<cmd>Yazi toggle<cr>',
+        desc = 'Resume the last yazi session',
+      },
+    },
+    ---@type YaziConfig | {}
+    opts = {
+      -- if you want to open yazi instead of netrw, see below for more info
+      open_for_directories = false,
+      keymaps = {
+        show_help = '<f1>',
+      },
+    },
+    -- 👇 if you use `open_for_directories=true`, this is recommended
+    init = function()
+      -- mark netrw as loaded so it's not loaded at all.
+      --
+      -- More details: https://github.com/mikavilpas/yazi.nvim/issues/802
+      vim.g.loaded_netrwPlugin = 1
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -1231,6 +1120,6 @@ require('lazy').setup({
     },
   },
 })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
--- require('core.matugen').setup()

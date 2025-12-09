@@ -30,7 +30,7 @@ tmux-client-*
 backup/
 .viminfo
 .python_history
-
+Obsidian/
 .config/composer/
 #
 # Cache

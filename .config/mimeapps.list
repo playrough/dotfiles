@@ -17,7 +17,7 @@ video/webm=mpv.desktop
 image/png=firefox.desktop
 image/jpeg=firefox.desktop
 image/svg+xml=firefox.desktop
-application/pdf=firefox.desktop
+application/pdf=org.pwmt.zathura.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;

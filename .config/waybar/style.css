@@ -12,7 +12,7 @@
 }
 
 window#waybar {
-  background: alpha(@background_custom_value, 0.8);
+  background: alpha(@background_custom_value, 0.75);
   color: @on_surface;
   border-radius: 10px;
   /* border: 1px solid @outline_variant; */

@@ -138,5 +138,5 @@ fi
 
 
 alias nv='nvim'
-
+alias y='yazi'
 

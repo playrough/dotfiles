@@ -4,8 +4,6 @@ arguments = ["img", "--transition-type", "wipe", "--transition-fps", "60" ]
 set = true
 
 [config.custom_colors]
-black = { color = "#000000", blend = false }
-white = { color = "#ffffff", blend = false }
 background_custom = { color = "#121318", blend = false }
 
 [templates.waybar]
@@ -71,9 +69,9 @@ output_path = '~/.config/yazi/theme.toml'
 
 [templates.obsidian]
 input_path = "~/.config/matugen/templates/obsidian.css"
-output_path = "~/GoogleDrive/Obsidian/Ether/.obsidian/themes/Matugen/theme.css"
+output_path = "~/Obsidian/Ether/.obsidian/themes/Matugen/theme.css"
 
 [templates.neovim]
 input_path = './templates/nvim.lua'
-output_path = '~/.config/nvim/generated.lua'
+output_path = '~/.config/nvim/lua/generated.lua'
 post_hook = 'pkill -SIGUSR1 nvim || true'

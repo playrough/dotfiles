@@ -1,5 +1,6 @@
 
 # Shell history & config
+.config/psysh/
 .bash_history
 .bash_logout
 .bash_profile

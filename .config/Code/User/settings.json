@@ -20,7 +20,6 @@
   "window.commandCenter": false,
   "window.menuBarVisibility": "toggle",
   "window.titleBarStyle": "native",
-  "workbench.colorTheme": "HyprLuna Material",
   "workbench.editor.enablePreviewFromCodeNavigation": true,
   "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.editor.revealIfOpen": true,

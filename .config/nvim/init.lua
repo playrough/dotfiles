@@ -168,6 +168,9 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- [[ Basic Keymaps ]]
+--  See `:help vim.keymap.set()`
+
 -- Lưu buffer terminal và window
 local term_buf = nil
 local term_win = nil
@@ -196,8 +199,14 @@ vim.keymap.set('n', '<space>st', function()
   end
 end)
 
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+local scrollOpts = { noremap = true, silent = true }
+
+vim.keymap.set('n', 'zl', '10zl', scrollOpts) -- scroll 10 chars sang phải
+vim.keymap.set('n', 'zh', '10zh', scrollOpts) -- scroll 10 chars sang trái
+vim.keymap.set('n', 'zL', '30zl', scrollOpts) -- scroll 30 chars sang phải
+vim.keymap.set('n', 'zH', '30zh', scrollOpts) -- scroll 30 chars sang trái
+
+vim.keymap.set('v', '<Space>p', '"_dP', { noremap = true, silent = true })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -391,6 +400,14 @@ require('lazy').setup({
   -- you do for a plugin at the top level, you can do for a dependency.
   --
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
+  --
+  --
+  {
+    'm4xshen/hardtime.nvim',
+    lazy = false,
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    opts = {},
+  },
 
   { -- Fuzzy Finder (files, lsp, etc)
     'nvim-telescope/telescope.nvim',
@@ -812,14 +829,14 @@ require('lazy').setup({
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 5000,
             lsp_format = 'fallback',
           }
         end
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        php = { 'php_cs_fixer' },
+        php = { 'pint' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
         javascriptreact = { 'prettier' },
@@ -828,16 +845,12 @@ require('lazy').setup({
         html = { 'prettier' },
         json = { 'prettier' },
         markdown = { 'prettier' },
+        blade = { 'blade-formatter' },
       },
       formatters = {
-        php = {
-          command = 'php-cs-fixer',
-          args = {
-            'fix',
-            '$FILENAME',
-            '--config=/your/path/to/config/file/[filename].php',
-            '--allow-risky=yes', -- if you have risky stuff in config, if not you dont need it.
-          },
+        blade = {
+          command = 'blade-formatter',
+          timeout_ms = 5000,
           stdin = false,
         },
       },
@@ -942,7 +955,6 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -968,7 +980,6 @@ require('lazy').setup({
       vim.cmd.colorscheme 'tokyonight-night'
     end,
   },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
@@ -1124,7 +1135,55 @@ require('lazy').setup({
       'rcarriga/nvim-notify',
     },
   },
-
+  -- {
+  --   'EdenEast/nightfox.nvim',
+  --   config = function()
+  --     require('nightfox').setup {
+  --       options = {
+  --         -- Compiled file's destination location
+  --         compile_path = vim.fn.stdpath 'cache' .. '/nightfox',
+  --         compile_file_suffix = '_compiled', -- Compiled file suffix
+  --         transparent = true, -- Disable setting background
+  --         terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+  --         dim_inactive = false, -- Non focused panes set to alternative background
+  --         module_default = true, -- Default enable value for modules
+  --         colorblind = {
+  --           enable = false, -- Enable colorblind support
+  --           simulate_only = false, -- Only show simulated colorblind colors and not diff shifted
+  --           severity = {
+  --             protan = 0, -- Severity [0,1] for protan (red)
+  --             deutan = 0, -- Severity [0,1] for deutan (green)
+  --             tritan = 0, -- Severity [0,1] for tritan (blue)
+  --           },
+  --         },
+  --         styles = { -- Style to be applied to different syntax groups
+  --           comments = 'NONE', -- Value is any valid attr-list value `:help attr-list`
+  --           conditionals = 'NONE',
+  --           constants = 'NONE',
+  --           functions = 'NONE',
+  --           keywords = 'NONE',
+  --           numbers = 'NONE',
+  --           operators = 'NONE',
+  --           strings = 'NONE',
+  --           types = 'NONE',
+  --           variables = 'NONE',
+  --         },
+  --         inverse = { -- Inverse highlight for different types
+  --           match_paren = false,
+  --           visual = false,
+  --           search = false,
+  --         },
+  --         modules = { -- List of various plugins and additional options
+  --           -- ...
+  --         },
+  --       },
+  --       palettes = {},
+  --       specs = {},
+  --       groups = {},
+  --     }
+  --     vim.cmd 'colorscheme carbonfox'
+  --   end,
+  -- },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }, -- Optional, but recommended for icons
@@ -1135,7 +1194,7 @@ require('lazy').setup({
       For a full list of options, see :help lualine-options
       --]]
         icons_enabled = true, -- Do you want to use icons?
-        theme = 'tokyonight', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
+        theme = 'ayu_dark', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
         -- 'auto' will try to match your colorscheme
         component_separators = { left = '', right = '' }, -- Separators between components
         section_separators = { left = '', right = '' }, -- Separators between sections (A,B,C and X,Y,Z)
@@ -1269,3 +1328,5 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+require 'generated'

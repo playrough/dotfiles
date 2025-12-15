@@ -515,9 +515,9 @@ require('lazy').setup({
       end, { desc = '[F]ind [N]eovim files' })
 
       -- Shortcut for searching your Config configuration files
-      vim.keymap.set('n', '<leader>fc', function()
+      vim.keymap.set('n', '<leader>fe', function()
         builtin.find_files { cwd = vim.env.HOME .. '/.config' }
-      end, { desc = '[F]ind [C]onfig files' })
+      end, { desc = '[F]ind Config files' })
     end,
   },
 
@@ -955,29 +955,53 @@ require('lazy').setup({
       signature = { enabled = true },
     },
   },
-  { -- You can easily change to a different colorscheme.
-    -- Change the name of the colorscheme plugin below, and then
-    -- change the command in the config to whatever the name of that colorscheme is.
-    --
-    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'folke/tokyonight.nvim',
-    priority = 1000, -- Make sure to load this before all the other start plugins.
+  -- { -- You can easily change to a different colorscheme.
+  --   -- Change the name of the colorscheme plugin below, and then
+  --   -- change the command in the config to whatever the name of that colorscheme is.
+  --   --
+  --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+  --   'folke/tokyonight.nvim',
+  --   priority = 1000, -- Make sure to load this before all the other start plugins.
+  --   config = function()
+  --     ---@diagnostic disable-next-line: missing-fields
+  --     require('tokyonight').setup {
+  --       transparent = true,
+  --       styles = {
+  --         sidebars = 'transparent',
+  --         floats = 'transparent',
+  --         comments = { italic = false }, -- Disable italics in comments
+  --       },
+  --
+  --       lualine_bold = true,
+  --     }
+  --
+  --     -- Load the colorscheme here.
+  --     -- Like many other themes, this one has different styles, and you could load
+  --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+  --     vim.cmd.colorscheme 'tokyonight-night'
+  --   end,
+  -- },
+  -- Install without configuration
+  { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+
+  -- Or with configuration
+  {
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        transparent = true,
-        styles = {
-          sidebars = 'transparent',
-          floats = 'transparent',
-          comments = { italic = false }, -- Disable italics in comments
+      require('github-theme').setup {
+        options = {
+          transparent = true, -- làm background trong suốt
+          darken = {
+            floats = false, -- không làm float đậm lại
+            sidebars = { enable = false },
+          },
         },
-        lualine_bold = true,
       }
 
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd 'colorscheme github_dark_default'
     end,
   },
   -- Highlight todo, notes, etc in comments
@@ -1135,6 +1159,7 @@ require('lazy').setup({
       'rcarriga/nvim-notify',
     },
   },
+
   -- {
   --   'EdenEast/nightfox.nvim',
   --   config = function()
@@ -1194,7 +1219,7 @@ require('lazy').setup({
       For a full list of options, see :help lualine-options
       --]]
         icons_enabled = true, -- Do you want to use icons?
-        theme = 'ayu_dark', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
+        theme = 'auto', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
         -- 'auto' will try to match your colorscheme
         component_separators = { left = '', right = '' }, -- Separators between components
         section_separators = { left = '', right = '' }, -- Separators between sections (A,B,C and X,Y,Z)
@@ -1325,6 +1350,11 @@ require('lazy').setup({
     },
   },
 })
+
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -97,16 +97,20 @@ require('lualine').setup {
 }
 
 vim.o.termguicolors = true
+vim.api.nvim_set_hl(0, 'WhichKey', { fg = c.error })
+vim.api.nvim_set_hl(0, 'WhichKeyDesc', { fg = c.on_background })
+vim.api.nvim_set_hl(0, 'WhichKeyGroup', { fg = c.primary })
+
 vim.api.nvim_set_hl(0, 'Normal', { fg = c.on_background })
 vim.api.nvim_set_hl(0, 'NormalFloat', { fg = c.on_background })
 vim.api.nvim_set_hl(0, 'NormalLBC', { fg = c.on_background })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = c.on_surface_variant })
-vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = c.surface_bright })
-vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = c.surface_bright })
-vim.api.nvim_set_hl(0, 'Comment', { fg = c.surface_bright })
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = c.surface_variant })
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = c.surface_variant })
+vim.api.nvim_set_hl(0, 'Comment', { fg = c.surface_variant })
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = c.surface_container })
 vim.api.nvim_set_hl(0, 'CursorLineNr', { fg = c.primary })
-vim.api.nvim_set_hl(0, 'FloatBorder', { fg = c.outline_variant })
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = c.primary })
 vim.api.nvim_set_hl(0, 'FloatTitle', { fg = c.primary })
 vim.api.nvim_set_hl(0, 'FloatFooter', { fg = c.primary })
 
@@ -124,15 +128,14 @@ vim.api.nvim_set_hl(0, 'TelescopePromptPrefix', { fg = c.primary, bold = true })
 
 vim.api.nvim_set_hl(0, 'NoiceCmdlinePopupBorder', { fg = c.primary })
 vim.api.nvim_set_hl(0, 'NoiceCmdlinePopup', { fg = c.on_background, bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'Search', { fg = c.on_background, bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'IncSearch', { fg = c.on_background, bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'DiagnosticSignError', { fg = c.on_background })
-vim.api.nvim_set_hl(0, 'DiagnosticSignWarn', { fg = c.on_background })
+vim.api.nvim_set_hl(0, 'Search', { fg = c.on_tertiary, bg = c.tertiary })
+vim.api.nvim_set_hl(0, 'NoiceCmdlineIconSearch', { fg = c.on_background, bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'NoiceCmdlinePopupBorderSearch', { fg = c.on_background, bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NoiceCmdlinePrompt', { fg = c.primary, bg = 'NONE', bold = true })
 vim.api.nvim_set_hl(0, 'NoiceCmdlineIcon', { fg = c.primary, bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'NoiceCmdline', { fg = c.primary, bg = 'NONE' })
 
-vim.api.nvim_set_hl(0, 'NotifyBackground', { bg = c.background_custom })
+vim.api.nvim_set_hl(0, 'NotifyBackground', { bg = '#000000' })
 require('notify').setup {
   background_colour = 'NotifyBackground',
 }

@@ -103,7 +103,7 @@ vim.api.nvim_set_hl(0, 'WhichKeyGroup', { fg = c.primary })
 
 vim.api.nvim_set_hl(0, 'Normal', { fg = c.on_background })
 vim.api.nvim_set_hl(0, 'NormalFloat', { fg = c.on_background })
-vim.api.nvim_set_hl(0, 'NormalLBC', { fg = c.on_background })
+vim.api.nvim_set_hl(0, 'NormalNC', { fg = c.on_background })
 vim.api.nvim_set_hl(0, 'LineNr', { fg = c.on_surface_variant })
 vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = c.surface_variant })
 vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = c.surface_variant })
@@ -139,3 +139,39 @@ vim.api.nvim_set_hl(0, 'NotifyBackground', { bg = '#000000' })
 require('notify').setup {
   background_colour = 'NotifyBackground',
 }
+
+vim.api.nvim_set_hl(0, 'TabLine', { fg = c.on_background })
+vim.api.nvim_set_hl(0, 'TabLineSel', { fg = c.on_primary, bg = c.primary, bold = true })
+vim.api.nvim_set_hl(0, 'TabLineFill', { bg = c.background })
+vim.api.nvim_set_hl(0, 'TabLineIcon', { fg = c.primary, bg = 'NONE', bold = true })
+
+function _G.CustomTabLine()
+  local line = ''
+  local current = vim.fn.tabpagenr()
+  local total = vim.fn.tabpagenr '$'
+
+  for i = 1, total do
+    local bufnr = vim.fn.tabpagebuflist(i)[1]
+    local name = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
+    if name == '' then
+      name = '[No Name]'
+    end
+    local win_count = #vim.fn.gettabinfo(i)[1].windows
+
+    -- tạo label đầy đủ [số file]
+    local label = i .. ' ' .. name
+
+    if i == current then
+      -- Tab active: góc trái & phải + space sau tab
+      line = line .. '%#TabLineIcon#' .. '%#TabLineSel# ' .. label .. ' %*' .. '%#TabLineIcon#'
+    else
+      -- Tab inactive: label + space trước/sau để cách tab
+      line = line .. '  ' .. '%#TabLine#' .. label .. '%*  '
+    end
+  end
+
+  line = line .. '%#TabLineFill#'
+  return line
+end
+
+vim.o.tabline = '%!v:lua.CustomTabLine()'

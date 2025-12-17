@@ -92,7 +92,7 @@ vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
-
+vim.o.winborder = 'rounded'
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
@@ -338,7 +338,157 @@ require('lazy').setup({
   --
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
+  {
+    'goolord/alpha-nvim',
+    priority = 2000,
+    lazy = false,
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    event = { 'VimEnter' }, -- Thêm BufEnter
+    config = function()
+      local alpha = require 'alpha'
+      local dashboard = require 'alpha.themes.dashboard'
 
+      -- 🖼️ ASCII Logo (căn ngang)
+      dashboard.section.header.val = {
+        '    ███╗   ██╗██╗   ██╗██╗███╗   ███╗   ',
+        '    ████╗  ██║██║   ██║██║████╗ ████║   ',
+        '    ██╔██╗ ██║██║   ██║██║██╔████╔██║   ',
+        '    ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║   ',
+        '    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║   ',
+        '    ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝   ',
+      }
+      dashboard.section.header.opts = { position = 'center' }
+
+      -- 📍 Footer-like info (2 lines) just below header
+      local function header_info()
+        local lazy_stats = require('lazy').stats()
+        local plugins_count = lazy_stats.count
+
+        -- format date like "Today is Fri 10 Sep"
+        local date_line = 'Today is ' .. os.date '%a %d %b'
+        local plugins_line = plugins_count .. ' plugins in total'
+
+        return { date_line, plugins_line }
+      end
+
+      dashboard.section.header_info = {
+        type = 'text',
+        val = header_info(),
+        opts = { position = 'center' },
+      }
+
+      vim.api.nvim_set_hl(0, 'AlphaShortcut', { italic = false, bold = false })
+      -- 📍 Menu nút bấm
+      local telescope_builtin = require 'telescope.builtin'
+
+      local function button(sc, txt, keybind, keybind_opts)
+        local b = dashboard.button(sc, txt, keybind, keybind_opts)
+        b.opts.hl_shortcut = 'AlphaShortcut' -- shortcut letters
+        b.opts.hl = 'AlphaButtons'
+        return b
+      end
+
+      dashboard.section.buttons.val = {
+        -- button('f', '󰈢  Find Files', ':Telescope find_files <CR>'),
+        -- button('p', '  Find project', "<cmd>lua require('telescope').extensions.projects.projects()<cr>"),
+
+        button('e', '  New file', ':ene <BAR> startinsert <CR>'),
+        button('d', '󰷊  Find Dotfiles', function()
+          telescope_builtin.find_files {
+            cwd = vim.env.HOME .. '/.config',
+          }
+        end),
+        button('t', '󰉿  Find text', function()
+          telescope_builtin.live_grep {
+            grep_open_files = true,
+          }
+        end),
+        button('o', '󰦛  Recent Files', '<cmd>Telescope oldfiles<cr>'),
+        button('n', '  Neovim config', '<cmd>e ~/.config/nvim/ | cd %:p:h<cr>'),
+        button('l', '󰒲  Lazy', '<cmd>Lazy<cr>'),
+        button('q', '󰅚  Quit', ':qa<CR>'),
+      }
+
+      dashboard.section.buttons.opts = { position = 'center' }
+
+      local function footer()
+        local signature_line = '-eTher-'
+        return signature_line
+      end
+
+      dashboard.section.footer.val = footer()
+      dashboard.section.footer.opts = { position = 'center' }
+
+      local header = dashboard.section.header
+
+      local function vertical_padding()
+        local win_height = vim.o.lines
+        local total_lines = 0
+
+        -- count lines in each section
+        total_lines = total_lines
+          + #dashboard.section.header.val
+          + #dashboard.section.header_info.val
+          + #dashboard.section.buttons.val
+          + (#dashboard.section.footer.val or 0) -- footer might be string
+          + 4 -- extra padding lines (between sections)
+
+        return math.max(2, math.floor((win_height - total_lines) / 2))
+      end
+
+      dashboard.section.header.opts.hl = 'AlphaHeader' -- logo
+      dashboard.section.footer.opts.hl = 'AlphaFooter' -- footer
+      dashboard.section.header_info.opts.hl = 'AlphaHeaderLabel' -- info lines (date + plugins)
+
+      dashboard.opts.layout = {
+        { type = 'padding', val = vertical_padding },
+        dashboard.section.header,
+        { type = 'padding', val = 1 },
+        dashboard.section.header_info,
+        { type = 'padding', val = 2 },
+        dashboard.section.buttons,
+        { type = 'padding', val = 1 },
+        dashboard.section.footer,
+      }
+
+      -- Setup alpha
+      alpha.setup(dashboard.opts)
+
+      -- Lua function
+      _G.delete_all_buffer = function()
+        local alpha_buf = vim.api.nvim_get_current_buf() -- buffer Alpha hiện tại
+        local count = 0
+
+        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+          if vim.api.nvim_buf_is_loaded(buf) and buf ~= alpha_buf then
+            vim.api.nvim_buf_delete(buf, { force = true })
+            count = count + 1
+          end
+        end
+
+        if count > 0 then
+          vim.notify('Deleted ' .. count .. ' buffer(s)', vim.log.levels.INFO)
+        else
+          vim.notify('No buffers to delete', vim.log.levels.WARN)
+        end
+      end
+
+      vim.api.nvim_set_keymap('n', '<leader>db', '<cmd>lua delete_all_buffer()<CR>', {
+        noremap = true,
+        silent = true,
+      })
+
+      -- don't show status line in alpha dashboard
+      vim.api.nvim_create_autocmd({ 'User' }, {
+        pattern = { 'AlphaReady' },
+        callback = function()
+          vim.cmd [[ set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3 ]]
+        end,
+      })
+
+      vim.keymap.set('n', '<leader>ao', '<cmd>Alpha<CR>', { desc = 'Open Alpha Dashboard' })
+    end,
+  },
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
@@ -559,6 +709,13 @@ require('lazy').setup({
           notification = {
             window = {
               winblend = 0,
+            },
+          },
+          ui = {
+            windows = {
+              default_options = {
+                border = 'rounded',
+              },
             },
           },
         },
@@ -1132,7 +1289,9 @@ require('lazy').setup({
     'folke/noice.nvim',
     event = 'VeryLazy',
     opts = {
-      -- add any options here
+      presets = {
+        lsp_doc_border = true,
+      },
     },
     dependencies = {
       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
@@ -1196,21 +1355,25 @@ require('lazy').setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }, -- Optional, but recommended for icons
+    event = 'VeryLazy',
+    init = function()
+      vim.g.lualine_laststatus = vim.o.laststatus
+      if vim.fn.argc(-1) > 0 then
+        -- set an empty statusline till lualine loads
+        vim.o.statusline = ' '
+      else
+        -- hide the statusline on the starter page
+        vim.o.laststatus = 0
+      end
+    end,
     opts = {
       options = {
-        --[[
-      General options for lualine.
-      For a full list of options, see :help lualine-options
-      --]]
+        disabled_filetypes = { statusline = { 'dashboard', 'alpha', 'ministarter' } },
         icons_enabled = true, -- Do you want to use icons?
         theme = 'auto', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
         -- 'auto' will try to match your colorscheme
         component_separators = { left = '', right = '' }, -- Separators between components
         section_separators = { left = '', right = '' }, -- Separators between sections (A,B,C and X,Y,Z)
-        disabled_filetypes = { -- Filetypes for which lualine will be disabled
-          statusline = {},
-          winbar = {},
-        },
         ignore_focus = {}, -- List of buffer types to ignore when checking focus
         always_divide_middle = true, -- If true, separates middle sections with section_separators
         globalstatus = false, -- If true, Components on statuslines of inactive windows are hidden
@@ -1246,7 +1409,7 @@ require('lazy').setup({
         --   --  timeout = 500,      -- Timeout in milliseconds for search results
         --   -- },
         -- },
-        -- lualine_x = { 'filetype' },
+        -- lualine_x = { 'encoding', { 'fileformat', 'filetype' } },
         lualine_y = {
           { 'progress', separator = ' ', padding = { left = 1, right = 0 } },
           { 'location', padding = { left = 0, right = 1 } },

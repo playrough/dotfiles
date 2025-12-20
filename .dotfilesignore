@@ -33,6 +33,8 @@ backup/
 .python_history
 Obsidian/
 .config/composer/
+go/
+yay/
 #
 # Cache
 .cache/

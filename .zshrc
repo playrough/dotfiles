@@ -140,3 +140,4 @@ fi
 alias nv='nvim'
 alias y='yazi'
 
+alias matbg="~/.local/bin/matugen-bg.sh"

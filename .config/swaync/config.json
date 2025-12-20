@@ -1,124 +1,110 @@
 {
   "$schema": "/etc/xdg/swaync/configSchema.json",
-  "positionX": "right",
+  "positionX": "left",
   "positionY": "top",
-  "control-center-margin-top": 2,
-  "control-center-margin-bottom": 2,
-  "control-center-margin-right": 1,
+  "cssPriority": "user",
+  "control-center-width": 400,
+  "control-center-height": 860,
+  "control-center-margin-top": 0,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 0,
   "control-center-margin-left": 0,
+
+  "notification-window-width": 400,
   "notification-icon-size": 48,
   "notification-body-image-height": 160,
-  "notification-body-image-width": 90,
-  "timeout": 6,
-  "timeout-low": 4,
-  "timeout-critical": 0,
-  "fit-to-screen": true,
-  "control-center-width": 380,
-  "notification-window-width": 366,
+  "notification-body-image-width": 200,
+
+  "timeout": 4,
+  "timeout-low": 2,
+  "timeout-critical": 6,
+
+  "fit-to-screen": false,
   "keyboard-shortcuts": true,
   "image-visibility": "when-available",
-  "transition-time": 100,
+  "transition-time": 200,
   "hide-on-clear": false,
-  "hide-on-action": true,
+  "hide-on-action": false,
   "script-fail-notify": true,
-  "widgets": [
-    "label",
-    "menubar",
-    "buttons-grid",
-    "volume",
-    "mpris",
-    "title",
-    "dnd",
-    "notifications"
-  ],
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+  "notification-visibility": {
+    "example-name": {
+      "state": "visible",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    }
+  },
+  "widgets": ["title", "dnd", "notifications"],
   "widget-config": {
     "title": {
       "text": "Notifications",
       "clear-all-button": true,
-      "button-text": "Clear All"
+      "button-text": " 󰎟 "
     },
     "dnd": {
-      "text": "Do Not Disturb"
-    },
-    "label": {
-      "max-lines": 1,
-      "text": "Control Center"
+      "text": "Do not disturb"
     },
     "mpris": {
       "image-size": 96,
-      "image-radius": 6
-    },
-    "backlight": {
-      "label": "",
-      "device": "intel_backlight",
-      "min": 10
-    },
-    "backlight#KB": {
-      "label": " ",
-      "device": "asus::kbd_backlight",
-      "subsystem": "leds"
+      "image-radius": 12
     },
     "volume": {
-      "label": ""
+      "label": "󰕾 ",
+      "show-per-app": false
     },
-    "menubar": {},
+    "backlight": {
+      "label": "󰃟 ",
+      "device": "amdgpu_bl2"
+    },
     "buttons-grid": {
       "actions": [
         {
-          "label": "Reboot",
-          "command": "systemctl reboot"
+          "label": "󰖁",
+          "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+          "type": "toggle"
         },
         {
-          "label": "Lock",
-          "command": "swaylock.sh"
+          "label": "󰍭",
+          "command": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+          "type": "toggle"
         },
         {
-          "label": "Logout",
-          "command": "loginctl terminate-session ${XDG_SESSION_ID-}"
+          "label": "󰤨",
+          "command": "nm-connection-editor"
         },
         {
-          "label": "Shut down",
-          "command": "systemctl poweroff"
-        },
-        {
-          "label": "Bluetooth Manager",
+          "label": "󰂯",
           "command": "blueman-manager"
         },
         {
-          "label": "Network Settings",
-          "command": "kitty -e nmtui"
-        },
-        {
-          "label": "Look & Theme",
+          "label": "",
           "command": "nwg-look"
         },
         {
-          "label": "Entire screen",
-          "command": "swaync-client -cp && sleep 1 && hyprshot -m output"
+          "label": "󰻂",
+          "command": "obs"
         },
         {
-          "label": "Select a region",
-          "command": "swaync-client -cp && sleep 1 && hyprshot -m region"
+          "label": "󰌾",
+          "command": "hyprlock"
         },
         {
-          "label": "Open screenshot menu",
-          "command": "swaync-client -cp && rofi-screenshot"
+          "label": "󰜉",
+          "command": "reboot"
         },
         {
-          "label": "Open screenshot folder",
-          "command": "exo-open $HYPRSHOT_DIR"
+          "label": "󰐥",
+          "command": "shutdown now"
         },
         {
-          "label": "Performance Mode",
-          "command": "powerprofilesctl set performance"
-        },
-        {
-          "label": "Balanced Mode",
-          "command": "powerprofilesctl set balanced"
-        },
-        {
-          "label": "Power-saver Mode",
-          "command": "powerprofilesctl set power-saver"
+          "label": "󰀝",
+          "command": "bash -c $HOME/.config/hypr/scripts/airplaneMode.sh",
+          "type": "toggle"
         }
       ]
     }

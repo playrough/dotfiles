@@ -338,157 +338,326 @@ require('lazy').setup({
   --
   -- Then, because we use the `opts` key (recommended), the configuration runs
   -- after the plugin has been loaded as `require(MODULE).setup(opts)`.
+
+  --
+  --
+  --
+  --
+  -- lazy.nvim
+
   {
-    'goolord/alpha-nvim',
-    priority = 2000,
+    'folke/snacks.nvim',
+    priority = 1000,
     lazy = false,
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    event = { 'VimEnter' }, -- Thêm BufEnter
-    config = function()
-      local alpha = require 'alpha'
-      local dashboard = require 'alpha.themes.dashboard'
 
-      -- 🖼️ ASCII Logo (căn ngang)
-      dashboard.section.header.val = {
-        '    ███╗   ██╗██╗   ██╗██╗███╗   ███╗   ',
-        '    ████╗  ██║██║   ██║██║████╗ ████║   ',
-        '    ██╔██╗ ██║██║   ██║██║██╔████╔██║   ',
-        '    ██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║   ',
-        '    ██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║   ',
-        '    ╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝   ',
-      }
-      dashboard.section.header.opts = { position = 'center' }
+    ---@type snacks.Config
+    opts = {
+      dashboard = {
+        width = 40,
+        pane_gap = 1,
+        row = nil, -- dashboard position. nil for center
+        col = nil, -- dashboard position. nil for center
+        autokeys = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
 
-      -- 📍 Footer-like info (2 lines) just below header
-      local function header_info()
-        local lazy_stats = require('lazy').stats()
-        local plugins_count = lazy_stats.count
+        -- hidden autokeys
+        preset = {
+          keys = {
+            {
+              { key = 'e', hidden = true, action = ':ene | startinsert' },
+              {
+                key = 'd',
+                hidden = true,
+                action = function()
+                  require('telescope.builtin').find_files {
+                    cwd = vim.env.HOME .. '/.config',
+                  }
+                end,
+              },
+              {
+                key = 'r',
+                hidden = true,
+                action = function()
+                  require('telescope.builtin').oldfiles()
+                end,
+              },
+              {
+                key = 'g',
+                hidden = true,
+                action = function()
+                  require('telescope.builtin').live_grep()
+                end,
+              },
+              { key = 'n', hidden = true, action = ':e ~/.config/nvim/init.lua<CR>' },
+              { key = 'l', hidden = true, action = ':Lazy', enabled = package.loaded.lazy ~= nil },
+              { key = 'q', hidden = true, action = ':qa', enabled = package.loaded.lazy ~= nil },
+            },
+          },
+        },
 
-        -- format date like "Today is Fri 10 Sep"
-        local date_line = 'Today is ' .. os.date '%a %d %b'
-        local plugins_line = plugins_count .. ' plugins in total'
+        formats = {
+          key = { '' },
+          icon = { '' },
+        },
 
-        return { date_line, plugins_line }
-      end
+        sections = {
+          -- autokeys (hidden)
+          { section = 'keys' },
+          -- LOGO
+          {
+            pane = 1,
+            section = 'terminal',
+            cmd = 'ascii-image-converter ~/Downloads/Wallpapers/fool-ff.png -b -d 40,20 -c',
+            height = 20,
+            width = 40,
+            indent = 0,
+            hl = 'SnacksNormal',
+          },
 
-      dashboard.section.header_info = {
-        type = 'text',
-        val = header_info(),
-        opts = { position = 'center' },
-      }
+          -- ACTION BUTTONS (6)
+          {
+            pane = 2,
+            align = 'center',
+            { padding = 4 },
+            {
+              text = {
+                { 'Today is ' .. os.date '%a %d %b' },
+              },
+            },
+            {
+              text = {
+                { require('lazy').stats().count .. ' plugins in total' },
+              },
+              padding = 2,
+            },
+            {
+              text = {
+                { '  New file            ', hl = 'SnacksNormal' },
+                { 'e', hl = 'key' },
+              },
+            },
+            {
+              text = {
+                { '󰉿  Grep text           ', hl = 'SnacksNormal' },
+                { 'g', hl = 'key' },
+              },
+            },
+            {
+              text = {
+                { '󰷊  Find Dotfiles       ', hl = 'SnacksNormal' },
+                { 'd', hl = 'key' },
+              },
+            },
+            {
+              text = {
+                { '󰦛  Recent files        ', hl = 'SnacksNormal' },
+                { 'r', hl = 'key' },
+              },
+            },
+            {
+              text = {
+                { '  Neovim config       ', hl = 'SnacksNormal' },
+                { 'n', hl = 'key' },
+              },
+            },
+            {
+              text = {
+                { '󰒲  Lazy                ', hl = 'SnacksNormal' },
+                { 'l', hl = 'key' },
+              },
+            },
+            {
+              text = {
+                { '󰅚  Quit                ', hl = 'SnacksNormal' },
+                { 'q', hl = 'key' },
+              },
+              padding = 2,
+            },
+            {
+              text = '-eTher-',
+            },
+          },
+        },
+      },
 
-      vim.api.nvim_set_hl(0, 'AlphaShortcut', { italic = false, bold = false })
-      -- 📍 Menu nút bấm
-      local telescope_builtin = require 'telescope.builtin'
+      -- snacks modules
+      -- bigfile = { enabled = true },
+      -- indent = { enabled = true },
+      -- input = { enabled = true },
+      -- lazygit = { enabled = true },
+      -- notifier = { enabled = true },
+      -- quickfile = { enabled = true },
+      -- scroll = { enabled = true },
+      -- statuscolumn = { enabled = true },
+      -- words = { enabled = true },
+    },
 
-      local function button(sc, txt, keybind, keybind_opts)
-        local b = dashboard.button(sc, txt, keybind, keybind_opts)
-        b.opts.hl_shortcut = 'AlphaShortcut' -- shortcut letters
-        b.opts.hl = 'AlphaButtons'
-        return b
-      end
+    config = function(_, opts)
+      vim.keymap.set('n', '<leader>a', function()
+        local target_ft = 'snacks_dashboard'
 
-      dashboard.section.buttons.val = {
-        -- button('f', '󰈢  Find Files', ':Telescope find_files <CR>'),
-        -- button('p', '  Find project', "<cmd>lua require('telescope').extensions.projects.projects()<cr>"),
-
-        button('e', '  New file', ':ene <BAR> startinsert <CR>'),
-        button('d', '󰷊  Find Dotfiles', function()
-          telescope_builtin.find_files {
-            cwd = vim.env.HOME .. '/.config',
-          }
-        end),
-        button('t', '󰉿  Find text', function()
-          telescope_builtin.live_grep {
-            grep_open_files = true,
-          }
-        end),
-        button('o', '󰦛  Recent Files', '<cmd>Telescope oldfiles<cr>'),
-        button('n', '  Neovim config', '<cmd>e ~/.config/nvim/ | cd %:p:h<cr>'),
-        button('l', '󰒲  Lazy', '<cmd>Lazy<cr>'),
-        button('q', '󰅚  Quit', ':qa<CR>'),
-      }
-
-      dashboard.section.buttons.opts = { position = 'center' }
-
-      local function footer()
-        local signature_line = '-eTher-'
-        return signature_line
-      end
-
-      dashboard.section.footer.val = footer()
-      dashboard.section.footer.opts = { position = 'center' }
-
-      local header = dashboard.section.header
-
-      local function vertical_padding()
-        local win_height = vim.o.lines
-        local total_lines = 0
-
-        -- count lines in each section
-        total_lines = total_lines
-          + #dashboard.section.header.val
-          + #dashboard.section.header_info.val
-          + #dashboard.section.buttons.val
-          + (#dashboard.section.footer.val or 0) -- footer might be string
-          + 4 -- extra padding lines (between sections)
-
-        return math.max(2, math.floor((win_height - total_lines) / 2))
-      end
-
-      dashboard.section.header.opts.hl = 'AlphaHeader' -- logo
-      dashboard.section.footer.opts.hl = 'AlphaFooter' -- footer
-      dashboard.section.header_info.opts.hl = 'AlphaHeaderLabel' -- info lines (date + plugins)
-
-      dashboard.opts.layout = {
-        { type = 'padding', val = vertical_padding },
-        dashboard.section.header,
-        { type = 'padding', val = 1 },
-        dashboard.section.header_info,
-        { type = 'padding', val = 2 },
-        dashboard.section.buttons,
-        { type = 'padding', val = 1 },
-        dashboard.section.footer,
-      }
-
-      -- Setup alpha
-      alpha.setup(dashboard.opts)
-
-      -- Lua function
-      _G.delete_all_buffer = function()
-        local alpha_buf = vim.api.nvim_get_current_buf() -- buffer Alpha hiện tại
-        local count = 0
-
-        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-          if vim.api.nvim_buf_is_loaded(buf) and buf ~= alpha_buf then
-            vim.api.nvim_buf_delete(buf, { force = true })
-            count = count + 1
+        for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+          -- get filetype non-deprecated
+          local ft = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
+          if ft == target_ft then
+            vim.api.nvim_set_current_buf(bufnr)
+            return
           end
         end
 
-        if count > 0 then
-          vim.notify('Deleted ' .. count .. ' buffer(s)', vim.log.levels.INFO)
-        else
-          vim.notify('No buffers to delete', vim.log.levels.WARN)
-        end
-      end
+        require('snacks').dashboard.open()
+      end, { desc = 'Go to Snacks dashboard' })
 
-      vim.api.nvim_set_keymap('n', '<leader>db', '<cmd>lua delete_all_buffer()<CR>', {
-        noremap = true,
-        silent = true,
-      })
-
-      -- don't show status line in alpha dashboard
-      vim.api.nvim_create_autocmd({ 'User' }, {
-        pattern = { 'AlphaReady' },
-        callback = function()
-          vim.cmd [[ set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3 ]]
-        end,
-      })
-
-      vim.keymap.set('n', '<leader>ao', '<cmd>Alpha<CR>', { desc = 'Open Alpha Dashboard' })
+      require('snacks').setup(opts)
     end,
   },
+
+  --   {
+  --     'goolord/alpha-nvim',
+  --     priority = 2000,
+  --     lazy = false,
+  --     dependencies = { 'nvim-tree/nvim-web-devicons' },
+  --     event = { 'VimEnter' }, -- Thêm BufEnter
+  --     config = function()
+  --       local alpha = require 'alpha'
+  --       local dashboard = require 'alpha.themes.dashboard'
+  --
+  --       -- 🖼️ ASCII Logo (căn ngang)
+  --       dashboard.section.header.val = vim.split(
+  --         '\n'
+  --       )
+  --
+  --       dashboard.section.header.opts = { position = 'center' }
+  --
+  --       -- 📍 Footer-like info (2 lines) just below header
+  --       local function header_info()
+  --         local lazy_stats = require('lazy').stats()
+  --         local plugins_count = lazy_stats.count
+  --
+  --         -- format date like "Today is Fri 10 Sep"
+  --         local date_line = 'Today is ' .. os.date '%a %d %b'
+  --         local plugins_line = plugins_count .. ' plugins in total'
+  --
+  --         return { date_line, plugins_line }
+  --       end
+  --
+  --       dashboard.section.header_info = {
+  --         type = 'text',
+  --         val = header_info(),
+  --         opts = { position = 'center' },
+  --       }
+  --
+  --       vim.api.nvim_set_hl(0, 'AlphaShortcut', { italic = false, bold = false })
+  --       -- 📍 Menu nút bấm
+  --       local telescope_builtin = require 'telescope.builtin'
+  --
+  --       local function button(sc, txt, keybind, keybind_opts)
+  --         local b = dashboard.button(sc, txt, keybind, keybind_opts)
+  --         b.opts.hl_shortcut = 'AlphaShortcut' -- shortcut letters
+  --         b.opts.hl = 'AlphaButtons'
+  --         return b
+  --       end
+  --
+  --       dashboard.section.buttons.val = {
+  --         -- button('f', '󰈢  Find Files', ':Telescope find_files <CR>'),
+  --         -- button('p', '  Find project', "<cmd>lua require('telescope').extensions.projects.projects()<cr>"),
+  --
+  --         button('e', '  New file', ':ene <BAR> startinsert <CR>'),
+  --         button('d', '󰷊  Find Dotfiles', function()
+  --           telescope_builtin.find_files {
+  --             cwd = vim.env.HOME .. '/.config',
+  --           }
+  --         end),
+  --         button('t', '󰉿  Find text', function()
+  --           telescope_builtin.live_grep {
+  --             grep_open_files = true,
+  --           }
+  --         end),
+  --         button('o', '󰦛  Recent Files', '<cmd>Telescope oldfiles<cr>'),
+  --         button('n', '  Neovim config', '<cmd>e ~/.config/nvim/ | cd %:p:h<cr>'),
+  --         button('l', '󰒲  Lazy', '<cmd>Lazy<cr>'),
+  --         button('q', '󰅚  Quit', ':qa<CR>'),
+  --       }
+  --
+  --       dashboard.section.buttons.opts = { position = 'center' }
+  --
+  --       local function footer()
+  --         local signature_line = '-eTher-'
+  --         return signature_line
+  --       end
+  --
+  --       dashboard.section.footer.val = footer()
+  --       dashboard.section.footer.opts = { position = 'center' }
+  --
+  --       local header = dashboard.section.header
+  --
+  --       local function vertical_padding()
+  --         local win_height = vim.o.lines
+  --         local total_lines = 0
+  --
+  --         -- count lines in each section
+  --         total_lines = total_lines
+  --           + #dashboard.section.header.val
+  --           + #dashboard.section.header_info.val
+  --           + #dashboard.section.buttons.val
+  --           + (#dashboard.section.footer.val or 0) -- footer might be string
+  --           + 4 -- extra padding lines (between sections)
+  --
+  --         return math.max(2, math.floor((win_height - total_lines) / 2))
+  --       end
+  --
+  --       dashboard.section.header.opts.hl = 'AlphaHeader' -- logo
+  --       dashboard.section.footer.opts.hl = 'AlphaFooter' -- footer
+  --       dashboard.section.header_info.opts.hl = 'AlphaHeaderLabel' -- info lines (date + plugins)
+  --
+  --       dashboard.opts.layout = {
+  --         { type = 'padding', val = vertical_padding },
+  --         dashboard.section.header,
+  --         { type = 'padding', val = 1 },
+  --         dashboard.section.header_info,
+  --         { type = 'padding', val = 2 },
+  --         dashboard.section.buttons,
+  --         { type = 'padding', val = 1 },
+  --         dashboard.section.footer,
+  --       }
+  --
+  --       -- Setup alpha
+  --       alpha.setup(dashboard.opts)
+  --
+  --       -- Lua function
+  --       _G.delete_all_buffer = function()
+  --         local alpha_buf = vim.api.nvim_get_current_buf() -- buffer Alpha hiện tại
+  --         local count = 0
+  --
+  --         for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+  --           if vim.api.nvim_buf_is_loaded(buf) and buf ~= alpha_buf then
+  --             vim.api.nvim_buf_delete(buf, { force = true })
+  --             count = count + 1
+  --           end
+  --         end
+  --
+  --         if count > 0 then
+  --           vim.notify('Deleted ' .. count .. ' buffer(s)', vim.log.levels.INFO)
+  --         else
+  --           vim.notify('No buffers to delete', vim.log.levels.WARN)
+  --         end
+  --       end
+  --
+  --       vim.api.nvim_set_keymap('n', '<leader>db', '<cmd>lua delete_all_buffer()<CR>', {
+  --         noremap = true,
+  --         silent = true,
+  --       })
+  --
+  --       -- don't show status line in alpha dashboard
+  --       vim.api.nvim_create_autocmd({ 'User' }, {
+  --         pattern = { 'AlphaReady' },
+  --         callback = function()
+  --           vim.cmd [[ set laststatus=0 | autocmd BufUnload <buffer> set laststatus=3 ]]
+  --         end,
+  --       })
+  --
+  --       vim.keymap.set('n', '<leader>a', '<cmd>Alpha<CR>', { desc = 'Open Alpha Dashboard' })
+  --     end,
+  --   },
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
@@ -557,6 +726,41 @@ require('lazy').setup({
     lazy = false,
     dependencies = { 'MunifTanjim/nui.nvim' },
     opts = {},
+  },
+  {
+    'tris203/precognition.nvim',
+    opts = {},
+    keys = {
+      {
+        '<leader>uP',
+        function()
+          require('precognition').show()
+        end,
+        desc = 'Show Precognition hints',
+      },
+      {
+        '<leader>up',
+        function()
+          require('precognition').hide()
+        end,
+        desc = 'Hide Precognition hints',
+      },
+      {
+        '<leader>uk',
+        function()
+          require('precognition').peek()
+        end,
+        desc = 'Peek Precognition hints',
+      },
+      {
+        '<leader>ut',
+        function()
+          local on = require('precognition').toggle()
+          vim.notify(on and 'Precognition ON' or 'Precognition OFF')
+        end,
+        desc = 'Toggle Precognition',
+      },
+    },
   },
 
   -- {
@@ -1368,7 +1572,14 @@ require('lazy').setup({
     end,
     opts = {
       options = {
-        disabled_filetypes = { statusline = { 'dashboard', 'alpha', 'ministarter' } },
+        -- disabled_filetypes = {
+        --   statusline = { 'dashboard', 'alpha', 'ministarter', 'snacks_dashboard' },
+        --   -- Add "snacks_dashboard" if it's not already there
+        -- },
+        disabled_filetypes = {
+          statusline = { 'snacks_dashboard' },
+          winbar = { 'snacks_dashboard' },
+        },
         icons_enabled = true, -- Do you want to use icons?
         theme = 'auto', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
         -- 'auto' will try to match your colorscheme

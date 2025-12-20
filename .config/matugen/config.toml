@@ -4,12 +4,18 @@ arguments = ["img", "--transition-type", "wipe", "--transition-fps", "60" ]
 set = true
 
 [config.custom_colors]
-background_custom = { color = "#151218", blend = false }
+background_custom = { color = "#121212", blend = false }
 
 [templates.waybar]
 input_path = './templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
+
+# Swaync
+[templates.swaync]
+input_path = './templates/swaync.css'
+output_path = '~/.config/swaync/swaync.css'
+post_hook = 'swaync-client -rs'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
@@ -75,3 +81,7 @@ output_path = "~/Obsidian/Ether/.obsidian/themes/Matugen/theme.css"
 input_path = './templates/nvim.lua'
 output_path = '~/.config/nvim/lua/generated.lua'
 post_hook = 'pkill -SIGUSR1 nvim || true'
+
+[templates.fastfetch]
+input_path = './templates/fastfetch.jsonc'
+output_path = '~/.config/fastfetch/config.jsonc'

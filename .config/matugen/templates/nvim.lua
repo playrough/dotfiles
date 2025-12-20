@@ -198,3 +198,5 @@ vim.api.nvim_set_hl(0, 'AlphaButtons', { fg = c.secondary, italic = false, bold 
 vim.api.nvim_set_hl(0, 'AlphaFooter', { fg = c.on_surface_variant, italic = false, bold = false })
 vim.api.nvim_set_hl(0, 'AlphaHeader', { fg = c.primary, italic = false, bold = false })
 vim.api.nvim_set_hl(0, 'AlphaHeaderLabel', { fg = c.on_surface_variant, italic = false, bold = false })
+
+vim.api.nvim_set_hl(0, 'SnacksNormal', { fg = c.primary, bg = 'none' })

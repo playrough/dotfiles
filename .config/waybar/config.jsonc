@@ -10,8 +10,6 @@
   // Choose the order of the modules
   "modules-left": [
     "custom/menu",
-    "custom/swaync",
-    "power-profiles-daemon",
     "clock",
     "custom/playerctl"
   ],
@@ -22,6 +20,7 @@
     "network",
     "pulseaudio",
     "battery",
+    "custom/swaync",
     "custom/power",
   ],
   "custom/menu": {

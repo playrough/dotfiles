@@ -432,43 +432,43 @@ require('lazy').setup({
             {
               text = {
                 { '  New file            ', hl = 'SnacksNormal' },
-                { 'e', hl = 'key' },
+                { 'e', hl = 'SnacksKey' },
               },
             },
             {
               text = {
                 { '󰉿  Grep text           ', hl = 'SnacksNormal' },
-                { 'g', hl = 'key' },
+                { 'g', hl = 'SnacksKey' },
               },
             },
             {
               text = {
                 { '󰷊  Find Dotfiles       ', hl = 'SnacksNormal' },
-                { 'd', hl = 'key' },
+                { 'd', hl = 'SnacksKey' },
               },
             },
             {
               text = {
                 { '󰦛  Recent files        ', hl = 'SnacksNormal' },
-                { 'r', hl = 'key' },
+                { 'r', hl = 'SnacksKey' },
               },
             },
             {
               text = {
                 { '  Neovim config       ', hl = 'SnacksNormal' },
-                { 'n', hl = 'key' },
+                { 'n', hl = 'SnacksKey' },
               },
             },
             {
               text = {
                 { '󰒲  Lazy                ', hl = 'SnacksNormal' },
-                { 'l', hl = 'key' },
+                { 'l', hl = 'SnacksKey' },
               },
             },
             {
               text = {
                 { '󰅚  Quit                ', hl = 'SnacksNormal' },
-                { 'q', hl = 'key' },
+                { 'q', hl = 'SnacksKey' },
               },
               padding = 2,
             },

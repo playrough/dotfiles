@@ -417,7 +417,7 @@ require('lazy').setup({
           {
             pane = 2,
             align = 'center',
-            { padding = 4 },
+            { padding = 3 },
             {
               text = {
                 { 'Today is ' .. os.date '%a %d %b' },

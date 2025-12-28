@@ -325,6 +325,59 @@ require('lazy').setup({
 
   { 'brenoprata10/nvim-highlight-colors', opts = {} },
 
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
+    config = function()
+      -- Toggle render markdown (global)
+      vim.keymap.set('n', '<leader>mp', function()
+        require('render-markdown').toggle()
+      end, { desc = 'Markdown: Toggle render' })
+
+      -- Toggle render markdown (current buffer only)
+      vim.keymap.set('n', '<leader>mb', function()
+        require('render-markdown').buf_toggle()
+      end, { desc = 'Markdown: Toggle render (buffer)' })
+
+      -- Preview rendered markdown in side window
+      vim.keymap.set('n', '<leader>mv', function()
+        require('render-markdown').preview()
+      end, { desc = 'Markdown: Preview side window' })
+
+      -- Expand anti-conceal spacing
+      vim.keymap.set('n', '<leader>m+', function()
+        require('render-markdown').expand()
+      end, { desc = 'Markdown: Expand spacing' })
+
+      -- Contract anti-conceal spacing
+      vim.keymap.set('n', '<leader>m-', function()
+        require('render-markdown').contract()
+      end, { desc = 'Markdown: Contract spacing' })
+
+      -- Debug render
+      vim.keymap.set('n', '<leader>md', function()
+        require('render-markdown').debug()
+      end, { desc = 'Markdown: Debug render' })
+
+      -- Show config diff
+      vim.keymap.set('n', '<leader>mc', function()
+        require('render-markdown').config()
+      end, { desc = 'Markdown: Show config diff' })
+
+      -- Auto enable render-markdown for markdown files
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'markdown',
+        callback = function()
+          require('render-markdown').buf_enable()
+        end,
+      })
+    end,
+  },
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
@@ -403,6 +456,7 @@ require('lazy').setup({
           -- autokeys (hidden)
           { section = 'keys' },
           -- LOGO
+          { padding = 0 },
           {
             pane = 1,
             section = 'terminal',
@@ -417,7 +471,7 @@ require('lazy').setup({
           {
             pane = 2,
             align = 'center',
-            { padding = 3 },
+            { padding = 4 },
             {
               text = {
                 { 'Today is ' .. os.date '%a %d %b' },
@@ -492,6 +546,24 @@ require('lazy').setup({
     },
 
     config = function(_, opts)
+      -- Don't show statusline in snacks dashboard
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'snacks_dashboard',
+        callback = function()
+          -- hide statusline
+          vim.o.laststatus = 0
+
+          -- restore statusline when dashboard buffer is closed
+          vim.api.nvim_create_autocmd('BufUnload', {
+            buffer = 0,
+            once = true,
+            callback = function()
+              vim.opt.laststatus = 3
+            end,
+          })
+        end,
+      })
+
       vim.keymap.set('n', '<leader>a', function()
         local target_ft = 'snacks_dashboard'
 
@@ -1400,6 +1472,7 @@ require('lazy').setup({
       auto_install = true,
       highlight = {
         enable = true,
+        disable = { 'markdown' },
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.

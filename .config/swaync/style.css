@@ -201,7 +201,9 @@
   .notification-row
   .notification-background
   .notification.critical {
-  background-color: @primary_container;
+  background-color: @surface_container_highest;
+  /* background-color: alpha(@on_secondary, 0.75); */
+  /* border: 1px solid @primary; */
   border-radius: 16px;
   margin: 4px 0px;
   padding: 4px;

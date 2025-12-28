@@ -201,3 +201,242 @@ vim.api.nvim_set_hl(0, 'AlphaHeaderLabel', { fg = c.on_surface_variant, italic =
 
 vim.api.nvim_set_hl(0, 'SnacksNormal', { fg = c.primary, bg = 'none' })
 vim.api.nvim_set_hl(0, 'SnacksKey', { fg = c.error, bg = 'none' })
+
+-- =========================================================
+-- render-markdown.nvim highlight groups (Matugen themed)
+-- =========================================================
+
+-- ======================
+-- Headings (icons)
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownH1', { fg = c.primary, bold = true })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH2', { fg = c.secondary, bold = true })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH3', { fg = c.tertiary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH4', { fg = c.on_surface_variant })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH5', { fg = c.outline })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH6', { fg = c.outline_variant })
+
+-- ======================
+-- Heading background lines
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownH1Bg', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH2Bg', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH3Bg', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH4Bg', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH5Bg', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownH6Bg', { bg = c.surface_container })
+
+-- ======================
+-- Code blocks
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownCode', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeBorder', { bg = c.surface_container_high })
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeInline', {
+  fg = c.on_surface,
+  bg = c.surface_container_highest,
+})
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeInfo', {
+  fg = c.primary,
+  italic = true,
+})
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeFallback', {
+  fg = c.on_surface_variant,
+})
+
+-- ======================
+-- Quotes
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote', {
+  fg = c.on_surface_variant,
+  italic = true,
+})
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote1', { fg = c.primary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote2', { fg = c.secondary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote3', { fg = c.tertiary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote4', { fg = c.primary_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote5', { fg = c.secondary_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote6', { fg = c.surface_variant })
+
+-- ======================
+-- Lists & structure
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownBullet', { fg = c.primary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownIndent', { fg = c.surface_variant })
+vim.api.nvim_set_hl(0, 'RenderMarkdownDash', { fg = c.outline_variant })
+vim.api.nvim_set_hl(0, 'RenderMarkdownSign', { bg = c.background })
+
+-- ======================
+-- Links
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownLink', {
+  fg = c.primary,
+  underline = true,
+})
+vim.api.nvim_set_hl(0, 'RenderMarkdownWikiLink', {
+  fg = c.secondary,
+  underline = true,
+})
+
+-- ======================
+-- Inline highlight
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownInlineHighlight', {
+  fg = c.on_surface,
+  bg = c.surface_container_highest,
+})
+
+-- ======================
+-- Checkboxes
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownUnchecked', { fg = c.outline })
+vim.api.nvim_set_hl(0, 'RenderMarkdownChecked', {
+  fg = c.primary,
+  bold = true,
+})
+vim.api.nvim_set_hl(0, 'RenderMarkdownTodo', { fg = c.tertiary })
+
+-- ======================
+-- Tables
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownTableHead', {
+  fg = c.primary,
+  bold = true,
+})
+vim.api.nvim_set_hl(0, 'RenderMarkdownTableRow', { fg = c.on_surface })
+vim.api.nvim_set_hl(0, 'RenderMarkdownTableFill', { fg = c.surface_variant })
+
+-- ======================
+-- Math & HTML
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownMath', { fg = c.secondary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownHtmlComment', {
+  fg = c.outline_variant,
+  italic = true,
+})
+
+-- ======================
+-- Callouts
+-- ======================
+vim.api.nvim_set_hl(0, 'RenderMarkdownSuccess', { fg = c.primary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownInfo', { fg = c.secondary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownHint', { fg = c.tertiary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownWarn', { fg = c.error })
+vim.api.nvim_set_hl(0, 'RenderMarkdownError', { fg = c.error, bold = true })
+
+-- Bullets & Dash
+vim.api.nvim_set_hl(0, 'RenderMarkdownBullet', { fg = c.primary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownDash', { fg = c.outline_variant })
+
+-- Code
+vim.api.nvim_set_hl(0, 'RenderMarkdownCode', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeInline', { fg = c.on_surface, bg = c.surface_container_highest })
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeBorder', { bg = c.surface_container_high })
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeInfo', { fg = c.primary, italic = true })
+vim.api.nvim_set_hl(0, 'RenderMarkdownCodeFallback', { fg = c.on_surface_variant })
+
+-- Table
+vim.api.nvim_set_hl(0, 'RenderMarkdownTableHead', { fg = c.primary, bold = true })
+vim.api.nvim_set_hl(0, 'RenderMarkdownTableRow', { fg = c.on_surface })
+vim.api.nvim_set_hl(0, 'RenderMarkdownTableFill', { fg = c.surface_variant })
+
+-- Raw / inline markdown
+vim.api.nvim_set_hl(0, '@markup.raw.markdown_inline', { fg = c.primary, bg = c.surface_container })
+
+-- Headings H1-H7
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH1Fg', { fg = c.primary, bold = true })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH1Bg', { bg = c.primary_container })
+--
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH2Fg', { fg = c.secondary, bold = true })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH2Bg', { bg = c.secondary_container })
+--
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH3Fg', { fg = c.tertiary, bold = true })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH3Bg', { bg = c.surface_container })
+--
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH4Fg', { fg = c.on_surface_variant, bold = true })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH4Bg', { bg = c.surface_container_low })
+--
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH5Fg', { fg = c.outline, bold = true })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH5Bg', { bg = c.surface_container_lowest })
+--
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH6Fg', { fg = c.on_surface_variant, bold = true })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH6Bg', { bg = c.surface_dim })
+--
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH7Fg', { fg = c.primary_container, bold = true })
+-- vim.api.nvim_set_hl(0, 'RenderMarkdownH7Bg', { bg = c.surface_variant })
+
+-- Quotes
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote', { fg = c.on_surface_variant, italic = true })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote1', { fg = c.primary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote2', { fg = c.secondary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote3', { fg = c.tertiary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote4', { fg = c.primary_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote5', { fg = c.secondary_container })
+vim.api.nvim_set_hl(0, 'RenderMarkdownQuote6', { fg = c.surface_variant })
+
+-- Links
+vim.api.nvim_set_hl(0, 'RenderMarkdownLink', { fg = c.primary, underline = true })
+vim.api.nvim_set_hl(0, 'RenderMarkdownWikiLink', { fg = c.secondary, underline = true })
+
+-- Inline highlight
+vim.api.nvim_set_hl(0, 'RenderMarkdownInlineHighlight', { fg = c.on_surface, bg = c.surface_container_highest })
+
+-- Checkboxes
+vim.api.nvim_set_hl(0, 'RenderMarkdownUnchecked', { fg = c.outline })
+vim.api.nvim_set_hl(0, 'RenderMarkdownChecked', { fg = c.primary, bold = true })
+vim.api.nvim_set_hl(0, 'RenderMarkdownTodo', { fg = c.tertiary })
+
+-- Math & HTML
+vim.api.nvim_set_hl(0, 'RenderMarkdownMath', { fg = c.secondary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownHtmlComment', { fg = c.outline_variant, italic = true })
+
+-- Callouts
+vim.api.nvim_set_hl(0, 'RenderMarkdownSuccess', { fg = c.primary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownInfo', { fg = c.secondary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownHint', { fg = c.tertiary })
+vim.api.nvim_set_hl(0, 'RenderMarkdownWarn', { fg = c.error })
+vim.api.nvim_set_hl(0, 'RenderMarkdownError', { fg = c.error, bold = true })
+
+-- Headings
+vim.api.nvim_set_hl(0, 'markdownH1', { fg = c.primary, bold = true })
+vim.api.nvim_set_hl(0, 'markdownH2', { fg = c.secondary, bold = true })
+vim.api.nvim_set_hl(0, 'markdownH3', { fg = c.tertiary, bold = true })
+vim.api.nvim_set_hl(0, 'markdownH4', { fg = c.on_surface_variant, bold = true })
+vim.api.nvim_set_hl(0, 'markdownH5', { fg = c.outline, bold = true })
+vim.api.nvim_set_hl(0, 'markdownH6', { fg = c.outline_variant, bold = true })
+
+-- Blockquote
+vim.api.nvim_set_hl(0, 'markdownBlockquote', { fg = c.outline, italic = true })
+
+-- List markers
+vim.api.nvim_set_hl(0, 'markdownListMarker', { fg = c.primary })
+vim.api.nvim_set_hl(0, 'markdownOrderedListMarker', { fg = c.primary })
+
+-- Code blocks & inline code
+vim.api.nvim_set_hl(0, 'markdownCodeBlock', { bg = c.surface_container })
+vim.api.nvim_set_hl(0, 'markdownCode', { bg = c.surface_container, fg = c.on_surface })
+vim.api.nvim_set_hl(0, 'markdownCodeDelimiter', { fg = c.on_surface })
+vim.api.nvim_set_hl(0, 'markdownCodeBlock', { bg = c.surface_container })
+
+-- Rules / HR / line breaks
+vim.api.nvim_set_hl(0, 'markdownRule', { fg = c.outline })
+vim.api.nvim_set_hl(0, 'markdownHeadingRule', { fg = c.outline })
+vim.api.nvim_set_hl(0, 'markdownLineBreak', { fg = c.outline })
+
+-- Links
+vim.api.nvim_set_hl(0, 'markdownLinkText', { fg = c.primary, underline = true })
+vim.api.nvim_set_hl(0, 'markdownLink', { fg = c.primary, underline = true })
+vim.api.nvim_set_hl(0, 'markdownUrl', { fg = c.secondary, underline = true })
+
+-- Emphasis
+vim.api.nvim_set_hl(0, 'markdownItalic', { italic = true, fg = c.secondary })
+vim.api.nvim_set_hl(0, 'markdownBold', { bold = true, fg = c.primary })
+vim.api.nvim_set_hl(0, 'markdownBoldItalic', { bold = true, italic = true, fg = c.tertiary })
+vim.api.nvim_set_hl(0, 'markdownStrike', { fg = c.outline, strikethrough = true })
+
+-- Footnotes / Ids
+vim.api.nvim_set_hl(0, 'markdownFootnote', { fg = c.tertiary })
+vim.api.nvim_set_hl(0, 'markdownFootnoteDefinition', { fg = c.secondary })
+vim.api.nvim_set_hl(0, 'markdownId', { fg = c.primary })
+
+-- Errors
+vim.api.nvim_set_hl(0, 'markdownError', { fg = c.error, bold = true })

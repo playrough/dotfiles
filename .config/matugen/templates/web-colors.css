@@ -5,6 +5,6 @@
 
 :root {
 <* for name, value in colors *>
-  --{{ name }}: {{ value.default.hex }};
+  --mtg-{{ name }}: {{ value.default.hex }};
 <* endfor *>
 }

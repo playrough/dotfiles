@@ -6,7 +6,7 @@
 @import "$HOME/.config/waybar/colors.css";
 
 window {
-    background-color: transparent;
+    background-color: alpha(@surface, .5);
 }
 
 button {

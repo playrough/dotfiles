@@ -460,7 +460,7 @@ require('lazy').setup({
           {
             pane = 1,
             section = 'terminal',
-            cmd = 'ascii-image-converter ~/Downloads/Wallpapers/fool-ff.png -b -d 40,20 -c',
+            cmd = 'ascii-image-converter ~/.config/nvim/lua/logo.png -b -d 40,20 -c',
             height = 20,
             width = 40,
             indent = 0,

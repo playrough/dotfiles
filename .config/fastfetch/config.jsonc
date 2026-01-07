@@ -4,10 +4,10 @@
     "type": "file",
     "source": "~/.config/fastfetch/logo/logo.txt",
     "color": {
-      "1": "#a1d399", // màu đỏ cho $1
-      "2": "#baccb3", // màu xanh lá cho $2
-      "3": "#a0cfd4", // màu xanh dương cho $3
-      "4": "#e0e4db" // màu xanh dương cho $3
+      "1": "#f2be6e", // màu đỏ cho $1
+      "2": "#dcc3a1", // màu xanh lá cho $2
+      "3": "#b6cea3", // màu xanh dương cho $3
+      "4": "#ede1d4" // màu xanh dương cho $3
     },
     // "height": 5,
     "padding": {

@@ -61,7 +61,7 @@
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
     "persistent-workspaces": {
-      "*": 5
+      "*": 3
     },
     "format-icons": {
       "1": "1",
@@ -130,7 +130,7 @@
     "format": "<span>{}</span>",
     "return-type": "json",
     "max-length": 50,
-    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}}  {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
     "on-click": "playerctl previous",
     "on-click-middle": "playerctl play-pause",
     "on-click-right": "playerctl next",

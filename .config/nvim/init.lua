@@ -474,12 +474,12 @@ require('lazy').setup({
             { padding = 4 },
             {
               text = {
-                { 'Today is ' .. os.date '%a %d %b' },
+                { 'Today is ' .. os.date '%a %d %b', hl = 'SnacksInfo' },
               },
             },
             {
               text = {
-                { require('lazy').stats().count .. ' plugins in total' },
+                { require('lazy').stats().count .. ' plugins in total', hl = 'SnacksInfo' },
               },
               padding = 2,
             },
@@ -527,7 +527,7 @@ require('lazy').setup({
               padding = 2,
             },
             {
-              text = '-eTher-',
+              text = { '-eTher-', hl = 'SnacksInfo' },
             },
           },
         },

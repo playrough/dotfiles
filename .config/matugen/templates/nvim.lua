@@ -201,6 +201,7 @@ vim.api.nvim_set_hl(0, 'AlphaHeaderLabel', { fg = c.on_surface_variant, italic =
 
 vim.api.nvim_set_hl(0, 'SnacksNormal', { fg = c.primary, bg = 'none' })
 vim.api.nvim_set_hl(0, 'SnacksKey', { fg = c.tertiary, bg = 'none' })
+vim.api.nvim_set_hl(0, 'SnacksInfo', { fg = c.on_surface_variant, bg = 'none' })
 
 -- =========================================================
 -- render-markdown.nvim highlight groups (Matugen themed)

@@ -16,8 +16,8 @@
   ],
   "modules-center": [],
   "modules-right": [
-    "network",
     "clock",
+    "network",
     "pulseaudio",
     "battery",
     "custom/swaync",

@@ -4,7 +4,7 @@ arguments = ["img", "--transition-type", "wipe", "--transition-fps", "60" ]
 set = true
 
 [config.custom_colors]
-background_custom = { color = "#18130b", blend = false }
+background_custom = { color = "#121212", blend = false }
 
 [templates.waybar]
 input_path = './templates/colors.css'

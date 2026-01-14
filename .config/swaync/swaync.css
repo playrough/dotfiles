@@ -13,13 +13,13 @@
 
 @define-color background #18130b;
 
-@define-color background_custom #efbf6d;
+@define-color background_custom #82d3e0;
 
-@define-color background_custom_container #5f4100;
+@define-color background_custom_container #004f58;
 
-@define-color background_custom_source #18130b;
+@define-color background_custom_source #121212;
 
-@define-color background_custom_value #18130b;
+@define-color background_custom_value #121212;
 
 @define-color error #ffb4ab;
 
@@ -33,9 +33,9 @@
 
 @define-color on_background #ede1d4;
 
-@define-color on_background_custom #422c00;
+@define-color on_background_custom #00363d;
 
-@define-color on_background_custom_container #ffdeaa;
+@define-color on_background_custom_container #9eeffd;
 
 @define-color on_error #690005;
 

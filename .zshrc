@@ -127,6 +127,9 @@ export PATH="$PATH:/home/ether/.local/bin"
 
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
+# Fast Update Repo
+alias dotup='dot add -u && dot commit -m "update" && dot push'
+
 # Use lsd instead of ls
 if command -v lsd >/dev/null 2>&1; then
   alias ls="lsd"

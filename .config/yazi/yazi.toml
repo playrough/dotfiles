@@ -7,7 +7,7 @@ max_height = 65535
 micro_workers    = 10
 macro_workers    = 10
 bizarre_retry    = 3
-image_alloc      = 536870912  # 512MB
+image_alloc      = 536870912
 image_bound      = [ 65535, 65535 ]
 suppress_preload = false
 

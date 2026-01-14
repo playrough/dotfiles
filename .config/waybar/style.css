@@ -15,11 +15,14 @@ window#waybar {
   background: alpha(@background_custom_value, 0.8);
   color: @on_surface;
   border-radius: 20px;
-  /* border: 1px solid @outline_variant; */
+}
+
+window#waybar > box {
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 /* Nút workspace và custom */
-
 #workspaces,
 #power-profiles-daemon,
 #custom-menu,
@@ -34,7 +37,7 @@ window#waybar {
   background: transparent;
   border-radius: 20px;
   padding: 4px 12px;
-  margin: 2px 3px;
+  margin: 0 2px;
   transition:
     background 0.2s,
     color 0.2s;
@@ -81,7 +84,7 @@ window#waybar {
 }
 
 #workspaces button {
-  color: #cdd6f4;
+  color: alpha(@on_surface_variant, 0.6);
   min-width: 24px;
   margin: 0 4px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,6 +106,10 @@ window#waybar {
 /* Menu icon */
 #custom-menu {
   color: @primary;
+}
+
+#custom-power {
+  color: @error;
 }
 
 /* Padding cho tray */

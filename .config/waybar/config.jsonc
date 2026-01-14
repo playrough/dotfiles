@@ -7,21 +7,21 @@
   "margin-bottom": 0,
   "margin-left": 8,
   "margin-right": 8,
-  "width": 1000, // Waybar width
+  "width": 500, // Waybar width
   // Choose the order of the modules
   "modules-left": [
-    "custom/menu",
-    "hyprland/workspaces",
-    "custom/playerctl",
+    // "custom/menu",
+    "clock",
+    "hyprland/workspaces"
+    // "custom/playerctl",
   ],
   "modules-center": [],
   "modules-right": [
-    "clock",
     "network",
     "pulseaudio",
-    "battery",
-    "custom/swaync",
-    "custom/power",
+    "battery"
+    // "custom/swaync",
+    // "custom/power",
   ],
   "custom/menu": {
     "format": "",
@@ -76,8 +76,8 @@
     }
   },
   "clock": {
-    "format": "󰥔 {:%H:%M}",
-    "format-alt": "󰥔 {:%Y-%m-%d}",
+    "format": "{:%H:%M}", //󰥔
+    "format-alt": "{:%Y-%m-%d}", //󰥔
     "tooltip": false
   },
   "pulseaudio": {

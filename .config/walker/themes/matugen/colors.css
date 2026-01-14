@@ -1,12 +1,12 @@
-@define-color bg_default      #121212;
-@define-color bg_lighter      #3f382f;
-@define-color bg_darker       #18130b;
+@define-color bg_default      #0e1415;
+@define-color bg_lighter      #343a3b;
+@define-color bg_darker       #0e1415;
 
-@define-color surface_default #18130b;
-@define-color on_surface      #ede1d4;
+@define-color surface_default #0e1415;
+@define-color on_surface      #dee4e4;
 
-@define-color accent_default  #f2be6e;
-@define-color on_accent       #442c00;
+@define-color accent_default  #81d4dc;
+@define-color on_accent       #00363b;
 
 @define-color error_default   #ffb4ab;
 @define-color on_error        #690005;

@@ -84,7 +84,7 @@ window#waybar > box {
 }
 
 #workspaces button {
-  color: alpha(@on_surface_variant, 0.6);
+  color: alpha(@on_surface_variant, 0.5);
   min-width: 24px;
   margin: 0 4px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -93,7 +93,15 @@ window#waybar > box {
 }
 
 #workspaces button.active {
-  background: @primary;
+  /* background: @primary; */
+
+  background: linear-gradient(
+    to right,
+    @primary 0%,
+    mix(@primary, @tertiary, 0.5) 50%,
+    @tertiary 100%
+  );
+
   color: alpha(@background_custom_value, 0.75);
   font-weight: bold;
   padding-left: 14px;

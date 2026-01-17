@@ -143,7 +143,8 @@ fi
 alias nv='nvim'
 alias y='yazi'
 
-alias matbg="~/.local/bin/matugen-bg.sh"
+alias mtg="~/.local/bin/matugen-bg.sh"
+alias pmtg="~/.local/bin/matugen-push.sh"
 
 
 echo

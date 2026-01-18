@@ -84,7 +84,7 @@ window#waybar > box {
 }
 
 #workspaces button {
-  color: alpha(@surface_variant, 1);
+  color: alpha(@primary, 0.5);
   min-width: 24px;
   margin: 0 4px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

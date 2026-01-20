@@ -64,7 +64,7 @@ window#waybar > box {
   background: linear-gradient(
     135deg,
     @primary 0%,
-    mix(@primary, @tertiary, 0.5) 50%,
+    mix(@primary, @tertiary, 0.5) 60%,
     @tertiary 100%
   );
 
@@ -94,7 +94,7 @@ window#waybar > box {
 }
 
 #mpris.playing {
-  color: @tertiary;
+  color: @primary;
 }
 
 /* ⏸ Paused */

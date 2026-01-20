@@ -18,8 +18,9 @@ window#waybar {
 }
 
 window#waybar > box {
-  padding-left: 12px;
-  padding-right: 12px;
+  /* padding-left: 12px; */
+  /* padding-right: 12px; */
+  padding: 4px 10px;
 }
 
 /* Nút workspace và custom */
@@ -33,10 +34,11 @@ window#waybar > box {
 #pulseaudio,
 #network,
 #battery,
+#mpris,
 #tray {
   background: transparent;
   border-radius: 20px;
-  padding: 4px 12px;
+  padding: 2px 10px;
   margin: 0 2px;
   transition:
     background 0.2s,
@@ -44,7 +46,37 @@ window#waybar > box {
 }
 
 #workspaces {
-  padding: 8px 4px;
+  /* padding: 0px 12px; */
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#workspaces button {
+  color: alpha(@primary, 0.5);
+  min-width: 24px;
+  margin: 0 4px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  border-radius: 20px;
+}
+
+#workspaces button.active {
+  background: linear-gradient(
+    135deg,
+    @primary 0%,
+    mix(@primary, @tertiary, 0.5) 50%,
+    @tertiary 100%
+  );
+
+  color: alpha(@background_custom_value, 0.8);
+  font-weight: bold;
+  padding-left: 18px;
+  padding-right: 18px;
+  /* padding-top: 14px; */
+  /* padding-bottom: 14px; */
+  border-radius: 20px;
+  animation: 20s ease-in infinite;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 /* Hover effect */
@@ -58,57 +90,21 @@ window#waybar > box {
 #pulseaudio:hover,
 #network:hover,
 #battery:hover {
-  background: rgba(137, 180, 250, 0.3);
-  color: #cdd6f4;
+  background: @secondary_container;
 }
 
-/* Khi đang phát nhạc */
-#custom-playerctl.playing {
-  background: rgba(137, 180, 250, 0.6);
-  /* xanh dương nhạt */
-  color: #1e1e2e;
+#mpris.playing {
+  color: @tertiary;
 }
 
-/* Khi tạm dừng */
-#custom-playerctl.paused {
-  background: rgba(249, 226, 175, 0.6);
-  /* vàng nhẹ */
-  color: #1e1e2e;
+/* ⏸ Paused */
+#mpris.paused {
+  color: @error;
 }
 
-/* Khi dừng hẳn */
-#custom-playerctl.stopped {
-  background: rgba(243, 139, 168, 0.6);
-  /* đỏ nhạt */
-  color: #1e1e2e;
-}
-
-#workspaces button {
-  color: alpha(@primary, 0.5);
-  min-width: 24px;
-  margin: 0 4px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0;
-  border-radius: 20px;
-}
-
-#workspaces button.active {
-  /* background: @primary; */
-
-  background: linear-gradient(
-    to right,
-    @primary 0%,
-    mix(@primary, @tertiary, 0.5) 50%,
-    @tertiary 100%
-  );
-
-  color: alpha(@background_custom_value, 0.8);
-  font-weight: bold;
-  padding-left: 14px;
-  padding-right: 14px;
-  border-radius: 20px;
-  animation: 20s ease-in infinite;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+/* ⏹ Stopped */
+#mpris.stopped {
+  color: @error;
 }
 
 /* Menu icon */
@@ -125,22 +121,38 @@ window#waybar > box {
   padding: 0 6px;
 }
 
+/* #battery { */
+/*   font-size: 16px; */
+/* } */
+
+#battery {
+  color: #a6e3a1;
+}
+
 #battery.warning {
-  color: #facc15;
-  /* vàng tươi */
+  color: #f9e2af;
 }
 
 #battery.critical {
-  color: #ef4444;
-  /* đỏ tươi */
+  color: #f38ba8;
 }
 
 #battery.charging {
-  color: #4ade80;
-  /* xanh lá sáng */
+  color: #89dceb;
 }
 
 #battery.full {
-  color: #22d3ee;
-  /* xanh biển neon */
+  color: #89b4fa;
+}
+
+/* #clock { */
+/*   font-size: 18px; */
+/* } */
+
+#pulseaudio {
+  color: #f9e2af;
+}
+
+#network {
+  color: #b4befe;
 }

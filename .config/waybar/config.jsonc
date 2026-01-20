@@ -2,21 +2,22 @@
 {
   // "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  // "height": 32, // Waybar height (to be removed for auto height)
   "margin-top": 10,
   "margin-bottom": 0,
-  "margin-left": 8,
-  "margin-right": 8,
-  "width": 500, // Waybar width
+  "margin-left": 0,
+  "margin-right": 0,
+  "width": 300, // Waybar width
   // Choose the order of the modules
   "modules-left": [
     // "custom/menu",
-    "clock",
-    "hyprland/workspaces"
+    "clock"
+  ],
+  "modules-center": [
+    "mpris"
     // "custom/playerctl",
   ],
-  "modules-center": [],
   "modules-right": [
+    "hyprland/workspaces",
     "network",
     "pulseaudio",
     "battery"
@@ -81,8 +82,10 @@
     "tooltip": false
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": " 0%",
+    // "format": "{icon} {volume}%",
+    // "format-muted": " 0%",
+    "format": "{icon}",
+    "format-muted": "",
     "format-icons": [
       "",
       "",
@@ -90,8 +93,10 @@
     ]
   },
   "network": {
-    "format-wifi": " {essid}",
-    "format-ethernet": "󰈀 {ipaddr}",
+    // "format-wifi": " {essid}",
+    // "format-ethernet": "󰈀 {ipaddr}",
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
     "format-disconnected": "󰲝",
     "tooltip": false,
     "on-click": "kitty -e nmtui"
@@ -102,16 +107,24 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-full": "󰁹 {capacity}%",
+    // "format": "{icon} {capacity}%",
+    // "format-charging": "󰂄 {capacity}%",
+    // "format-full": "󰁹 {capacity}%",
+    "format": "{icon}",
+    // "format-charging": "",
+    // "format-full": "",
     "format-icons": [
-      "󰂎",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰁹"
+      "",
+      "",
+      "",
+      "",
+      ""
+      // "󰂎",
+      // "󰁾",
+      // "󰁿",
+      // "󰂀",
+      // "󰂁",
+      // "󰁹"
     ]
   },
   "tray": {
@@ -125,11 +138,29 @@
     "tooltip": true,
     "tooltip-format": "Logout Menu"
   },
+  "mpris": {
+    "format": "{status_icon} {title}",
+    "title-len": 25,
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+      "stopped": ""
+    },
+    "player-icons": {
+      "default": "󰎆"
+    }
+  },
   "custom/playerctl": {
-    "format": "<span>{}</span>",
+    "format": "{icon} {text}",
+    "min-length": 20,
+    "max-length": 50,
     "return-type": "json",
-    "max-length": 40,
     "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "format-icons": {
+      "Playing": "",
+      "Paused": "",
+      "Stopped": ""
+    },
     "on-click": "playerctl previous",
     "on-click-middle": "playerctl play-pause",
     "on-click-right": "playerctl next",

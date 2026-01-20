@@ -1,28 +1,26 @@
 // -*- mode: jsonc -*-
 {
-  // "layer": "top", // Waybar at top layer
-  "position": "top", // Waybar position (top|bottom|left|right)
+  "position": "top",
   "margin-top": 10,
   "margin-bottom": 0,
   "margin-left": 0,
   "margin-right": 0,
-  "width": 300, // Waybar width
-  // Choose the order of the modules
+  "width": 300,
+  // "custom/menu",
+  // "custom/playerctl",
+  // "custom/swaync",
+  // "custom/power",
   "modules-left": [
-    // "custom/menu",
     "clock"
   ],
   "modules-center": [
     "mpris"
-    // "custom/playerctl",
   ],
   "modules-right": [
     "hyprland/workspaces",
     "network",
     "pulseaudio",
     "battery"
-    // "custom/swaync",
-    // "custom/power",
   ],
   "custom/menu": {
     "format": "",
@@ -110,9 +108,9 @@
     // "format": "{icon} {capacity}%",
     // "format-charging": "󰂄 {capacity}%",
     // "format-full": "󰁹 {capacity}%",
-    "format": "{icon}",
     // "format-charging": "",
     // "format-full": "",
+    "format": "{icon}",
     "format-icons": [
       "",
       "",

@@ -150,9 +150,10 @@ window#waybar > box {
 /* } */
 
 #pulseaudio {
-  color: #f9e2af;
+  /* color: #f9e2af; */
+  color: @primary;
 }
 
 #network {
-  color: #b4befe;
+  color: @tertiary;
 }

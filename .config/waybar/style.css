@@ -64,7 +64,7 @@ window#waybar > box {
   background: linear-gradient(
     135deg,
     @primary 0%,
-    mix(@primary, @tertiary, 0.5) 60%,
+    mix(@primary, @tertiary, 0.5) 50%,
     @tertiary 100%
   );
 

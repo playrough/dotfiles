@@ -147,5 +147,5 @@ alias mtg="~/.local/bin/matugen-bg.sh"
 alias pmtg="~/.local/bin/matugen-push.sh"
 
 
-# echo
 # glow ~/notes/pinned.md
+sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -

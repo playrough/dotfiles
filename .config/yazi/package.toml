@@ -3,5 +3,15 @@ use = "boydaihungst/mediainfo"
 rev = "7cd6b04"
 hash = "98b8276aa076284f5c4a5260cbe08549"
 
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "fa68711"
+hash = "8714306b5cac6359edbacbf545fbd691"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "179ebf6"
+hash = "57056b9728006881d580ccabe8154a9c"
+
 [flavor]
 deps = []

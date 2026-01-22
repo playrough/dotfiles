@@ -1,4 +1,5 @@
 
+export LESSUTFCHARDEF="e000-e07f:w,e080-f8ff:p,f0001-fffff:w"
 
 export LD_PRELOAD=/usr/lib/libiconv.so.2
 # If you come from bash you might have to change your $PATH.
@@ -148,4 +149,6 @@ alias pmtg="~/.local/bin/matugen-push.sh"
 
 
 # glow ~/notes/pinned.md
+alias cs='glow -t ~/notes/cheatsheet.md'
+alias ns='nvim ~/notes/'
 sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -

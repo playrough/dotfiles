@@ -1,4 +1,15 @@
-
+.config/GIMP/
+.config/browsh/
+.config/epr/
+.config/epy/
+.config/gh/
+.config/glow/
+.subversion/
+.w3m/
+fetch-novel/
+pika-wallpapers/
+usr/
+waydroid_script/
 # Shell history & config
 .config/psysh/
 .bash_history

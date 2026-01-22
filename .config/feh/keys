@@ -1,0 +1,7 @@
+# ---------- Unbind phím zoom mặc định ----------
+zoom_in
+zoom_out
+
+# ---------- Bind zoom theo j/k ----------
+zoom_in k
+zoom_out j

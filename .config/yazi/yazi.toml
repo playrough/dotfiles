@@ -36,13 +36,12 @@ image_alloc      = 1073741824        # = 1024*1024*1024 = 1024MB
 # https://yazi-rs.github.io/docs/configuration/yazi#tasks
 
 
-
 [open]
-rules = [
-  { mime = "{audio,video,image}/*", use = [ "showinfo" ] },
+prepend_rules = [
+  { mime = "image/*", use = [ "feh" ] },
 ]
 
 [opener]
-showinfo = [
-  { run = "mediainfo \"$1\" | less", block = true, desc = "Show media info", for = "unix" },
+feh = [
+  { run = "feh -B black --scale-down --geometry 1600x900 \"$1\"", desc = "Open image with feh", for = "unix" },
 ]

@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = "i"
+run  = "shell -- feh -B black --scale-down --geometry 1600x900 %h"
+desc = "Open hovered image with feh"

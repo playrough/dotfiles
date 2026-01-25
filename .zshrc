@@ -154,3 +154,10 @@ alias ns='nvim ~/notes/'
 sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
 
 alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Wallpapers/minato-naruto.gif'
+
+
+
+alias w='nmcli connection up'
+alias wl='nmcli device wifi list'
+alias ws='nmcli device status'
+alias wt='nmcli radio wifi'

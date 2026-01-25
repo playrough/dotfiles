@@ -12,15 +12,15 @@
 
 # --- Messages when charging/discharging starts ---
 -P
-Battery charging ⚡
+󱐋 Battery charging
 -U
-Battery discharging 🔋
+󱟞 Battery discharging
 
 # --- Custom messages for warning/critical levels ---
 -W
-Battery low!
+󰂃 Battery low!
 -C
-Battery critical!
+󰂃 Battery critical!
 
 # --- Polling interval in seconds ---
 -m

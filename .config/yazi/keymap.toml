@@ -6,6 +6,6 @@
 [mgr]
 prepend_keymap = [
   { on = ["R","b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
-  { on = [".","s"], run = "plugin what-size -- '--clipboard'", desc = "Calc size of sel/cwd + paste to clipboard" },
+  { on = ["C","s"], run = "plugin what-size -- '--clipboard'", desc = "Calc size of sel/cwd + paste to clipboard" },
 ]
 

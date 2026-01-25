@@ -21,6 +21,10 @@
   transition: 200ms;
 }
 
+.floating-notifications.background {
+  margin-right: 10px;
+}
+
 .notification-row {
   color: @text;
   outline: none;

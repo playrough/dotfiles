@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
-#
-# WALL_DIR="$HOME/Downloads/Wallpapers"
-#
-# img=$(fd -e jpg -e png . "$WALL_DIR" | fzf)
-#
-# [ -z "$img" ] && exit 0
-#
-# matugen image "$img"
-#
 
 WALL_DIR="$HOME/Downloads/Wallpapers"
 
-img=$(fd -e jpg -e png . "$WALL_DIR" | fzf --bind "ctrl-i:execute(feh -B black --scale-down --geometry 1600x900 {})")
+img=$(fd -e jpg -e png -e webp . "$WALL_DIR" | fzf --preview 'kitten icat --clear \
+  --transfer-mode=memory \
+  --stdin=no \
+  --place ${FZF_PREVIEW_COLUMNS}x${FZF_PREVIEW_LINES}@0x0 {}')
 
 [ -z "$img" ] && exit 0
 
-swww img "$img" --transition-type wipe
-matugen image "$img"
+matugen image "$img" && "$HOME/.local/bin/matugen-push.sh"

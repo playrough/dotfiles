@@ -7,6 +7,6 @@
 prepend_keymap = [
   { on = ["R","b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
   { on = ["C","s"], run = "plugin what-size -- '--clipboard'", desc = "Calc size of sel/cwd + paste to clipboard" },
-  { on = ["C","m"], run = "shell -- matugen image %h", desc = "Apply matugen theme to hovered image" },
+  { on = ["C","m"], run = "shell -- matugen image %h && '$HOME/.local/bin/matugen-push.sh'", desc = "Apply matugen theme to hovered image" },
 ]
 

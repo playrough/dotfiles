@@ -143,6 +143,7 @@ fi
 
 alias nv='nvim'
 alias y='yazi'
+alias ym='yazi ~/Downloads/Wallpapers/'
 
 alias mtg="~/.local/bin/matugen-fzf.sh"
 alias pmtg="~/.local/bin/matugen-push.sh"

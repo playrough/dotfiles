@@ -71,7 +71,7 @@ tooltip label {
   background: linear-gradient(135deg, @primary 0%, @tertiary 100%);
   color: alpha(@background, 0.8);
   font-weight: bold;
-  min-width: 52px;
+  min-width: 42px;
   border-radius: 20px;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }

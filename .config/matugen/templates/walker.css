@@ -1,4 +1,4 @@
-@define-color bg_default      {{colors.background_custom_value.default.hex}};
+@define-color bg_default      {{colors.background.default.hex}};
 @define-color bg_lighter      {{colors.surface_bright.default.hex}};
 @define-color bg_darker       {{colors.surface_dim.default.hex}};
 

@@ -1,4 +1,4 @@
-set default-bg                     "{{colors.background_custom_value.default.hex}}"
+set default-bg                     "{{colors.background.default.hex}}"
 set default-fg                     "{{colors.on_surface.default.hex}}"
 set statusbar-bg                   "{{colors.surface.default.hex}}"
 set statusbar-fg                   "{{colors.on_surface.default.hex}}"

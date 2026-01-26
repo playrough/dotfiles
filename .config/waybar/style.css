@@ -18,7 +18,7 @@ window#waybar {
 }
 
 .modules-center {
-  background: alpha(@background_custom_value, 0.8);
+  background: alpha(@background, 0.8);
   padding: 4px 10px;
   color: @on_surface;
   border-radius: 20px;
@@ -68,8 +68,8 @@ tooltip label {
 }
 
 #workspaces button.active {
-  background: linear-gradient(135deg, @primary 0%, @tertiary 50%, @error 100%);
-  color: alpha(@background_custom_value, 0.8);
+  background: linear-gradient(135deg, @primary 0%, @tertiary 100%);
+  color: alpha(@background, 0.8);
   font-weight: bold;
   min-width: 52px;
   border-radius: 20px;

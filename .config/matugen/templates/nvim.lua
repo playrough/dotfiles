@@ -2,18 +2,12 @@
 
 local c = {
   background = '{{colors.background.default.hex}}',
-  background_custom = '{{colors.background_custom.default.hex}}',
-  background_custom_container = '{{colors.background_custom_container.default.hex}}',
-  background_custom_source = '{{colors.background_custom_source.default.hex}}',
-  background_custom_value = '{{colors.background_custom_value.default.hex}}',
   error = '{{colors.error.default.hex}}',
   error_container = '{{colors.error_container.default.hex}}',
   inverse_on_surface = '{{colors.inverse_on_surface.default.hex}}',
   inverse_primary = '{{colors.inverse_primary.default.hex}}',
   inverse_surface = '{{colors.inverse_surface.default.hex}}',
   on_background = '{{colors.on_background.default.hex}}',
-  on_background_custom = '{{colors.on_background_custom.default.hex}}',
-  on_background_custom_container = '{{colors.on_background_custom_container.default.hex}}',
   on_error = '{{colors.on_error.default.hex}}',
   on_error_container = '{{colors.on_error_container.default.hex}}',
   on_primary = '{{colors.on_primary.default.hex}}',

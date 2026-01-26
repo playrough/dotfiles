@@ -9,21 +9,30 @@
   box-shadow: none;
   outline: none;
   text-shadow: none;
+  padding: 0;
+  margin: 0;
 }
 
 window#waybar {
+  background: transparent;
+}
+
+.modules-center {
   background: alpha(@background_custom_value, 0.8);
+  padding: 4px 10px;
   color: @on_surface;
   border-radius: 20px;
 }
 
-window#waybar > box {
-  /* padding-left: 12px; */
-  /* padding-right: 12px; */
-  padding: 4px 10px;
+tooltip {
+  background: alpha(@surface_container, 0.9);
+  border-radius: 20px;
 }
 
-/* Nút workspace và custom */
+tooltip label {
+  padding: 6px;
+}
+
 #workspaces,
 #power-profiles-daemon,
 #custom-menu,
@@ -46,40 +55,27 @@ window#waybar > box {
 }
 
 #workspaces {
-  /* padding: 0px 12px; */
   padding-left: 0px;
   padding-right: 0px;
 }
 
 #workspaces button {
   color: alpha(@primary, 0.5);
-  min-width: 24px;
-  margin: 0 4px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 0;
+  margin: 0 2px;
+  padding: 0 6px;
   border-radius: 20px;
 }
 
 #workspaces button.active {
-  background: linear-gradient(
-    135deg,
-    @primary 0%,
-    mix(@primary, @tertiary, 0.5) 50%,
-    @tertiary 100%
-  );
-
+  background: linear-gradient(135deg, @primary 0%, @tertiary 50%, @error 100%);
   color: alpha(@background_custom_value, 0.8);
   font-weight: bold;
-  padding-left: 18px;
-  padding-right: 18px;
-  /* padding-top: 14px; */
-  /* padding-bottom: 14px; */
+  min-width: 52px;
   border-radius: 20px;
-  animation: 20s ease-in infinite;
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-/* Hover effect */
 #power-profiles-daemon:hover,
 #workspaces button:hover,
 #custom-menu:hover,
@@ -97,17 +93,14 @@ window#waybar > box {
   color: @primary;
 }
 
-/* ⏸ Paused */
 #mpris.paused {
   color: @error;
 }
 
-/* ⏹ Stopped */
 #mpris.stopped {
   color: @error;
 }
 
-/* Menu icon */
 #custom-menu {
   color: @primary;
 }
@@ -116,14 +109,9 @@ window#waybar > box {
   color: @error;
 }
 
-/* Padding cho tray */
 #tray {
   padding: 0 6px;
 }
-
-/* #battery { */
-/*   font-size: 16px; */
-/* } */
 
 #battery {
   color: #a6e3a1;
@@ -145,12 +133,7 @@ window#waybar > box {
   color: #89b4fa;
 }
 
-/* #clock { */
-/*   font-size: 18px; */
-/* } */
-
 #pulseaudio {
-  /* color: #f9e2af; */
   color: @primary;
 }
 

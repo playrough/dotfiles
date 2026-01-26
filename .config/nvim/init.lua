@@ -199,6 +199,18 @@ vim.keymap.set('n', '<space>st', function()
   end
 end)
 
+-- toggle LSP
+vim.keymap.set('n', '<leader>tl', function()
+  local clients = vim.lsp.get_active_clients { bufnr = 0 }
+  if #clients > 0 then
+    vim.cmd 'LspStop'
+    print 'LSP OFF'
+  else
+    vim.cmd 'LspStart'
+    print 'LSP ON'
+  end
+end, { desc = 'Toggle LSP' })
+
 local scrollOpts = { noremap = true, silent = true }
 
 vim.keymap.set('n', 'zl', '10zl', scrollOpts) -- scroll 10 chars sang phải

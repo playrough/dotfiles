@@ -1,22 +1,19 @@
-// -*- mode: jsonc -*-
 {
   "position": "top",
   "margin-top": 10,
-  "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
-  "width": 300,
+  // "margin-bottom": 0,
+  // "margin-left": 0,
+  // "margin-right": 0,
+  // "width": 300,
   // "custom/menu",
   // "custom/playerctl",
   // "custom/swaync",
   // "custom/power",
-  "modules-left": [
-    "clock"
-  ],
+  // "modules-left": [],
+  // "modules-right": [],
   "modules-center": [
-    "mpris"
-  ],
-  "modules-right": [
+    "clock",
+    "mpris",
     "hyprland/workspaces",
     "network",
     "pulseaudio",

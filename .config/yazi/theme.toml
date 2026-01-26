@@ -28,7 +28,6 @@ border_style  = { fg = "#81d3dd" }
 # : Indicator [[[
 
 [indicator]
-# padding = { open = "█", close = "█" }
 
 # : ]]]
 
@@ -64,15 +63,13 @@ unset_alt  = { bg = "#1a2121", fg = "#dee4e4" }
 # : Status [[[
 
 [status]
-# sep_left  = { open = "🭁", close = "🭠" }
-# sep_right = { open = "🭁", close = "🭠" }
 
 # Permissions
-perm_type  = { fg = "#58888f" }
-perm_write = { fg = "#4267c7" }
-perm_read  = { fg = "#ff2b12" }
-perm_exec  = { fg = "#3f70ff" }
-perm_sep   = { fg = "#0cd9f2" }
+perm_type  = { fg = "#afe3e9" }
+perm_write = { fg = "#b0c0e8" }
+perm_read  = { fg = "#ffa499" }
+perm_exec  = { fg = "#99b3ff" }
+perm_sep   = { fg = "#9ef0fa" }
 
 # Progress
 progress_label  = { bold = true }

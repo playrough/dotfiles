@@ -28,7 +28,6 @@ border_style  = { fg = "{{colors.surface_tint.default.hex}}" }
 # : Indicator [[[
 
 [indicator]
-# padding = { open = "█", close = "█" }
 
 # : ]]]
 
@@ -64,15 +63,13 @@ unset_alt  = { bg = "{{colors.surface_container.default.hex}}", fg = "{{colors.o
 # : Status [[[
 
 [status]
-# sep_left  = { open = "🭁", close = "🭠" }
-# sep_right = { open = "🭁", close = "🭠" }
 
 # Permissions
-perm_type  = { fg = "{{colors.secondary.default.hex | auto_lightness: 30.0}}" }
-perm_write = { fg = "{{colors.tertiary.default.hex | auto_lightness: 30.0}}" }
-perm_read  = { fg = "{{colors.error.default.hex | auto_lightness: 30.0}}" }
-perm_exec  = { fg = "{{colors.tertiary_fixed.default.hex | auto_lightness: 30.0}}" }
-perm_sep   = { fg = "{{colors.primary_fixed.default.hex | auto_lightness: 30.0}}" }
+perm_type  = { fg = "{{ colors.primary.default.hex | set_lightness: 80.0 }}" }
+perm_write = { fg = "{{ colors.tertiary.default.hex | set_lightness: 80.0 }}" }
+perm_read  = { fg = "{{ colors.error.default.hex | set_lightness: 80.0 }}" }
+perm_exec  = { fg = "{{ colors.tertiary_fixed.default.hex | set_lightness: 80.0 }}" }
+perm_sep   = { fg = "{{ colors.primary_fixed.default.hex | set_lightness: 80.0 }}" }
 
 # Progress
 progress_label  = { bold = true }

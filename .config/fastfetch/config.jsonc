@@ -7,10 +7,10 @@
     "width": 35,
     "height": 20,
     "color": {
-      "1": "#ffb4a6", // màu đỏ cho $1
-      "2": "#e7bdb5", // màu xanh lá cho $2
-      "3": "#ddc48c", // màu xanh dương cho $3
-      "4": "#f1dfdb" // màu xanh dương cho $3
+      "1": "#b6c4ff", // màu đỏ cho $1
+      "2": "#c2c5dd", // màu xanh lá cho $2
+      "3": "#e3bada", // màu xanh dương cho $3
+      "4": "#e3e1e9" // màu xanh dương cho $3
     },
     // "height": 5,
     "padding": {

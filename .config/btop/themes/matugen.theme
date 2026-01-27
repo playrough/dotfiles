@@ -61,7 +61,7 @@ theme[cpu_end]="#ffb4ab"
 # Mem/Disk free meter
 theme[free_start]="#b9c8da"
 theme[free_mid]=""
-theme[free_end]="#394857"
+theme[free_end]="#3a4857"
 
 # Mem/Disk cached meter
 theme[cached_start]="#d2bfe7"

@@ -8,14 +8,14 @@ find_keyword  = { fg = "#ffb4ab", bold = true, italic = true, underline = true }
 find_position = { fg = "#ffb4ab", bold = true, italic = true }
 
 # Marker
-marker_copied   = { fg = "#b976ff", bg = "#b976ff" }
-marker_cut      = { fg = "#eddcff", bg = "#eddcff" }
+marker_copied   = { fg = "#bc76ff", bg = "#bc76ff" }
+marker_cut      = { fg = "#eedcff", bg = "#eedcff" }
 marker_marked   = { fg = "#ffb4ab", bg = "#ffb4ab" }
 marker_selected = { fg = "#d2bfe7", bg = "#d2bfe7" }
 
 # Count
-count_copied   = { fg = "#221533", bg = "#eddcff" }
-count_cut      = { fg = "#221533", bg = "#eddcff" }
+count_copied   = { fg = "#221533", bg = "#eedcff" }
+count_cut      = { fg = "#221533", bg = "#eedcff" }
 count_selected = { fg = "#003352", bg = "#d2bfe7" }
 
 # Border
@@ -54,7 +54,7 @@ select_main = { bg = "#b9c8da", fg = "#233240", bold = true }
 select_alt  = { bg = "#1c2024", fg = "#e0e2e8" }
 
 # Unset mode
-unset_main = { bg = "#d2bfe7", fg = "#382a4a", bold = true }
+unset_main = { bg = "#d2bfe7", fg = "#382a49", bold = true }
 unset_alt  = { bg = "#1c2024", fg = "#e0e2e8" }
 
 # : ]]]
@@ -68,7 +68,7 @@ unset_alt  = { bg = "#1c2024", fg = "#e0e2e8" }
 perm_type  = { fg = "#9ecdfa" }
 perm_write = { fg = "#cbb5e3" }
 perm_read  = { fg = "#ffa499" }
-perm_exec  = { fg = "#cb99ff" }
+perm_exec  = { fg = "#cd99ff" }
 perm_sep   = { fg = "#99caff" }
 
 # Progress
@@ -135,7 +135,7 @@ border = { fg = "#9acbfa", bg = "#003352" }
 [tasks]
 border  = { fg = "#9acbfa" }
 title   = {}
-hovered = { fg = "#eddcff", underline = true }
+hovered = { fg = "#eedcff", underline = true }
 
 # : ]]]
 

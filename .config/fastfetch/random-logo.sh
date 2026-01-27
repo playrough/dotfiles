@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-LOGO_DIR="$HOME/.config/fastfetch/logo"
+LOGO_DIR="$HOME/.config/fastfetch/logo/guardian_tales/"
 
 # Nếu thư mục không tồn tại thì exit
 [ -d "$LOGO_DIR" ] || exit 0

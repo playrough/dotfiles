@@ -92,3 +92,8 @@ output_path = '~/.config/web/colors.css'
 [templates.cava]
 input_path = '~/.config/matugen/templates/matugen-cava'
 output_path = '~/.config/cava/config'
+
+
+[templates.yazi-feh]
+input_path = '~/.config/matugen/templates/yazi.toml'
+output_path = '~/.config/yazi/yazi.toml'

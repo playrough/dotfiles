@@ -1,4 +1,5 @@
-
+.config/lsd/
+.config/obs-studio/
 *.mp4
 .config/GIMP/
 .config/browsh/

@@ -152,13 +152,27 @@ alias pmtg="~/.local/bin/matugen-push.sh"
 # glow ~/notes/pinned.md
 alias cs='glow -t ~/notes/cheatsheet.md'
 alias ns='nvim ~/notes/'
-sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
+# sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
 
 alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Wallpapers/minato-naruto.gif'
 
 
 
-alias w='nmcli connection up'
+
+alias w='nmcli device wifi connect'
 alias wl='nmcli device wifi list'
 alias ws='nmcli device status'
 alias wt='nmcli radio wifi'
+alias wu='nmcli connection up'
+
+
+alias wf='nmcli -t -f IN-USE,SSID,SECURITY,SIGNAL device wifi list |
+awk -F: '"'"'{
+  mark = ($1=="*") ? "▌" : " ";
+  printf "%s %-25s %-12s %3s%%\t%s\n", mark, $2, $3, $4, $2;
+}'"'"' |
+fzf --ansi |
+awk -F"\t" "{print \$2}" |
+xargs -r -I{} nmcli device wifi connect "{}"'
+
+fastfetch

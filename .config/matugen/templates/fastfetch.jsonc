@@ -1,23 +1,19 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    // "type": "file",
     "type": "auto",
-    "source": "~/.config/fastfetch/logo/future-knight.png",
+    "source": "$(~/.config/fastfetch/random-logo.sh)",
     "width": 35,
     "height": 20,
     "color": {
-      "1": "{{colors.primary.default.hex}}", // màu đỏ cho $1
-      "2": "{{colors.secondary.default.hex}}", // màu xanh lá cho $2
-      "3": "{{colors.tertiary.default.hex}}", // màu xanh dương cho $3
-      "4": "{{colors.on_background.default.hex}}" // màu xanh dương cho $3
+      "1": "{{colors.primary.default.hex}}",
+      "2": "{{colors.secondary.default.hex}}",
+      "3": "{{colors.tertiary.default.hex}}",
+      "4": "{{colors.on_background.default.hex}}"
     },
-    // "height": 5,
     "padding": {
-      // "left": 2,
-      // "right": 4,
-      // "top": 2,
-      // "bottom": 5
+      "left": 1,
+      "right": 4,
     },
   },
   "display": {

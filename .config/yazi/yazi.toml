@@ -3,11 +3,11 @@ image_quality = 90
 max_width = 65535
 max_height = 65535
 
+
 [tasks]
 micro_workers    = 10
 macro_workers    = 10
 bizarre_retry    = 3
-# image_alloc      = 536870912
 image_bound      = [ 65535, 65535 ]
 suppress_preload = false
 image_alloc      = 1073741824        # = 1024*1024*1024 = 1024MB

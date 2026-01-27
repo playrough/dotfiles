@@ -81,10 +81,6 @@ input_path = './templates/nvim.lua'
 output_path = '~/.config/nvim/lua/generated.lua'
 post_hook = 'pkill -SIGUSR1 nvim || true'
 
-[templates.fastfetch]
-input_path = './templates/fastfetch.jsonc'
-output_path = '~/.config/fastfetch/config.jsonc'
-
 [templates.web]
 input_path = './templates/web-colors.css'
 output_path = '~/.config/web/colors.css'

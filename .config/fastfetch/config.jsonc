@@ -3,49 +3,45 @@
   "logo": {
     "type": "auto",
     "source": "$(~/.config/fastfetch/random-logo.sh)",
-    "width": 35,
     "height": 20,
-    "color": {
-      "1": "#81d3dd",
-      "2": "#b1cbcf",
-      "3": "#b8c6ea",
-      "4": "#dee4e4"
-    },
     "padding": {
       "left": 1,
-      "right": 4,
-    },
+      "right": 2,
+      "top": 1
+    }
   },
   "display": {
-    "separator": "  ",
+    "separator": "  "
   },
   "modules": [
     // Title
     {
       "type": "title",
-      "format": "{#1}╭───────────── {#}{user-name-colored}",
+      "format": "{#1}╭───────────── {#}{user-name-colored}"
     },
     // System Information
     {
       "type": "custom",
-      "format": "{#1}│ {#}System Information",
+      "format": "{#1}│ {#}System Information"
     },
     {
       "type": "os",
       "key": "{#separator}│  {#keys}󰍹 OS      ",
+      "format": "{name}"
     },
     {
       "type": "kernel",
       "key": "{#separator}│  {#keys}󰒋 Kernel  ",
+      "format": "{release}"
     },
     {
       "type": "uptime",
-      "key": "{#separator}│  {#keys}󰅐 Uptime  ",
+      "key": "{#separator}│  {#keys}󰅐 Uptime  "
     },
     {
       "type": "packages",
       "key": "{#separator}│  {#keys}󰏖 Packages",
-      "format": "{all}",
+      "format": "{all}"
     },
     {
       "type": "datetime",
@@ -54,66 +50,74 @@
     },
     {
       "type": "custom",
-      "format": "{#1}│",
+      "format": "{#1}│"
     },
     // Desktop Environment
     {
       "type": "custom",
-      "format": "{#1}│ {#}Desktop Environment",
+      "format": "{#1}│ {#}Desktop Environment"
     },
     {
       "type": "de",
-      "key": "{#separator}│  {#keys}󰧨 DE      ",
+      "key": "{#separator}│  {#keys}󰧨 DE      "
     },
     {
       "type": "wm",
       "key": "{#separator}│  {#keys}󱂬 WM      ",
+      "format": "{pretty-name}"
     },
     {
       "type": "wmtheme",
-      "key": "{#separator}│  {#keys}󰉼 Theme     ",
+      "key": "{#separator}│  {#keys}󰉼 Theme     "
     },
     {
       "type": "display",
       "key": "{#separator}│  {#keys}󰹑 Display ",
+      "format": "{width}x{height} @{refresh-rate}Hz"
     },
     {
       "type": "shell",
       "key": "{#separator}│  {#keys}󰞷 Shell   ",
+      "format": "{pretty-name}"
     },
     {
       "type": "terminalfont",
       "key": "{#separator}│  {#keys}󰛖 Font    ",
+      "format": "{name}"
     },
     {
       "type": "custom",
-      "format": "{#1}│",
+      "format": "{#1}│"
     },
     // Hardware Information
     {
       "type": "custom",
-      "format": "{#1}│ {#}Hardware Information      ",
+      "format": "{#1}│ {#}Hardware Information      "
     },
     {
       "type": "cpu",
       "key": "{#separator}│  {#keys}󰻠 CPU     ",
+      "format": "{name}"
     },
     {
       "type": "gpu",
       "key": "{#separator}│  {#keys}󰢮 GPU     ",
+      "format": "{name}"
     },
     {
       "type": "memory",
       "key": "{#separator}│  {#keys}󰍛 Memory  ",
+      "format": "{used} / {total} ({percentage}%)"
     },
     {
       "type": "disk",
       "key": "{#separator}│  {#keys}󰋊 Disk    ",
       "folders": "/",
+      "format": "{size-used} / {size-total} ({size-percentage}%)"
     },
     {
       "type": "custom",
-      "format": "{#1}│",
+      "format": "{#1}│"
     },
     {
       "type": "custom",
@@ -129,12 +133,11 @@
     // Footer
     {
       "type": "custom",
-      // "format": "{#1}╰─────────────────────────────────────────────────────────╯",
-      "format": "{#1}╰──────────────────────────",
+      "format": "{#1}╰──────────────────────────"
     },
     {
       "type": "custom",
       "format": "\n"
     }
-  ],
+  ]
 }

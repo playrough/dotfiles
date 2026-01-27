@@ -154,7 +154,7 @@ alias cs='glow -t ~/notes/cheatsheet.md'
 alias ns='nvim ~/notes/'
 # sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
 
-alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Wallpapers/minato-naruto.gif'
+alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/minato-naruto.gif'
 
 
 

@@ -3,7 +3,9 @@
 > **Main modifier:** `SUPER`
 > Window Manager: **Hyprland**
 
-## Core Actions
+##    Core Actions
+
+
 
 | Keybinding          | Action                                     |
 | ------------------- | ------------------------------------------ |
@@ -18,7 +20,7 @@
 | `SUPER + END`       | Exit Hyprland                              |
 
 
-## Utilities
+##    Utilities
 
 | Keybinding          | Action                       |
 | ------------------- | ---------------------------- |
@@ -32,7 +34,7 @@
 | `SUPER + SHIFT + O` | Toggle Window Opacity        |
 
 
-## Screenshots
+##  󰄀  Screenshots
 
 | Keybinding              | Mode             |
 | ----------------------- | ---------------- |
@@ -42,7 +44,7 @@
 
 Saved to: `~/Screenshots`
 
-## Layout Control
+##  󰕮  Layout Control
 
 | Keybinding          | Action                    |
 | ------------------- | ------------------------- |
@@ -52,7 +54,7 @@ Saved to: `~/Screenshots`
 | `SUPER + SHIFT + F` | True Fullscreen           |
 
 
-## Window Navigation
+##    Window Navigation
 
 | Keybinding    | Direction                      |
 | ------------- | ------------------------------ |
@@ -63,7 +65,7 @@ Saved to: `~/Screenshots`
 | `SUPER + TAB` | Cycle Windows Focus                  |
 
 
-## Window Movement
+##    Window Movement
 
 | Keybinding          | Direction         |
 | ------------------- | ----------------- |
@@ -73,7 +75,7 @@ Saved to: `~/Screenshots`
 | `SUPER + SHIFT + J` | Move Window Down  |
 
 
-## Workspaces
+##  󰿪  Workspaces
 ### Switch Workspace
 
 | Key                   | Workspace             |
@@ -91,7 +93,7 @@ Saved to: `~/Screenshots`
 | `SUPER + SHIFT + 0`    | Move to WS 10    |
 
 
-## Special Workspace
+##  󱊆  Special Workspace
 
 | Keybinding          | Action                             |
 | ------------------- | ---------------------------------- |
@@ -99,7 +101,7 @@ Saved to: `~/Screenshots`
 | `SUPER + SHIFT + S` | Move Window to Special WS          |
 
 
-## Floating Window (Mouse)
+##  󱟱  Floating Window
 
 | Keybinding            | Action        |
 | --------------------- | ------------- |
@@ -107,7 +109,7 @@ Saved to: `~/Screenshots`
 | `SUPER + Right Click` | Resize Window |
 
 
-## Pixel-Perfect Floating Control
+##  󰘷  Pixel-Perfect Floating Control
 
 ### Move (10px)
 
@@ -123,7 +125,7 @@ Saved to: `~/Screenshots`
 | `ALT + SHIFT + H/L/K/J` | Resize Window |
 
 
-## Multimedia & Brightness
+##    Multimedia & Brightness
 
 | Key                     | Action         |
 | ----------------------- | -------------- |
@@ -139,7 +141,7 @@ Saved to: `~/Screenshots`
 | `SUPER + X`             | Play / Pause   |
 
 
-## Legend
+##  󰨁  Legend
 - `SUPER` = Windows / Command key
 - `H J K L` = Vim-style navigation
 - `SHIFT` = Move / Modify

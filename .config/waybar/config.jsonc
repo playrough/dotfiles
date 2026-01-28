@@ -135,7 +135,7 @@
   },
   "mpris": {
     "format": "{status_icon} {title}",
-    "title-len": 12,
+    "title-len": 25,
     "status-icons": {
       "playing": "",
       "paused": "",

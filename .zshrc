@@ -143,7 +143,7 @@ fi
 
 alias nv='nvim'
 alias y='yazi'
-alias ym='yazi ~/Downloads/Wallpapers/'
+alias yw='yazi ~/Downloads/Wallpapers/'
 
 alias rz="source ~/.zshrc"
 alias ez="nvim ~/.zshrc"

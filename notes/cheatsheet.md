@@ -8,11 +8,11 @@
 | Keybinding          | Action                                     |
 | ------------------- | ------------------------------------------ |
 | `SUPER + T`         | Open Terminal                              |
-| `SUPER + SHIFT + T` | Open Floating Terminal (950×520, centered) |
-| `SUPER + E`         | Open Yazi (terminal file manager)          |
+| `SUPER + SHIFT + T` | Open Floating Terminal                     |
+| `SUPER + E`         | Open Yazi                                  |
 | `SUPER + W`         | Open Browser                               |
 | `SUPER + C`         | Open Text Editor                           |
-| `SUPER + D`         | App Launcher / Menu                        |
+| `SUPER + D`         | Open Menu                                  |
 | `SUPER + O`         | Open Obsidian                              |
 | `SUPER + Q`         | Kill Active Window                         |
 | `SUPER + END`       | Exit Hyprland                              |
@@ -22,11 +22,11 @@
 
 | Keybinding          | Action                       |
 | ------------------- | ---------------------------- |
-| `SUPER + DELETE`    | Lock Screen (hyprlock)       |
+| `SUPER + DELETE`    | Lock Screen                  |
 | `SUPER + ESC`       | Logout Menu                  |
 | `SUPER + R`         | Restart Waybar               |
-| `SUPER + SHIFT + R` | Reload Waybar (SIGUSR1)      |
-| `SUPER + SPACE`     | Toggle Input Method (fcitx5) |
+| `SUPER + SHIFT + R` | Reload Waybar                |
+| `SUPER + SPACE`     | Toggle Input Method          |
 | `SUPER + V`         | Toggle Floating              |
 | `SUPER + SHIFT + V` | Toggle Half / Full Float     |
 | `SUPER + SHIFT + O` | Toggle Window Opacity        |
@@ -48,7 +48,7 @@ Saved to: `~/Screenshots`
 | ------------------- | ------------------------- |
 | `SUPER + P`         | Toggle Pseudo             |
 | `SUPER + G`         | Toggle Split              |
-| `SUPER + F`         | Toggle Fullscreen (state) |
+| `SUPER + F`         | Toggle Fullscreen         |
 | `SUPER + SHIFT + F` | True Fullscreen           |
 
 
@@ -60,7 +60,7 @@ Saved to: `~/Screenshots`
 | `SUPER + L`   | Focus Right                    |
 | `SUPER + K`   | Focus Up                       |
 | `SUPER + J`   | Focus Down                     |
-| `SUPER + TAB` | Cycle Windows + Bring to Front |
+| `SUPER + TAB` | Cycle Windows Focus                  |
 
 
 ## Window Movement
@@ -95,7 +95,7 @@ Saved to: `~/Screenshots`
 
 | Keybinding          | Action                             |
 | ------------------- | ---------------------------------- |
-| `SUPER + S`         | Toggle Special Workspace (`magic`) |
+| `SUPER + S`         | Toggle Special Workspace           |
 | `SUPER + SHIFT + S` | Move Window to Special WS          |
 
 

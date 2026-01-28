@@ -89,7 +89,10 @@ output_path = '~/.config/web/colors.css'
 input_path = '~/.config/matugen/templates/matugen-cava'
 output_path = '~/.config/cava/config'
 
-
 [templates.yazi-feh]
 input_path = '~/.config/matugen/templates/yazi.toml'
 output_path = '~/.config/yazi/yazi.toml'
+
+[templates.mpv]
+input_path = '~/.config/matugen/templates/mpv.conf'
+output_path = '~/.config/mpv/mpv.conf'

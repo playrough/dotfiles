@@ -43,5 +43,5 @@ prepend_rules = [
 
 [opener]
 feh = [
-  { run = "feh -B '#0e1514' --scale-down --geometry 1600x900 \"$1\"", desc = "Open image with feh", for = "unix" },
+  { run = "feh -B '#121318' --scale-down --geometry 1600x900 \"$1\"", desc = "Open image with feh", for = "unix" },
 ]

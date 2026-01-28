@@ -1,134 +1,146 @@
 # Hyprland Keybindings Cheatsheet
 
 > **Main modifier:** `SUPER`
+> Window Manager: **Hyprland**
 
----
+## Core Actions
 
-## 󰑣 Core Actions
+| Keybinding          | Action                                     |
+| ------------------- | ------------------------------------------ |
+| `SUPER + T`         | Open Terminal                              |
+| `SUPER + SHIFT + T` | Open Floating Terminal (950×520, centered) |
+| `SUPER + E`         | Open Yazi (terminal file manager)          |
+| `SUPER + W`         | Open Browser                               |
+| `SUPER + C`         | Open Text Editor                           |
+| `SUPER + D`         | App Launcher / Menu                        |
+| `SUPER + O`         | Open Obsidian                              |
+| `SUPER + Q`         | Kill Active Window                         |
+| `SUPER + END`       | Exit Hyprland                              |
 
-| Key       | Action                 |
-| --------- | ---------------------- |
-| SUPER + T | Open terminal          |
-| SUPER + W | Open browser           |
-| SUPER + C | Open text editor       |
-| SUPER + D | Open app launcher      |
-| SUPER + O | Open Obsidian          |
-| SUPER + E | Open Yazi file manager |
-| SUPER + Q | Close active window    |
-| SUPER + M | Exit Hyprland          |
 
----
+## Utilities
 
-##  Utilities
+| Keybinding          | Action                       |
+| ------------------- | ---------------------------- |
+| `SUPER + DELETE`    | Lock Screen (hyprlock)       |
+| `SUPER + ESC`       | Logout Menu                  |
+| `SUPER + R`         | Restart Waybar               |
+| `SUPER + SHIFT + R` | Reload Waybar (SIGUSR1)      |
+| `SUPER + SPACE`     | Toggle Input Method (fcitx5) |
+| `SUPER + V`         | Toggle Floating              |
+| `SUPER + SHIFT + V` | Toggle Half / Full Float     |
+| `SUPER + SHIFT + O` | Toggle Window Opacity        |
 
-| Key               | Action                       |
-| ----------------- | ---------------------------- |
-| SUPER + DELETE    | Lock screen (hyprlock)       |
-| SUPER + ESC       | Logout menu                  |
-| SUPER + R         | Reload Waybar                |
-| SUPER + SHIFT + R | Restart Waybar               |
-| SUPER + SPACE     | Toggle input method (fcitx5) |
-| SUPER + V         | Toggle floating window       |
-| SUPER + SHIFT + O | Toggle window opacity        |
 
----
+## Screenshots
 
-##  Screenshots
+| Keybinding              | Mode             |
+| ----------------------- | ---------------- |
+| `PRINT`                 | Active Output    |
+| `SUPER + PRINT`         | Active Window    |
+| `SUPER + SHIFT + PRINT` | Region Selection |
 
-| Key                   | Action            |
-| --------------------- | ----------------- |
-| PRINT                 | Screenshot output |
-| SUPER + PRINT         | Screenshot window |
-| SUPER + SHIFT + PRINT | Screenshot region |
+Saved to: `~/Screenshots`
 
----
+## Layout Control
 
-##  Layout Control
+| Keybinding          | Action                    |
+| ------------------- | ------------------------- |
+| `SUPER + P`         | Toggle Pseudo             |
+| `SUPER + G`         | Toggle Split              |
+| `SUPER + F`         | Toggle Fullscreen (state) |
+| `SUPER + SHIFT + F` | True Fullscreen           |
 
-| Key               | Action               |
-| ----------------- | -------------------- |
-| SUPER + P         | Toggle pseudo tiling |
-| SUPER + G         | Toggle split         |
-| SUPER + F         | Fullscreen (smart)   |
-| SUPER + SHIFT + F | Fullscreen (force)   |
 
----
+## Window Navigation
 
-##  Window Navigation (Vim-style)
+| Keybinding    | Direction                      |
+| ------------- | ------------------------------ |
+| `SUPER + H`   | Focus Left                     |
+| `SUPER + L`   | Focus Right                    |
+| `SUPER + K`   | Focus Up                       |
+| `SUPER + J`   | Focus Down                     |
+| `SUPER + TAB` | Cycle Windows + Bring to Front |
 
-| Key         | Direction     |
-| ----------- | ------------- |
-| SUPER + H   | Focus left    |
-| SUPER + L   | Focus right   |
-| SUPER + K   | Focus up      |
-| SUPER + J   | Focus down    |
-| SUPER + TAB | Cycle windows |
 
----
+## Window Movement
 
-##  Move Windows
+| Keybinding          | Direction         |
+| ------------------- | ----------------- |
+| `SUPER + SHIFT + H` | Move Window Left  |
+| `SUPER + SHIFT + L` | Move Window Right |
+| `SUPER + SHIFT + K` | Move Window Up    |
+| `SUPER + SHIFT + J` | Move Window Down  |
 
-| Key               | Action            |
-| ----------------- | ----------------- |
-| SUPER + SHIFT + H | Move window left  |
-| SUPER + SHIFT + L | Move window right |
-| SUPER + SHIFT + K | Move window up    |
-| SUPER + SHIFT + J | Move window down  |
 
----
+## Workspaces
+### Switch Workspace
 
-## 󱂬 Workspaces
+| Key                   | Workspace             |
+| --------------------- | --------------------- |
+| `SUPER + 1..9`        | Workspace 1 → 9       |
+| `SUPER + 0`           | Workspace 10          |
+| `SUPER + Mouse Wheel` | Next / Prev Workspace |
 
-### Switch workspace
 
-`SUPER + [1–9]` → Workspace 1–9
-`SUPER + 0` → Workspace 10
+### Move Window to Workspace
 
-### Move window to workspace
+| Key                    | Workspace        |
+| ---------------------- | ---------------- |
+| `SUPER + SHIFT + 1..9` | Move to WS 1 → 9 |
+| `SUPER + SHIFT + 0`    | Move to WS 10    |
 
-`SUPER + SHIFT + [1–9]`
-`SUPER + SHIFT + 0`
 
----
+## Special Workspace
 
-##  Special Workspace
+| Keybinding          | Action                             |
+| ------------------- | ---------------------------------- |
+| `SUPER + S`         | Toggle Special Workspace (`magic`) |
+| `SUPER + SHIFT + S` | Move Window to Special WS          |
 
-| Key               | Action                           |
-| ----------------- | -------------------------------- |
-| SUPER + S         | Toggle special workspace (magic) |
-| SUPER + SHIFT + S | Move window to special workspace |
 
----
+## Floating Window (Mouse)
 
-##  Mouse Actions
+| Keybinding            | Action        |
+| --------------------- | ------------- |
+| `SUPER + Left Click`  | Move Window   |
+| `SUPER + Right Click` | Resize Window |
 
-| Key                 | Action           |
-| ------------------- | ---------------- |
-| SUPER + Left Click  | Move window      |
-| SUPER + Right Click | Resize window    |
-| SUPER + Scroll      | Switch workspace |
 
----
+## Pixel-Perfect Floating Control
 
-## 󰘔 Floating Window Fine Control
+### Move (10px)
 
-### Move (pixel)
+| Keybinding      | Direction                |
+| --------------- | ------------------------ |
+| `ALT + H/L/K/J` | Left / Right / Up / Down |
 
-`ALT + H/J/K/L`
 
-### Resize (pixel)
+### Resize (20px)
 
-`ALT + SHIFT + H/J/K/L`
+| Keybinding              | Direction     |
+| ----------------------- | ------------- |
+| `ALT + SHIFT + H/L/K/J` | Resize Window |
 
----
 
-##  Media & Brightness
+## Multimedia & Brightness
 
-| Key                | Action            |
-| ------------------ | ----------------- |
-| Volume Up/Down     | Adjust volume     |
-| Mute               | Toggle mute       |
-| Mic Mute           | Toggle mic        |
-| Brightness Up/Down | Adjust brightness |
-| Media Play/Pause   | Toggle playback   |
-| Media Next/Prev    | Control media     |
+| Key                     | Action         |
+| ----------------------- | -------------- |
+| `XF86AudioRaiseVolume`  | Volume +5%     |
+| `XF86AudioLowerVolume`  | Volume -5%     |
+| `XF86AudioMute`         | Toggle Mute    |
+| `XF86AudioMicMute`      | Toggle Mic     |
+| `XF86MonBrightnessUp`   | Brightness +5% |
+| `XF86MonBrightnessDown` | Brightness -5% |
+| `XF86AudioNext`         | Next Track     |
+| `XF86AudioPrev`         | Previous Track |
+| `XF86AudioPlay / Pause` | Play / Pause   |
+| `SUPER + X`             | Play / Pause   |
+
+
+## Legend
+- `SUPER` = Windows / Command key
+- `H J K L` = Vim-style navigation
+- `SHIFT` = Move / Modify
+- `ALT` = Pixel-level control

@@ -152,14 +152,15 @@ alias mtg="~/.local/bin/matugen-fzf.sh"
 alias pmtg="~/.local/bin/matugen-push.sh"
 
 
-# glow ~/notes/pinned.md
-alias cs='glow -t ~/notes/cheatsheet.md'
 alias ns='nvim ~/notes/'
 # sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
 
 alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/minato-naruto.gif'
 
 
+export MOOR='--no-linenumbers --no-statusbar'
+export PAGER=moor
+alias cs="glow --style='$HOME/.config/glow/glow-style.json' -p notes/cheatsheet.md"
 
 
 alias w='nmcli device wifi connect'

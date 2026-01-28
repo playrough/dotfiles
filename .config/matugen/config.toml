@@ -96,3 +96,8 @@ output_path = '~/.config/yazi/yazi.toml'
 [templates.mpv]
 input_path = '~/.config/matugen/templates/mpv.conf'
 output_path = '~/.config/mpv/mpv.conf'
+
+[templates.glow]
+input_path = '~/.config/matugen/templates/glow.json'
+output_path = '~/.config/glow/glow-style.json'
+

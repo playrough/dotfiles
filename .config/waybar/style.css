@@ -18,7 +18,7 @@ window#waybar {
 }
 
 .modules-center {
-  background: alpha(@background, 0.8);
+  background: alpha(@background, 0.78);
   padding: 4px 10px;
   color: @on_surface;
   border-radius: 20px;

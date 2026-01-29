@@ -143,7 +143,7 @@ Saved to: `~/Screenshots`
 
 
 ##  󰨁  Legend
-- `SUPER` = Windows / Command key
-- `H J K L` = Vim-style navigation
-- `SHIFT` = Move / Modify
-- `ALT` = Pixel-level control
+`SUPER` = Windows / Command key
+`H J K L` = Vim-style navigation
+`SHIFT` = Move / Modify
+`ALT` = Pixel-level control

@@ -22,7 +22,7 @@
     // System Information
     {
       "type": "custom",
-      "format": "{#32}│ {#32}System Information"
+      "format": "{#32}├── {#32}System Information"
     },
     {
       "type": "os",
@@ -55,7 +55,7 @@
     // Desktop Environment
     {
       "type": "custom",
-      "format": "{#32}│ {#32}Desktop Environment"
+      "format": "{#32}├── {#32}Desktop Environment"
     },
     {
       "type": "de",
@@ -92,7 +92,7 @@
     // Hardware Information
     {
       "type": "custom",
-      "format": "{#32}│ {#32}Hardware Information      "
+      "format": "{#32}├── {#32}Hardware Information      "
     },
     {
       "type": "cpu",
@@ -107,13 +107,13 @@
     {
       "type": "memory",
       "key": "{#32}│  {#32}󰍛 Memory  ",
-      "format": "{used} / {total} ({percentage}%)"
+      "format": "{used} / {total} ({percentage})"
     },
     {
       "type": "disk",
       "key": "{#32}│  {#32}󰋊 Disk    ",
       "folders": "/",
-      "format": "{size-used} / {size-total} ({size-percentage}%)"
+      "format": "{size-used} / {size-total} ({size-percentage})"
     },
     {
       "type": "custom",

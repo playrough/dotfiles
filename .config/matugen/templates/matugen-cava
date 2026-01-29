@@ -229,7 +229,7 @@
 
 # SDL and sdl_glsl only support hex code colors, these are the default:
 ; background = '#111111'
-; foreground = '#33ffff'
+foreground = '{{colors.primary.default.hex}}'
 
 # these are default
 # Gradient mode, only hex defined colors are supported,
@@ -247,11 +247,11 @@
 ; gradient_color_8 = '#cc3333'
 
 # for matugen
-gradient = 1
-gradient_count = 3
-gradient_color_1 = '{{colors.primary.default.hex}}'
-gradient_color_2 = '{{colors.tertiary.default.hex}}'
-gradient_color_3 = '{{colors.error.default.hex}}'
+gradient = 0
+# gradient_count = 3
+# gradient_color_1 = '{{colors.primary.default.hex}}'
+# gradient_color_2 = '{{colors.tertiary.default.hex}}'
+# gradient_color_3 = '{{colors.error.default.hex}}'
 
 
 [smoothing]

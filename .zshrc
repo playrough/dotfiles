@@ -1,7 +1,5 @@
 
-export LESSUTFCHARDEF="e000-e07f:w,e080-f8ff:p,f0001-fffff:w"
-
-export LD_PRELOAD=/usr/lib/libiconv.so.2
+# export LD_PRELOAD=/usr/lib/libiconv.so.2
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -116,20 +114,12 @@ source $ZSH/oh-my-zsh.sh
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# cuối .zshrc
-# cuối .zshrc
-#
-
-
 
 # Created by `pipx` on 2025-10-29 08:50:16
 export PATH="$PATH:/home/ether/.local/bin"
 
-
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
-# Fast Update Repo
-alias dotup='dot add -u && dot commit -m "update" && dot push'
 
 # Use lsd instead of ls
 if command -v lsd >/dev/null 2>&1; then
@@ -143,7 +133,6 @@ fi
 
 alias nv='nvim'
 alias y='yazi'
-alias yw='yazi ~/Downloads/Wallpapers/'
 
 alias rz="source ~/.zshrc"
 alias ez="nvim ~/.zshrc"
@@ -151,24 +140,23 @@ alias ez="nvim ~/.zshrc"
 alias mtg="~/.local/bin/matugen-fzf.sh"
 alias pmtg="~/.local/bin/matugen-push.sh"
 
-
+#nvim note
 alias ns='nvim ~/notes/'
 # sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
 
-alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/minato-naruto.gif'
+# Pager
+export PAGER=ov
 
+# glow
+alias glow="glow --style='$HOME/.config/glow/glow-style.json'"
+alias cs="glow -p notes/cheatsheet.md"
 
-export MOOR='--no-linenumbers --no-statusbar'
-export PAGER=moor
-alias cs="glow --style='$HOME/.config/glow/glow-style.json' -p notes/cheatsheet.md"
-
-
+# wifi
 alias w='nmcli device wifi connect'
 alias wl='nmcli device wifi list'
 alias ws='nmcli device status'
 alias wt='nmcli radio wifi'
 alias wu='nmcli connection up'
-
 
 alias wf='nmcli -t -f IN-USE,SSID,SECURITY,SIGNAL device wifi list |
 awk -F: '"'"'{
@@ -178,5 +166,8 @@ awk -F: '"'"'{
 fzf --ansi |
 awk -F"\t" "{print \$2}" |
 xargs -r -I{} nmcli device wifi connect "{}"'
+
+
+alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/minato-naruto.gif'
 
 fastfetch

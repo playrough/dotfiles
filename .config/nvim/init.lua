@@ -270,6 +270,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- vim.api.nvim_create_autocmd('RecordingEnter', {
+--   callback = function()
+--     vim.opt.cmdheight = 1
+--   end,
+-- })
+-- vim.api.nvim_create_autocmd('RecordingLeave', {
+--   callback = function()
+--     vim.opt.cmdheight = 0
+--   end,
+-- })
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -296,6 +307,15 @@ rtp:prepend(lazypath)
 --    :Lazy update
 --
 -- NOTE: Here is where you install your plugins.
+
+local function macro_recording()
+  local reg = vim.fn.reg_recording()
+  if reg == '' then
+    return ''
+  end
+  return ' REC @' .. reg
+end
+
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
@@ -1641,6 +1661,8 @@ require('lazy').setup({
   --     vim.cmd 'colorscheme carbonfox'
   --   end,
   -- },
+  --
+
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }, -- Optional, but recommended for icons
@@ -1689,7 +1711,11 @@ require('lazy').setup({
       For a full list of built-in components, see :help lualine-components
       --]]
         lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-        -- lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_b = {
+          {
+            macro_recording,
+          },
+        },
         -- lualine_c = {
         --   { 'filename', path = 1 }, -- path = 1 shows filename relative to CWD
         --   -- You could also add things like:

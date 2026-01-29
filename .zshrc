@@ -141,7 +141,7 @@ alias mtg="~/.local/bin/matugen-fzf.sh"
 alias pmtg="~/.local/bin/matugen-push.sh"
 
 #nvim note
-alias ns='nvim ~/notes/'
+alias nvn='nvim ~/notes/'
 # sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
 
 # Pager

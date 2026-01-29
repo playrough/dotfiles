@@ -177,3 +177,67 @@ rules = [
 ]
 
 # : ]]]
+
+
+[icon]
+
+# ─────────────────────────────────────────
+# DIRS – navigation & content groups
+# ─────────────────────────────────────────
+dirs = [
+	# System / config (quan trọng)
+	{ name = ".config",  text = "", fg = "{{colors.primary.default.hex}}" },
+
+	# VCS / dev infra
+	{ name = ".git",     text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = ".github",  text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = ".npm",     text = "", fg = "{{colors.primary.default.hex}}" },
+
+	# User navigation (core)
+	{ name = "Desktop",     text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = "Documents",   text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = "Downloads",   text = "", fg = "{{colors.primary.default.hex}}" },
+
+	# Development / work
+	{ name = "Development", text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = "Library",     text = "", fg = "{{colors.primary.default.hex}}" },
+
+	# Media (tiêu thụ nội dung)
+	{ name = "Music",    text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = "Pictures", text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = "Movies",   text = "", fg = "{{colors.primary.default.hex}}" },
+	{ name = "Videos",   text = "", fg = "{{colors.primary.default.hex}}" },
+
+	# Public / share (ít quan trọng hơn)
+	{ name = "Public", text = "", fg = "{{colors.primary.default.hex}}" },
+]
+
+# ─────────────────────────────────────────
+# CONDS – semantic by metadata
+# ─────────────────────────────────────────
+conds = [
+	# ── Error / broken
+	{ if = "orphan", text = "", fg = "{{colors.error.default.hex}}" },
+	{ if = "dummy",  text = "", fg = "{{colors.error_container.default.hex}}" },
+
+	# ── Reference / link
+	{ if = "link", text = "", fg = "{{colors.outline_variant.default.hex}}" },
+
+	# ── Devices / system special
+	{ if = "block", text = "", fg = "{{colors.outline.default.hex}}" },
+	{ if = "char",  text = "", fg = "{{colors.outline.default.hex}}" },
+	{ if = "fifo",  text = "", fg = "{{colors.outline.default.hex}}" },
+	{ if = "sock",  text = "", fg = "{{colors.outline.default.hex}}" },
+	{ if = "sticky",text = "", fg = "{{colors.outline_variant.default.hex}}" },
+
+	# ── Executable (actionable)
+	{ if = "exec", text = "", fg = "{{colors.primary.default.hex}}" },
+
+	# ── Fallbacks
+	{ if = "dir",  text = "", fg = "{{colors.primary.default.hex}}" },
+	{ if = "!dir", text = "", fg = "{{colors.primary.default.hex}}" },
+]
+
+prepend_conds = [
+	{ if = "dir",           text = "" },  # Directories
+]

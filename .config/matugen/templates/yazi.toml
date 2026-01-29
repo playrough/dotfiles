@@ -45,3 +45,4 @@ prepend_rules = [
 feh = [
   { run = "feh -B '{{colors.background.default.hex}}' --scale-down --geometry 1600x900 \"$1\"", desc = "Open image with feh", for = "unix" },
 ]
+

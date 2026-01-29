@@ -142,7 +142,6 @@ alias pmtg="~/.local/bin/matugen-push.sh"
 
 #nvim note
 alias nvn='nvim ~/notes/'
-# sed "s/{{DATE}}/$(date '+%A · %d\/%m\/%Y')/" ~/notes/pinned.md | glow -
 
 # Pager
 export PAGER=ov

@@ -148,7 +148,7 @@ export PAGER=ov
 
 # glow
 alias glow="glow --style='$HOME/.config/glow/glow-style.json'"
-alias cs="glow -p notes/cheatsheet.md"
+alias cs="glow -p notes/cheatsheet.md -w 65"
 
 # wifi
 alias w='nmcli device wifi connect'

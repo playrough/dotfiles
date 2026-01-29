@@ -7,31 +7,31 @@
 
 
 
-| Keybinding          | Action                                     |
-| ------------------- | ------------------------------------------ |
-| `SUPER + T`         | Open Terminal                              |
-| `SUPER + SHIFT + T` | Open Floating Terminal                     |
-| `SUPER + E`         | Open Yazi                                  |
-| `SUPER + W`         | Open Browser                               |
-| `SUPER + C`         | Open Text Editor                           |
-| `SUPER + D`         | Open Menu                                  |
-| `SUPER + O`         | Open Obsidian                              |
-| `SUPER + Q`         | Kill Active Window                         |
-| `SUPER + END`       | Exit Hyprland                              |
+| Keybinding          | Action                   |
+| ------------------- | ------------------------ |
+| `SUPER + T`         | Open Terminal            |
+| `SUPER + SHIFT + T` | Open Floating Terminal   |
+| `SUPER + E`         | Open Yazi                |
+| `SUPER + W`         | Open Browser             |
+| `SUPER + C`         | Open Text Editor         |
+| `SUPER + D`         | Open Menu                |
+| `SUPER + O`         | Open Obsidian            |
+| `SUPER + Q`         | Kill Active Window       |
+| `SUPER + END`       | Exit Hyprland            |
 
 
 ##    Utilities
 
-| Keybinding          | Action                       |
-| ------------------- | ---------------------------- |
-| `SUPER + DELETE`    | Lock Screen                  |
-| `SUPER + ESC`       | Logout Menu                  |
-| `SUPER + R`         | Restart Waybar               |
-| `SUPER + SHIFT + R` | Reload Waybar                |
-| `SUPER + SPACE`     | Toggle Input Method          |
-| `SUPER + V`         | Toggle Floating              |
-| `SUPER + SHIFT + V` | Toggle Half / Full Float     |
-| `SUPER + SHIFT + O` | Toggle Window Opacity        |
+| Keybinding          | Action                   |
+| ------------------- | ------------------------ |
+| `SUPER + DELETE`    | Lock Screen              |
+| `SUPER + ESC`       | Logout Menu              |
+| `SUPER + R`         | Restart Waybar           |
+| `SUPER + SHIFT + R` | Reload Waybar            |
+| `SUPER + SPACE`     | Toggle Input Method      |
+| `SUPER + V`         | Toggle Floating          |
+| `SUPER + SHIFT + V` | Toggle Half / Full Float |
+| `SUPER + SHIFT + O` | Toggle Window Opacity    |
 
 
 ##  󰄀  Screenshots
@@ -46,23 +46,23 @@ Saved to: `~/Screenshots`
 
 ##  󰕮  Layout Control
 
-| Keybinding          | Action                    |
-| ------------------- | ------------------------- |
-| `SUPER + P`         | Toggle Pseudo             |
-| `SUPER + G`         | Toggle Split              |
-| `SUPER + F`         | Toggle Fullscreen         |
-| `SUPER + SHIFT + F` | True Fullscreen           |
+| Keybinding          | Action            |
+| ------------------- | ------------------|
+| `SUPER + P`         | Toggle Pseudo     |
+| `SUPER + G`         | Toggle Split      |
+| `SUPER + F`         | Toggle Fullscreen |
+| `SUPER + SHIFT + F` | True Fullscreen   |
 
 
 ##    Window Navigation
 
-| Keybinding    | Direction                      |
-| ------------- | ------------------------------ |
-| `SUPER + H`   | Focus Left                     |
-| `SUPER + L`   | Focus Right                    |
-| `SUPER + K`   | Focus Up                       |
-| `SUPER + J`   | Focus Down                     |
-| `SUPER + TAB` | Cycle Windows Focus                  |
+| Keybinding    | Direction           |
+| ------------- | --------------------|
+| `SUPER + H`   | Focus Left          |
+| `SUPER + L`   | Focus Right         |
+| `SUPER + K`   | Focus Up            |
+| `SUPER + J`   | Focus Down          |
+| `SUPER + TAB` | Cycle Windows Focus |
 
 
 ##    Window Movement
@@ -95,10 +95,10 @@ Saved to: `~/Screenshots`
 
 ##  󱊆  Special Workspace
 
-| Keybinding          | Action                             |
-| ------------------- | ---------------------------------- |
-| `SUPER + S`         | Toggle Special Workspace           |
-| `SUPER + SHIFT + S` | Move Window to Special WS          |
+| Keybinding          | Action                    |
+| ------------------- | --------------------------|
+| `SUPER + S`         | Toggle Special Workspace  |
+| `SUPER + SHIFT + S` | Move Window to Special WS |
 
 
 ##  󱟱  Floating Window

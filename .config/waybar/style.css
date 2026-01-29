@@ -68,7 +68,8 @@ tooltip label {
 }
 
 #workspaces button.active {
-  background: linear-gradient(135deg, @primary 0%, @tertiary 100%);
+  /* background: linear-gradient(135deg, @primary 0%, @tertiary 100%); */
+  background: @primary;
   color: alpha(@background, 0.8);
   font-weight: bold;
   min-width: 42px;

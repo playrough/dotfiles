@@ -16,6 +16,7 @@
 | `SUPER + C`         | Open Text Editor         |
 | `SUPER + D`         | Open Menu                |
 | `SUPER + O`         | Open Obsidian            |
+| `SUPER + N`         | Open Notification Center |
 | `SUPER + Q`         | Kill Active Window       |
 | `SUPER + END`       | Exit Hyprland            |
 
@@ -138,7 +139,7 @@ Saved to: `~/Screenshots`
 | `XF86AudioNext`         | Next Track     |
 | `XF86AudioPrev`         | Previous Track |
 | `XF86AudioPlay / Pause` | Play / Pause   |
-| `SUPER + X`             | Play / Pause   |
+| `SUPER + M`             | Play / Pause   |
 
 
 ##  󰨁  Legend

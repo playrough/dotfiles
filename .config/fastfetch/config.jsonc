@@ -26,12 +26,12 @@
     },
     {
       "type": "os",
-      "key": "{#32}│  {#32}󰍹 OS      ",
+      "key": "{#32}│  {#32}󰣇 OS      ",
       "format": "{name}"
     },
     {
       "type": "kernel",
-      "key": "{#32}│  {#32}󰒋 Kernel  ",
+      "key": "{#32}│  {#32} Kernel  ",
       "format": "{release}"
     },
     {
@@ -72,12 +72,12 @@
     },
     {
       "type": "display",
-      "key": "{#32}│  {#32}󰹑 Display ",
+      "key": "{#32}│  {#32}󰍹 Display ",
       "format": "{width}x{height} @{refresh-rate}Hz"
     },
     {
       "type": "shell",
-      "key": "{#32}│  {#32}󰞷 Shell   ",
+      "key": "{#32}│  {#32} Shell   ",
       "format": "{pretty-name}"
     },
     {
@@ -101,7 +101,7 @@
     },
     {
       "type": "gpu",
-      "key": "{#32}│  {#32}󰢮 GPU     ",
+      "key": "{#32}│  {#32}󰊴 GPU     ",
       "format": "{name}"
     },
     {

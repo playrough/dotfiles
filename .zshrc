@@ -6,7 +6,9 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/emodipt-extend.omp.json)"
+# eval "$(oh-my-posh init zsh --config $HOME/.poshthemes/emodipt-extend.omp.json)"
+ZSH_THEME=""
+eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,

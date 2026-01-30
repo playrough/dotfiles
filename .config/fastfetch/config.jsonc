@@ -76,8 +76,8 @@
       "format": "{width}x{height} @{refresh-rate}Hz"
     },
     {
-      "type": "shell",
-      "key": "{#32}│  {#32} Shell   ",
+      "type": "terminal",
+      "key": "{#32}│  {#32} Terminal",
       "format": "{pretty-name}"
     },
     {

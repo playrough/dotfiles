@@ -140,6 +140,8 @@ alias ez="nvim ~/.zshrc"
 alias mtg="~/.local/bin/matugen-fzf.sh"
 alias pmtg="~/.local/bin/matugen-push.sh"
 
+alias cw=".config/hypr/Script/wallSelect.sh"
+
 #nvim note
 alias nvn='nvim ~/notes/'
 

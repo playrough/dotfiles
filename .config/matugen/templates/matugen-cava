@@ -229,7 +229,8 @@
 
 # SDL and sdl_glsl only support hex code colors, these are the default:
 ; background = '#111111'
-foreground = '{{colors.primary.default.hex}}'
+foreground = "{{ colors.inverse_primary.default.hex | to_color | set_lightness: 60 | set_saturation: 40.0 }}"
+
 
 # these are default
 # Gradient mode, only hex defined colors are supported,

@@ -1,10 +1,6 @@
-[config.wallpaper]
-command = "swww"
-arguments = ["img", "--transition-type", "wipe", "--transition-fps", "60" ]
-set = true
 
-# [config.custom_colors]
-# background_custom = { color = "#101418", blend = false }
+[config]
+version_check = false
 
 [templates.waybar]
 input_path = './templates/colors.css'
@@ -101,3 +97,6 @@ output_path = '~/.config/mpv/mpv.conf'
 input_path = '~/.config/matugen/templates/glow.json'
 output_path = '~/.config/glow/glow-style.json'
 
+[templates.rofi]
+input_path = '~/.config/matugen/templates/matugen-rofi.rasi'
+output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'

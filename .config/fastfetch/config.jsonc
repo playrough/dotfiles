@@ -138,7 +138,7 @@
     },
     {
       "type": "custom",
-      "format": "\n"
+      "format": ""
     }
   ]
 }

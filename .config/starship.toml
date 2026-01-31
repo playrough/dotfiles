@@ -10,7 +10,7 @@ success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set
 vimcmd_symbol  = "[❮](bold yellow)"
 
 [directory]
-style = "bold red"
+style = "bold yellow"
 
 # Disable the package module, hiding it from the prompt completely
 [package]

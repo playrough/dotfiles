@@ -6,4 +6,4 @@
     @define-color {{name}} {{value.default.hex}};
 <* endfor *>
 
-@define-color primary_dim {{ colors.inverse_primary.default.hex | to_color | set_lightness: 60 | set_saturation: 40.0 }};
+@define-color primary_dim {{ colors.inverse_primary.default.hex | to_color | set_lightness: 50 | set_saturation: 40.0 }};

@@ -5,3 +5,5 @@
 <* for name, value in colors *>
     @define-color {{name}} {{value.default.hex}};
 <* endfor *>
+
+@define-color primary_dim {{ colors.inverse_primary.default.hex | to_color | set_lightness: 60 | set_saturation: 40.0 }};

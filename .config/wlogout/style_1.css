@@ -26,12 +26,12 @@ button {
 }
 
 button:focus {
-    background-color: alpha(@on_secondary, 0.75);
+    background-color: alpha(@primary_dim, 0.75);
     background-size: 40%;
 }
 
 button:hover {
-    background-color: alpha(@on_secondary, 0.75);
+    background-color: alpha(@primary_dim, 0.75);
     background-size: 50%;
     border-radius: ${active_rad}px;
     animation: gradient_f 20s ease-in infinite;

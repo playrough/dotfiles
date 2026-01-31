@@ -122,8 +122,8 @@ wall_selection=$(find "${wall_dir}" -type f \( -iname "*.jpg" -o -iname "*.jpeg"
 
 # SWWW Config
 FPS=60
-TYPE="any"
-DURATION=2
+TYPE="grow"
+DURATION=1
 BEZIER=".4,0,.2,1"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
 

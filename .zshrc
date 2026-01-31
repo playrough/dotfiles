@@ -47,6 +47,7 @@ alias :q='exit'
 alias reload='source ~/.zshrc'
 alias rz='source ~/.zshrc'
 alias ez='nvim ~/.zshrc'
+alias kl='kitty @ load-config'
 
 
 

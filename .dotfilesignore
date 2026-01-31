@@ -1,3 +1,8 @@
+.config/rofi/images/currentWal.sqre
+.config/rofi/images/currentWal.thumb
+.config/rofi/images/currentWalBlur.thumb
+.config/rofi/images/currentWalQuad.quad
+.config/rofi/matugen/matugen-rofi.rasi
 steamcmd/
 .config/glow/glow-style.json
 .config/Kvantum/matugen/matugen.kvconfig

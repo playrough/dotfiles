@@ -5,8 +5,6 @@
 
 ##    Core Actions
 
-
-
 | Keybinding          | Action                   |
 | ------------------- | ------------------------ |
 | `SUPER + T`         | Open Terminal            |
@@ -33,6 +31,19 @@
 | `SUPER + V`         | Toggle Floating          |
 | `SUPER + SHIFT + V` | Toggle Half / Full Float |
 | `SUPER + SHIFT + O` | Toggle Window Opacity    |
+
+
+##    Power / Session Menu
+> Triggered from logout menu (`SUPER + ESC`)
+
+| Key | Action    |
+| --- | --------- |
+| `L` | Lock      |
+| `E` | Logout    |
+| `U` | Suspend   |
+| `S` | Shutdown  |
+| `H` | Hibernate |
+| `R` | Reboot    |
 
 
 ##  󰄀  Screenshots

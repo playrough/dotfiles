@@ -71,7 +71,7 @@ alias da='dot add'
 alias dc='dot commit'
 alias dp='dot push'
 
-
+alias dcu='dot commit -m "Update dotfiles"'
 
 # ==================================================
 #  FILE / EDITOR

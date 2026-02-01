@@ -254,6 +254,17 @@ gradient = 0
 # gradient_color_2 = '{{colors.tertiary.default.hex}}'
 # gradient_color_3 = '{{colors.error.default.hex}}'
 
+horizontal_gradient = 1
+
+; Horizontal gradient (left → right → left)
+
+horizontal_gradient_color_1 = "{{ colors.primary.default.hex | to_color | set_lightness: 46 | set_saturation: 20 }}"
+horizontal_gradient_color_2 = "{{ colors.primary.default.hex | to_color | set_lightness: 48 | set_saturation: 26 }}"
+horizontal_gradient_color_3 = "{{ colors.primary.default.hex }}"
+horizontal_gradient_color_4 = "{{ colors.primary.default.hex | to_color | set_lightness: 48 | set_saturation: 26 }}"
+horizontal_gradient_color_5 = "{{ colors.primary.default.hex | to_color | set_lightness: 46 | set_saturation: 20 }}"
+
+
 
 [smoothing]
 

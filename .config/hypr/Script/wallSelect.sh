@@ -69,8 +69,8 @@ process_image() {
     (
         flock -x 200
         if [ ! -f "$cache_file" ] || [ ! -f "$md5_file" ] || [ "$current_md5" != "$(cat "$md5_file" 2>/dev/null)" ]; then
-            magick "$imagen" -resize 500x500^ -gravity center -extent 500x500 "$cache_file"
-            echo "$current_md5" > "$md5_file"
+          magick "$imagen" -resize 500x500^ -gravity center -extent 500x500 "$cache_file"
+          echo "$current_md5" > "$md5_file"
         fi
         # Clean the lock file after processing
         rm -f "$lock_file"

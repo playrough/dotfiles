@@ -86,8 +86,7 @@ fi
 #  MATUGEN / HYPRLAND
 # ==================================================
 
-alias mtg="$HOME/.local/bin/matugen-fzf.sh"
-alias pmtg="$HOME/.local/bin/matugen-push.sh"
+alias mtg="$HOME/.config/hypr/Script/wallSelect-fzf.sh"
 alias cw="$HOME/.config/hypr/Script/wallSelect.sh"
 
 

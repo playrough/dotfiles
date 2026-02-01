@@ -8,10 +8,6 @@
 
 
 # utility vars
-cache_dir="$HOME/.cache/swww/"
-current_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
-cache_file="$cache_dir$current_monitor"
-# wallpaper_path=$(grep -v 'Lanczos3' "$cache_file" | head -n 1)
 wallpaper_path=$(swww query | awk -F'image: ' '/image:/{print $2; exit}')
 
 # generate matugen colors

@@ -126,7 +126,7 @@ alias wu='nmcli connection up'
 
 alias wf='nmcli -t -f IN-USE,SSID,SECURITY,SIGNAL device wifi list |
 awk -F: '"'"'{
-  mark = ($1=="*") ? " " : " ";
+  mark = ($1=="*") ? "󰐾" : " ";
   printf "%s %-25s %-12s %3s%%\t%s\n", mark, $2, $3, $4, $2;
 }'"'"' |
 fzf --ansi |

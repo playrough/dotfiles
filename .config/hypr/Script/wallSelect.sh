@@ -69,7 +69,14 @@ process_image() {
     (
         flock -x 200
         if [ ! -f "$cache_file" ] || [ ! -f "$md5_file" ] || [ "$current_md5" != "$(cat "$md5_file" 2>/dev/null)" ]; then
-          magick "$imagen" -resize 500x500^ -gravity center -extent 500x500 "$cache_file"
+            # magick "$imagen" -resize 800x450^ -gravity center -extent 800x450 "$cache_file"
+          magick "$imagen" \
+            -resize 800x450^ \
+            -gravity center \
+            -extent 800x450 \
+            \( -size 800x450 xc:none -draw "roundrectangle 0,0 800,450 24,24" \) \
+            -alpha set -compose DstIn -composite \
+            "$cache_file"
           echo "$current_md5" > "$md5_file"
         fi
         # Clean the lock file after processing

@@ -60,24 +60,29 @@ PARALLEL_JOBS=$(get_optimal_jobs)
 process_image() {
     local imagen="$1"
     local nombre_archivo=$(basename "$imagen")
-    local cache_file="${cacheDir}/${nombre_archivo}"
-    local md5_file="${cacheDir}/.${nombre_archivo}.md5"
-    local lock_file="${cacheDir}/.lock_${nombre_archivo}"
+    local base_name="${nombre_archivo%.*}"
 
-    local current_md5=$(xxh64sum "$imagen" | cut -d' ' -f1)
+    local cache_file="${cacheDir}/${base_name}.png"
+    local md5_file="${cacheDir}/.${base_name}.md5"
+    local lock_file="${cacheDir}/.lock_${base_name}"
+
+    local current_md5
+    current_md5=$(xxh64sum "$imagen" | cut -d' ' -f1)
 
     (
         flock -x 200
         if [ ! -f "$cache_file" ] || [ ! -f "$md5_file" ] || [ "$current_md5" != "$(cat "$md5_file" 2>/dev/null)" ]; then
             # magick "$imagen" -resize 800x450^ -gravity center -extent 800x450 "$cache_file"
-          magick "$imagen" \
-            -resize 800x450^ \
-            -gravity center \
-            -extent 800x450 \
-            \( -size 800x450 xc:none -draw "roundrectangle 0,0 800,450 24,24" \) \
-            -alpha set -compose DstIn -composite \
-            "$cache_file"
-          echo "$current_md5" > "$md5_file"
+            magick "$imagen" \
+                -resize 800x450^ \
+                -gravity center \
+                -extent 800x450 \
+                \( -size 800x450 xc:none \
+                   -draw "roundrectangle 0,0 800,450 24,24" \) \
+                -alpha set -compose DstIn -composite \
+                "$cache_file"
+
+            echo "$current_md5" > "$md5_file"
         fi
         # Clean the lock file after processing
         rm -f "$lock_file"
@@ -96,14 +101,15 @@ find "$wall_dir" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o 
     xargs -0 -P "$PARALLEL_JOBS" -I {} bash -c 'process_image "{}"'
 
 # Clean orphaned cache files and their locks
-for cached in "$cacheDir"/*; do
+for cached in "$cacheDir"/*.png; do
     [ -f "$cached" ] || continue
-    original="${wall_dir}/$(basename "$cached")"
-    if [ ! -f "$original" ]; then
-        nombre_archivo=$(basename "$cached")
-        rm -f "$cached" \
-            "${cacheDir}/.${nombre_archivo}.md5" \
-            "${cacheDir}/.lock_${nombre_archivo}"
+    base="$(basename "${cached%.png}")"
+
+    if ! find "$wall_dir" -type f -iname "$base.*" | grep -q .; then
+        rm -f \
+          "$cached" \
+          "${cacheDir}/.${base}.md5" \
+          "${cacheDir}/.lock_${base}"
     fi
 done
 
@@ -123,7 +129,7 @@ wall_selection=$(find "${wall_dir}" -type f \( -iname "*.jpg" -o -iname "*.jpeg"
         if [[ "$A" =~ \.gif$ ]]; then
             printf "%s\n" "$A"  # Handle gifs by showing only file name
         else
-            printf '%s\x00icon\x1f%s/%s\n' "$A" "${cacheDir}" "$A"  # Non-gif files with icon convention
+            printf '%s\x00icon\x1f%s/%s.png\n' "$A" "$cacheDir" "${A%.*}"
         fi
     done | $rofi_command)
 

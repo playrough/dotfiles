@@ -576,43 +576,6 @@ require('lazy').setup({
       -- statuscolumn = { enabled = true },
       -- words = { enabled = true },
     },
-
-    config = function(_, opts)
-      -- Don't show statusline in snacks dashboard
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = 'snacks_dashboard',
-        callback = function()
-          -- hide statusline
-          vim.o.laststatus = 0
-
-          -- restore statusline when dashboard buffer is closed
-          vim.api.nvim_create_autocmd('BufUnload', {
-            buffer = 0,
-            once = true,
-            callback = function()
-              vim.opt.laststatus = 3
-            end,
-          })
-        end,
-      })
-
-      vim.keymap.set('n', '<leader>a', function()
-        local target_ft = 'snacks_dashboard'
-
-        for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-          -- get filetype non-deprecated
-          local ft = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
-          if ft == target_ft then
-            vim.api.nvim_set_current_buf(bufnr)
-            return
-          end
-        end
-
-        require('snacks').dashboard.open()
-      end, { desc = 'Go to Snacks dashboard' })
-
-      require('snacks').setup(opts)
-    end,
   },
 
   --   {
@@ -1666,17 +1629,17 @@ require('lazy').setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }, -- Optional, but recommended for icons
-    event = 'VeryLazy',
-    init = function()
-      vim.g.lualine_laststatus = vim.o.laststatus
-      if vim.fn.argc(-1) > 0 then
-        -- set an empty statusline till lualine loads
-        vim.o.statusline = ' '
-      else
-        -- hide the statusline on the starter page
-        vim.o.laststatus = 0
-      end
-    end,
+    event = { 'BufReadPre', 'BufNewFile' },
+    -- init = function()
+    --   vim.g.lualine_laststatus = vim.o.laststatus
+    --   if vim.fn.argc(-1) > 0 then
+    --     -- set an empty statusline till lualine loads
+    --     vim.o.statusline = ' '
+    --   else
+    --     -- hide the statusline on the starter page
+    --     vim.o.laststatus = 0
+    --   end
+    -- end,
     opts = {
       options = {
         -- disabled_filetypes = {
@@ -1685,7 +1648,7 @@ require('lazy').setup({
         -- },
         disabled_filetypes = {
           statusline = { 'snacks_dashboard' },
-          winbar = { 'snacks_dashboard' },
+          -- winbar = { 'snacks_dashboard' },
         },
         icons_enabled = true, -- Do you want to use icons?
         theme = 'auto', -- Or a specific theme like 'tokyonight', 'onedark', 'gruvbox', 'catppuccin', etc.
@@ -1694,7 +1657,7 @@ require('lazy').setup({
         section_separators = { left = '', right = '' }, -- Separators between sections (A,B,C and X,Y,Z)
         ignore_focus = {}, -- List of buffer types to ignore when checking focus
         always_divide_middle = true, -- If true, separates middle sections with section_separators
-        globalstatus = false, -- If true, Components on statuslines of inactive windows are hidden
+        globalstatus = true, -- If true, Components on statuslines of inactive windows are hidden
         -- and statusline for the last active window is used.
         refresh = { -- How often to refresh the statusline and tabline
           statusline = 1000, -- (in ms)

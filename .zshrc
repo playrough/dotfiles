@@ -55,7 +55,21 @@ alias kl='kitty @ load-config'
 #  DOTFILES
 # ==================================================
 
-alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+# alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+# alias ds='dot status'
+# alias da='dot add'
+# alias dc='dot commit'
+# alias dp='dot push'
+
+
+dot() {
+  git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+}
+
+alias ds='dot status'
+alias da='dot add'
+alias dc='dot commit'
+alias dp='dot push'
 
 
 

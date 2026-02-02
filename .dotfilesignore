@@ -1,3 +1,9 @@
+.config/wlogout/icons/hibernate-hover.png
+.config/wlogout/icons/lock-hover.png
+.config/wlogout/icons/logout-hover.png
+.config/wlogout/icons/reboot-hover.png
+.config/wlogout/icons/shutdown-hover.png
+.config/wlogout/icons/suspend-hover.png
 .config/rofi/images/currentWal.sqre
 .config/rofi/images/currentWal.thumb
 .config/rofi/images/currentWalBlur.thumb

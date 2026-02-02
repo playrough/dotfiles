@@ -9,6 +9,7 @@
 
 # utility vars
 wallpaper_path=$(swww query | awk -F'image: ' '/image:/{print $2; exit}')
+scriptsDir="$HOME/.config/hypr/Script"
 
 # generate matugen colors
 if [ "$1" == "--light" ]; then
@@ -20,6 +21,9 @@ fi
 # set gtk theme
 gsettings set org.gnome.desktop.interface gtk-theme ""
 gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
+
+
+"$scriptsDir/createPngHoverIcon.sh"
 
 #-------Imagemagick magick 👀--------------#
 wait $!

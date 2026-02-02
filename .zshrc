@@ -42,6 +42,7 @@ eval "$(zoxide init zsh)"
 #  ALIASES – CORE
 # ==================================================
 
+alias cls='clear'
 alias q='exit'
 alias :q='exit'
 alias reload='source ~/.zshrc'

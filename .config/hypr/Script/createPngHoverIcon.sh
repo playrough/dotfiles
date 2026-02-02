@@ -40,7 +40,7 @@ for f in "$ICON_DIR"/*.png; do
   magick "$f" \
     -alpha on \
     -fill "$SURFACE" \
-    -colorize 100% \
+    -colorize 95% \
     "$hover"
 done
 

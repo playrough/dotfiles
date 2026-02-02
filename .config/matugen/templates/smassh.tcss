@@ -1,0 +1,10 @@
+$bg-color: {{colors.background.default.hex}};
+$caret-color: {{colors.primary.default.hex}};
+$main-color: {{colors.primary.default.hex}};
+$sub-color: {{colors.on_background.default.hex}};
+$sub-alt-color: {{colors.surface_container.default.hex}};
+$text-color: {{colors.primary.default.hex}};
+$error-color: {{colors.error.default.hex}};
+$error-extra-color: {{colors.error_container.default.hex}};
+$colorful-error-color: {{colors.error.default.hex}};
+$colorful-error-extra-color: {{colors.error_container.default.hex}};

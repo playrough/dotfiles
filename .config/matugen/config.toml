@@ -1,4 +1,3 @@
-
 [config]
 version_check = false
 
@@ -100,3 +99,7 @@ output_path = '~/.config/glow/glow-style.json'
 [templates.rofi]
 input_path = '~/.config/matugen/templates/matugen-rofi.rasi'
 output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'
+
+[templates.smassh]
+input_path = '~/.config/matugen/templates/smassh.tcss'
+output_path = '~/.config/smassh/themes/matugen.tcss'

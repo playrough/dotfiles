@@ -150,3 +150,5 @@ GoogleDrive/
 
 # Obsidian caches and temp files
 .config/obsidian/*
+keysound
+.config/smassh/themes/matugen.tcss

@@ -14,10 +14,6 @@ configuration {
     me-select-entry:            "MouseSecondary";
     me-accept-entry:            "MousePrimary";
 
-    kb-row-up:                  "k";
-    kb-row-down:                "j";
-    kb-row-left:                "h";
-    kb-row-right:               "l";
 }
 
 /* ---- Global properties ---- */ 
@@ -42,10 +38,37 @@ window {
 /* ---- Mainbox ---- */
 mainbox {
     enabled:                     true;
-    children:                    [ "listview" ];
+    children:                    [ "inputbar", "listview" ];
     background-color:            @background;
 }
 
+
+inputbar {
+    enabled: true;
+    padding: 12px 16px;
+    border-radius: 0px;
+    background-color: transparent;
+    children: [  "entry" ];
+    spacing: 8px;
+}
+
+
+prompt {
+    enabled: true;
+    text: "";
+    font: "JetBrainsMono Nerd Font 14";
+    text-color: @foreground;
+}
+
+
+entry {
+    enabled: true;
+    placeholder: "Search wallpapers…";
+    placeholder-color: @foreground;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: text;
+}
 
 /* ---- Listview ---- */
 listview {
@@ -71,7 +94,8 @@ element {
     enabled:                     true;
     orientation:                 vertical;
     spacing:                     0px;
-    padding:                     -55px -20px -95px -20px;
+    // padding:                     -55px -20px -95px -20px;
+    padding:                     -100px -20px 0px -20px;
     border-radius:               10px;
     cursor:                      pointer;
     background-color:            transparent;
@@ -96,13 +120,14 @@ element-icon {
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;
+    vertical-align:              0.9;
 }
 
 element-text {
-    // enabled:                     true;
-    vertical-align:              0.5;
+    enabled:                     true;
+    vertical-align:              0;
     horizontal-align:            0.5;
-    padding:                     10px 0px 8px 0px;
+    padding:                     0px 0px 10px 0px;
     cursor:                      inherit;
     background-color:            transparent;
     text-color:                  inherit;

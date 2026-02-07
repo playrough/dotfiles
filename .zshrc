@@ -125,15 +125,43 @@ alias ws='nmcli device status'
 alias wt='nmcli radio wifi'
 alias wu='nmcli connection up'
 
+# alias wf='nmcli -t -f IN-USE,SSID,SECURITY,SIGNAL device wifi list |
+# awk -F: '"'"'{
+#   mark = ($1=="*") ? "󰐾" : " ";
+#   printf "%s %-25s %-12s %3s%%\t%s\n", mark, $2, $3, $4, $2;
+# }'"'"' |
+# fzf --ansi |
+# awk -F"\t" "{print \$2}" |
+# xargs -r -I{} nmcli device wifi connect "{}"'
+
+
 alias wf='nmcli -t -f IN-USE,SSID,SECURITY,SIGNAL device wifi list |
-awk -F: '"'"'{
+awk -F: '\''{
   mark = ($1=="*") ? "󰐾" : " ";
   printf "%s %-25s %-12s %3s%%\t%s\n", mark, $2, $3, $4, $2;
-}'"'"' |
+}'\'' |
 fzf --ansi |
 awk -F"\t" "{print \$2}" |
-xargs -r -I{} nmcli device wifi connect "{}"'
-
+while read SSID; do
+  # check existing profile
+  if nmcli connection show "$SSID" >/dev/null 2>&1; then
+    echo "🔌 Connecting saved network: $SSID"
+    # try direct up first
+    if nmcli connection up "$SSID" >/dev/null 2>&1; then
+      echo "✔ Connected to $SSID"
+    else
+      # ask password manual
+      read -rsp "Password for $SSID: " PASS
+      echo
+      nmcli device wifi connect "$SSID" password "$PASS"
+    fi
+  else
+    # new network
+    read -rsp "Password for new network $SSID: " PASS
+    echo
+    nmcli device wifi connect "$SSID" password "$PASS"
+  fi
+done'
 
 
 # ==================================================

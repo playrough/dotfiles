@@ -152,3 +152,8 @@ GoogleDrive/
 .config/obsidian/*
 keysound
 .config/smassh/themes/matugen.tcss
+.pulse-cookie
+.steam/
+.steampath
+.steampid
+steam.desktop

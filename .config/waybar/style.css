@@ -20,7 +20,7 @@ window#waybar {
 
 .modules-center {
   background: alpha(@background, 0.77);
-  padding: 4px 10px;
+  padding: 6px 10px;
   color: @on_surface;
   border-radius: 20px;
 }
@@ -48,7 +48,7 @@ tooltip label {
 #tray {
   background: transparent;
   border-radius: 20px;
-  padding: 2px 10px;
+  padding: 0px 10px;
   margin: 0 2px;
   transition:
     background 0.2s,
@@ -58,13 +58,15 @@ tooltip label {
 #workspaces {
   padding-left: 0px;
   padding-right: 0px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #workspaces button {
-  color: alpha(@primary, 0.5);
+  color: alpha(@primary, 0.8);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   margin: 0 2px;
-  padding: 0 6px;
+  padding: 2px 8px;
   border-radius: 20px;
 }
 

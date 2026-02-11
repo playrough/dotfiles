@@ -23,7 +23,7 @@ window#waybar {
   padding: 6px 10px;
   color: @on_surface;
   border-radius: 20px;
-  border: 1px solid alpha(@surface_container, 0.9);
+  /* border: 1px solid alpha(@surface_container, 0.9); */
 }
 
 tooltip {

@@ -33,4 +33,5 @@
     "asvetliakov.vscode-neovim": 1
   },
   "color-highlight.markRuler": false,
+  "workbench.colorTheme": "HyprLuna Material",
 }

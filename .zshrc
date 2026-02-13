@@ -176,4 +176,23 @@ alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/min
 #  INFO
 # ==================================================
 
-fastfetch
+
+fft() {
+  clear
+  if [[ "$(cat ~/.fastfetch_current)" == *config-1.jsonc ]]; then
+    echo "$HOME/.config/fastfetch/config-2.jsonc" > ~/.fastfetch_current
+  else
+    echo "$HOME/.config/fastfetch/config-1.jsonc" > ~/.fastfetch_current
+  fi
+  fastfetch --config "$(cat ~/.fastfetch_current)"
+}
+
+
+# run fastfetch automatically only in interactive shells
+if [[ $- == *i* ]]; then
+    if [[ -f ~/.fastfetch_current ]]; then
+        fastfetch --config "$(cat ~/.fastfetch_current)"
+    else
+        fastfetch --config "$HOME/.config/fastfetch/config-1.jsonc"
+    fi
+fi

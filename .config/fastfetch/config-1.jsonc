@@ -1,0 +1,143 @@
+// Based on many examples
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "auto",
+    "source": "$(~/.config/fastfetch/random-logo.sh)",
+    "height": 20,
+    "padding": {
+      "left": 1,
+      "right": 2,
+      "top": 1
+    }
+  },
+  "display": {
+    "percent": {
+      "type": 1, // chỉ in số %, không bar
+      "green": "32", // mọi giá trị % sẽ xanh
+      "yellow": "32",
+      "red": "32"
+    },
+    "separator": "",
+    "constants": [
+      // CONSTANT {$1} - VERTICAL BARS
+      "\u001b[32m│                                      │\u001b[38D\u001b[39m",
+      //constant {$2}
+      "\u001b[32m│                                                    │\u001b[52D\u001b[39m"
+    ]
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "key": " ",
+      "format": "{#32}╭  user ────────────────────────────────────────────╮",
+    },
+    {
+      "type": "title",
+      "format": "{$2}{#39}{user-name}{#32}@{#39}{host-name}"
+    },
+    {
+      "key": "{#32}╰────────────────────────────────────────────────────╯",
+      "type": "custom"
+    },
+    {
+      "type": "custom",
+      "key": "{#32}╭────────────╮",
+      "format": "{#32}╭──────────────────────────────────────╮",
+    },
+    {
+      "key": "{#32}│ {#32}{icon} distro   {#32}│",
+      "type": "os",
+      "format": "{$1}{pretty-name} {codename} {#32}[{version}] [{arch}]"
+    },
+    {
+      "key": "{#32}│ {#32}{icon} kernel   {#32}│",
+      "type": "kernel",
+      "format": "{$1}{sysname}  {#32}[v{release}]"
+    },
+    {
+      "key": "{#32}│ {#32}󰇄 desktop  {#32}│",
+      "type": "de",
+      "format": "{$1}{pretty-name}  {#32}[v{version}]"
+    },
+    {
+      "key": "{#32}│ {#32} terminal {#32}│",
+      "type": "terminal",
+      "format": "{$1}{pretty-name}  {#32}[{version}]"
+    },
+    // {
+    //   "key": "{#32}│ {#32} shell    {#32}│",
+    //   "type": "shell",
+    //   "format": "{$1}{pretty-name}  {#32}[v{version}]"
+    // },
+    {
+      "type": "custom",
+      "key": "{#32}╰────────────╯",
+      "format": "{#32}╰──────────────────────────────────────╯",
+    },
+    {
+      "type": "custom",
+      "key": " ",
+      "format": "{#32}╭ 󰇅 machine ─────────────────────────────────────────╮",
+    },
+    {
+      "type": "host",
+      "key": " ",
+      "format": "{$2}{name}  {#32}{version}"
+    },
+    {
+      "key": "{#32}╰────────────────────────────────────────────────────╯",
+      "type": "custom"
+    },
+    {
+      "type": "custom",
+      "key": "{#32}╭────────────╮",
+      "format": "{#32}╭──────────────────────────────────────╮",
+    },
+    {
+      "key": "{#32}│ {#32}{icon} cpu      {#32}│",
+      "type": "cpu",
+      "showPeCoreCount": true,
+      "temp": true,
+      "format": "{$1}{name}"
+    },
+    {
+      "type": "gpu",
+      "key": "{#32}│ {#32}{icon} gpu      {#32}│",
+      "detectionMethod": "auto",
+      "driverSpecific": true,
+      "format": "{$1}{name}"
+    },
+    {
+      "key": "{#32}│ {#32}󰍛 memory   {#32}│",
+      "type": "memory",
+      "format": "{$1}{used} / {total} {#32}({percentage}{#32})"
+    },
+    {
+      "type": "disk",
+      "key": "{#32}│ {#32}󰋊 disk     {#32}│",
+      "folders": "/",
+      "format": "{$1}{size-used} / {size-total} {#32}({size-percentage}{#32})"
+    },
+    {
+      "type": "custom",
+      "key": "{#32}╰────────────╯",
+      "format": "{#32}╰──────────────────────────────────────╯",
+    },
+    {
+      "type": "custom",
+      "key": " ",
+      "format": "{#32}╭ 󱥚 colors ──────────────────────────────────────────╮",
+    },
+    {
+      "type": "custom",
+      "format": "{$2}{#37}󰮯  {#97}󰊠 {#36}󰊠 {#96}󰊠 {#35}󰊠 {#95}󰊠 {#34}󰊠 {#94}󰊠 {#33}󰊠 {#93}󰊠 {#32}󰊠 {#92}󰊠 {#31}󰊠 {#91}󰊠 "
+      // "format": "{$2}{#38}一 {#37}剑 {#36}动 {#35}天 {#34}地 {#33}万 {#32}道 {#31}寂"
+    },
+    {
+      "key": "{#32}╰────────────────────────────────────────────────────╯",
+      "type": "custom"
+    }
+  ]
+}

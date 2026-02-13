@@ -26,12 +26,12 @@
     },
     {
       "type": "os",
-      "key": "{#32}│  {#32}󰣇 OS      ",
+      "key": "{#32}│  {#32}{icon} OS      ",
       "format": "{name}"
     },
     {
       "type": "kernel",
-      "key": "{#32}│  {#32} Kernel  ",
+      "key": "{#32}│  {#32}{icon} Kernel  ",
       "format": "{release}"
     },
     {

@@ -248,11 +248,11 @@ foreground = "{{ colors.inverse_primary.default.hex | to_color | set_lightness: 
 ; gradient_color_8 = '#cc3333'
 
 # for matugen
-gradient = 1
+gradient = 0
 # gradient_count = 3
-gradient_color_1 = '{{colors.primary_container.default.hex}}'
-gradient_color_2 = '{{colors.primary.default.hex}}'
-gradient_color_3 = '{{colors.primary_fixed.default.hex}}'
+# gradient_color_1 = '{{colors.primary_container.default.hex}}'
+# gradient_color_2 = '{{colors.primary.default.hex}}'
+# gradient_color_3 = '{{colors.primary_fixed.default.hex}}'
 
 horizontal_gradient = 1
 

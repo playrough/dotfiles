@@ -169,6 +169,7 @@ done'
 # ==================================================
 
 alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/minato-naruto.gif'
+alias goku='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/goku.gif'
 
 
 

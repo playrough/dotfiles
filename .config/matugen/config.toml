@@ -103,3 +103,7 @@ output_path = '~/.config/rofi/matugen/matugen-rofi.rasi'
 [templates.smassh]
 input_path = '~/.config/matugen/templates/smassh.tcss'
 output_path = '~/.config/smassh/themes/matugen.tcss'
+
+[templates.nyaa]
+input_path = '~/.config/matugen/templates/nyaa.toml'
+output_path = '~/.config/nyaa/themes/custom-theme.toml'

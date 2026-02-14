@@ -1,0 +1,18 @@
+name = "Matugen Nyaa"
+
+bg = "Reset"
+fg = "{{colors.on_surface_variant.default.hex}}"
+
+border = "Rounded"
+border_color = "{{colors.outline_variant.default.hex}}"
+border_focused_color = "{{colors.primary.default.hex}}"
+
+hl_bg = "{{colors.surface_container_high.default.hex}}"
+
+solid_bg = "{{colors.primary.default.hex}}"
+solid_fg = "{{colors.on_primary.default.hex}}"
+
+success = "{{colors.primary.default.hex}}"
+error = "{{colors.error.default.hex}}"
+info = "{{colors.primary.default.hex}}"
+warning = "{{colors.tertiary.default.hex}}"

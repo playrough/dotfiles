@@ -1,18 +1,18 @@
 name = "Matugen Nyaa"
 
 bg = "Reset"
-fg = "#c9c5d0"
+fg = "#c0c9c0"
 
 border = "Rounded"
-border_color = "#48464f"
-border_focused_color = "#c8bfff"
+border_color = "#404942"
+border_focused_color = "#92d5ab"
 
-hl_bg = "#2a292f"
+hl_bg = "#262b27"
 
-solid_bg = "#c8bfff"
-solid_fg = "#30285f"
+solid_bg = "#92d5ab"
+solid_fg = "#003920"
 
-success = "#c8bfff"
+success = "#92d5ab"
 error = "#ffb4ab"
-info = "#c8bfff"
-warning = "#ecb8ce"
+info = "#92d5ab"
+warning = "#a3cddc"

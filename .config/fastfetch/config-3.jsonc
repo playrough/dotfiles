@@ -17,17 +17,29 @@
     // Title
     {
       "type": "title",
-      "format": "{#32}╭─────────────── {#33}{user-name} {#32}"
+      "format": "{#32}[ {#33}{user-name} {#32}]"
+    },
+    {
+      "type": "custom",
+      "format": ""
     },
     // System Information
     {
       "type": "custom",
-      "format": "{#32}├── {#32}System Information"
+      "format": "{#32}[ {#32}System Information ]"
+    },
+    {
+      "type": "custom",
+      "format": ""
     },
     {
       "type": "os",
-      "key": "{#32}│  {#32}{icon} OS      ",
-      "format": "{name}"
+      "key": "{#32}{#32}{icon} OS      ",
+      "format": "[ {name} ]"
+    },
+    {
+      "type": "custom",
+      "format": ""
     },
     {
       "type": "kernel",
@@ -35,13 +47,25 @@
       "format": "{release}"
     },
     {
+      "type": "custom",
+      "format": ""
+    },
+    {
       "type": "uptime",
       "key": "{#32}│  {#32}󰅐 Uptime  "
+    },
+    {
+      "type": "custom",
+      "format": ""
     },
     {
       "type": "packages",
       "key": "{#32}│  {#32} Packages",
       "format": "{all}"
+    },
+    {
+      "type": "custom",
+      "format": ""
     },
     {
       "type": "datetime",
@@ -50,7 +74,7 @@
     },
     {
       "type": "custom",
-      "format": "{#32}│"
+      "format": ""
     },
     // Desktop Environment
     {
@@ -58,8 +82,16 @@
       "format": "{#32}├── {#32}Desktop Environment"
     },
     {
+      "type": "custom",
+      "format": "{#32}│"
+    },
+    {
       "type": "de",
       "key": "{#32}│  {#32}󰧨 DE      "
+    },
+    {
+      "type": "custom",
+      "format": "{#32}│"
     },
     {
       "type": "wm",
@@ -67,8 +99,16 @@
       "format": "{pretty-name}"
     },
     {
+      "type": "custom",
+      "format": "{#32}│"
+    },
+    {
       "type": "wmtheme",
       "key": "{#32}│  {#32}󰉼 Theme     "
+    },
+    {
+      "type": "custom",
+      "format": "{#32}│"
     },
     {
       "type": "display",
@@ -76,14 +116,26 @@
       "format": "{width}x{height} @{refresh-rate}Hz"
     },
     {
+      "type": "custom",
+      "format": "{#32}│"
+    },
+    {
       "type": "terminal",
       "key": "{#32}│  {#32} Terminal",
       "format": "{pretty-name}"
     },
     {
+      "type": "custom",
+      "format": "{#32}│"
+    },
+    {
       "type": "terminalfont",
       "key": "{#32}│  {#32}󰛖 Font    ",
       "format": "{name}"
+    },
+    {
+      "type": "custom",
+      "format": "{#32}│"
     },
     {
       "type": "custom",

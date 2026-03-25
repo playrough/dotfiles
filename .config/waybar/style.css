@@ -20,6 +20,7 @@ window#waybar {
 
 .modules-center {
   background: alpha(@background, 0.77);
+  /* background: transparent; */
   padding: 6px 10px;
   color: @primary;
   border-radius: 20px;

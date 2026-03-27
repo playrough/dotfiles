@@ -19,7 +19,7 @@ window#waybar {
 }
 
 .modules-center {
-  background: alpha(@background, 0.77);
+  background: alpha(@background, 0.6);
   /* background: transparent; */
   padding: 6px 10px;
   color: @primary;

@@ -8,7 +8,7 @@
 
 
 # utility vars
-wallpaper_path=$(swww query | awk -F'image: ' '/image:/{print $2; exit}')
+wallpaper_path=$(awww query | awk -F'image: ' '/image:/{print $2; exit}')
 scriptsDir="$HOME/.config/hypr/Script"
 
 # generate matugen colors

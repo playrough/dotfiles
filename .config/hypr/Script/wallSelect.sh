@@ -141,11 +141,11 @@ BEZIER=".4,0,.2,1"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
 
 # initiate swww if not running
-swww query || swww-daemon --format xrgb
+awww query || awww-daemon --format xrgb
 
 
 # Set wallpaper
-[[ -n "$wall_selection" ]] && swww img -o "$focused_monitor" "${wall_dir}/${wall_selection}" $SWWW_PARAMS;
+[[ -n "$wall_selection" ]] && awww img -o "$focused_monitor" "${wall_dir}/${wall_selection}" $SWWW_PARAMS;
 
 
 # Run matugen script

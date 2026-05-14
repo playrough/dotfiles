@@ -15,3 +15,5 @@ style = "bold yellow"
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+scan_timeout = 300

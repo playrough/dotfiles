@@ -788,12 +788,12 @@ require('lazy').setup({
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
   --
   --
-  {
-    'm4xshen/hardtime.nvim',
-    lazy = false,
-    dependencies = { 'MunifTanjim/nui.nvim' },
-    opts = {},
-  },
+  -- {
+  --   'm4xshen/hardtime.nvim',
+  --   lazy = false,
+  --   dependencies = { 'MunifTanjim/nui.nvim' },
+  --   opts = {},
+  -- },
   {
     'tris203/precognition.nvim',
     opts = {},

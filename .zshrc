@@ -5,7 +5,10 @@
 # export LD_PRELOAD=/usr/lib/libiconv.so.2
 
 export PATH="$PATH:$HOME/.local/bin"
-export PAGER=ov
+# export PAGER=ov
+
+
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 
 
 
@@ -143,24 +146,24 @@ awk -F: '\''{
 fzf --ansi |
 awk -F"\t" "{print \$2}" |
 while read SSID; do
-  # check existing profile
+
   if nmcli connection show "$SSID" >/dev/null 2>&1; then
     echo "🔌 Connecting saved network: $SSID"
-    # try direct up first
+
     if nmcli connection up "$SSID" >/dev/null 2>&1; then
       echo "✔ Connected to $SSID"
     else
-      # ask password manual
-      read -rsp "Password for $SSID: " PASS
+      read -rs "PASS?Password for $SSID: " < /dev/tty
       echo
       nmcli device wifi connect "$SSID" password "$PASS"
     fi
+
   else
-    # new network
-    read -rsp "Password for new network $SSID: " PASS
+    read -rs "PASS?Password for new network $SSID: " < /dev/tty
     echo
     nmcli device wifi connect "$SSID" password "$PASS"
   fi
+
 done'
 
 
@@ -189,11 +192,11 @@ fft() {
 }
 
 
-# run fastfetch automatically only in interactive shells
-if [[ $- == *i* ]]; then
-    if [[ -f ~/.fastfetch_current ]]; then
-        fastfetch --config "$(cat ~/.fastfetch_current)"
-    else
-        fastfetch --config "$HOME/.config/fastfetch/config-1.jsonc"
-    fi
-fi
+# # run fastfetch automatically only in interactive shells
+# if [[ $- == *i* ]]; then
+#     if [[ -f ~/.fastfetch_current ]]; then
+#         fastfetch --config "$(cat ~/.fastfetch_current)"
+#     else
+#         fastfetch --config "$HOME/.config/fastfetch/config-1.jsonc"
+#     fi
+# fi

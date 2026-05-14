@@ -1,3 +1,16 @@
+# Flutter / Dart
+.flutter
+.config/flutter/
+.flutter/
+.dart-tool/
+.pub-cache/
+
+# Wget
+.wget-hsts
+
+# general cache
+.cache/
+*.log
 .config/wlogout/icons/hibernate-hover.png
 .config/wlogout/icons/lock-hover.png
 .config/wlogout/icons/logout-hover.png

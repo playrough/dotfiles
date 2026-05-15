@@ -192,11 +192,11 @@ fft() {
 }
 
 
-# # run fastfetch automatically only in interactive shells
-# if [[ $- == *i* ]]; then
-#     if [[ -f ~/.fastfetch_current ]]; then
-#         fastfetch --config "$(cat ~/.fastfetch_current)"
-#     else
-#         fastfetch --config "$HOME/.config/fastfetch/config-1.jsonc"
-#     fi
-# fi
+# run fastfetch automatically only in interactive shells
+if [[ $- == *i* ]]; then
+    if [[ -f ~/.fastfetch_current ]]; then
+        fastfetch --config "$(cat ~/.fastfetch_current)"
+    else
+        fastfetch --config "$HOME/.config/fastfetch/config-1.jsonc"
+    fi
+fi

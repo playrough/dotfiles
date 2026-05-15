@@ -4,16 +4,22 @@
     "type": "auto",
     "source": "$(~/.config/fastfetch/random-logo.sh)",
     "height": 20,
+    "color": {
+      "1": "blue"
+    },
     "padding": {
-      "left": 1,
-      "right": 2,
-      "top": 1
+      "left": 5,
+      "right": 6,
+      "top": 2
     }
   },
   "display": {
     "separator": "  "
   },
   "modules": [
+    {
+      "type": "custom"
+    },
     // Title
     {
       "type": "title",

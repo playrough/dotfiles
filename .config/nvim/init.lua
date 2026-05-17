@@ -87,6 +87,11 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+--
+
+vim.opt.title = true
+vim.opt.titlestring = '%t'
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -201,13 +206,16 @@ end)
 
 -- toggle LSP
 vim.keymap.set('n', '<leader>tl', function()
-  local clients = vim.lsp.get_active_clients { bufnr = 0 }
+  local clients = vim.lsp.get_clients { bufnr = 0 }
+
   if #clients > 0 then
-    vim.cmd 'LspStop'
+    for _, client in ipairs(clients) do
+      client.stop()
+    end
     print 'LSP OFF'
   else
-    vim.cmd 'LspStart'
-    print 'LSP ON'
+    vim.cmd 'edit' -- trigger restart LSP qua autocmd/lspconfig
+    print 'LSP ON (reload buffer)'
   end
 end, { desc = 'Toggle LSP' })
 

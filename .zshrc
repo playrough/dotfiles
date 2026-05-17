@@ -2,6 +2,10 @@
 #  ENV & PATH
 # ==================================================
 
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+
 # export LD_PRELOAD=/usr/lib/libiconv.so.2
 
 export PATH="$PATH:$HOME/.local/bin"
@@ -175,6 +179,7 @@ alias minato='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/min
 alias goku='kitty +kitten icat --align center --scale-up ~/Downloads/Logos/goku.gif'
 
 
+alias cvw='convert_wallpaper.sh'
 
 # ==================================================
 #  INFO
@@ -200,3 +205,4 @@ if [[ $- == *i* ]]; then
         fastfetch --config "$HOME/.config/fastfetch/config-1.jsonc"
     fi
 fi
+

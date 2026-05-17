@@ -1,52 +1,124 @@
 #!/usr/bin/env bash
-#  ┳┳┓┏┓┏┳┓┳┳┏┓┏┓┳┓  ┳┳┓┏┓┏┓┳┏┓┓┏┓
-#  ┃┃┃┣┫ ┃ ┃┃┃┓┣ ┃┃━━┃┃┃┣┫┃┓┃┃ ┃┫ 
-#  ┛ ┗┛┗ ┻ ┗┛┗┛┗┛┛┗  ┛ ┗┛┗┗┛┻┗┛┛┗┛
-#                                 
 
+set -euo pipefail
 
+# =========================================================
+# PATHS
+# =========================================================
 
+wallpaper_path=$(cat ~/.cache/current_wallpaper)
 
-# utility vars
-wallpaper_path=$(awww query | awk -F'image: ' '/image:/{print $2; exit}')
 scriptsDir="$HOME/.config/hypr/Script"
 
-# generate matugen colors
-if [ "$1" == "--light" ]; then
-  matugen image "$wallpaper_path" -m "light"
-else
-  matugen image "$wallpaper_path" -m "dark"
-fi 
+temp_frame="/tmp/matugen-frame.png"
 
-# set gtk theme
+# =========================================================
+# DETECT VIDEO
+# =========================================================
+
+ext="${wallpaper_path##*.}"
+
+case "${ext,,}" in
+    mp4|webm|mov|gif)
+
+        ffmpeg -y \
+            -i "$wallpaper_path" \
+            -frames:v 1 \
+            "$temp_frame" \
+            -loglevel quiet
+
+        matugen_input="$temp_frame"
+
+        ;;
+
+    *)
+
+        matugen_input="$wallpaper_path"
+
+        ;;
+esac
+
+# =========================================================
+# MATUGEN
+# =========================================================
+
+if [ "${1:-}" == "--light" ]; then
+    matugen image "$matugen_input" -m light
+else
+    matugen image "$matugen_input" -m dark
+fi
+
+# =========================================================
+# GTK THEME
+# =========================================================
+
 gsettings set org.gnome.desktop.interface gtk-theme ""
 gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3
 
+# =========================================================
+# CREATE HOVER ICONS
+# =========================================================
 
 "$scriptsDir/createPngHoverIcon.sh"
 
-#-------Imagemagick magick 👀--------------#
-wait $!
+# =========================================================
+# ROFI IMAGES
+# =========================================================
 
-# convert and resize the current wallpaper & make it image for rofi with blur
-magick "$wallpaper_path" -strip -resize 1000 -gravity center -extent 1000 -blur "30x30" -quality 90 $HOME/.config/rofi/images/currentWalBlur.thumb
+magick "$matugen_input" \
+    -strip \
+    -resize 1000 \
+    -gravity center \
+    -extent 1000 \
+    -blur "30x30" \
+    -quality 90 \
+    "$HOME/.config/rofi/images/currentWalBlur.thumb"
 
-# convert and resize the current wallpaper & make it image for rofi without blur
-magick "$wallpaper_path" -strip -resize 1000 -gravity center -extent 1000 -quality 90 $HOME/.config/rofi/images/currentWal.thumb
+magick "$matugen_input" \
+    -strip \
+    -resize 1000 \
+    -gravity center \
+    -extent 1000 \
+    -quality 90 \
+    "$HOME/.config/rofi/images/currentWal.thumb"
 
-# convert and resize the current wallpaper & make it image for rofi with square format
-magick "$wallpaper_path" -strip -thumbnail 500x500^ -gravity center -extent 500x500 $HOME/.config/rofi/images/currentWal.sqre
+magick "$matugen_input" \
+    -strip \
+    -thumbnail 500x500^ \
+    -gravity center \
+    -extent 500x500 \
+    "$HOME/.config/rofi/images/currentWal.sqre"
 
-# convert and resize the square formatted & make it image for rofi with drawing polygon
-magick $HOME/.config/rofi/images/currentWal.sqre \( -size 500x500 xc:white -fill "rgba(0,0,0,0.7)" -draw "polygon 400,500 500,500 500,0 450,0" -fill black -draw "polygon 500,500 500,0 450,500" \) -alpha Off -compose CopyOpacity -composite $HOME/.config/rofi/images/currentWalQuad.png && mv $HOME/.config/rofi/images/currentWalQuad.png $HOME/.config/rofi/images/currentWalQuad.quad
+magick "$HOME/.config/rofi/images/currentWal.sqre" \
+    \( -size 500x500 xc:white \
+       -fill "rgba(0,0,0,0.7)" \
+       -draw "polygon 400,500 500,500 500,0 450,0" \
+       -fill black \
+       -draw "polygon 500,500 500,0 450,500" \
+    \) \
+    -alpha Off \
+    -compose CopyOpacity \
+    -composite \
+    "$HOME/.config/rofi/images/currentWalQuad.png"
 
+mv \
+    "$HOME/.config/rofi/images/currentWalQuad.png" \
+    "$HOME/.config/rofi/images/currentWalQuad.quad"
 
-# copy the wallpaper in current-wallpaper file
-wait $!
+# =========================================================
+# CURRENT WALLPAPER LINK
+# =========================================================
+
 ln -sf "$wallpaper_path" "$HOME/.local/share/bg"
 
-# send notification after completion
-wait $!
-notify-send -e -h string:x-canonical-private-synchronous:matugen_notif "MatugenMagick" "Matugen & ImageMagick has completed its job" -i $HOME/.local/share/bg
+# =========================================================
+# NOTIFICATION
+# =========================================================
 
-matugen-push.sh
+notify-send \
+    -e \
+    -h string:x-canonical-private-synchronous:matugen_notif \
+    "MatugenMagick" \
+    "Matugen & ImageMagick completed" \
+    -i "$HOME/.local/share/bg"
+```

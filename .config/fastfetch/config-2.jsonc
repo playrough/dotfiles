@@ -5,7 +5,7 @@
     "source": "$(~/.config/fastfetch/random-logo.sh)",
     "height": 20,
     "color": {
-      "1": "blue"
+      "1": "32"
     },
     "padding": {
       "left": 5,

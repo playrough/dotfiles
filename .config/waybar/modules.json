@@ -1,0 +1,126 @@
+{
+  "custom/arch": {
+    "format": "󰣇",
+    "tooltip": true,
+    "tooltip-format": "btw"
+  },
+  "hyprland/window": {
+    "max-length": 45
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "persistent-workspaces": { "*": 5 },
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": ""
+    }
+  },
+
+  "cava": {
+    "cava_config": "/home/ether/.config/cava/config",
+    "framerate": 60,
+    "autosens": 0,
+    "sensitivity": 0.05,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "hide_on_silence": false,
+    "format_silent": "quiet",
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": true,
+    "noise_reduction": 0.7,
+    "input_delay": 4,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "actions": {
+      "on-click-right": "mode"
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " 0%",
+    "format-source": " {volume}%",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "network": {
+    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "on-click": "sh ~/scripts/rofi-wifi-menu/rofi-wifi-menu.sh"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true
+  },
+  "memory": {
+    "format": " {}%",
+    "tooltip": true
+  },
+  "temperature": {
+    "interval": 10,
+    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input",
+    "critical-threshold": 100,
+    "format-critical": " {temperatureC}",
+    "format": " {temperatureC}°C"
+  },
+  "hyprland/language": {
+    "format": "  {}",
+    "format-en": "EN"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time}  {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "clock": {
+    "format": "{:%H:%M | %e %B} ",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  }
+}

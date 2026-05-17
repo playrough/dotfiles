@@ -1,182 +1,142 @@
 @import "colors.css";
 
+/* ===================== GLOBAL ===================== */
 * {
+  all: unset;
   font-family: "JetBrainsMono Nerd Font Propo", "Material Icons";
-  font-size: 14px;
-  font-weight: 900;
-  border: none;
-  min-height: 0;
-  box-shadow: none;
-  outline: none;
-  text-shadow: none;
-  padding: 0;
-  margin: 0;
+  transition: background-color 0.3s ease-out;
 }
 
+/* ===================== BAR ===================== */
 window#waybar {
-  background: transparent;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: alpha(@background, 0.6);
+  color: alpha(@on_surface, 0.8);
+  transition: background-color 0.5s;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+/* ===================== MODULE CONTAINERS ===================== */
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0px;
+  padding: 2px 4px;
+  border-radius: 12px;
+}
+
+.modules-left {
+  border-radius: 0 12px 12px 0;
+  padding-left: 6px;
 }
 
 .modules-center {
-  background: alpha(@background, 0.6);
-  /* background: transparent; */
-  padding: 6px 10px;
-  color: @primary;
-  border-radius: 20px;
-  border: 1px solid alpha(@surface_container, 0.9);
-}
-
-tooltip {
-  background: alpha(@surface_container, 0.9);
-  border-radius: 20px;
-}
-
-tooltip label {
-  padding: 6px;
-}
-
-#workspaces,
-#power-profiles-daemon,
-#custom-menu,
-#custom-power,
-#custom-swaync,
-#custom-playerctl,
-#clock,
-#pulseaudio,
-#network,
-#battery,
-#mpris,
-#tray {
   background: transparent;
-  border-radius: 20px;
-  padding: 0px 10px;
-  margin: 0 2px;
-  transition:
-    background 0.2s,
-    color 0.2s;
+  border-radius: 12px;
+  padding: 0 10px;
 }
 
+.modules-right {
+  border-radius: 12px 0 0 12px;
+  padding-right: 6px;
+}
+
+/* ===================== COMMON MODULES ===================== */
+#cava,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#language,
+#mpd {
+  padding: 0 8px;
+  border-radius: 12px;
+  color: alpha(@on_surface, 0.8);
+}
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#tray:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#language:hover,
+#mpd:hover {
+  background: @primary_container;
+  color: @on_primary_container;
+}
+
+/* ===================== WORKSPACES (FIXED CORE) ===================== */
 #workspaces {
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 10px;
-  margin-right: 10px;
+  min-width: 100px;
+  border-radius: 99px;
+  padding: 4px 4px;
+  margin: 10px 0px;
+  font-size: 0.2rem;
 }
 
 #workspaces button {
-  color: alpha(@primary, 0.8);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  margin: 0 2px;
-  padding: 2px 8px;
-  border-radius: 20px;
+  background: alpha(@primary, 0.4);
+  color: @on_primary;
+  border: none;
+  border-radius: 99px;
+
+  padding: 0px 8px;
+  margin: 0px 2px;
+
+  min-width: 8px;
+  transition: all 0.3s;
 }
 
 #workspaces button.active {
-  /* background: linear-gradient(135deg, @primary 0%, @tertiary 100%); */
   background: @primary;
-  color: alpha(@background, 0.8);
-  font-weight: bold;
-  min-width: 42px;
-  border-radius: 20px;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  min-width: 24px;
 }
 
-#power-profiles-daemon:hover,
-#workspaces button:hover,
-#custom-menu:hover,
-#custom-power:hover,
-#custom-swaync:hover,
-#custom-playerctl:hover,
-#clock:hover,
-#pulseaudio:hover,
-#network:hover,
-#battery:hover {
-  background: @secondary_container;
+#workspaces button:hover {
+  background: @surface_container_highest;
+  box-shadow: none;
 }
 
-#mpris.playing {
+/* ===================== ARCH ICON ===================== */
+#custom-arch {
+  margin-left: 5px;
+  padding: 0 8px;
+  font-size: 16px;
+  transition: color 0.5s;
   color: @primary;
 }
 
-#mpris.paused {
-  color: @error;
+#custom-arch:hover {
+  color: @inverse_primary;
 }
 
-#mpris.stopped {
-  color: @error;
-}
-
-#custom-menu {
+/* ===================== CAVA ===================== */
+#cava {
   color: @primary;
+  font-size: 10px;
+  margin: 0;
+  letter-spacing: 1px;
 }
-
-#custom-power {
-  color: @error;
-}
-
-#tray {
-  padding: 0 6px;
-}
-
-#battery {
-  color: #a6e3a1;
-}
-
-#battery.warning {
-  color: #f9e2af;
-}
-
-#battery.critical {
-  color: #f38ba8;
-}
-
-#battery.charging {
-  color: #89dceb;
-}
-
-#battery.full {
-  color: #89b4fa;
-}
-
-#pulseaudio {
-  color: @primary;
-}
-
-#network {
-  color: @primary;
-}
-
-/* color */
-
-/* #battery { */
-/*   color: @tertiary; */
-/* } */
-/**/
-/* #battery.warning { */
-/*   color: @error; */
-/* } */
-/**/
-/* #battery.critical { */
-/*   color: @error; */
-/* } */
-/**/
-/* #battery.charging { */
-/*   color: @tertiary; */
-/* } */
-/**/
-/* #battery.full { */
-/*   color: @tertiary; */
-/* } */
-/**/
-/* #pulseaudio { */
-/*   color: @tertiary; */
-/* } */
-/**/
-/* #network { */
-/*   color: @tertiary; */
-/* } */
-/**/
-/* #clock { */
-/*   color: @primary; */
-/* } */

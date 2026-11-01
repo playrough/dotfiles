@@ -3,7 +3,6 @@ spawn-at-startup "noctalia"
 spawn-sh-at-startup "fcitx5 -d"
 
 prefer-no-csd
-
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 environment {
@@ -12,8 +11,8 @@ environment {
 }
 
 cursor {
-  xcursor-theme "BreezeX-Light"
-  xcursor-size 32
+  xcursor-theme "Breeze_Light"
+  xcursor-size 30
 }
 
 xwayland-satellite {
@@ -24,11 +23,10 @@ hotkey-overlay {
   skip-at-startup
 }
 
-
 blur {
   passes 3
-  offset 1
-  noise 0.03
+  offset 2
+  noise 0.08
   saturation 1.0
 }
 
@@ -57,7 +55,6 @@ output "eDP-1" {
   hot-corners {
     off
   }
-
 }
 
 layout {
@@ -68,15 +65,6 @@ layout {
     on
     width 1
   }
-
-  shadow {
-    off
-    softness 30
-    spread 5
-    offset x=0 y=5
-    color "#0007"
-  }
-
 }
 
 window-rule {
@@ -93,12 +81,12 @@ window-rule {
 
 window-rule {
   match is-active=true
-  opacity 0.95
+  opacity 0.85
 }
 
 window-rule {
   match is-active=false
-  opacity 0.9
+  opacity 0.8
 }
 
 window-rule {

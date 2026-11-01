@@ -81,12 +81,12 @@ window-rule {
 
 window-rule {
   match is-active=true
-  opacity 0.9
+  opacity 0.85
 }
 
 window-rule {
   match is-active=false
-  opacity 0.85
+  opacity 0.8
 }
 
 window-rule {

@@ -39,7 +39,7 @@ alias nv='nvim'
 # =========================================================
 # Git
 # =========================================================
-alias dots='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 # =========================================================
 # Paru

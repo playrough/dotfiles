@@ -3,17 +3,29 @@ enabled = true
 
 [bar.default]
 background_opacity = 0.79999998211860657
-center = [ "clock", "date" ]
+center = [ "clock", "text_2", "date" ]
 color = "primary"
-end = [ "audio_visualizer", "spacer_3", "network", "battery", "session" ]
-font_family = "Maple Mono NF"
+end = [ "volume", "audio_visualizer", "spacer_3", "network", "spacer_9", "battery", "spacer_8", "session" ]
+font_family = "Inter"
 margin_ends = 5
 padding = 10
 position = "left"
-scale = 1.0500000081956387
-start = [ "launcher", "workspaces", "notifications", "spacer_2", "volume", "spacer_5", "cpu", "spacer_4", "ram" ]
-thickness = 30
-widget_spacing = 10
+scale = 0.85000000521540642
+start = [
+    "launcher",
+    "spacer_6",
+    "workspaces",
+    "spacer_7",
+    "notifications",
+    "spacer_2",
+    "spacer_5",
+    "cpu",
+    "spacer_4",
+    "ram",
+    "sysmon"
+]
+thickness = 36
+widget_spacing = 6
 
 [control_center]
 hidden_tabs = [ "weather" ]
@@ -100,7 +112,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
     box_height = 48.0
     box_width = 128.0
     cx = 768.0
-    cy = 464.0
+    cy = 456.0
     output = "eDP-1"
     placement_height = 864.0
     placement_width = 1536.0
@@ -109,6 +121,7 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
         background = false
+        shadow = false
         title = "Edgerunner"
 
 [notification]
@@ -134,7 +147,7 @@ enabled = [ "noctalia/wallhaven" ]
 avatar_path = "/home/edgerunner/Downloads/zai007-552.jpg"
 button_borders = false
 card_borders = false
-font_family = "Adwaita Sans"
+font_family = "Inter"
 input_borders = false
 
     [shell.launcher]
@@ -231,35 +244,42 @@ scale = 0.60000000000000009
 show_label = false
 
 [widget.clock]
-color = "primary"
+color = "on_surface_variant"
+font_scale = 1.0
 
 [widget.cpu]
 glyph = "atom-2-filled"
+label_show_units = false
 visualization = "none"
 
 [widget.date]
-color = "on_surface_variant"
-font_scale = 0.97999999999999998
-format = "{:%a %d}"
-scale = 0.69999999999999996
+color = "primary"
+font_scale = 1.0
+format = "{:%d %m}"
+scale = 1.0
 
 [widget.launcher]
-glyph = "wash-dryclean"
+custom_image = "/home/edgerunner/.config/noctalia/icons/niri.svg"
+custom_image_colorize = true
+glyph = "niri"
+scale = 1.2
 
 [widget.network]
 show_label = false
 
 [widget.ram]
 glyph = "chart-donut-filled"
+label_show_units = false
 stat = "ram_pct"
 visualization = "none"
 
 [widget.spacer_2]
-length = 60
+length = 20
 type = "spacer"
 
 [widget.spacer_3]
-length = 60
+enabled = false
+length = 10
 type = "spacer"
 
 [widget.spacer_4]
@@ -270,8 +290,42 @@ type = "spacer"
 length = 10
 type = "spacer"
 
+[widget.spacer_6]
+length = 10
+type = "spacer"
+
+[widget.spacer_7]
+length = 10
+type = "spacer"
+
+[widget.spacer_8]
+length = 10
+type = "spacer"
+
+[widget.spacer_9]
+length = 10
+type = "spacer"
+
+[widget.sysmon]
+glyph = "circle-dot-filled"
+label_show_units = false
+stat = "disk_used_pct"
+visualization = "none"
+
+[widget.text_2]
+color = "secondary"
+enabled = false
+font_weight = 200
+scale = 0.80000000000000004
+text = "—"
+type = "text"
+
 [widget.volume]
+custom_image = "/home/edgerunner/.config/noctalia/icons/equalizer.svg"
+custom_image_colorize = true
+font_scale = 0.80000000000000004
 glyph = "brand-google-podcasts"
+scale = 1.3
 
 [widget.workspaces]
 active_pill_size = 3.0

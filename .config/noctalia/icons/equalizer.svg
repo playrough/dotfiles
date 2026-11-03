@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Icon: graphic-eq
+  Set: Material Symbols
+  Author: Google (https://github.com/google/material-design-icons)
+  License: Apache 2.0 (https://github.com/google/material-design-icons/blob/master/LICENSE)
+  Source: https://iconify.design
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 24 24"
+     width="24"
+     height="24">
+  <title>Audio Equalizer Bar Icon</title>
+  <metadata>
+    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+             xmlns:dc="http://purl.org/dc/elements/1.1/"
+             xmlns:cc="http://creativecommons.org/ns#">
+      <cc:Work rdf:about="">
+        <dc:title>Audio Equalizer Bar Icon</dc:title>
+        <dc:description>Minimalist icon of vertical bars representing an audio equalizer or sound levels. Ideal for music apps, sound editing software, and audio-related projects.</dc:description>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Google</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:source>https://github.com/google/material-design-icons</dc:source>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Google</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <cc:license rdf:resource="https://github.com/google/material-design-icons/blob/master/LICENSE"/>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>audio-equalizer</rdf:li>
+            <rdf:li>sound-levels</rdf:li>
+            <rdf:li>music-icon</rdf:li>
+            <rdf:li>sound-waves</rdf:li>
+            <rdf:li>audio-bars</rdf:li>
+            <rdf:li>equalizer-icon</rdf:li>
+            <rdf:li>sound-editing</rdf:li>
+            <rdf:li>music-app-icon</rdf:li>
+            <rdf:li>sound-visualization</rdf:li>
+            <rdf:li>audio-interface</rdf:li>
+            <rdf:li>sound-design</rdf:li>
+            <rdf:li>audio-technology</rdf:li>
+            <rdf:li>music-software</rdf:li>
+            <rdf:li>sound-control</rdf:li>
+            <rdf:li>audio-mixer</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="https://github.com/google/material-design-icons/blob/master/LICENSE">
+        <dc:title>Apache 2.0 (Apache-2.0)</dc:title>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path fill="currentColor" d="M7 18V6h2v12zm4 4V2h2v20zm-8-8v-4h2v4zm12 4V6h2v12zm4-4v-4h2v4z"/>
+</svg>

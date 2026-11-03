@@ -85,12 +85,12 @@ animations {
   }
 
   window-open {
-    duration-ms 150
+    duration-ms 100
     curve "ease-out-expo"
   }
 
   window-close {
-    duration-ms 150
+    duration-ms 100
     curve "ease-out-quad"
   }
 

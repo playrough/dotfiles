@@ -18,10 +18,10 @@ start = [
     "spacer_7",
     "notifications",
     "spacer_2",
-    "spacer_5",
     "cpu",
     "spacer_4",
     "ram",
+    "spacer_5",
     "sysmon"
 ]
 thickness = 36
@@ -307,7 +307,7 @@ length = 10
 type = "spacer"
 
 [widget.sysmon]
-glyph = "circle-dot-filled"
+glyph = "disc-filled"
 label_show_units = false
 stat = "disk_used_pct"
 visualization = "none"

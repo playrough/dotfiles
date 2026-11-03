@@ -3,17 +3,12 @@
   "logo": {
     "type": "auto",
     "source": "$XDG_CONFIG_HOME/fastfetch/logo/logo-3.png",
-    // "color": {
-    //   "1": "32"
-    // },
     "width": 28,
     "padding": {
       "left": 1,
       "right": 1,
-      "top": 1
+      "top": 2
     }
-    
-
   },
   "display": {
     "separator": "  "
@@ -22,15 +17,18 @@
     { 
       "type": "custom"
     },
-    {
-      "type": "OS",
-      "key": "{#32}OS  ",
-      "format": "{name}"
+    { 
+      "type": "custom"
     },
     {
       "type": "wm",
       "key": "{#32}WM  ",
       "format": "{pretty-name}"
+    },
+    {
+      "type": "OS",
+      "key": "{#32}OS  ",
+      "format": "{name}"
     },
     {
       "type": "title",
@@ -45,18 +43,12 @@
     {
       "type": "display",
       "key": "{#32}DSP ",
-      "format": "{width}x{height} @{refresh-rate}Hz"
+      "format": "{width}x{height}@{refresh-rate}Hz"
     },
-    {
-      "type": "terminal",
-      "key": "{#32}TER ",
-      "format": "{pretty-name}"
-    },
-
     {
       "type": "cpu",
       "key": "{#32}CPU ",
-      "format": "{name}"
+      "format": "{name:27}"
     },
     {
       "type": "gpu",
@@ -66,26 +58,23 @@
     {
       "type": "memory",
       "key": "{#32}MEM ",
-      "format": "{used} / {total}"
+      "format": "{used} 󰝡 {total}"
     },
     {
       "type": "disk",
       "key": "{#32}DSK ",
       "folders": "/",
-      "format": "{size-used} / {size-total}"
+      "format": "{size-used} 󰝡 {size-total}"
     },
-
     {
       "type": "custom",
       "format": ""
     },
-
     {
       "type": "colors",
       "key": " ",
       "symbol": "circle"
     },
-    // Footer
     {
       "type": "custom",
       "format": ""

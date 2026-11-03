@@ -174,7 +174,7 @@ input_borders = false
         variant = "destructive"
 
     [shell.shadow]
-    alpha = 0.19999999552965164
+    alpha = 0.4999999888241291
 
 [theme]
 source = "wallpaper"
@@ -193,13 +193,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/edgerunner/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-d8vrwm.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-6le7dq.png"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-d8vrwm.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-6le7dq.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-d8vrwm.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-6le7dq.png"
 
 [widget.audio_visualizer]
 bands = 20

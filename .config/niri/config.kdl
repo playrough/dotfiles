@@ -58,13 +58,14 @@ output "eDP-1" {
 }
 
 layout {
-  gaps 16
+  gaps 20
   always-center-single-column
 
   focus-ring {
     on
     width 1
   }
+
 }
 
 window-rule {

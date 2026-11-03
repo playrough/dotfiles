@@ -1,0 +1,4 @@
+[theme.templates.user.nvim]
+input_path = '$XDG_CONFIG_HOME/noctalia/templates/nvim.json'
+output_path = '$XDG_CONFIG_HOME/nvim/colors.json'
+post_hook = 'pkill -SIGUSR1 nvim || true'

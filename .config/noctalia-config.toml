@@ -1,0 +1,261 @@
+[backdrop]
+enabled = true
+
+[bar.default]
+background_opacity = 0.79999998211860657
+center = [ "clock", "date" ]
+color = "primary"
+end = [ "audio_visualizer", "spacer_3", "network", "battery", "session" ]
+font_family = "Maple Mono NF"
+margin_ends = 5
+padding = 10
+position = "left"
+scale = 1.0500000081956387
+start = [ "launcher", "workspaces", "notifications", "spacer_2", "volume", "spacer_5", "cpu", "spacer_4", "ram" ]
+thickness = 30
+widget_spacing = 10
+
+[control_center]
+hidden_tabs = [ "weather" ]
+sidebar = "full"
+
+[keybinds]
+down = [ "Ctrl+j" ]
+left = [ "Ctrl+h" ]
+right = [ "Ctrl+l" ]
+up = [ "Ctrl+k" ]
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 384.0
+    cx = 768.0
+    cy = 525.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.0
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 0.59999999999999998
+        input_radius = 32.0
+        layout = "compact"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = false
+        show_media = true
+        show_password_reveal = false
+        show_session_buttons = true
+        show_unlock_hint = false
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 128.0
+    box_width = 384.0
+    cx = 768.0
+    cy = 368.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        shadow = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 48.0
+    box_width = 128.0
+    cx = 768.0
+    cy = 464.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "label"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+        title = "Edgerunner"
+
+[notification]
+background_opacity = 0.79999998211860657
+border_color = "on_secondary"
+
+[osd]
+background_opacity = 0.79999998211860657
+border_color = "on_secondary"
+offset_y = 42
+position = "bottom_center"
+
+[plugin_settings."noctalia/wallhaven"]
+api_key = "QWTIQOrVuo1GazaCAMrTIVwtJ76GQua5"
+browser_placement = "floating"
+browser_position = "center"
+download_dir = "/home/edgerunner/Downloads/wallpapers"
+
+[plugins]
+enabled = [ "noctalia/wallhaven" ]
+
+[shell]
+avatar_path = "/home/edgerunner/Downloads/zai007-552.jpg"
+button_borders = false
+card_borders = false
+font_family = "Adwaita Sans"
+input_borders = false
+
+    [shell.launcher]
+    categories = false
+    layout = "simple"
+
+    [shell.panel]
+    border_color = "on_secondary"
+    control_center_placement = "floating"
+    control_center_position = "center"
+    session_placement = "floating"
+    session_position = "center"
+    transparency_mode = "soft"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
+
+    [shell.session]
+    grid = true
+    grid_columns = 2
+    show_shortcuts = false
+
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "l"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "o"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "lock_and_suspend"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "u"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "r"
+        variant = "default"
+
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "s"
+        variant = "destructive"
+
+    [shell.shadow]
+    alpha = 0.19999999552965164
+
+[theme]
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kitty", "niri" ]
+    community_ids = [ "pywalfox", "bat", "yazi" ]
+
+        [theme.templates.user.nvim]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim.json"
+        output_path = "$XDG_CONFIG_HOME/nvim/colors.json"
+        post_hook = "pkill -SIGUSR1 nvim || true"
+
+[wallpaper]
+directory = "/home/edgerunner/Downloads/wallpapers"
+
+    [wallpaper.default]
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-d8vrwm.jpg"
+
+    [wallpaper.last]
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-d8vrwm.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-d8vrwm.jpg"
+
+[widget.audio_visualizer]
+bands = 20
+scale = 0.69999999999999996
+show_when_idle = true
+width = 220
+
+[widget.battery]
+display_mode = "graphic"
+scale = 0.60000000000000009
+show_label = false
+
+[widget.clock]
+color = "primary"
+
+[widget.cpu]
+glyph = "atom-2-filled"
+visualization = "none"
+
+[widget.date]
+color = "on_surface_variant"
+font_scale = 0.97999999999999998
+format = "{:%a %d}"
+scale = 0.69999999999999996
+
+[widget.launcher]
+glyph = "wash-dryclean"
+
+[widget.network]
+show_label = false
+
+[widget.ram]
+glyph = "chart-donut-filled"
+stat = "ram_pct"
+visualization = "none"
+
+[widget.spacer_2]
+length = 60
+type = "spacer"
+
+[widget.spacer_3]
+length = 60
+type = "spacer"
+
+[widget.spacer_4]
+length = 10
+type = "spacer"
+
+[widget.spacer_5]
+length = 10
+type = "spacer"
+
+[widget.volume]
+glyph = "brand-google-podcasts"
+
+[widget.workspaces]
+active_pill_size = 3.0
+pill_scale = 0.5
+show_labels = false

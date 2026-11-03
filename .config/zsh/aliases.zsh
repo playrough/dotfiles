@@ -14,7 +14,7 @@ alias tree='eza --tree --icons=auto'
 compdef eza=ls
 
 # Better cat
-alias cat='bat'
+alias cat='bat -p'
 
 # =========================================================
 # Core utilities

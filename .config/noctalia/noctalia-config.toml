@@ -19,6 +19,24 @@ widget_spacing = 10
 hidden_tabs = [ "weather" ]
 sidebar = "full"
 
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 660.0
+
 [keybinds]
 down = [ "Ctrl+j" ]
 left = [ "Ctrl+h" ]
@@ -127,16 +145,16 @@ input_borders = false
     border_color = "on_secondary"
     control_center_placement = "floating"
     control_center_position = "center"
-    session_placement = "floating"
-    session_position = "center"
+    session_placement = "attached"
+    session_position = "auto"
     transparency_mode = "soft"
     wallpaper_placement = "floating"
     wallpaper_position = "center"
 
     [shell.session]
     grid = true
-    grid_columns = 2
-    show_shortcuts = false
+    grid_columns = 1
+    show_shortcuts = true
 
         [[shell.session.actions]]
         action = "lock"
@@ -193,13 +211,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/edgerunner/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-6le7dq.png"
+    path = "/home/edgerunner/Downloads/wallpapers/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-6le7dq.png"
+    path = "/home/edgerunner/Downloads/wallpapers/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-6le7dq.png"
+    path = "/home/edgerunner/Downloads/wallpapers/al-qin-sentinels-camile14.jpg"
 
 [widget.audio_visualizer]
 bands = 20

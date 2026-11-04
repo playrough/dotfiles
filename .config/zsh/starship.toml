@@ -20,7 +20,10 @@ error_symbol   = '[ ](bold red)'
 vimcmd_symbol  = '[ ](bold yellow)'
 
 [directory]
+format = "[$read_only]($read_only_style) [$path]($style) "
 style = "bold yellow"
+read_only = " 󰉐"
+read_only_style = "bold red"
 
 # Disable the package module, hiding it from the prompt completely
 [package]

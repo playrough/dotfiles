@@ -131,7 +131,7 @@ border_color = "on_secondary"
 [osd]
 background_opacity = 0.79999998211860657
 border_color = "on_secondary"
-offset_y = 42
+offset_y = 30
 position = "bottom_center"
 
 [plugin_settings."noctalia/wallhaven"]
@@ -224,13 +224,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/edgerunner/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/unstable-anomaly-.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-28d859.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/unstable-anomaly-.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-28d859.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/unstable-anomaly-.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven-28d859.jpg"
 
 [widget.audio_visualizer]
 bands = 20

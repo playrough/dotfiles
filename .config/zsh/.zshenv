@@ -28,3 +28,7 @@ export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 # ---------- PATH ----------
 # Personal binaries/scripts
 export PATH="$HOME/.local/bin:$PATH"
+
+# ---------- LESS & WGET History ----------
+export LESSHISTFILE="$HOME/.cache/lesshst"
+export WGETRC=$HOME/.config/wgetrc

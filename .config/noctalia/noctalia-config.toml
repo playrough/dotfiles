@@ -224,13 +224,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/edgerunner/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/unstable-anomaly-.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/unstable-anomaly-.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/unstable-anomaly-.jpg"
 
 [widget.audio_visualizer]
 bands = 20
@@ -244,7 +244,7 @@ scale = 0.60000000000000009
 show_label = false
 
 [widget.clock]
-color = "on_surface_variant"
+color = "on_surface"
 font_scale = 1.0
 
 [widget.cpu]
@@ -323,9 +323,9 @@ type = "text"
 [widget.volume]
 custom_image = "/home/edgerunner/.config/noctalia/icons/equalizer.svg"
 custom_image_colorize = true
-font_scale = 0.80000000000000004
+font_scale = 0.69999999999999996
 glyph = "brand-google-podcasts"
-scale = 1.3
+scale = 1.4000000000000001
 
 [widget.workspaces]
 active_pill_size = 3.0

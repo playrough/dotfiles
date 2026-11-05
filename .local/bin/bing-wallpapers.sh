@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-MARKET=${MARKET:-en-US}
+MARKET=${MARKET:-ja-JP}
 OUTPUT_DIR=${OUTPUT_DIR:-$HOME/Downloads/wallpapers/bing}
 DAYS=${DAYS:-7}
 MIN_SIZE=100000

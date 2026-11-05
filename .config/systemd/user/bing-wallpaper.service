@@ -4,5 +4,5 @@ Description=Download Bing Wallpaper
 [Service]
 Type=oneshot
 ExecStart=%h/.local/bin/bing-wallpaper.sh
-Environment=MARKET=en-US
+Environment=MARKET=ja-JP
 Environment=OUTPUT_DIR=%h/Downloads/wallpapers/bing

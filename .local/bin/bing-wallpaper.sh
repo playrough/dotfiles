@@ -2,7 +2,7 @@
 set -e
 
 MARKET=${MARKET:-ja-JP}
-OUTPUT_DIR=${OUTPUT_DIR:-$HOME/Downloads/wallpapers/bing}
+OUTPUT_DIR=${OUTPUT_DIR:-/home/edgerunner/Downloads/wallpapers/bing}
 MIN_SIZE=100000  # 100KB minimum to consider valid
 
 mkdir -p "$OUTPUT_DIR"
@@ -12,8 +12,12 @@ API_URL="https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=$MARKE
 echo "Fetching Bing metadata..."
 JSON=$(wget -qO- "$API_URL")
 
-# More robust extraction using the url field before urlbase
-IMG_PATH=$(echo "$JSON" | sed 's/.*"url":"\([^"]*\)".*/\1/' | head -n1)
+IMG_PATH=$(echo "$JSON" | jq -r '.images[0].url')
+
+if [ -z "$IMG_PATH" ] || [ "$IMG_PATH" = "null" ]; then
+    echo "Failed to extract image path from JSON"
+    exit 1
+fi
 
 BASE_URL="https://www.bing.com${IMG_PATH}"
 

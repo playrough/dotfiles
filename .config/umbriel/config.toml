@@ -6,7 +6,7 @@
 files = []
 
 [include.optional]
-files = ["noctalia.toml", "opacity.toml"]
+files = ["opacity.toml", "noctalia.toml"]
 
 
 # ==============================================================================

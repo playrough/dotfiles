@@ -1,0 +1,450 @@
+# ==============================================================================
+# Includes
+# ==============================================================================
+
+[include]
+files = []
+
+[include.optional]
+files = ["noctalia.toml", "opacity.toml"]
+
+
+# ==============================================================================
+# General
+# ==============================================================================
+
+[general]
+autostart = ["noctalia", "kitty"]
+xwayland_native_resolution = true
+
+[environment]
+ELECTRON_OZONE_PLATFORM_HINT = "auto"
+SDL_VIDEODRIVER = "wayland"
+
+[events]
+lid_close = "umbriel msg output-disable eDP-1"
+lid_open = "umbriel msg output-enable eDP-1"
+
+# ==============================================================================
+# Outputs
+# ==============================================================================
+
+[output.eDP-1]
+mode = "1920x1080@60"
+position = [0, 0]
+scale = 1.25
+min_workspaces = 3
+
+[output.HDMI-A-1]
+mode = "1920x1080@60"
+position = [0, 0]
+scale = 1.25
+min_workspaces = 3
+
+
+# ==============================================================================
+# Appearance
+# ==============================================================================
+
+[appearance]
+border_width = 1
+outer_border_width = 0
+corner_radius = 10
+drag_opacity = 0.85
+
+[appearance.blur]
+enabled = true
+optimized = false
+passes = 3
+radius = 2
+noise = 0.02
+brightness = 0.9
+contrast = 0.9
+saturation = 1.1
+
+[appearance.shadow]
+enabled = true
+softness = 10
+offset_x = 2
+offset_y = 2
+
+
+# ==============================================================================
+# Input
+# ==============================================================================
+
+[input]
+middle_click_paste = false
+client_window_drag = true
+window_drag_toggle = "floating"
+mod_right_double_click = "maximize"
+
+[input.keyboard]
+repeat_rate = 25
+repeat_delay = 300
+numlock_toggle = true
+
+[input.cursor]
+theme = "Breeze_Light"
+size = 24
+hardware_cursor = true
+follows_focus = false
+hide_when_typing = false
+
+
+# ==============================================================================
+# Keybinds
+# ==============================================================================
+
+[keybinds]
+
+# ------------------------------------------------------------------------------
+# Applications & Session
+# ------------------------------------------------------------------------------
+
+"Mod+D" = "spawn noctalia msg panel-toggle launcher"
+"Mod+Return" = { action = "spawn kitty", repeat = false }
+
+"Mod+W" = "spawn noctalia msg panel-toggle wallpaper"
+"Mod+Shift+W" = "spawn noctalia msg panel-toggle noctalia/wallhaven:browser"
+
+"Mod+Q" = { action = "window-close", repeat = false }
+"Mod+Escape" = "spawn noctalia msg panel-toggle session"
+
+"Mod+Shift+Escape" = { action = "shortcuts-inhibit-toggle", allow_when_inhibited = true, repeat = false }
+"Mod+Shift+Slash" = { action = "cheatsheet-open", repeat = false }
+
+
+# ------------------------------------------------------------------------------
+# Noctalia Controls
+# ------------------------------------------------------------------------------
+
+# Control center & settings
+"Mod+S" = "spawn noctalia msg panel-toggle control-center"
+"Mod+Shift+S" = "spawn noctalia msg settings-toggle"
+
+# Window switcher
+"Alt+Tab" = "spawn noctalia msg window-switcher hold"
+
+# Screenshot & annotation
+"Print" = "spawn noctalia msg screenshot-fullscreen" 
+"Ctrl+Print" = "spawn noctalia msg screenshot-region" 
+"Mod+Print" = "spawn noctalia msg screenshot-window" 
+
+"Mod+Shift+A" = "spawn noctalia msg screenshot-annotate"
+"Mod+Ctrl+A" = "spawn noctalia msg annotate"
+
+# Opacity toggle
+"Mod+O" = '''spawn sed -i \
+  's/^opacity = 1\.0$/opacity = 0.9/;
+   t;
+   s/^opacity = 0\.9$/opacity = 1.0/' \
+  "$HOME/.config/umbriel/opacity.toml"'''
+
+# Display power
+"Mod+Shift+I" = "spawn noctalia msg dpms-off"
+
+
+# ------------------------------------------------------------------------------
+# Media, Volume & Brightness
+# ------------------------------------------------------------------------------
+
+# Volume
+"XF86AudioRaiseVolume" = { action = "spawn noctalia msg volume-up", allow_when_locked = true }
+"XF86AudioLowerVolume" = { action = "spawn noctalia msg volume-down", allow_when_locked = true }
+"XF86AudioMute" = { action = "spawn noctalia msg volume-mute", allow_when_locked = true, repeat = false }
+"XF86AudioMicMute" = { action = "spawn noctalia msg mic-mute", allow_when_locked = true, repeat = false }
+
+# Media
+"XF86AudioPlay" = { action = "spawn noctalia msg media toggle", allow_when_locked = true, repeat = false }
+"XF86AudioStop" = { action = "spawn noctalia msg media stop", allow_when_locked = true, repeat = false }
+"XF86AudioNext" = { action = "spawn noctalia msg media next", allow_when_locked = true }
+"XF86AudioPrev" = { action = "spawn noctalia msg media previous", allow_when_locked = true }
+
+# Brightness
+"XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
+"XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+
+
+# ------------------------------------------------------------------------------
+# Window Focus & Movement
+# ------------------------------------------------------------------------------
+
+# Focus
+"Mod+H" = "window-focus-left"
+"Mod+J" = "window-focus-down"
+"Mod+K" = "window-focus-up"
+"Mod+L" = "window-focus-right"
+
+# Move columns
+"Mod+Ctrl+H" = "column-move-left"
+"Mod+Ctrl+L" = "column-move-right"
+
+
+# ------------------------------------------------------------------------------
+# Workspace Navigation
+# ------------------------------------------------------------------------------
+
+# Switch Workspace
+"Mod+1" = "workspace-switch 1"
+"Mod+2" = "workspace-switch 2"
+"Mod+3" = "workspace-switch 3"
+"Mod+4" = "workspace-switch 4"
+"Mod+5" = "workspace-switch 5"
+"Mod+6" = "workspace-switch 6"
+"Mod+7" = "workspace-switch 7"
+"Mod+8" = "workspace-switch 8"
+"Mod+9" = "workspace-switch 9"
+
+"Mod+Shift+1" = "window-move-to-workspace 1"
+"Mod+Shift+2" = "window-move-to-workspace 2"
+"Mod+Shift+3" = "window-move-to-workspace 3"
+"Mod+Shift+4" = "window-move-to-workspace 4"
+"Mod+Shift+5" = "window-move-to-workspace 5"
+"Mod+Shift+6" = "window-move-to-workspace 6"
+"Mod+Shift+7" = "window-move-to-workspace 7"
+"Mod+Shift+8" = "window-move-to-workspace 8"
+"Mod+Shift+9" = "window-move-to-workspace 9"
+
+# Cyble Workspace
+"Mod+Shift+J" = "workspace-next"
+"Mod+Shift+K" = "workspace-previous"
+
+
+# ------------------------------------------------------------------------------
+# Scroll Wheel Navigation
+# ------------------------------------------------------------------------------
+
+# Focus Window
+"Mod+Shift+WheelUp" = "window-focus-left"
+"Mod+Shift+WheelDown" = "window-focus-right"
+
+# Move columns
+"Mod+Ctrl+WheelUp" = "column-move-left"
+"Mod+Ctrl+WheelDown" = "column-move-right"
+
+# Move windows between workspaces
+"Mod+Alt+WheelUp" = "window-move-to-workspace-previous"
+"Mod+Alt+WheelDown" = "window-move-to-workspace-next"
+
+# Switch Workspaces
+"Mod+WheelUp" = "workspace-previous"
+"Mod+WheelDown" = "workspace-next"
+
+
+# ------------------------------------------------------------------------------
+# Window State
+# ------------------------------------------------------------------------------
+
+# Floating
+"Mod+V" = { action = "window-toggle-floating", repeat = false }
+"Mod+Shift+V" = { action = "window-focus-switch-floating", repeat = false }
+
+# Pinning
+"Mod+P" = { action = "window-toggle-pinned", repeat = false }
+
+# Maximize & fullscreen
+"Mod+M" = { action = "window-toggle-maximize-to-edges", repeat = false }
+"Mod+F" = { action = "window-toggle-maximize", repeat = false }
+"Mod+Ctrl+F" = { action = "window-toggle-fullscreen", repeat = false }
+
+# Overview
+"Mod+G" = { action = "overview-toggle", repeat = false }
+
+
+# ------------------------------------------------------------------------------
+# Window Sizing
+# ------------------------------------------------------------------------------
+
+# Cycle primary extent
+"Mod+R" = "window-cycle-primary-extent"
+"Mod+Shift+R" = "window-cycle-primary-extent-back"
+
+# Modify primary extent
+"Mod+Minus" = "window-modify-primary-extent -0.02"
+"Mod+Equal" = "window-modify-primary-extent +0.02"
+
+# Modify secondary extent
+"Mod+Ctrl+Minus" = "window-modify-secondary-extent -0.02"
+"Mod+Ctrl+Equal" = "window-modify-secondary-extent +0.02"
+
+
+# ------------------------------------------------------------------------------
+# Window Consume & Expel
+# ------------------------------------------------------------------------------
+
+# Consume neighboring windows
+"Mod+Comma" = "window-consume-left"
+"Mod+Period" = "window-consume-right"
+
+# Consume from neighboring columns
+"Mod+Ctrl+Comma" = "window-consume-from-left"
+"Mod+Ctrl+Period" = "window-consume-from-right"
+
+# Consume or expel
+"Mod+Shift+Comma" = "window-consume-or-expel-left"
+"Mod+Shift+Period" = "window-consume-or-expel-right"
+
+
+# ------------------------------------------------------------------------------
+# Column & Tab Management
+# ------------------------------------------------------------------------------
+
+# Tabbed layout
+"Mod+T" = { action = "column-toggle-tabbed", repeat = false }
+
+# Tab navigation
+"Mod+Alt+L" = "column-focus-tab-next"
+"Mod+Alt+H" = "column-focus-tab-previous"
+
+
+# ------------------------------------------------------------------------------
+# Scratchpad
+# ------------------------------------------------------------------------------
+"Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
+"Mod+Space" = "scratchpad-toggle"
+"Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
+"Mod+Tab" = "scratchpad-focus-next"
+
+# ==============================================================================
+# Layout
+# ==============================================================================
+
+[layout]
+mode = "scrolling"
+extent_presets = [0.333, 0.5, 0.667]
+gap = 20
+
+[layout.scrolling]
+default_extent_fraction = 0.5
+
+
+# ==============================================================================
+# Window Rules
+# ==============================================================================
+
+# Default window appearance
+[[window_rule]]
+blur = true
+blur_optimized = false
+
+# Unfocused windows
+[[window_rule]]
+match.is_focused = false
+opacity = 0.85
+
+# Noctalia settings
+[[window_rule]]
+match.app_id = "^dev.noctalia.Noctalia$"
+default_floating = true
+default_floating_size_px = { width = 1200, height = 700 }
+
+# Noctalia share picker
+[[window_rule]]
+match.app_id = "^dev.noctalia.UmbrielSharePicker$"
+default_floating = true
+default_floating_size_px = { width = 800, height = 600 }
+
+# Picture-in-picture
+[[window_rule]]
+match.title = "^(Picture-in-Picture|Picture in picture)$"
+default_floating = true
+default_maximize = false
+default_position = { x = 20, y = 20, anchor = "bottom_right" }
+
+# Noctalia toasts
+[[window_rule]]
+match.title = "^notificationtoasts_.+_desktop"
+default_position = { x = 0, y = 0, anchor = "bottom_right" }
+default_focused = false
+default_pinned = true
+
+
+# ==============================================================================
+# Layer Rules
+# ==============================================================================
+
+[[layer_rule]]
+match.namespace = "^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd|desktop-widget-[^\"]*)$"
+blur = true
+blur_ignore_alpha = 0.5
+blur_popups = true
+
+[[layer_rule]]
+match.namespace = "^noctalia-(notification|dock|panel|attached-panel|osd)$"
+blur_optimized = false
+
+
+# ==============================================================================
+# Hot Corners
+# ==============================================================================
+
+[hot_corners.top_left]
+enabled = false
+delay_ms = 500
+action = "overview-open"
+
+
+# ==============================================================================
+# Animation
+# ==============================================================================
+
+[animation]
+enabled = true
+duration_ms = 250
+curve = "easeout"
+
+[animation.windows_in]
+enabled = true
+curve = "spring:1,1000"
+style = "popin"
+scale = 0.5
+
+[animation.windows_out]
+enabled = true
+curve = "spring:1,1400"
+style = "popin"
+scale = 0.8
+
+[animation.windows_move]
+enabled = true
+curve = "spring:1,1400"
+
+[animation.windows_resize]
+enabled = true
+curve = "spring:1,1400"
+
+[animation.windows_opacity]
+enabled = true
+curve = "spring:1,900"
+
+[animation.workspaces]
+style = "slide"
+enabled = true
+curve = "spring:1,1400"
+
+[animation.overview]
+enabled = true
+curve = "spring:1,1400"
+workspace_curve = "spring:1,1400"
+
+[animation.scratchpad]
+enabled = true
+curve = "spring:1,1400"
+dim = 0.8
+blur = false
+
+[animation.dialogs]
+enabled = true
+dim = 0.3
+
+[animation.border]
+enabled = true
+curve = "spring:1,900"
+
+[animation.dim_unfocused]
+enabled = false
+dim = 0.0
+
+[animation.layers]
+enabled = false

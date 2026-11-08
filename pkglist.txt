@@ -64,6 +64,7 @@ wget
 wireplumber
 wl-clipboard
 xdg-desktop-portal-gtk
+xdg-user-dirs
 yazi
 zoxide
 zram-generator

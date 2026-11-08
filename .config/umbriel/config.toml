@@ -180,7 +180,7 @@ hide_when_typing = false
 "Mod+K" = "window-focus-up"
 "Mod+L" = "window-focus-right"
 
-"Mod+A" = "window-focus-next"
+"Mod+Tab" = "window-focus-next"
 
 # Move columns
 "Mod+Ctrl+H" = "column-move-left"
@@ -330,7 +330,7 @@ fi'
 "Mod+Shift+Space" = { action = "window-move-to-scratchpad", repeat = false }
 "Mod+Space" = "scratchpad-toggle"
 "Mod+Ctrl+Space" = { action = "window-restore-from-scratchpad", repeat = false }
-"Mod+Tab" = "scratchpad-focus-next"
+
 
 # ==============================================================================
 # Layout

@@ -50,7 +50,7 @@ vim.opt.autowrite = false
 vim.opt.errorbells = false
 vim.opt.backspace = "indent,eol,start"
 vim.opt.autochdir = false
-vim.opt.iskeyword:append("-")
+-- vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
 vim.opt.selection = "inclusive"
 vim.opt.mouse = "a"

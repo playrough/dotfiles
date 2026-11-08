@@ -190,6 +190,9 @@ hide_when_typing = false
 "Mod+Ctrl+J" = "window-move-down"
 "Mod+Ctrl+K" = "window-move-up"
 
+# Center column
+"Mod+C" = "column-center"
+
 
 # ------------------------------------------------------------------------------
 # Workspace Navigation

@@ -1,8 +1,10 @@
 [Unit]
 Description=Download Bing Wallpaper
+After=default.target
 
 [Service]
 Type=oneshot
+ExecStart=/usr/sbin/sleep 10
 ExecStart=%h/.local/bin/bing-wallpaper.sh
 Environment=MARKET=ja-JP
 Environment=OUTPUT_DIR=%h/Downloads/wallpapers/bing

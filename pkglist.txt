@@ -63,6 +63,7 @@ vulkan-intel
 wget
 wireplumber
 wl-clipboard
+xdg-desktop-portal
 xdg-desktop-portal-gtk
 xdg-user-dirs
 yazi

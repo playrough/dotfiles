@@ -10,7 +10,20 @@ mkdir -p "$OUTPUT_DIR"
 API_URL="https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=$MARKET"
 
 echo "Fetching Bing metadata..."
-JSON=$(wget -qO- "$API_URL")
+MAX_RETRIES=5
+RETRY_COUNT=0
+
+while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
+    JSON=$(wget -qO- "$API_URL" 2>/dev/null) && break
+    RETRY_COUNT=$((RETRY_COUNT + 1))
+    echo "Network unavailable, retrying in 5 seconds ($RETRY_COUNT/$MAX_RETRIES)..."
+    sleep 5
+done
+
+if [ -z "$JSON" ]; then
+    echo "Failed to fetch Bing metadata after $MAX_RETRIES attempts."
+    exit 4
+fi
 
 IMG_PATH=$(echo "$JSON" | jq -r '.images[0].url')
 
@@ -58,7 +71,16 @@ test_valid_image() {
     URL="$1"
     TMPFILE=$(mktemp)
 
-    wget -q -L "$URL" -O "$TMPFILE" 2>/dev/null || { rm -f "$TMPFILE"; return 1; }
+    # Disable exit-on-error temporarily for the network check
+    set +e
+    wget -q -L "$URL" -O "$TMPFILE" 2>/dev/null
+    WGET_STATUS=$?
+    set -e
+
+    if [ $WGET_STATUS -ne 0 ]; then
+        rm -f "$TMPFILE"
+        return 1
+    fi
 
     SIZE=$(wc -c < "$TMPFILE")
     rm -f "$TMPFILE"

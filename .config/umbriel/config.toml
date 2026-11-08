@@ -9,7 +9,7 @@ files = []
 files = [
   "opacity.toml",
   "kitty-center.toml",
-  "noctalia.toml"
+  "noctalia.toml",
 ]
 
 

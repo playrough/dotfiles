@@ -388,8 +388,13 @@ default_position = { x = 0, y = 0, anchor = "bottom_right" }
 default_focused = false
 default_pinned = true
 
-
-
+# File picker (GTK)
+[[window_rule]]
+match.app_id = "^xdg-desktop-portal-gtk$"
+default_position = { x = 0, y = 0, anchor = "center" }
+default_floating_size = { width = 0.7, height = 0.7 }
+default_floating = true
+attach_to_parent = false
 
 # ==============================================================================
 # Layer Rules

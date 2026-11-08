@@ -34,4 +34,8 @@ zvm_after_init() {
     # Bind fzf specifically to the vi-insert mode (-M viins)
     bindkey -M viins '^R' fzf-history-widget
   fi
+
+  # Edit current line in full text editor
+  bindkey -M vicmd 'v' edit-command-line
+
 }

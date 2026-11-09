@@ -47,3 +47,9 @@ alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 alias p='paru'
 alias el='elio'
+
+# =========================================================
+# Wget
+# =========================================================
+
+alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"

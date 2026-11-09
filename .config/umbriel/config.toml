@@ -140,9 +140,9 @@ hide_when_typing = false
 
 # Opacity toggle
 "Mod+O" = '''spawn sed -i \
-  's/^opacity = 1\.0$/opacity = 0.9/;
+  's/^opacity = 1\.0$/opacity = 0.85/;
    t;
-   s/^opacity = 0\.9$/opacity = 1.0/' \
+   s/^opacity = 0\.85$/opacity = 1.0/' \
   "$HOME/.config/umbriel/opacity.toml"'''
 
 # Display power
@@ -360,7 +360,7 @@ blur_optimized = false
 # Unfocused windows
 [[window_rule]]
 match.is_focused = false
-opacity = 0.85
+opacity = 0.8
 
 # Noctalia settings
 [[window_rule]]

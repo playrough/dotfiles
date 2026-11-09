@@ -19,16 +19,18 @@ elif command -v batcat >/dev/null 2>&1; then
   export MANPAGER="batcat -l man -p"
 fi
 
-# ---------- GPG ----------
-export GPG_TTY=$(tty)
-
-# ---------- Starship ----------
-export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
 
 # ---------- PATH ----------
 # Personal binaries/scripts
 export PATH="$HOME/.local/bin:$PATH"
 
-# ---------- LESS & WGET History ----------
-export LESSHISTFILE="$HOME/.cache/lesshst"
-export WGETRC="$HOME/.config/wget/wgetrc"
+
+export GPG_TTY=$(tty)
+export STARSHIP_CONFIG="$ZDOTDIR/starship.toml"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export GOPATH="$XDG_DATA_HOME"/go
+export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js   
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm                             
+export NPM_CONFIG_TMP="$XDG_RUNTIME_DIR"/npm 
+export HISTFILE="${XDG_STATE_HOME}"/bash/history

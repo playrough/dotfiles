@@ -370,11 +370,11 @@ configure_zsh_environment() {
         sudo install -m 644 /dev/null "$zshenv"
     fi
 
-    # Add XDG_CONFIG_HOME and ZDOTDIR configuration.
-    if ! sudo grep -Fq 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' "$zshenv"; then
+    # Add Zsh environment configuration.
+    if ! sudo grep -Fq '# BEGIN DOTFILES ZSH CONFIG' "$zshenv"; then
         sudo tee -a "$zshenv" >/dev/null <<'EOF'
 
-# Use XDG Base Directory for Zsh configuration.
+# BEGIN DOTFILES ZSH CONFIG
 if [[ -z "$XDG_CONFIG_HOME" ]]; then
     export XDG_CONFIG_HOME="$HOME/.config"
 fi
@@ -382,11 +382,19 @@ fi
 if [[ -d "$XDG_CONFIG_HOME/zsh" ]]; then
     export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 fi
+# END DOTFILES ZSH CONFIG
 EOF
         success "Zsh environment configuration added."
     else
         success "Zsh environment configuration already exists."
     fi
+
+    # Create Zsh state and cache directories.
+    install -d -m 700 \
+        "$HOME/.local/state/zsh" \
+        "$HOME/.cache/zsh"
+
+    success "Zsh state and cache directories created."
 }
 
 configure_zsh_environment

@@ -354,7 +354,45 @@ enable_user_service bing-wallpaper-watcher.service
 success "User services configured."
 
 # ==========================================
-# 11. DEFAULT USER SHELL
+# 11. ZSH ENVIRONMENT CONFIGURATION
+# ==========================================
+
+configure_zsh_environment() {
+    info "Configuring Zsh environment..."
+
+    local zshenv="/etc/zsh/zshenv"
+
+    # Ensure /etc/zsh exists.
+    sudo install -d -m 755 /etc/zsh
+
+    # Create zshenv if it does not exist.
+    if ! sudo test -f "$zshenv"; then
+        sudo install -m 644 /dev/null "$zshenv"
+    fi
+
+    # Add XDG_CONFIG_HOME and ZDOTDIR configuration.
+    if ! sudo grep -Fq 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' "$zshenv"; then
+        sudo tee -a "$zshenv" >/dev/null <<'EOF'
+
+# Use XDG Base Directory for Zsh configuration.
+if [[ -z "$XDG_CONFIG_HOME" ]]; then
+    export XDG_CONFIG_HOME="$HOME/.config"
+fi
+
+if [[ -d "$XDG_CONFIG_HOME/zsh" ]]; then
+    export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+fi
+EOF
+        success "Zsh environment configuration added."
+    else
+        success "Zsh environment configuration already exists."
+    fi
+}
+
+configure_zsh_environment
+
+# ==========================================
+# 12. DEFAULT USER SHELL
 # ==========================================
 
 info "Configuring default shell..."
@@ -382,7 +420,7 @@ else
 fi
 
 # ==========================================
-# 12. FINISH
+# 13. FINISH
 # ==========================================
 
 echo

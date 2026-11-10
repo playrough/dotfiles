@@ -5,9 +5,22 @@ set -Eeuo pipefail
 # INSTALL SETTINGS
 # ==========================================
 
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CURRENT_USER="$(id -un)"
+
+LOG_DIR="$HOME/.local/state/dotfiles-installer"
+LOG_FILE="$LOG_DIR/install.log"
+
+BUILD_DIR=""
+
+# ==========================================
+# LOGGING
+# ==========================================
+
+install -d -m 700 "$LOG_DIR"
+
+exec > >(tee -a "$LOG_FILE") 2>&1
 
 # ==========================================
 # HELPERS
@@ -33,6 +46,27 @@ die() {
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
+
+cleanup() {
+    if [[ -n "$BUILD_DIR" && -d "$BUILD_DIR" ]]; then
+        rm -rf -- "$BUILD_DIR"
+    fi
+}
+
+on_error() {
+    local status=$1
+    local line=$2
+    local command=$3
+
+    printf '\n\033[1;31m[ERROR]\033[0m Installation failed.\n' >&2
+    printf 'Line: %s\nCommand: %s\n' "$line" "$command" >&2
+    printf 'Log: %s\n' "$LOG_FILE" >&2
+
+    exit "$status"
+}
+
+trap cleanup EXIT
+trap 'on_error "$?" "$LINENO" "$BASH_COMMAND"' ERR
 
 system_service_exists() {
     systemctl cat "$1" >/dev/null 2>&1
@@ -64,17 +98,67 @@ enable_user_service() {
     fi
 }
 
+# Write a managed system configuration.
+# Backup the previous file only when its content changes.
+
+write_managed_file() {
+    local destination="$1"
+    local mode="$2"
+    local temp_file
+    local backup_file
+
+    temp_file="$(mktemp)"
+
+    cat > "$temp_file"
+
+    if sudo test -f "$destination" &&
+       sudo cmp -s "$temp_file" "$destination"; then
+
+        success "Configuration unchanged: $destination"
+        rm -f "$temp_file"
+        return 0
+    fi
+
+    if sudo test -e "$destination" ||
+       sudo test -L "$destination"; then
+
+        backup_file="${destination}.bak.$(date +%Y%m%d-%H%M%S)"
+
+        sudo cp -a -- "$destination" "$backup_file"
+
+        info "Backup created: $backup_file"
+    fi
+
+    sudo install -D -m "$mode" "$temp_file" "$destination"
+
+    rm -f "$temp_file"
+
+    success "Configuration written: $destination"
+}
+
 # ==========================================
 # 0. PRE-FLIGHT CHECK
 # ==========================================
 
 info "Checking installation environment..."
 
-[[ "$EUID" -ne 0 ]] || die "Do not run this script as root."
+[[ "$EUID" -ne 0 ]] ||
+    die "Do not run this script as root."
 
-command_exists sudo || die "sudo is required."
+[[ -f /etc/arch-release ]] ||
+    die "This installer requires Arch Linux."
+
+[[ "$(uname -m)" == "x86_64" ]] ||
+    die "Unsupported architecture."
+
+for cmd in sudo pacman git systemctl tee install; do
+    command_exists "$cmd" ||
+        die "Required command not found: $cmd"
+done
 
 sudo -v
+
+success "Environment checks passed."
 
 # ==========================================
 # 1. PACKAGE MANAGER (PARU)
@@ -90,11 +174,10 @@ sudo pacman -Syu --needed --noconfirm \
     xdg-user-dirs
 
 if ! command_exists paru; then
+
     info "Installing paru from AUR..."
 
     BUILD_DIR="$(mktemp -d /tmp/paru-build.XXXXXX)"
-
-    trap 'rm -rf -- "$BUILD_DIR"' EXIT
 
     git clone https://aur.archlinux.org/paru.git "$BUILD_DIR"
 
@@ -103,11 +186,10 @@ if ! command_exists paru; then
         makepkg -si --noconfirm
     )
 
-    rm -rf -- "$BUILD_DIR"
-    trap - EXIT
 fi
 
-command_exists paru || die "paru installation failed."
+command_exists paru ||
+    die "paru installation failed."
 
 success "Package manager ready."
 
@@ -117,8 +199,8 @@ success "Package manager ready."
 
 info "Checking Bare Dotfiles repository..."
 
-[[ -d "$DOTFILES_DIR" ]] || die \
-    "Bare repository not found: $DOTFILES_DIR"
+[[ -d "$DOTFILES_DIR" ]] ||
+    die "Bare repository not found: $DOTFILES_DIR"
 
 dotfiles() {
     /usr/bin/git \
@@ -127,22 +209,27 @@ dotfiles() {
         "$@"
 }
 
-[[ "$(dotfiles rev-parse --is-bare-repository)" == "true" ]] \
-    || die "$DOTFILES_DIR is not a bare repository."
+[[ "$(dotfiles rev-parse --is-bare-repository)" == "true" ]] ||
+    die "$DOTFILES_DIR is not a bare repository."
 
-dotfiles rev-parse --verify HEAD >/dev/null \
-    || die "Bare repository has no valid HEAD commit."
+dotfiles rev-parse --verify HEAD >/dev/null ||
+    die "Bare repository has no valid HEAD commit."
 
 dotfiles config --local status.showUntrackedFiles no
 
 info "Checking out dotfiles..."
 
-dotfiles checkout
+if ! dotfiles checkout; then
+    die "Dotfiles checkout failed.
+
+Existing files may conflict with the repository.
+Resolve conflicts manually, then run the installer again."
+fi
 
 success "Dotfiles checkout completed."
 
 # ==========================================
-# 3. INSTALL APPLICATION PACKAGES
+# 3. APPLICATION PACKAGES
 # ==========================================
 
 info "Installing application packages..."
@@ -157,7 +244,6 @@ fi
 
 if [[ -n "$PKGLIST" ]]; then
 
-    # Remove blank lines and comments.
     mapfile -t PACKAGES < <(
         sed 's/#.*//' "$PKGLIST" |
         sed 's/^[[:space:]]*//; s/[[:space:]]*$//' |
@@ -165,11 +251,15 @@ if [[ -n "$PKGLIST" ]]; then
     )
 
     if (( ${#PACKAGES[@]} > 0 )); then
-        paru -S --needed --noconfirm "${PACKAGES[@]}"
+
+        paru -Syu --needed --noconfirm "${PACKAGES[@]}"
+
         success "Application packages installed."
+
     else
         warn "pkglist.txt is empty."
     fi
+
 else
     warn "pkglist.txt not found."
 fi
@@ -202,7 +292,9 @@ enable_system_service ly.service
 
 info "Configuring ZRAM..."
 
-sudo tee /etc/systemd/zram-generator.conf >/dev/null <<'EOF'
+write_managed_file \
+    /etc/systemd/zram-generator.conf \
+    644 <<'EOF'
 [zram0]
 zram-size = ram / 2
 compression-algorithm = zstd
@@ -210,14 +302,7 @@ swap-priority = 100
 EOF
 
 sudo systemctl daemon-reload
-
 sudo systemctl start systemd-zram-setup@zram0.service
-
-if command_exists zramctl; then
-    zramctl
-fi
-
-success "ZRAM configured."
 
 
 # ==========================================
@@ -227,16 +312,25 @@ success "ZRAM configured."
 configure_caps2esc() {
     info "Configuring CapsLock <-> Escape..."
 
-    # Create udevmon configuration.
-    sudo tee /etc/udevmon.yaml >/dev/null <<'EOF'
+    for cmd in udevmon intercept caps2esc uinput; do
+        command_exists "$cmd" ||
+            die "Caps2Esc dependency not found: $cmd"
+    done
+
+    # udevmon configuration.
+
+    write_managed_file /etc/udevmon.yaml 644 <<'EOF'
 - JOB: "intercept -g $DEVNODE | caps2esc | uinput -d $DEVNODE"
   DEVICE:
     EVENTS:
       EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
 EOF
 
-    # Create udevmon systemd service.
-    sudo tee /etc/systemd/system/udevmon.service >/dev/null <<'EOF'
+    # udevmon systemd service.
+
+    write_managed_file \
+        /etc/systemd/system/udevmon.service \
+        644 <<'EOF'
 [Unit]
 Description=udevmon
 Wants=systemd-udev-settle.service
@@ -249,7 +343,8 @@ ExecStart=/usr/bin/nice -n -20 /usr/bin/udevmon -c /etc/udevmon.yaml
 WantedBy=multi-user.target
 EOF
 
-    # Reload systemd and enable udevmon.
+    sudo udevadm control --reload-rules
+
     sudo systemctl daemon-reload
     sudo systemctl enable --now udevmon.service
 
@@ -258,7 +353,6 @@ EOF
 
 configure_caps2esc
 
-
 # ==========================================
 # 8. FCITX5 LOTUS CONFIGURATION
 # ==========================================
@@ -266,45 +360,46 @@ configure_caps2esc
 configure_fcitx5_lotus() {
     info "Configuring Fcitx5 Lotus..."
 
-    # Reload udev rules for virtual input devices.
-    info "Reloading udev rules..."
+    local service="fcitx5-lotus-server@${CURRENT_USER}.service"
+
+    if ! system_service_exists "$service"; then
+        warn "Fcitx5 Lotus service not found. Skipping."
+        return 0
+    fi
+
+    # Reload udev rules.
 
     sudo udevadm control --reload-rules
     sudo udevadm trigger
 
     # Load uinput kernel module.
-    info "Loading uinput kernel module..."
 
     sudo modprobe uinput
 
     # Automatically load uinput on boot.
-    echo "uinput" |
-        sudo tee /etc/modules-load.d/uinput.conf >/dev/null
 
-    # Enable Fcitx5 Lotus server.
-    info "Starting Fcitx5 Lotus server..."
-
-    local service="fcitx5-lotus-server@${CURRENT_USER}.service"
+    write_managed_file /etc/modules-load.d/uinput.conf 644 <<'EOF'
+uinput
+EOF
 
     sudo systemctl enable --now "$service" || {
         info "Running systemd-sysusers fallback..."
-
         sudo systemd-sysusers
-
         sudo systemctl enable --now "$service"
     }
 
     success "Fcitx5 Lotus server enabled."
 
     # Stop legacy IBus daemon.
+
     info "Cleaning up legacy IBus..."
 
-    if command -v killall >/dev/null 2>&1; then
-        killall ibus-daemon 2>/dev/null || {
-            command -v ibus >/dev/null 2>&1 && ibus exit || true
-        }
-    elif command -v ibus >/dev/null 2>&1; then
-        ibus exit || true
+    if command_exists killall; then
+        killall ibus-daemon 2>/dev/null || true
+    fi
+
+    if command_exists ibus; then
+        ibus exit 2>/dev/null || true
     fi
 
     success "Fcitx5 Lotus configured."
@@ -318,15 +413,11 @@ configure_fcitx5_lotus
 
 info "Configuring XDG User Directories..."
 
-xdg-user-dirs-update
-
-# Redirect unused directories to HOME.
-# No user files are deleted.
-
-xdg-user-dirs-update --set MUSIC "$HOME"
-xdg-user-dirs-update --set VIDEOS "$HOME"
-xdg-user-dirs-update --set TEMPLATES "$HOME"
-xdg-user-dirs-update --set PUBLICSHARE "$HOME"
+if command_exists xdg-user-dirs-update; then
+    xdg-user-dirs-update
+else
+    warn "xdg-user-dirs-update not found."
+fi
 
 success "XDG User Directories configured."
 
@@ -335,16 +426,6 @@ success "XDG User Directories configured."
 # ==========================================
 
 info "Configuring user services..."
-
-# Make scripts executable.
-if [[ -d "$HOME/.local/bin" ]]; then
-
-    find "$HOME/.local/bin" \
-        -maxdepth 1 \
-        -type f \
-        -exec chmod +x {} +
-
-fi
 
 systemctl --user daemon-reload
 
@@ -362,16 +443,36 @@ configure_zsh_environment() {
 
     local zshenv="/etc/zsh/zshenv"
 
+    local begin_marker="# BEGIN DOTFILES ZSH CONFIG"
+    local end_marker="# END DOTFILES ZSH CONFIG"
+
     # Ensure /etc/zsh exists.
+
     sudo install -d -m 755 /etc/zsh
 
     # Create zshenv if it does not exist.
-    if ! sudo test -f "$zshenv"; then
+
+    if ! sudo test -e "$zshenv" &&
+       ! sudo test -L "$zshenv"; then
+
         sudo install -m 644 /dev/null "$zshenv"
     fi
 
-    # Add Zsh environment configuration.
-    if ! sudo grep -Fq '# BEGIN DOTFILES ZSH CONFIG' "$zshenv"; then
+    # Check configuration markers.
+
+    if sudo grep -Fq "$begin_marker" "$zshenv"; then
+
+        sudo grep -Fq "$end_marker" "$zshenv" ||
+            die "Zsh configuration has an incomplete marker block."
+
+        success "Zsh environment configuration already exists."
+
+    elif sudo grep -Fq "$end_marker" "$zshenv"; then
+
+        die "Zsh END marker exists without BEGIN marker."
+
+    else
+
         sudo tee -a "$zshenv" >/dev/null <<'EOF'
 
 # BEGIN DOTFILES ZSH CONFIG
@@ -384,12 +485,12 @@ if [[ -d "$XDG_CONFIG_HOME/zsh" ]]; then
 fi
 # END DOTFILES ZSH CONFIG
 EOF
+
         success "Zsh environment configuration added."
-    else
-        success "Zsh environment configuration already exists."
     fi
 
     # Create Zsh state and cache directories.
+
     install -d -m 700 \
         "$HOME/.local/state/zsh" \
         "$HOME/.cache/zsh"
@@ -407,19 +508,40 @@ info "Configuring default shell..."
 
 if command_exists zsh; then
 
-    TARGET_SHELL="$(command -v zsh)"
-    CURRENT_SHELL="$(getent passwd "$CURRENT_USER" | cut -d: -f7)"
+    ZSH_PATH="$(command -v zsh)"
+    ZSH_REAL="$(readlink -f "$ZSH_PATH")"
 
-    if [[ "$CURRENT_SHELL" == "$TARGET_SHELL" ]]; then
+    CURRENT_SHELL="$(getent passwd "$CURRENT_USER" | cut -d: -f7)"
+    CURRENT_SHELL_REAL="$(readlink -f "$CURRENT_SHELL")"
+
+    TARGET_SHELL=""
+
+    # Find the canonical shell entry in /etc/shells.
+
+    while IFS= read -r shell; do
+
+        [[ "$shell" == /* && -x "$shell" ]] || continue
+
+        if [[ "$(readlink -f "$shell")" == "$ZSH_REAL" ]]; then
+            TARGET_SHELL="$shell"
+            break
+        fi
+
+    done < /etc/shells
+
+    if [[ -z "$TARGET_SHELL" ]]; then
+
+        warn "$ZSH_PATH is not listed in /etc/shells."
+
+    elif [[ "$CURRENT_SHELL_REAL" == "$ZSH_REAL" ]]; then
+
         success "Zsh is already the default shell."
+
     else
 
-        if grep -Fxq "$TARGET_SHELL" /etc/shells; then
-            sudo chsh -s "$TARGET_SHELL" "$CURRENT_USER"
-            success "Default shell changed to Zsh."
-        else
-            warn "$TARGET_SHELL is not listed in /etc/shells."
-        fi
+        sudo chsh -s "$TARGET_SHELL" "$CURRENT_USER"
+
+        success "Default shell changed to Zsh."
 
     fi
 
@@ -428,7 +550,45 @@ else
 fi
 
 # ==========================================
-# 13. FINISH
+# 13. POST-INSTALLATION VALIDATION
+# ==========================================
+
+info "Running post-installation checks..."
+
+# Check bare repository.
+
+if [[ "$(dotfiles rev-parse --is-bare-repository)" == "true" ]]; then
+    success "Bare repository is valid."
+else
+    warn "Bare repository validation failed."
+fi
+
+# Check systemd failed units.
+
+if systemctl --failed --no-legend --no-pager | grep -q .; then
+    warn "Some system services have failed."
+    systemctl --failed --no-pager
+else
+    success "No failed system services."
+fi
+
+# Check user systemd failed units.
+
+if systemctl --user --failed --no-legend --no-pager | grep -q .; then
+    warn "Some user services have failed."
+    systemctl --user --failed --no-pager
+else
+    success "No failed user services."
+fi
+
+# Check ZRAM.
+
+if command_exists zramctl; then
+    zramctl
+fi
+
+# ==========================================
+# 14. FINISH
 # ==========================================
 
 echo
@@ -437,10 +597,13 @@ echo " Installation completed!"
 echo "=================================================="
 echo
 echo " Next steps:"
-echo " 1. Check system services."
-echo " 2. Check ZRAM with: zramctl"
-echo " 3. Check swap with: swapon --show"
-echo " 4. Log out and log back in."
+echo " 1. Review failed services if any."
+echo " 2. Check ZRAM: zramctl"
+echo " 3. Check swap: swapon --show"
+echo " 4. Check user services: systemctl --user --failed"
+echo " 5. Log out and log back in."
 echo
+echo " Installation log:"
+echo " $LOG_FILE"
 echo
 echo "=================================================="

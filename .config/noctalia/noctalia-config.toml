@@ -7,7 +7,7 @@ center = [ "clock", "text_2", "date" ]
 color = "primary"
 concave_edge_corners = false
 end = [ "volume", "audio_visualizer", "spacer_3", "network", "spacer_9", "battery", "spacer_8", "session" ]
-font_family = "Inter"
+font_family = "Inter Display"
 margin_ends = 0
 padding = 10
 position = "left"
@@ -211,7 +211,7 @@ panel_placement = "floating"
 panel_position = "center"
 
 [plugins]
-enabled = [ "noctalia/wallhaven" ]
+enabled = [ "noctalia/wallhaven", "noctalia/translator" ]
 
 [shell]
 avatar_path = "/home/edgerunner/.config/fastfetch/logo/logo-2.png"
@@ -291,7 +291,7 @@ wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kitty", "niri", "umbriel" ]
-    community_ids = [ "pywalfox", "bat", "yazi" ]
+    community_ids = [ "pywalfox", "bat", "glow", "yazi" ]
 
         [theme.templates.user.nvim]
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim.json"
@@ -302,13 +302,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/edgerunner/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/e0b1d3f62cd277e3f2350fa15db7d467.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/e0b1d3f62cd277e3f2350fa15db7d467.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/e0b1d3f62cd277e3f2350fa15db7d467.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
 [widget.audio_visualizer]
 bands = 20
@@ -337,10 +337,10 @@ format = "{:%d %m}"
 scale = 1.0
 
 [widget.launcher]
-custom_image = "/home/edgerunner/.config/noctalia/icons/niri.svg"
+custom_image = "/home/edgerunner/.config/noctalia/icons/arch-linux.svg"
 custom_image_colorize = true
-glyph = "niri"
-scale = 1.2
+glyph = "umbriel"
+scale = 1.4000000000000001
 
 [widget.network]
 show_label = false

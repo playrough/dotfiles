@@ -127,4 +127,3 @@ torrent() {
 # Open the current command in your $EDITOR (e.g., neovim)
 autoload -Uz edit-command-line
 zle -N edit-command-line
-

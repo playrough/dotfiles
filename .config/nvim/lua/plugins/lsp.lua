@@ -15,6 +15,7 @@ require("mason-tool-installer").setup({
 		"stylua",
 		"prettier",
 		"shfmt",
+		"clangd",
 	},
 })
 
@@ -30,6 +31,23 @@ vim.lsp.config("lua_ls", {
 		},
 	},
 })
+
+vim.lsp.enable("lua_ls")
+
+vim.lsp.config("clangd", {
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--fallback-style=llvm",
+        "--query-driver=/usr/bin/c++,/usr/bin/g++",
+    },
+})
+
+vim.lsp.enable("clangd")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)

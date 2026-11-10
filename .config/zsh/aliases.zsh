@@ -57,4 +57,4 @@ alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 # =========================================================
 # Unimatrix
 # =========================================================
-alias uni="unimatrix -l p -s 95"
+alias uni="unimatrix -l k -s 95"

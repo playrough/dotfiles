@@ -23,6 +23,7 @@ local ensure_installed = {
 	"kdl",
 	"kitty",
 	"zsh",
+	"cpp",
 }
 
 local config = require("nvim-treesitter.config")

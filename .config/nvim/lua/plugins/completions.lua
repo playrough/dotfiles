@@ -12,8 +12,8 @@ require("blink.cmp").setup({
     preset = "default",
     ["<Tab>"] = { "accept", "fallback" },
     ["<C-Space>"] = { "show" },
-    ["J"] = { "select_next", "fallback" },
-    ["K"] = { "select_prev", "fallback" },
+    ["<C-j>"] = { "select_next", "fallback" },
+    ["<C-k>"] = { "select_prev", "fallback" },
   },
 
   fuzzy = {

@@ -222,7 +222,7 @@ input_borders = false
 polkit_agent = true
 popup_shadows = false
 umbriel_overview_close_on_launch_enabled = true
-umbriel_overview_type_to_launch_enabled = true
+umbriel_overview_type_to_launch_enabled = false
 
     [shell.launcher]
     categories = false

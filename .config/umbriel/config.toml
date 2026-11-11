@@ -183,21 +183,21 @@ tap = true
 
 # Focus
 "Mod+H" = "window-focus-left"
-"Mod+J" = "window-focus-down"
-"Mod+K" = "window-focus-up"
+"Mod+J" = "window-focus-or-workspace-down"
+"Mod+K" = "window-focus-or-workspace-up"
 "Mod+L" = "window-focus-right"
 
 "Mod+Tab" = "window-focus-next"
 
-# Move columns
-"Mod+Shift+H" = "column-move-left"
-"Mod+Shift+L" = "column-move-right"
+# Move horizontal
+"Mod+Ctrl+H" = "column-move-left"
+"Mod+Ctrl+L" = "column-move-right"
 
-# Move window
-"Mod+Shift+J" = "window-move-down"
-"Mod+Shift+K" = "window-move-up"
+# Move vertical
+"Mod+Ctrl+J" = "window-move-or-workspace-down"
+"Mod+Ctrl+K" = "window-move-or-workspace-up"
 
-# Center column
+# Center window
 "Mod+C" = "column-center"
 "Mod+Shift+C" = "window-center"
 
@@ -227,10 +227,6 @@ tap = true
 "Mod+Shift+8" = "window-move-to-workspace 8"
 "Mod+Shift+9" = "window-move-to-workspace 9"
 
-# Cyble Workspace
-"Mod+Ctrl+J" = "workspace-next"
-"Mod+Ctrl+K" = "workspace-previous"
-
 
 # ------------------------------------------------------------------------------
 # Scroll Wheel Navigation
@@ -239,14 +235,6 @@ tap = true
 # Focus Window
 "Mod+Shift+WheelUp" = "window-focus-left"
 "Mod+Shift+WheelDown" = "window-focus-right"
-
-# Move columns
-"Mod+Ctrl+WheelUp" = "column-move-left"
-"Mod+Ctrl+WheelDown" = "column-move-right"
-
-# Move windows between workspaces
-"Mod+Alt+WheelUp" = "window-move-to-workspace-previous"
-"Mod+Alt+WheelDown" = "window-move-to-workspace-next"
 
 # Switch Workspaces
 "Mod+WheelUp" = "workspace-previous"

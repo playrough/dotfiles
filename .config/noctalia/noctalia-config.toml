@@ -5,13 +5,15 @@ enabled = true
 background_opacity = 0.79999998211860657
 center = [ "clock", "text_2", "date" ]
 color = "primary"
-concave_edge_corners = false
+concave_edge_corners = true
 end = [ "volume", "audio_visualizer", "spacer_3", "network", "spacer_9", "battery", "spacer_8", "session" ]
 font_family = "Inter Display"
-margin_ends = 0
+margin_ends = 20
 padding = 10
 position = "left"
-radius = 0
+radius = 9
+radius_bottom_left = 0
+radius_top_left = 0
 scale = 0.85000000521540642
 start = [
     "launcher",
@@ -27,7 +29,7 @@ start = [
     "sysmon"
 ]
 thickness = 36
-widget_spacing = 6
+widget_spacing = 5
 
 [control_center]
 hidden_tabs = [ "weather" ]
@@ -353,13 +355,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/edgerunner/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
 
 [widget.audio_visualizer]
 bands = 20

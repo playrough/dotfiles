@@ -36,12 +36,7 @@ sidebar = "full"
 [desktop_widgets]
 enabled = true
 schema_version = 2
-widget_order = [
-    "desktop-widget-0000000000000004",
-    "desktop-widget-0000000000000002",
-    "desktop-widget-0000000000000001",
-    "desktop-widget-0000000000000003"
-]
+widget_order = [ "desktop-widget-0000000000000004", "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
 
     [desktop_widgets.grid]
     cell_size = 16

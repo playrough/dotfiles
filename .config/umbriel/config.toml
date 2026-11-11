@@ -199,6 +199,7 @@ tap = true
 
 # Center column
 "Mod+C" = "column-center"
+"Mod+Shift+C" = "window-center"
 
 
 # ------------------------------------------------------------------------------

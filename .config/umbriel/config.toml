@@ -95,6 +95,10 @@ hardware_cursor = true
 follows_focus = false
 hide_when_typing = false
 
+[input.touchpad]
+enabled = true
+tap = true
+
 
 # ==============================================================================
 # Keybinds
@@ -140,9 +144,9 @@ hide_when_typing = false
 
 # Opacity toggle
 "Mod+O" = '''spawn sed -i \
-  's/^opacity = 1\.0$/opacity = 0.85/;
+  's/^opacity = 1\.0$/opacity = 0.9/;
    t;
-   s/^opacity = 0\.85$/opacity = 1.0/' \
+   s/^opacity = 0\.9$/opacity = 1.0/' \
   "$HOME/.config/umbriel/opacity.toml"'''
 
 # Display power
@@ -168,6 +172,9 @@ hide_when_typing = false
 # Brightness
 "XF86MonBrightnessUp" = { action = "spawn noctalia msg brightness-up", allow_when_locked = true }
 "XF86MonBrightnessDown" = { action = "spawn noctalia msg brightness-down", allow_when_locked = true }
+
+# Sonora
+"Mod+Ctrl+P" = "spawn sonora toggle" 
 
 
 # ------------------------------------------------------------------------------
@@ -360,7 +367,7 @@ blur_optimized = false
 # Unfocused windows
 [[window_rule]]
 match.is_focused = false
-opacity = 0.8
+opacity = 0.85
 
 # Noctalia settings
 [[window_rule]]

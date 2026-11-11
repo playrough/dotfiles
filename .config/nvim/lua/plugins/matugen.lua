@@ -12,4 +12,5 @@ require("matugen").setup({
 	min_contrast = 0.45,
 	overrides = {},
 })
+
 vim.cmd.colorscheme("matugen")

@@ -88,11 +88,6 @@ end
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("frecency")
 
-vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
-vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "FloatBorder" })
-vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { link = "FloatBorder" })
-vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { link = "FloatBorder" })
-
 vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { silent = true })
 vim.keymap.set(
 	"n",

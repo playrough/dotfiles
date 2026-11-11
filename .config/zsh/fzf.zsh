@@ -9,12 +9,12 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # UI
 export FZF_DEFAULT_OPTS='
-  --height=60%
-  --layout=reverse
-  --border=rounded
-  --prompt="  "
-  --pointer="  "
-  --preview-window=right:65%:wrap:border-left
+--height=20%
+--info=inline
+--border=rounded
+--margin=0 
+--padding=0
+# --preview "cat {}"
 '
 
 export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
@@ -29,3 +29,6 @@ _fzf_file_no_hidden() {
   zle reset-prompt
 }
 zle -N _fzf_file_no_hidden
+
+
+source "$HOME/.config/fzf/themes/noctalia.sh"

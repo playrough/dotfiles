@@ -56,8 +56,10 @@ ensure_gtk_css_import() {
     fi
 }
 
+# Khởi động lại các portal để cập nhật lại giao diện hệ thống
 restart_services() {
     echo "Restarting desktop portals to apply changes..."
+    # Sử dụng || true để tránh script bị thoát do set -e nếu portal chưa được kích hoạt trước đó
     systemctl --user restart xdg-desktop-portal-gtk || echo "Warning: Failed to restart xdg-desktop-portal-gtk" >&2
     systemctl --user restart xdg-desktop-portal || echo "Warning: Failed to restart xdg-desktop-portal" >&2
 

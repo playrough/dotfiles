@@ -36,7 +36,7 @@ lid_open = "umbriel msg output-enable eDP-1"
 [output.eDP-1]
 mode = "1920x1080@60"
 position = [0, 0]
-scale = 1.25
+scale = 1
 min_workspaces = 3
 
 [output.HDMI-A-1]

@@ -8,13 +8,15 @@ color = "primary"
 concave_edge_corners = true
 end = [ "volume", "audio_visualizer", "spacer_3", "network", "spacer_9", "battery", "spacer_8", "session" ]
 font_family = "Inter Display"
-margin_ends = 20
+margin_ends = 10
 padding = 10
 position = "left"
-radius = 9
+radius = 0
 radius_bottom_left = 0
+radius_bottom_right = 10
 radius_top_left = 0
-scale = 0.85000000521540642
+radius_top_right = 10
+scale = 1.0000000074505806
 start = [
     "launcher",
     "spacer_6",
@@ -31,9 +33,15 @@ start = [
 thickness = 36
 widget_spacing = 5
 
+[calendar]
+
 [control_center]
 hidden_tabs = [ "weather" ]
 sidebar = "full"
+width = 800
+
+    [control_center.calendar]
+    show_events_card = false
 
 [desktop_widgets]
 enabled = true
@@ -65,11 +73,11 @@ widget_order = [ "desktop-widget-0000000000000004", "desktop-widget-000000000000
     [desktop_widgets.widget.desktop-widget-0000000000000002]
     box_height = 192.0
     box_width = 256.0
-    cx = 1344.0
-    cy = 704.0
+    cx = 1664.0
+    cy = 860.0
     output = "eDP-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -83,11 +91,11 @@ widget_order = [ "desktop-widget-0000000000000004", "desktop-widget-000000000000
     [desktop_widgets.widget.desktop-widget-0000000000000003]
     box_height = 64.0
     box_width = 256.0
-    cx = 1344.0
-    cy = 784.0
+    cx = 1664.0
+    cy = 940.0
     output = "eDP-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -100,11 +108,11 @@ widget_order = [ "desktop-widget-0000000000000004", "desktop-widget-000000000000
     [desktop_widgets.widget.desktop-widget-0000000000000004]
     box_height = 176.0
     box_width = 256.0
-    cx = 1344.0
-    cy = 728.0
+    cx = 1664.0
+    cy = 884.0
     output = "eDP-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = -0.0
     type = "label"
 
@@ -186,11 +194,11 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 70.0
     box_width = 384.0
-    cx = 768.0
-    cy = 525.0
+    cx = 960.0
+    cy = 656.25
     output = "eDP-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -214,11 +222,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 128.0
     box_width = 384.0
-    cx = 768.0
-    cy = 368.00003051757812
+    cx = 960.0
+    cy = 460.00003051757812
     output = "eDP-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
@@ -229,11 +237,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
     box_height = 48.0
     box_width = 128.0
-    cx = 768.0
-    cy = 456.00006103515625
+    cx = 960.0
+    cy = 570.00006103515625
     output = "eDP-1"
-    placement_height = 864.0
-    placement_width = 1536.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "label"
 
@@ -353,15 +361,16 @@ wallpaper_scheme = "m3-tonal-spot"
 
 [wallpaper]
 directory = "/home/edgerunner/Downloads/wallpapers"
+transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-qzxoql.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-qzxoql.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-qzxoql.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
 
 [widget.audio_visualizer]
 bands = 20

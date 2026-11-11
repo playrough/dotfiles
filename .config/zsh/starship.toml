@@ -30,6 +30,9 @@ read_only = " 󰉐"
 read_only_style = "bold red"
 truncation_symbol = "…/"
 
+[lua]
+symbol = " "
+
 [package]
 disabled = true
 

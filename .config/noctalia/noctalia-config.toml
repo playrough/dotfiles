@@ -81,7 +81,7 @@ widget_order = [ "desktop-widget-0000000000000004", "desktop-widget-000000000000
         shadow = false
 
     [desktop_widgets.widget.desktop-widget-0000000000000003]
-    box_height = 48.0
+    box_height = 64.0
     box_width = 256.0
     cx = 1344.0
     cy = 784.0
@@ -355,13 +355,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/edgerunner/Downloads/wallpapers"
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-qzxoql.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-qzxoql.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-qzxoql.jpg"
 
 [widget.audio_visualizer]
 bands = 20

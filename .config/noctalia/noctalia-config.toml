@@ -148,6 +148,9 @@ left = [ "Ctrl+h" ]
 right = [ "Ctrl+l" ]
 up = [ "Ctrl+k" ]
 
+[lockscreen]
+transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
+
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
@@ -364,13 +367,13 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/windows/DevilsBridge.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
 
 [widget.audio_visualizer]
 bands = 20

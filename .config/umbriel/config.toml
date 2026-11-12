@@ -20,6 +20,7 @@ files = [
 [general]
 autostart = ["noctalia", "kitty"]
 xwayland_native_resolution = true
+show_cheatsheet = false
 
 [environment]
 ELECTRON_OZONE_PLATFORM_HINT = "auto"
@@ -228,6 +229,11 @@ tap = true
 "Mod+Shift+9" = "window-move-to-workspace 9"
 
 
+"Mod+Shift+J" = "workspace-move-down"
+"Mod+Shift+K" = "workspace-move-up"
+
+
+
 # ------------------------------------------------------------------------------
 # Scroll Wheel Navigation
 # ------------------------------------------------------------------------------
@@ -392,6 +398,7 @@ default_floating_size = { width = 0.7, height = 0.7 }
 default_floating = true
 attach_to_parent = false
 
+
 # ==============================================================================
 # Layer Rules
 # ==============================================================================
@@ -410,7 +417,6 @@ blur_optimized = false
 match.namespace = "^noctalia-desktop-widget-label-0000000000000004$"
 blur = true
 blur_ignore_alpha = 0.5
-
 
 
 # ==============================================================================

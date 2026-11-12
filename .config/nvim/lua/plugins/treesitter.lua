@@ -16,6 +16,7 @@ local ensure_installed = {
 	"vimdoc",
 	"json",
 	"lua",
+	"markdown_inline",
 	"markdown",
 	"bash",
 	"toml",
@@ -24,6 +25,7 @@ local ensure_installed = {
 	"kitty",
 	"zsh",
 	"cpp",
+	"c",
 }
 
 local config = require("nvim-treesitter.config")

@@ -6,33 +6,40 @@ vim.pack.add({
 })
 
 require("mason").setup()
-
+require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"lua_ls",
+    "stylua",
+    "bashls",
+    "shfmt",
 		"jsonls",
-		"bashls",
-		"stylua",
 		"prettier",
-		"shfmt",
 		"clangd",
 	},
 })
 
-require("mason-lspconfig").setup({
-	automatic_enable = true,
-})
-
-vim.lsp.config("lua_ls", {
+vim.lsp.config('lua_ls', {
 	settings = {
 		Lua = {
-			diagnostics = { globals = { "vim" } },
-			telemetry = { enable = false },
+			runtime = {
+				version = 'LuaJIT',
+			},
+			diagnostics = {
+				globals = {
+					'vim',
+					'require'
+				},
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			telemetry = {
+				enable = false,
+			},
 		},
 	},
 })
-
-vim.lsp.enable("lua_ls")
 
 vim.lsp.config("clangd", {
     cmd = {
@@ -43,11 +50,9 @@ vim.lsp.config("clangd", {
         "--completion-style=detailed",
         "--function-arg-placeholders",
         "--fallback-style=llvm",
-        "--query-driver=/usr/bin/c++,/usr/bin/g++",
+        "--query-driver=/usr/bin/gcc,/usr/bin/g++",
     },
 })
-
-vim.lsp.enable("clangd")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)

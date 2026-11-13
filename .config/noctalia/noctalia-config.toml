@@ -44,7 +44,7 @@ width = 800
     show_events_card = false
 
 [desktop_widgets]
-enabled = true
+enabled = false
 schema_version = 2
 widget_order = [ "desktop-widget-0000000000000004", "desktop-widget-0000000000000002", "desktop-widget-0000000000000003" ]
 
@@ -377,13 +377,13 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.BlueHK_JA-JP0477081186_UHD.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.BlueHK_JA-JP0477081186_UHD.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.BlueHK_JA-JP0477081186_UHD.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
 [widget.audio_visualizer]
 bands = 20

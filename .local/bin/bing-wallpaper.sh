@@ -2,7 +2,7 @@
 set -e
 
 MARKET=${MARKET:-ja-JP}
-OUTPUT_DIR=${OUTPUT_DIR:-/home/edgerunner/Downloads/wallpapers/bing}
+OUTPUT_DIR=${OUTPUT_DIR:-$HOME/Downloads/wallpapers/bing}
 MIN_SIZE=100000  # 100KB minimum to consider valid
 
 mkdir -p "$OUTPUT_DIR"

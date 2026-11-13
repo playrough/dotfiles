@@ -209,7 +209,7 @@ dotfiles() {
         "$@"
 }
 
-[[ "$(dotfiles rev-parse --is-bare-repository)" == "true" ]] ||
+[[ "$(git --git-dir="$DOTFILES_DIR" rev-parse --is-bare-repository)" == "true" ]] ||
     die "$DOTFILES_DIR is not a bare repository."
 
 dotfiles rev-parse --verify HEAD >/dev/null ||
@@ -227,6 +227,13 @@ Resolve conflicts manually, then run the installer again."
 fi
 
 success "Dotfiles checkout completed."
+
+
+CONFIG_FILE="$HOME/.config/noctalia/noctalia-config.toml"
+
+if [ -f "$CONFIG_FILE" ]; then
+    sed -i "s|/home/[^/]*|\$HOME|g" "$CONFIG_FILE"
+fi
 
 # ==========================================
 # 3. APPLICATION PACKAGES
@@ -426,6 +433,9 @@ success "XDG User Directories configured."
 # ==========================================
 
 info "Configuring user services..."
+
+mkdir -p "$HOME/Downloads/wallpapers/bing"
+mkdir -p "$HOME/Downloads/wallpapers/wallhaven"
 
 systemctl --user daemon-reload
 

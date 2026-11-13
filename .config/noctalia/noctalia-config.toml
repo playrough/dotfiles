@@ -149,6 +149,8 @@ right = [ "Ctrl+l" ]
 up = [ "Ctrl+k" ]
 
 [lockscreen]
+edge_smoothness = 0.28999999351799488
+tint_intensity = 0.28999999351799488
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
 [lockscreen_widgets]
@@ -198,7 +200,7 @@ widget_order = [
     box_height = 70.0
     box_width = 384.0
     cx = 960.0
-    cy = 656.25
+    cy = 604.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -241,7 +243,7 @@ widget_order = [
     box_height = 48.0
     box_width = 128.0
     cx = 960.0
-    cy = 570.00006103515625
+    cy = 540.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -262,6 +264,14 @@ background_opacity = 0.79999998211860657
 border_color = "on_secondary"
 offset_y = 30
 position = "bottom_center"
+
+[plugin_settings."3dprogramin/mullvad"]
+panel_position = "center"
+
+[plugin_settings."noctalia/mpvpaper"]
+picker_placement = "floating"
+picker_position = "center"
+video_directory = "/home/edgerunner/Downloads"
 
 [plugin_settings."noctalia/wallhaven"]
 api_key = "QWTIQOrVuo1GazaCAMrTIVwtJ76GQua5"
@@ -354,7 +364,7 @@ source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
-    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kitty", "niri", "umbriel" ]
+    builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kitty", "umbriel" ]
     community_ids = [ "sonora", "pywalfox", "bat", "fzf", "glow", "yazi" ]
 
         [theme.templates.user.nvim]
@@ -367,13 +377,13 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.BlueHK_JA-JP0477081186_UHD.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.BlueHK_JA-JP0477081186_UHD.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.BlueHK_JA-JP0477081186_UHD.jpg"
 
 [widget.audio_visualizer]
 bands = 20

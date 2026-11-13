@@ -1,6 +1,0 @@
-# Center Kitty
-[[window_rule]]
-match.title = "^kitty"
-#default_position = { x = 0, y = 0, anchor = "center" }
-#default_floating_size_px = { width = 700, height = 400 }
-#default_floating = true

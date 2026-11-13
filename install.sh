@@ -232,7 +232,7 @@ success "Dotfiles checkout completed."
 CONFIG_FILE="$HOME/.config/noctalia/noctalia-config.toml"
 
 if [ -f "$CONFIG_FILE" ]; then
-    sed -i "s|/home/[^/]*|\$HOME|g" "$CONFIG_FILE"
+    sed -i "s|/home/[^/]*|$HOME|g" "$CONFIG_FILE"
 fi
 
 # ==========================================

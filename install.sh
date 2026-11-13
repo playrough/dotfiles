@@ -202,15 +202,15 @@ info "Checking Bare Dotfiles repository..."
 [[ -d "$DOTFILES_DIR" ]] ||
     die "Bare repository not found: $DOTFILES_DIR"
 
+[[ "$(git --git-dir="$DOTFILES_DIR" rev-parse --is-bare-repository)" == "true" ]] ||
+    die "$DOTFILES_DIR is not a bare repository."
+
 dotfiles() {
     /usr/bin/git \
         --git-dir="$DOTFILES_DIR" \
         --work-tree="$HOME" \
         "$@"
 }
-
-[[ "$(git --git-dir="$DOTFILES_DIR" rev-parse --is-bare-repository)" == "true" ]] ||
-    die "$DOTFILES_DIR is not a bare repository."
 
 dotfiles rev-parse --verify HEAD >/dev/null ||
     die "Bare repository has no valid HEAD commit."

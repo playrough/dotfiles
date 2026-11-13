@@ -100,13 +100,16 @@ enable_user_service() {
 # Write a managed system configuration.
 # Backup the previous file only when its content changes.
 
-write_managed_file() {
+write_managed_file() (
+    trap - ERR
+
     local destination="$1"
     local mode="$2"
     local temp_file
     local backup_file
 
     temp_file="$(mktemp)"
+    trap 'rm -f -- "$temp_file"' EXIT
 
     cat > "$temp_file"
 
@@ -114,7 +117,6 @@ write_managed_file() {
        sudo cmp -s "$temp_file" "$destination"; then
 
         success "Configuration unchanged: $destination"
-        rm -f "$temp_file"
         return 0
     fi
 
@@ -122,7 +124,6 @@ write_managed_file() {
        sudo test -L "$destination"; then
 
         backup_file="${destination}.bak.$(date +%Y%m%d-%H%M%S)"
-
         sudo cp -a -- "$destination" "$backup_file"
 
         info "Backup created: $backup_file"
@@ -130,10 +131,8 @@ write_managed_file() {
 
     sudo install -D -m "$mode" "$temp_file" "$destination"
 
-    rm -f "$temp_file"
-
     success "Configuration written: $destination"
-}
+)
 
 # ==========================================
 # 0. PRE-FLIGHT CHECK
@@ -547,7 +546,9 @@ fi
 
 # Check systemd failed units.
 
-if systemctl --failed --no-legend --no-pager | grep -q .; then
+FAILED_SYSTEM="$(systemctl --failed --no-legend --no-pager)"
+
+if [[ -n "$FAILED_SYSTEM" ]]; then
     warn "Some system services have failed."
     systemctl --failed --no-pager
 else
@@ -556,7 +557,9 @@ fi
 
 # Check user systemd failed units.
 
-if systemctl --user --failed --no-legend --no-pager | grep -q .; then
+FAILED_USER="$(systemctl --user --failed --no-legend --no-pager)"
+
+if [[ -n "$FAILED_USER" ]]; then
     warn "Some user services have failed."
     systemctl --user --failed --no-pager
 else

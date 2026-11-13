@@ -6,7 +6,6 @@ set -Eeuo pipefail
 # ==========================================
 
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
-SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 CURRENT_USER="$(id -un)"
 
 LOG_DIR="$HOME/.local/state/dotfiles-installer"
@@ -194,39 +193,21 @@ command_exists paru ||
 success "Package manager ready."
 
 # ==========================================
-# 2. BARE DOTFILES CHECKOUT
+# 2. BARE DOTFILES VALIDATION
 # ==========================================
 
-info "Checking Bare Dotfiles repository..."
+info "Validating Bare Dotfiles repository..."
 
 [[ -d "$DOTFILES_DIR" ]] ||
     die "Bare repository not found: $DOTFILES_DIR"
 
 [[ "$(git --git-dir="$DOTFILES_DIR" rev-parse --is-bare-repository)" == "true" ]] ||
-    die "$DOTFILES_DIR is not a bare repository."
+    die "Invalid bare repository: $DOTFILES_DIR"
 
-dotfiles() {
-    /usr/bin/git \
-        --git-dir="$DOTFILES_DIR" \
-        --work-tree="$HOME" \
-        "$@"
-}
-
-dotfiles rev-parse --verify HEAD >/dev/null ||
+git --git-dir="$DOTFILES_DIR" rev-parse --verify HEAD >/dev/null 2>&1 ||
     die "Bare repository has no valid HEAD commit."
 
-dotfiles config --local status.showUntrackedFiles no
-
-info "Checking out dotfiles..."
-
-if ! dotfiles checkout; then
-    die "Dotfiles checkout failed.
-
-Existing files may conflict with the repository.
-Resolve conflicts manually, then run the installer again."
-fi
-
-success "Dotfiles checkout completed."
+success "Bare repository is valid."
 
 
 CONFIG_FILE="$HOME/.config/noctalia/noctalia-config.toml"
@@ -241,13 +222,7 @@ fi
 
 info "Installing application packages..."
 
-PKGLIST=""
-
-if [[ -f "$SCRIPT_DIR/pkglist.txt" ]]; then
-    PKGLIST="$SCRIPT_DIR/pkglist.txt"
-elif [[ -f "$HOME/pkglist.txt" ]]; then
-    PKGLIST="$HOME/pkglist.txt"
-fi
+PKGLIST="$HOME/pkglist.txt"
 
 if [[ -n "$PKGLIST" ]]; then
 
@@ -568,7 +543,7 @@ info "Running post-installation checks..."
 
 # Check bare repository.
 
-if [[ "$(dotfiles rev-parse --is-bare-repository)" == "true" ]]; then
+if [[ "$(git --git-dir="$DOTFILES_DIR" rev-parse --is-bare-repository)" == "true" ]]; then
     success "Bare repository is valid."
 else
     warn "Bare repository validation failed."

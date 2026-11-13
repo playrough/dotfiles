@@ -10,11 +10,21 @@ Run the following command:
 curl -fsSL https://raw.githubusercontent.com/playrough/dotfiles/master/install.sh | bash
 ```
 
+The installer will automatically:
+
+- Clone the bare dotfiles repository.
+- Check out configuration files into `$HOME`.
+- Install required packages.
+- Configure system services.
+- Set up Zsh, ZRAM, Fcitx5 and Caps2Esc.
+- Configure user services.
+
 ## Notes
 
-- Review the installation scripts before running them.
-- Existing configuration files may cause checkout conflicts.
+- Review `install.sh` and `setup.sh` before running.
+- Existing files may cause checkout conflicts.
 - Back up important files before installation.
+- Designed for Arch Linux (x86_64).
 
 ## License
 

@@ -224,21 +224,17 @@ info "Installing application packages..."
 
 PKGLIST="$HOME/pkglist.txt"
 
-if [[ -n "$PKGLIST" ]]; then
+if [[ -f "$PKGLIST" ]]; then
 
     mapfile -t PACKAGES < <(
         sed 's/#.*//' "$PKGLIST" |
         sed 's/^[[:space:]]*//; s/[[:space:]]*$//' |
-        grep -v '^$' |
-        sort -u
+        awk 'NF && !seen[$0]++'
     )
 
     if (( ${#PACKAGES[@]} > 0 )); then
-
-        paru --needed --noconfirm "${PACKAGES[@]}"
-
+        paru -S --needed --noconfirm "${PACKAGES[@]}"
         success "Application packages installed."
-
     else
         warn "pkglist.txt is empty."
     fi

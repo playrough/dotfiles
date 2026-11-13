@@ -7,7 +7,7 @@ My personal Arch Linux dotfiles and system configuration.
 Run the following command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/playrough/dotfiles/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/playrough/dotfiles/master/.setup/install.sh | bash
 ```
 
 The installer will automatically:

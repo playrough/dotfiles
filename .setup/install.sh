@@ -45,4 +45,4 @@ if ! git --git-dir="$DOTFILES_DIR" \
 fi
 
 echo "==> Running setup..."
-bash "$HOME/setup.sh"
+bash "$HOME/.setup/setup.sh"

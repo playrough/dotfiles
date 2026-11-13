@@ -221,7 +221,7 @@ fi
 
 info "Installing application packages..."
 
-PKGLIST="$HOME/pkglist.txt"
+PKGLIST="$HOME/.setup/pkglist.txt"
 
 if [[ -f "$PKGLIST" ]]; then
 

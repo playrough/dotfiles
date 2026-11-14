@@ -511,6 +511,18 @@ validate_zram() {
     fi
 }
 
+configure_bing_wallpaper() {
+    info "Downloading Bing wallpaper..."
+
+    local script="$HOME/.local/bin/bing-wallpaper.sh"
+
+    if [[ -x "$script" ]]; then
+        "$script"
+    else
+        warn "bing-wallpaper.sh not found or not executable."
+    fi
+}
+
 # ==========================================
 # TRAPS
 # ==========================================
@@ -613,6 +625,7 @@ configure_ibus_cleanup
 # 16. DEFAULT SHELL
 
 configure_default_shell
+configure_bing_wallpaper
 
 # ==========================================
 # POST-INSTALLATION

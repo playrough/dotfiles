@@ -50,8 +50,9 @@ command_exists() {
 }
 
 cleanup() {
-    [[ -n "$BUILD_DIR" && -d "$BUILD_DIR" ]] &&
+    if [[ -n "$BUILD_DIR" && -d "$BUILD_DIR" ]]; then
         rm -rf -- "$BUILD_DIR"
+    fi
 }
 
 on_error() {

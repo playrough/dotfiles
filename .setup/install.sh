@@ -15,8 +15,7 @@ echo "  1) Full installation"
 echo "  2) User configuration only"
 echo
 
-read -rp "Choose [1-2]: " choice
-
+read -rp "Choose [1-2]: " choice < /dev/tty
 case "$choice" in
     1) MODE="full" ;;
     2) MODE="user" ;;

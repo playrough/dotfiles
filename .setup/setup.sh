@@ -7,6 +7,7 @@ set -Eeuo pipefail
 
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
 CURRENT_USER="$(id -un)"
+MODE="${1:-full}"
 
 LOG_DIR="$HOME/.local/state/dotfiles-installer"
 LOG_FILE="$LOG_DIR/install.log"
@@ -40,6 +41,9 @@ die() {
     printf '\033[1;31m[ERROR]\033[0m %s\n' "$*" >&2
     exit 1
 }
+
+[[ "$MODE" == "full" || "$MODE" == "--user-only" ]] ||
+    die "Usage: $0 [--user-only]"
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
@@ -251,36 +255,32 @@ EOF
     success "Caps2Esc configured."
 }
 
-configure_fcitx5_lotus() {
-    info "Configuring Fcitx5 Lotus..."
+configure_fcitx5_lotus_system() {
+    info "Configuring Fcitx5 Lotus system..."
 
-    local service="fcitx5-lotus-server@${CURRENT_USER}.service"
-
-    if ! system_service_exists "$service"; then
-        warn "Fcitx5 Lotus service not found. Skipping."
-        return 0
-    fi
-
-    [[ -d "/usr/lib/modules/$(uname -r)" ]] ||
-        die "Kernel modules for the running kernel are missing. Reboot into the installed kernel."
-
-    sudo udevadm control --reload-rules
-    sudo udevadm trigger
-
+    # Load uinput module
     sudo modprobe uinput
 
-    write_managed_file /etc/modules-load.d/uinput.conf 644 <<'EOF'
+    # Load uinput automatically at boot
+    write_managed_file \
+        /etc/modules-load.d/uinput.conf \
+        644 <<'EOF'
 uinput
 EOF
 
-    if ! sudo systemctl enable --now "$service"; then
-        info "Running systemd-sysusers fallback..."
+    # Apply udev rules
+    sudo udevadm control --reload-rules
+    sudo udevadm trigger
 
-        sudo systemd-sysusers
-        sudo systemctl enable --now "$service"
-    fi
+    success "Fcitx5 Lotus system configured."
+}
 
-    success "Fcitx5 Lotus server enabled."
+configure_fcitx5_lotus_user() {
+    info "Enabling Fcitx5 Lotus for $CURRENT_USER..."
+
+    enable_user_service "fcitx5-lotus-server@${CURRENT_USER}.service"
+
+    success "Fcitx5 Lotus user service enabled."
 }
 
 configure_system_zsh() {
@@ -472,8 +472,12 @@ configure_bing_wallpaper() {
 
     local script_dir="$HOME/.local/bin"
 
-    chmod +x "$script_dir/bing-wallpapers.sh"
-    chmod +x "$script_dir/bing-wallpaper.sh"
+    for script in bing-wallpapers.sh bing-wallpaper.sh; do
+        [[ -f "$script_dir/$script" ]] ||
+            die "Script not found: $script_dir/$script"
+
+        chmod +x "$script_dir/$script"
+    done
 
     "$script_dir/bing-wallpapers.sh"
     "$script_dir/bing-wallpaper.sh"
@@ -561,72 +565,36 @@ success "Environment checks passed."
 # SYSTEM SETUP
 # ==========================================
 
-# 1. PACKAGE MANAGER
+if [[ "$MODE" == "full" ]]; then
 
-install_base_packages
+    install_base_packages
+    install_application_packages
 
-# 2. APPLICATION PACKAGES
+    configure_system_services
+    configure_zram
+    configure_caps2esc
+    configure_fcitx5_lotus_system
+    configure_system_zsh
 
-install_application_packages
-
-# 3. SYSTEM SERVICES
-
-configure_system_services
-
-# 4. ZRAM
-
-configure_zram
-
-# 5. CAPS2ESC
-
-configure_caps2esc
-
-# 6. FCITX5 LOTUS
-
-configure_fcitx5_lotus
-
-# 7. ZSH SYSTEM
-
-configure_system_zsh
+fi
 
 # ==========================================
 # USER SETUP
 # ==========================================
-
-# 8. BARE DOTFILES VALIDATION
-
 validate_dotfiles
-
-# 9. NOCTALIA
-
 configure_noctalia
+configure_fcitx5_lotus_user
 
-# 10. YAZI
-
-configure_yazi
-
-# 11. XDG
+if [[ "$MODE" == "full" ]]; then
+    configure_yazi
+fi
 
 configure_xdg_directories
-
-# 12. USER DIRECTORIES
-
 create_user_directories
-
-# 13. USER SYSTEMD SERVICES
-
 configure_user_services
 
-# 14. ZSH USER
-
 configure_user_zsh
-
-# 15. IBUS CLEANUP
-
 configure_ibus_cleanup
-
-# 16. DEFAULT SHELL
-
 configure_default_shell
 configure_bing_wallpaper
 
@@ -637,9 +605,12 @@ configure_bing_wallpaper
 info "Running post-installation checks..."
 
 validate_dotfiles
-validate_system
 validate_user
-validate_zram
+
+if [[ "$MODE" == "full" ]]; then
+    validate_system
+    validate_zram
+fi
 
 info "Installation completed."
 

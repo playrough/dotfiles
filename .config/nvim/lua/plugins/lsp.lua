@@ -10,25 +10,25 @@ require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
 	ensure_installed = {
 		"lua_ls",
-    "stylua",
-    "bashls",
-    "shfmt",
+		"stylua",
+		"bashls",
+		"shfmt",
 		"jsonls",
 		"prettier",
 		"clangd",
 	},
 })
 
-vim.lsp.config('lua_ls', {
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			runtime = {
-				version = 'LuaJIT',
+				version = "LuaJIT",
 			},
 			diagnostics = {
 				globals = {
-					'vim',
-					'require'
+					"vim",
+					"require",
 				},
 			},
 			workspace = {
@@ -42,16 +42,16 @@ vim.lsp.config('lua_ls', {
 })
 
 vim.lsp.config("clangd", {
-    cmd = {
-        "clangd",
-        "--background-index",
-        "--clang-tidy",
-        "--header-insertion=iwyu",
-        "--completion-style=detailed",
-        "--function-arg-placeholders",
-        "--fallback-style=llvm",
-        "--query-driver=/usr/bin/gcc,/usr/bin/g++",
-    },
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--header-insertion=iwyu",
+		"--completion-style=detailed",
+		"--function-arg-placeholders",
+		"--fallback-style=llvm",
+		"--query-driver=/usr/bin/gcc,/usr/bin/g++",
+	},
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -76,14 +76,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Diagnostic
 local diagnostic_signs = {
-	Error = " ",
-	Warn = " ",
-	Hint = "",
-	Info = "",
+	Error = "󰅚 ",
+	Warn = "󰗖 ",
+	Hint = " ",
+	Info = "󰋽 ",
 }
 
 vim.diagnostic.config({
-	virtual_text = { prefix = "●", spacing = 4 },
+	virtual_text = {
+		spacing = 4,
+		prefix = function(_, i, total)
+			return i == total and "" or ""
+		end,
+	},
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = diagnostic_signs.Error,

@@ -8,7 +8,7 @@ color = "primary"
 concave_edge_corners = true
 end = [ "volume", "audio_visualizer", "spacer_3", "network", "spacer_9", "battery", "spacer_8", "session" ]
 font_family = "Inter Display"
-margin_ends = 10
+margin_ends = "10%"
 padding = 10
 position = "left"
 radius = 0
@@ -377,13 +377,13 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/pandart-studio-full-vision.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/pandart-studio-full-vision.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/pandart-studio-full-vision.jpg"
 
 [widget.audio_visualizer]
 bands = 20

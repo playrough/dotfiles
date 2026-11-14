@@ -512,15 +512,17 @@ validate_zram() {
 }
 
 configure_bing_wallpaper() {
-    info "Downloading Bing wallpaper..."
+    info "Setting up Bing wallpapers..."
 
-    local script="$HOME/.local/bin/bing-wallpaper.sh"
+    local script_dir="$HOME/.local/bin"
 
-    if [[ -x "$script" ]]; then
-        "$script"
-    else
-        warn "bing-wallpaper.sh not found or not executable."
-    fi
+    chmod +x "$script_dir/bing-wallpapers.sh"
+    chmod +x "$script_dir/bing-wallpaper.sh"
+
+    "$script_dir/bing-wallpapers.sh"
+    "$script_dir/bing-wallpaper.sh"
+
+    success "Bing wallpaper setup completed."
 }
 
 # ==========================================

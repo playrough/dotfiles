@@ -1,21 +1,68 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-for cmd in sudo pacman; do
-    command -v "$cmd" >/dev/null 2>&1 || {
-        echo "[ERROR] Required command not found: $cmd"
-        exit 1
-    }
-done
+# ==========================================
+# MODE SELECTION
+# ==========================================
 
-sudo -v
+echo "================================"
+echo "       DOTFILES INSTALLER"
+echo "================================"
+echo
+echo "Select installation mode:"
+echo
+echo "  1) Full installation"
+echo "  2) User configuration only"
+echo
+
+read -rp "Choose [1-2]: " choice
+
+case "$choice" in
+    1) MODE="full" ;;
+    2) MODE="user" ;;
+    *)
+        echo "[ERROR] Invalid selection."
+        exit 1
+        ;;
+esac
+
+echo
+echo "==> Selected mode: $MODE"
+
+# ==========================================
+# PRE-FLIGHT
+# ==========================================
+
+if [[ "$MODE" == "full" ]]; then
+    for cmd in sudo pacman; do
+        command -v "$cmd" >/dev/null 2>&1 || {
+            echo "[ERROR] Required command not found: $cmd"
+            exit 1
+        }
+    done
+
+    sudo -v
+fi
 
 if ! command -v git >/dev/null 2>&1; then
-    sudo pacman -S --needed --noconfirm git
+    if [[ "$MODE" == "full" ]]; then
+        sudo pacman -S --needed --noconfirm git
+    else
+        echo "[ERROR] Git is required for user mode."
+        exit 1
+    fi
 fi
+
+# ==========================================
+# SETTINGS
+# ==========================================
 
 REPO="https://github.com/playrough/dotfiles.git"
 DOTFILES_DIR="$HOME/.dotfiles"
+
+# ==========================================
+# DOTFILES
+# ==========================================
 
 if [[ -e "$DOTFILES_DIR" || -L "$DOTFILES_DIR" ]]; then
 
@@ -44,5 +91,16 @@ if ! git --git-dir="$DOTFILES_DIR" \
     exit 1
 fi
 
+# ==========================================
+# SETUP
+# ==========================================
+
 echo "==> Running setup..."
-bash "$HOME/.setup/setup.sh"
+
+if [[ "$MODE" == "user" ]]; then
+    bash "$HOME/.setup/setup.sh" --user-only
+else
+    bash "$HOME/.setup/setup.sh"
+fi
+
+echo "==> Installation completed."

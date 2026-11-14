@@ -467,6 +467,20 @@ configure_default_shell() {
     success "Default shell changed to Zsh."
 }
 
+configure_bing_wallpaper() {
+    info "Setting up Bing wallpapers..."
+
+    local script_dir="$HOME/.local/bin"
+
+    chmod +x "$script_dir/bing-wallpapers.sh"
+    chmod +x "$script_dir/bing-wallpaper.sh"
+
+    "$script_dir/bing-wallpapers.sh"
+    "$script_dir/bing-wallpaper.sh"
+
+    success "Bing wallpaper setup completed."
+}
+
 # ==========================================
 # VALIDATION FUNCTIONS
 # ==========================================
@@ -511,19 +525,6 @@ validate_zram() {
     fi
 }
 
-configure_bing_wallpaper() {
-    info "Setting up Bing wallpapers..."
-
-    local script_dir="$HOME/.local/bin"
-
-    chmod +x "$script_dir/bing-wallpapers.sh"
-    chmod +x "$script_dir/bing-wallpaper.sh"
-
-    "$script_dir/bing-wallpapers.sh"
-    "$script_dir/bing-wallpaper.sh"
-
-    success "Bing wallpaper setup completed."
-}
 
 # ==========================================
 # TRAPS

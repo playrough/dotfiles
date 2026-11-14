@@ -22,24 +22,35 @@ count_selected = { fg = "{{colors.on_primary.default.hex}}", bg = "{{colors.tert
 border_style  = { fg = "{{colors.primary.default.hex}}" }
 border_symbol = " "
 
+# Indicator
+[indicator]
+current = { fg = "{{colors.on_primary.default.hex}}", bg = "{{colors.primary.default.hex}}", bold = true }
+parent  = { fg = "{{colors.on_tertiary.default.hex}}", bg = "{{colors.tertiary.default.hex}}", bold = true }
+preview = { fg = "{{colors.on_secondary.default.hex}}", bg = "{{colors.secondary.default.hex}}", bold = true }
+padding = { open = "", close = "" }
+
 # : ]]]
+
 
 
 # : Status [[[
 
 [status]
-
-# Permissions
-perm_type  = { fg = "{{ colors.primary.default.hex | set_lightness: 80.0 }}" }
-perm_write = { fg = "{{ colors.tertiary.default.hex | set_lightness: 80.0 }}" }
-perm_read  = { fg = "{{ colors.error.default.hex | set_lightness: 80.0 }}" }
-perm_exec  = { fg = "{{ colors.tertiary_fixed.default.hex | set_lightness: 80.0 }}" }
-perm_sep   = { fg = "{{ colors.primary_fixed.default.hex | set_lightness: 80.0 }}" }
+overall = { fg = "{{colors.primary.default.hex}}" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Progress
-progress_label  = { bold = true }
-progress_normal = { fg = "{{colors.primary.default.hex}}", bg = "{{colors.surface_bright.default.hex}}" }
-progress_error  = { fg = "{{colors.error.default.hex}}", bg = "{{colors.surface_bright.default.hex}}" }
+progress_label = { bold = true }
+progress_normal = { fg = "{{colors.primary.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+progress_error = { fg = "{{colors.error.default.hex}}", bg = "{{colors.surface.default.hex}}" }
+
+# Permissions
+perm_type  = { fg = "{{colors.primary.default.hex | set_lightness: 80.0 }}" }
+perm_write = { fg = "{{colors.tertiary.default.hex | set_lightness: 80.0 }}" }
+perm_read  = { fg = "{{colors.error.default.hex | set_lightness: 80.0 }}" }
+perm_exec  = { fg = "{{colors.tertiary_fixed.default.hex | set_lightness: 80.0 }}" }
+perm_sep   = { fg = "{{colors.primary_fixed.default.hex | set_lightness: 80.0 }}" }
 
 # : ]]]
 
@@ -49,13 +60,13 @@ progress_error  = { fg = "{{colors.error.default.hex}}", bg = "{{colors.surface_
 [mode]
 
 normal_main = { bg = "{{colors.primary.default.hex}}", fg = "{{colors.on_primary.default.hex}}", bold = true }
-normal_alt  = { bg = "{{colors.surface_container.default.hex}}", fg = "{{colors.on_surface_variant.default.hex}}" }
+normal_alt  = { bg = "{{colors.surface_container.default.hex}}", fg = "{{colors.on_surface.default.hex}}" }
 
 select_main = { bg = "{{colors.secondary.default.hex}}", fg = "{{colors.on_secondary.default.hex}}", bold = true }
-select_alt  = { bg = "{{colors.surface_container.default.hex}}", fg = "{{colors.on_surface_variant.default.hex}}" }
+select_alt  = { bg = "{{colors.surface_container.default.hex}}", fg = "{{colors.on_surface.default.hex}}" }
 
 unset_main = { bg = "{{colors.tertiary.default.hex}}", fg = "{{colors.on_tertiary.default.hex}}", bold = true }
-unset_alt  = { bg = "{{colors.surface_container.default.hex}}", fg = "{{colors.on_surface_variant.default.hex}}" }
+unset_alt  = { bg = "{{colors.surface_container.default.hex}}", fg = "{{colors.on_surface.default.hex}}" }
 
 # : ]]]
 

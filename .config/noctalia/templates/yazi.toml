@@ -25,7 +25,7 @@ border_symbol = " "
 # Indicator
 [indicator]
 current = { fg = "{{colors.on_primary.default.hex}}", bg = "{{colors.primary.default.hex}}", bold = true }
-parent  = { fg = "{{colors.on_tertiary.default.hex}}", bg = "{{colors.tertiary.default.hex}}", bold = true }
+parent  = { fg = "{{colors.on_primary.default.hex}}", bg = "{{colors.primary.default.hex}}", bold = true }
 preview = { fg = "{{colors.on_secondary.default.hex}}", bg = "{{colors.secondary.default.hex}}", bold = true }
 padding = { open = "", close = "" }
 

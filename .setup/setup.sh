@@ -584,11 +584,8 @@ fi
 # ==========================================
 validate_dotfiles
 configure_noctalia
+configure_yazi
 configure_fcitx5_lotus_user
-
-if [[ "$MODE" == "full" ]]; then
-    configure_yazi
-fi
 
 configure_xdg_directories
 create_user_directories

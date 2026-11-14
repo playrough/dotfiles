@@ -61,8 +61,8 @@ drag_opacity = 0.85
 enabled = true
 optimized = false
 passes = 3
-radius = 2
-noise = 0.06
+radius = 3
+noise = 0.05
 brightness = 0.9
 contrast = 0.9
 saturation = 1.1
@@ -145,9 +145,9 @@ tap = true
 
 # Opacity toggle
 "Mod+O" = '''spawn sed -i \
-  's/^opacity = 1\.0$/opacity = 0.9/;
+  's/^opacity = 1\.0$/opacity = 0.8/;
    t;
-   s/^opacity = 0\.9$/opacity = 1.0/' \
+   s/^opacity = 0\.8$/opacity = 1.0/' \
   "$HOME/.config/umbriel/opacity.toml"'''
 
 # Display power
@@ -362,7 +362,7 @@ blur_optimized = false
 # Unfocused windows
 [[window_rule]]
 match.is_focused = false
-opacity = 0.85
+opacity = 0.75
 
 # Noctalia settings
 [[window_rule]]

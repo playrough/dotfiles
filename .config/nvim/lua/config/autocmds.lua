@@ -39,3 +39,16 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.spell = true
 	end,
 })
+
+-- Disable undercurl
+vim.api.nvim_create_autocmd({ "VimEnter", "ColorScheme" }, {
+  callback = function()
+    for name, hl in pairs(vim.api.nvim_get_hl(0, {})) do
+      if hl.undercurl then
+        hl.undercurl = false
+        hl.underline = true
+        vim.api.nvim_set_hl(0, name, hl)
+      end
+    end
+  end,
+})

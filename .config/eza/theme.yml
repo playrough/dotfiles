@@ -1,0 +1,101 @@
+colourful: false
+
+filekinds:
+  normal: {foreground: "White"}
+  directory: {foreground: "Green", is_bold: true}
+  symlink: {foreground: "Blue"}
+  pipe: {foreground: "White"}
+  block_device: {foreground: "LightRed"}
+  char_device: {foreground: "LightRed"}
+  socket: {foreground: "White"}
+  special: {foreground: "Magenta"}
+  executable: {foreground: "Green"}
+  mount_point: {foreground: "Cyan"}
+
+perms:
+  user_read: {foreground: "Red", is_bold: true}
+  user_write: {foreground: "Yellow", is_bold: true}
+  user_execute_file: {foreground: "Green", is_bold: true}
+  user_execute_other: {foreground: "Green", is_bold: true}
+  group_read: {foreground: "Red"}
+  group_write: {foreground: "Yellow"}
+  group_execute: {foreground: "Green"}
+  other_read: {foreground: "Red"}
+  other_write: {foreground: "Yellow"}
+  other_execute: {foreground: "Green"}
+  special_user_file: {foreground: "Magenta"}
+  special_other: {foreground: "DarkGray"}
+  attribute: {foreground: "DarkGray"}
+
+size:
+  major: {foreground: "White"}
+  minor: {foreground: "LightCyan"}
+  number_byte: {foreground: "White"}
+  number_kilo: {foreground: "White"}
+  number_mega: {foreground: "Blue"}
+  number_giga: {foreground: "Magenta"}
+  number_huge: {foreground: "Magenta"}
+  unit_byte: {foreground: "DarkGray"}
+  unit_kilo: {foreground: "LightCyan"}
+  unit_mega: {foreground: "Magenta"}
+  unit_giga: {foreground: "Magenta"}
+  unit_huge: {foreground: "Cyan"}
+
+users:
+  user_you: {foreground: "White"}
+  user_root: {foreground: "Red"}
+  user_other: {foreground: "LightRed"}
+  group_yours: {foreground: "White"}
+  group_other: {foreground: "DarkGray"}
+  group_root: {foreground: "Red"}
+
+links:
+  normal: {foreground: "Blue"}
+  multi_link_file: {foreground: "Blue"}
+
+git:
+  new: {foreground: "Green"}
+  modified: {foreground: "Yellow"}
+  deleted: {foreground: "LightRed"}
+  renamed: {foreground: "Cyan"}
+  typechange: {foreground: "LightMagenta"}
+  ignored: {foreground: "DarkGray"}
+  conflicted: {foreground: "LightRed"}
+
+git_repo:
+  branch_main: {foreground: "White"}
+  branch_other: {foreground: "Magenta"}
+  git_clean: {foreground: "Green"}
+  git_dirty: {foreground: "LightRed"}
+
+security_context:
+  colon: {foreground: "DarkGray"}
+  user: {foreground: "DarkGray"}
+  role: {foreground: "Magenta"}
+  typ: {foreground: "DarkGray"}
+  range: {foreground: "Magenta"}
+
+file_type:
+  image: {foreground: "Yellow"}
+  video: {foreground: "Red"}
+  music: {foreground: "Green"}
+  lossless: {foreground: "Cyan"}
+  crypto: {foreground: "DarkGray"}
+  document: {foreground: "Default"}
+  compressed: {foreground: "LightMagenta"}
+  temp: {foreground: "LightRed"}
+  compiled: {foreground: "LightBlue"}
+  source: {foreground: "Blue"}
+
+punctuation: {foreground: "DarkGray"}
+date: {foreground: "Yellow"}
+inode: {foreground: "White"}
+blocks: {foreground: "DarkGray"}
+header: {foreground: "Default"}
+octal: {foreground: "Cyan"}
+flags: {foreground: "Magenta"}
+
+symlink_path: {foreground: "LightCyan"}
+control_char: {foreground: "LightBlue"}
+broken_symlink: {foreground: "Red"}
+broken_path_overlay: {foreground: "DarkGray"}

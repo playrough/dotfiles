@@ -4,7 +4,7 @@ enabled = true
 [bar.default]
 background_opacity = 0.79999998211860657
 capsule_group = []
-center = [ "clock", "date" ]
+center = [ "clock", "date", "spacer_11" ]
 color = "primary"
 concave_edge_corners = false
 end = [
@@ -451,6 +451,10 @@ stat = "ram_pct"
 visualization = "none"
 
 [widget.spacer_10]
+type = "spacer"
+
+[widget.spacer_11]
+length = 200
 type = "spacer"
 
 [widget.spacer_13]

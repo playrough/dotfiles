@@ -3,34 +3,33 @@ enabled = true
 
 [bar.default]
 background_opacity = 0.79999998211860657
-center = [ "clock", "text_2", "date" ]
+capsule_group = []
+center = [ "clock", "date" ]
 color = "primary"
-concave_edge_corners = true
-end = [ "volume", "audio_visualizer", "spacer_3", "network", "spacer_9", "battery", "spacer_8", "session" ]
+concave_edge_corners = false
+end = [
+    "custom_button_3",
+    "volume",
+    "audio_visualizer",
+    "network",
+    "spacer_9",
+    "battery",
+    "spacer_10",
+    "session",
+    "spacer_13"
+]
 font_family = "Inter Display"
-margin_ends = "10%"
+margin_ends = "0%"
 padding = 10
 position = "left"
 radius = 0
 radius_bottom_left = 0
-radius_bottom_right = 10
+radius_bottom_right = 0
 radius_top_left = 0
-radius_top_right = 10
+radius_top_right = 0
 scale = 1.0000000074505806
-start = [
-    "launcher",
-    "spacer_6",
-    "workspaces",
-    "spacer_7",
-    "notifications",
-    "spacer_2",
-    "cpu",
-    "spacer_4",
-    "ram",
-    "spacer_5",
-    "sysmon"
-]
-thickness = 36
+start = [ "spacer_14", "launcher", "spacer_6", "workspaces", "spacer_7", "notifications" ]
+thickness = 40
 widget_spacing = 5
 
 [calendar]
@@ -377,17 +376,17 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/art/pandart-studio-full-vision.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/art/pandart-studio-full-vision.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/art/pandart-studio-full-vision.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/bing/OHR.Atlantica_JA-JP3902829738_UHD.jpg"
 
 [widget.audio_visualizer]
 bands = 20
-scale = 0.69999999999999996
+scale = 0.80000000000000004
 show_when_idle = true
 width = 220
 
@@ -397,6 +396,7 @@ scale = 0.60000000000000009
 show_label = false
 
 [widget.clock]
+capsule_fill = "primary"
 color = "on_surface"
 font_scale = 1.0
 
@@ -405,17 +405,41 @@ glyph = "atom-2-filled"
 label_show_units = false
 visualization = "none"
 
+[widget.custom_button_2]
+anchor = true
+custom_image = "/home/edgerunner/.config/noctalia/icons/equalizer.svg"
+custom_image_colorize = true
+scale = 1.4000000000000001
+show_tooltip = false
+type = "custom_button"
+
+    [widget.custom_button_2.actions]
+    scroll_down = "volume-down"
+    scroll_up = "volume-up"
+
+[widget.custom_button_3]
+custom_image = "/home/edgerunner/.config/noctalia/icons/equalizer.svg"
+custom_image_colorize = true
+glyph = "crop-1-1"
+scale = 1.4000000000000001
+type = "custom_button"
+
+    [widget.custom_button_3.actions]
+    scroll_down = "volume-down"
+    scroll_up = "volume-up"
+
 [widget.date]
+capsule_fill = "primary"
 color = "primary"
 font_scale = 1.0
-format = "{:%d %m}"
+format = " {:%d %m}"
 scale = 1.0
 
 [widget.launcher]
 custom_image = "/home/edgerunner/.config/noctalia/icons/arch-linux.svg"
 custom_image_colorize = true
 glyph = "umbriel"
-scale = 1.4000000000000001
+scale = 1.0
 
 [widget.network]
 show_label = false
@@ -425,6 +449,17 @@ glyph = "chart-donut-filled"
 label_show_units = false
 stat = "ram_pct"
 visualization = "none"
+
+[widget.spacer_10]
+type = "spacer"
+
+[widget.spacer_13]
+length = 10
+type = "spacer"
+
+[widget.spacer_14]
+length = 10
+type = "spacer"
 
 [widget.spacer_2]
 length = 20
@@ -444,11 +479,11 @@ length = 10
 type = "spacer"
 
 [widget.spacer_6]
-length = 10
+length = 20
 type = "spacer"
 
 [widget.spacer_7]
-length = 10
+length = 20
 type = "spacer"
 
 [widget.spacer_8]
@@ -456,12 +491,14 @@ length = 10
 type = "spacer"
 
 [widget.spacer_9]
-length = 10
+length = 20
 type = "spacer"
 
 [widget.sysmon]
+enabled = false
 glyph = "disc-filled"
 label_show_units = false
+peek = true
 stat = "disk_used_pct"
 visualization = "none"
 
@@ -474,11 +511,15 @@ text = "—"
 type = "text"
 
 [widget.volume]
+capsule = false
 custom_image = "/home/edgerunner/.config/noctalia/icons/equalizer.svg"
-custom_image_colorize = true
-font_scale = 0.69999999999999996
+custom_image_colorize = false
+font_scale = 1.0
 glyph = "brand-google-podcasts"
-scale = 1.4000000000000001
+interactive = false
+scale = 1.0
+show_glyph = false
+show_tooltip = false
 
 [widget.workspaces]
 active_pill_size = 3.0

@@ -28,6 +28,14 @@ vim.keymap.set("n", "<leader>e", function()
   end, 30)
 end, { desc = "Toggle MiniFiles" })
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "MiniFilesBufferCreate",
+  callback = function(args)
+    vim.keymap.set("n", "<Esc>", function()
+      require("mini.files").close()
+    end, { buffer = args.data.buf_id, desc = "Close MiniFiles" })
+  end,
+})
 
 local hipatterns = require("mini.hipatterns")
 

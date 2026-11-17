@@ -1,6 +1,13 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+format = """
+$username\
+$hostname\
+$directory\
+$all\
+$line_break\
+$character"""
 
 [line_break]
 disabled = true
@@ -9,14 +16,14 @@ disabled = true
 disabled = true
 
 [character]
-success_symbol = '[ ](bold green)'
-error_symbol   = '[ ](bold red)'
-vimcmd_symbol  = '[ ](bold yellow)'
+success_symbol = '[](bold green)'
+error_symbol   = '[](bold red)'
+vimcmd_symbol  = '[](bold bright-blue)'
 
 [username]
 show_always = true
 format = "[$user]($style)"
-style_user = "bold white"
+style_user = "bold bright-yellow"
 
 [hostname]
 ssh_only = false
@@ -24,16 +31,51 @@ format = "[@$hostname]($style)"
 style = "bold green"
 
 [directory]
-format = "[$read_only]($read_only_style) [$path]($style) "
-style = "bold yellow"
+format = "[$read_only]($read_only_style)[ $path ]($style)"
+style = "bold purple"
 read_only = " 󰉐"
 read_only_style = "bold red"
 truncation_symbol = "…/"
 
-[lua]
-symbol = " "
-
 [package]
 disabled = true
-
 scan_timeout = 300
+
+[c]
+symbol = " "
+style = "bold green"
+
+[cpp]
+symbol = " "
+style = "bold green"
+
+[custom.cpp]
+command = "c++ -dumpfullversion || c++ -dumpversion"
+shell = ["bash", "--noprofile", "--norc", "-c"]
+use_stdin = false
+detect_extensions = ['cpp', 'hpp', 'cc', 'cxx', 'h']
+detect_files = ['CMakeLists.txt', 'meson.build']
+symbol = ' '
+style = 'bold green'
+format = 'via [$symbol($output )]($style)'
+
+[cmake]
+symbol = " "
+style = "bold green"
+
+[lua]
+symbol = " "
+style = "bold green"
+
+[nodejs]
+symbol = " "
+style = "bold green"
+
+[python]
+symbol = " "
+style = "bold green"
+
+[rust]
+symbol = "󱘗 "
+style = "bold green"
+

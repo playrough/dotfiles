@@ -1,0 +1,182 @@
+:root {
+<* for name, value in colors *>
+  --tri-{{ name }}: {{ value.default.hex }};
+<* endfor *>
+  --tri-rgba-primary_container: {{colors.primary_container.default.rgba | lighten: -12 | set_alpha: 0.25}};
+  --tri-rgba-tertiary_container: {{colors.tertiary_container.default.rgba | lighten: -12}};
+}
+
+
+:root {
+  --tridactyl-font-family: "JetBrainsMono Nerd Font", sans-serif;
+  --tridactyl-bg: var(--tri-surface);
+  --tridactyl-fg: var(--tri-on_surface);
+
+  --tridactyl-url-fg: var(--tri-on_secondary_container);
+  --tridactyl-url-bg: var(--tri-secondary_container);
+
+  --tridactyl-status-font-size: 12px;
+  --tridactyl-status-font-family: "JetBrainsMono Nerd Font" !important;
+  --tridactyl-status-font-bg: var(--tri-surface_container);
+  --tridactyl-status-border: 1px solid var(--tri-outline_variant);
+  --tridactyl-status-border-radius: 4px;
+
+  --tridactyl-header-font-size: 16px;
+
+  --tridactyl-of-bg: var(--tri-primary_container);
+  --tridactyl-of-fg: var(--tri-on_primary_container);
+
+  --tridactyl-hintspan-bg: var(--tri-primary_container);
+  --tridactyl-hintspan-fg: var(--tri-on_primary_container);
+  --tridactyl-hintspan-js-background: var(--tri-surface_container_highest);
+
+  --tridactyl-hint-active-bg: var(--tri-rgba-tertiary_container);
+  --tridactyl-hint-active-fg: var(--tri-on_tertiary_container);
+  --tridactyl-hint-active-outline: 1px solid var(--tri-on_tertiary_fixed_variant);
+
+  --tridactyl-hint-bg: var(--tri-rgba-primary_container);
+  --tridactyl-hint-outline: 1px solid var(--tri-inverse_primary);
+
+  --tridactyl-cmdl-font-family:
+    "JetBrainsMono Nerd Font", sans-serif !important;
+  --tridactyl-cmdl-font-size: 1.5rem;
+  --tridactyl-cmplt-option-height: 1.9em;
+
+  --tridactyl-border-radius: 4px;
+}
+
+:root.TridactylOwnNamespace {
+  scrollbar-width: thin;
+}
+
+:root.TridactylOwnNamespace a {
+  color: var(--tri-on_primary_container);
+}
+
+:root.TridactylOwnNamespace code {
+  background-color: var(--tri-surface_container_high);
+  color: var(--tri-primary_fixed);
+  padding: 3px 7px;
+  border-radius: 6px;
+}
+
+:root #command-line-holder {
+  order: 1;
+}
+
+:root #command-line-holder,
+:root #tridactyl-input {
+  background: var(--tri-surface_container) !important;
+  color: var(--tri-on_surface) !important;
+  border-radius: var(--tridactyl-border-radius) !important;
+}
+
+:root #tridactyl-colon::before {
+  content: "";
+}
+
+:root #tridactyl-input {
+  width: 96%;
+  padding: 1rem;
+}
+
+:root #completions {
+  border: none !important;
+  font-family: var(--tridactyl-font-family);
+  font-weight: bold;
+  order: 2;
+  margin-top: 10px;
+  border-radius: var(--tridactyl-border-radius);
+  background: var(--tri-surface_container_low) !important;
+  color: var(--tri-on_surface) !important;
+  overflow: hidden;
+}
+
+:root #completions>div {
+  max-height: calc(20 * var(--tridactyl-cmplt-option-height));
+  min-height: calc(10 * var(--tridactyl-cmplt-option-height));
+}
+
+:root #completions table {
+  table-layout: fixed;
+  padding: 1rem;
+  padding-top: 0;
+}
+
+:root #completions .HistoryCompletionSource table {
+  width: 100%;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+:root #completions .BufferCompletionSource table {
+  width: unset;
+  font-size: unset;
+  border-spacing: unset;
+  table-layout: unset;
+}
+
+:root #completions td.title {
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:root #completions tr .documentation {
+  color: var(--tri-on_surface_variant);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+:root #completions tr.focused .documentation {
+  color: var(--tri-on_primary_container);
+  white-space: nowrap;
+  overflow: auto;
+  text-overflow: ellipsis;
+}
+
+:root #completions .sectionHeader {
+  background: transparent;
+  color: var(--tri-outline);
+  padding: 1rem 1rem 0.4rem !important;
+}
+
+:root #cmdline_iframe {
+  position: fixed !important;
+  bottom: unset;
+  top: 25% !important;
+  left: 10% !important;
+  z-index: 2147483647 !important;
+  width: 80% !important;
+  filter: none !important;
+  color-scheme: only light;
+  /* Prevent Firefox from adding a white background on dark-mode sites */
+}
+
+:root .TridactylStatusIndicator {
+  position: fixed !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  padding: 5px 10px !important;
+  background: var(--tri-surface_container) !important;
+  color: var(--tri-on_surface) !important;
+  border: 1px solid var(--tri-surface_container_highest) !important;
+  border-radius: 8px;
+}
+
+#completions table tr td.container,
+#completions table tr td.icon,
+#completions table tr td.privatewindow {
+  width: 2.5%;
+}
+
+#completions img {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.TridactylSetting span {
+  background: var(--tri-primary_container);
+}

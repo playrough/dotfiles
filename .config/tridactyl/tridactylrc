@@ -1,0 +1,10 @@
+colourscheme noctalia
+set profiledir /home/noir/.config/librewolf/librewolf/345v276g.default-default
+
+set editorcmd kitty --single-instance sh -c "nvim %f"
+set newtab about:blank
+guiset_quiet navbar none
+
+bind J tabnext
+bind K tabprev
+bind ge tabopen about:extensions

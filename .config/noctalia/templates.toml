@@ -2,3 +2,7 @@
 input_path = '$XDG_CONFIG_HOME/noctalia/templates/nvim.json'
 output_path = '$XDG_CONFIG_HOME/nvim/colors.json'
 post_hook = 'pkill -SIGUSR1 nvim || true'
+
+[theme.templates.user.tridactyl]
+input_path = '~/.config/noctalia/templates/tridactyl.css'
+output_path = '~/.config/tridactyl/themes/noctalia.css'

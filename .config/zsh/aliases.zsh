@@ -41,6 +41,9 @@ alias nv='nvim'
 # =========================================================
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
+
+alias dlog="dot log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 # =========================================================
 # Paru
 # =========================================================
@@ -64,3 +67,5 @@ alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 # Unimatrix
 # =========================================================
 alias uni="unimatrix -l k -s 95"
+
+

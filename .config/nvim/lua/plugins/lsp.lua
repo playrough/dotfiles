@@ -16,6 +16,10 @@ require("mason-tool-installer").setup({
 		"jsonls",
 		"prettier",
 		"clangd",
+		"pyright",
+		"html",
+		"cssls",
+		"taplo",
 	},
 })
 

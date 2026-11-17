@@ -2,7 +2,7 @@
 enabled = true
 
 [bar.default]
-background_opacity = 0.79999998211860657
+background_opacity = 0.74999998323619366
 capsule_group = []
 center = [ "clock", "date", "spacer_11" ]
 color = "primary"
@@ -364,7 +364,7 @@ wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kitty", "umbriel" ]
-    community_ids = [ "sonora", "pywalfox", "bat", "fzf", "glow", "yazi" ]
+    community_ids = [ "opencode", "sonora", "pywalfox", "bat", "fzf", "glow", "yazi" ]
 
         [theme.templates.user.nvim]
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim.json"
@@ -376,13 +376,13 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-vp3mo5.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/thresh.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-vp3mo5.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/thresh.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/wallhaven/wallhaven-vp3mo5.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/thresh.jpg"
 
 [widget.audio_visualizer]
 bands = 20

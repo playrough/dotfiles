@@ -42,7 +42,7 @@ alias nv='nvim'
 alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 
-alias dlog="dot log --graph --pretty=format:'%C(yellow)%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias dlog="dot log --graph --pretty=format:'%C(yellow)%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(auto)%d%Creset' --abbrev-commit"
 
 # =========================================================
 # Paru

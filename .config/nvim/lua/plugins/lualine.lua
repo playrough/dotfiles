@@ -1,10 +1,9 @@
+-- lualine: statusline with matugen theme
+
 vim.pack.add({
   "https://github.com/nvim-tree/nvim-web-devicons",
   "https://github.com/nvim-lualine/lualine.nvim",
 })
-
-local spinners = { "", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥", "" }
-local lsp_progress = { state = "" }
 
 -- Helpers
 local function get_filename()
@@ -34,7 +33,7 @@ local function get_lsp_client()
   local bufnr = vim.api.nvim_get_current_buf()
 
   for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
-    return "  " .. client.name
+    return " " .. client.name
   end
 
   return ""
@@ -43,45 +42,6 @@ end
 local function get_cwd()
   return "󰉋 " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 end
-
-local function get_lsp_progress()
-  return lsp_progress.state
-end
-
--- Setup LSP Progress autocmd
-local function setup_lsp_progress()
-  vim.api.nvim_create_autocmd("LspProgress", {
-    pattern = { "begin", "report", "end" },
-    callback = function(args)
-      if not args.data or not args.data.value then
-        return
-      end
-
-      local data = args.data.value
-      local progress = ""
-
-      if data.percentage then
-        local idx = math.max(1, math.floor(data.percentage / 10))
-        local icon = spinners[idx]
-        progress = icon .. " " .. data.percentage .. "%% "
-      end
-
-      local loaded_count = data.message and string.match(data.message, "^(%d+/%d+)") or ""
-
-      local str = progress .. (data.title or "") .. " " .. (loaded_count or "")
-
-      if data.kind == "end" then
-      lsp_progress.state = ""
-    else
-      lsp_progress.state = str
-    end
-
-    vim.cmd("redrawstatus")
-  end,
-})
-end
-
-setup_lsp_progress()
 
 require("lualine").setup({
   options = {
@@ -105,7 +65,6 @@ require("lualine").setup({
     },
     lualine_x = {
       { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
-      get_lsp_progress,
       get_lsp_client,
     },
     lualine_y = {
@@ -125,7 +84,7 @@ require("lualine").setup({
   },
 })
 
--- Reload lualine theme when matugen updates
+-- Reload theme when matugen reloads colors.
 vim.api.nvim_create_autocmd("User", {
   pattern = "MatugenReloaded",
   callback = function()

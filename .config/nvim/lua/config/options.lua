@@ -1,3 +1,4 @@
+-- Neovim options grouped by area: UI, indentation, search, files, behavior, folding.
 vim.opt.shortmess:append("I")
 
 vim.opt.termguicolors = true
@@ -19,8 +20,8 @@ vim.opt.pumblend = 10
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = ""
 vim.opt.synmaxcol = 300
-vim.opt.fillchars = { eob = " " }
 vim.opt.winborder = "rounded"
+vim.opt.fillchars = { eob = " ", msgsep = "—" }
 
 -- Indentation
 vim.opt.tabstop = 2
@@ -51,7 +52,6 @@ vim.opt.autowrite = false
 vim.opt.errorbells = false
 vim.opt.backspace = "indent,eol,start"
 vim.opt.autochdir = false
--- vim.opt.iskeyword:append("-")
 vim.opt.path:append("**")
 vim.opt.selection = "inclusive"
 vim.opt.mouse = "a"
@@ -60,7 +60,7 @@ vim.opt.encoding = "utf-8"
 
 -- Cursor style
 vim.opt.guicursor =
-	"n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+  "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Folding (requires treesitter)
 vim.opt.foldmethod = "expr"
@@ -72,7 +72,6 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- Completion & Wild menu
-vim.opt.wildmenu = true
 vim.opt.wildmode = "longest:full,full"
 vim.opt.completeopt = "menuone,noinsert,noselect"
 
@@ -83,48 +82,48 @@ vim.opt.maxmempattern = 20000
 
 -- For floating cmdline and messages
 require("vim._core.ui2").enable({
-	enable = true,
-	msg = {
-		targets = {
-			default = "msg",
-			empty = "cmd",
-			bufwrite = "msg",
-			confirm = "cmd",
-			emsg = "pager",
-			echo = "msg",
-			echomsg = "msg",
-			echoerr = "pager",
-			completion = "cmd",
-			list_cmd = "pager",
-			lua_error = "pager",
-			lua_print = "msg",
-			progress = "pager",
-			rpc_error = "pager",
-			quickfix = "msg",
-			search_cmd = "cmd",
-			search_count = "cmd",
-			shell_cmd = "pager",
-			shell_err = "pager",
-			shell_out = "pager",
-			shell_ret = "msg",
-			undo = "msg",
-			verbose = "pager",
-			wildlist = "cmd",
-			wmsg = "msg",
-			typed_cmd = "cmd",
-		},
-		cmd = {
-			height = 0.5,
-		},
-		dialog = {
-			height = 0.5,
-		},
-		msg = {
-			height = 0.5,
-			timeout = 4000,
-		},
-		pager = {
-			height = 0.5,
-		},
-	},
+  enable = true,
+  msg = {
+    targets = {
+      default = "msg",
+      empty = "cmd",
+      bufwrite = "msg",
+      confirm = "cmd",
+      emsg = "pager",
+      echo = "msg",
+      echomsg = "msg",
+      echoerr = "pager",
+      completion = "cmd",
+      list_cmd = "pager",
+      lua_error = "pager",
+      lua_print = "msg",
+      progress = "pager",
+      rpc_error = "pager",
+      quickfix = "msg",
+      search_cmd = "cmd",
+      search_count = "cmd",
+      shell_cmd = "pager",
+      shell_err = "pager",
+      shell_out = "pager",
+      shell_ret = "msg",
+      undo = "msg",
+      verbose = "pager",
+      wildlist = "cmd",
+      wmsg = "msg",
+      typed_cmd = "cmd",
+    },
+    cmd = {
+      height = 0.5,
+    },
+    dialog = {
+      height = 0.5,
+    },
+    msg = {
+      height = 0.5,
+      timeout = 4000,
+    },
+    pager = {
+      height = 0.5,
+    },
+  },
 })

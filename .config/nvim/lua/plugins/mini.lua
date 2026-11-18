@@ -1,3 +1,5 @@
+-- mini.nvim: utility modules. <leader>e keymap lives in lua/plugins/keymaps.lua.
+
 vim.pack.add({
   "https://github.com/echasnovski/mini.nvim",
   "https://github.com/nvim-mini/mini.files",
@@ -14,20 +16,7 @@ require("mini.bufremove").setup({})
 require("mini.cursorword").setup({ delay = 1000 })
 require("mini.files").setup({})
 
-vim.keymap.set("n", "<leader>e", function()
-  local MiniFiles = require("mini.files")
-
-  if MiniFiles.close() then
-    return
-  end
-
-  MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-
-  vim.defer_fn(function()
-    MiniFiles.reveal_cwd()
-  end, 30)
-end, { desc = "Toggle MiniFiles" })
-
+-- <Esc> closes MiniFiles; buffer-local, so it stays here.
 vim.api.nvim_create_autocmd("User", {
   pattern = "MiniFilesBufferCreate",
   callback = function(args)

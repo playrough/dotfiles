@@ -47,5 +47,13 @@
   "tertiary": "{{colors.tertiary.default.hex}}",
   "tertiary_container": "{{colors.tertiary_container.default.hex}}",
   "tertiary_fixed": "{{colors.tertiary_fixed.default.hex}}",
-  "tertiary_fixed_dim": "{{colors.tertiary_fixed_dim.default.hex}}"
+  "tertiary_fixed_dim": "{{colors.tertiary_fixed_dim.default.hex}}",
+  "blue": "{{colors.terminal_normal_blue.default.hex}}",
+  "red": "{{colors.terminal_normal_red.default.hex}}",
+  "green": "{{colors.terminal_normal_green.default.hex}}",
+  "yellow": "{{colors.terminal_normal_yellow.default.hex}}",
+  "cyan": "{{colors.terminal_normal_cyan.default.hex}}",
+  "magent": "{{colors.terminal_normal_magenta.default.hex}}",
+  "white": "{{colors.terminal_normal_white.default.hex}}",
+  "black": "{{colors.terminal_normal_black.default.hex}}"
 }

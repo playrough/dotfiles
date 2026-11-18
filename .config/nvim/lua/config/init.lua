@@ -5,3 +5,5 @@ require("config.autocmds")
 require("config.diagnostics")
 require("config.pack")
 require("config.keymaps")
+require("config.lsp-progress")
+

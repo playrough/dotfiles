@@ -21,5 +21,5 @@ image_alloc      = 1073741824
 [mgr]
 ratio = [1,2,2]
 
-sort_by = "natural"
+sort_by = "extension"
 sort_dir_first = false

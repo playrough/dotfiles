@@ -69,3 +69,9 @@ alias wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 alias uni="unimatrix -l k -s 95"
 
 
+# =========================================================
+# Opencode
+# =========================================================
+alias op="opencode"
+
+

@@ -1,0 +1,38 @@
+onboarding = false
+
+[theme.custom]
+accent = "#81d4dc"
+panel_bg = "reset"
+sidebar_bg = "reset"
+active_row_bg = "#252b2c"
+selection_bg = "#303637"
+surface0 = "#252b2c"
+surface1 = "#303637"
+surface_dim = "#0e1415"
+overlay0 = "#899294"
+overlay1 = "#bec8c9"
+text = "#dee4e4"
+subtext0 = "#bec8c9"
+mauve = "#8cd0f0"
+green = "#81d4dc"
+yellow = "#b1cbce"
+red = "#ffb4ab"
+blue = "#b8c6ea"
+teal = "#b6ccb9"
+peach = "#ffdeab"
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+status_indicators = "dots"
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
+hide_tab_bar_when_single_tab = true
+tab_bar_position = "top"
+pane_gaps = false
+window_title = "{workspace}: {terminal_title}"
+
+[terminal]
+new_cwd = "follow"

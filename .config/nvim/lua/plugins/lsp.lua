@@ -22,7 +22,7 @@ require("mason-tool-installer").setup({
     "pyright",
     "html",
     "cssls",
-    "taplo",
+    "tombi",
   },
 })
 

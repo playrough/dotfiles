@@ -1,9 +1,10 @@
 -- Neovim options grouped by area: UI, indentation, search, files, behavior, folding.
 vim.opt.shortmess:append("I")
-
 vim.opt.termguicolors = true
 
 -- Display & UI
+vim.opt.title = true
+vim.opt.titlestring = "nvim"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true

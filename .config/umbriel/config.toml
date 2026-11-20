@@ -20,10 +20,16 @@ files = [
 autostart = ["noctalia"]
 xwayland_native_resolution = true
 show_cheatsheet = false
+honor_restored_maximize = false
 
 [environment]
 ELECTRON_OZONE_PLATFORM_HINT = "auto"
 SDL_VIDEODRIVER = "wayland"
+QT_QPA_PLATFORMTHEME = "qt5ct"
+QT_QPA_PLATFORMTHEME_QT6 = "qt6ct"
+QT_WAYLAND_DISABLE_WINDOWDECORATION = "0"
+WLR_NO_HARDWARE_CURSORS = "1"
+MOZ_ENABLE_WAYLAND = "1"
 
 [events]
 lid_close = "umbriel msg output-disable eDP-1"
@@ -407,67 +413,3 @@ blur_ignore_alpha = 0.5
 enabled = false
 delay_ms = 500
 action = "overview-open"
-
-# ==============================================================================
-# Animation
-# ==============================================================================
-
-[animation]
-enabled = true
-duration_ms = 250
-curve = "easeout"
-
-[animation.windows_in]
-enabled = true
-curve = "spring:1,1000"
-style = "popin"
-scale = 0.5
-
-[animation.windows_out]
-enabled = true
-curve = "spring:1,1400"
-style = "popin"
-scale = 0.8
-
-[animation.windows_move]
-enabled = true
-curve = "spring:1,1400"
-
-[animation.windows_resize]
-enabled = true
-curve = "spring:1,1400"
-
-[animation.windows_opacity]
-enabled = true
-curve = "spring:1,900"
-
-[animation.workspaces]
-style = "slide"
-enabled = true
-curve = "spring:1,1400"
-
-[animation.overview]
-enabled = true
-curve = "spring:1,1400"
-workspace_curve = "spring:1,1400"
-
-[animation.scratchpad]
-enabled = true
-curve = "spring:1,1400"
-dim = 0.8
-blur = false
-
-[animation.dialogs]
-enabled = true
-dim = 0.3
-
-[animation.border]
-enabled = true
-curve = "spring:1,900"
-
-[animation.dim_unfocused]
-enabled = false
-dim = 0.0
-
-[animation.layers]
-enabled = false

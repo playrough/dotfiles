@@ -1,8 +1,69 @@
 [theme.templates.user.nvim]
-input_path = '$XDG_CONFIG_HOME/noctalia/templates/nvim.json'
-output_path = '$XDG_CONFIG_HOME/nvim/colors.json'
-post_hook = 'pkill -SIGUSR1 nvim || true'
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim.json"
+output_path = "$XDG_CONFIG_HOME/nvim/colors.json"
+post_hook = "pkill -SIGUSR1 nvim || true"
+
+[theme.templates.user.btop]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/btop.theme"
+output_path = "$XDG_CONFIG_HOME/btop/themes/noctalia.theme"
+post_hook = 'pkill -USR2 btop || true'
+
+[theme.templates.user.fzf]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/fzf.sh"
+output_path = "$XDG_CONFIG_HOME/fzf/themes/noctalia.sh"
+
+[theme.templates.user.kitty]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/kitty.conf"
+output_path = "$XDG_CONFIG_HOME/kitty/themes/noctalia.conf"
+post_hook = "kitty +kitten themes --reload-in=all noctalia"
 
 [theme.templates.user.tridactyl]
-input_path = '~/.config/noctalia/templates/tridactyl.css'
-output_path = '~/.config/tridactyl/themes/noctalia.css'
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/tridactyl.css"
+output_path = "$XDG_CONFIG_HOME/tridactyl/themes/noctalia.css"
+
+[theme.templates.user.gtk3]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/gtk/gtk3.css"
+output_path = "$XDG_CONFIG_HOME/gtk-3.0/noctalia.css"
+post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh"
+
+[theme.templates.user.gtk4]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/gtk/gtk4.css"
+output_path = "$XDG_CONFIG_HOME/gtk-4.0/noctalia.css"
+post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh"
+
+[theme.templates.user.cava]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/cava.ini"
+output_path = "$XDG_CONFIG_HOME/cava/config"
+
+[theme.templates.user.pywalfox]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/pywalfox.json"
+output_path = "$XDG_CACHE_HOME/wal/colors.json"
+post_hook = "pywalfox update"
+
+[theme.templates.user.yazi]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/yazi.toml"
+output_path = "$XDG_CONFIG_HOME/yazi/flavors/noctalia.yazi/flavor.toml"
+
+[theme.templates.user.yazi-syntax]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/yazi.tmTheme"
+output_path = "$XDG_CONFIG_HOME/yazi/flavors/noctalia.yazi/tmtheme.xml"
+
+[theme.templates.user.opencode]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/opencode.json"
+output_path = "$XDG_CONFIG_HOME/opencode/themes/notalia.json"
+
+[theme.templates.user.umbriel]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/umbriel.toml"
+output_path = "$XDG_CONFIG_HOME/umbriel/noctalia.toml"
+
+[theme.templates.user.bat]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/bat.tmTheme"
+output_path = "$XDG_CONFIG_HOME/bat/themes/noctalia.tmTheme"
+
+[theme.templates.user.sonora]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/sonora.json"
+output_path = "$XDG_CONFIG_HOME/sonora/themes/noctalia.json"
+
+[theme.templates.user.tuios]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/tuios.json"
+output_path = "$XDG_CONFIG_HOME/tuios/themes/noctalia.json"

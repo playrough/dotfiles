@@ -1,0 +1,52 @@
+[appearance]
+theme = "noctalia"
+
+border_focused_color = "accent"
+border_unfocused_color = "surface"
+
+window_title_style = "pill"
+window_title_align = "right"
+
+hide_window_buttons = true
+
+dock_workspace_tabs = true
+dock_workspace_tooltip = true
+dock_workspace_tab_format = "{index}"
+
+show_clock = true
+session_colors = false
+dock_compact = true
+modal_dim = 5
+
+[appearance.sidebar]
+enabled = true
+sections = "sessions,terminals,files,git,agents"
+density = "roomy"
+file_icon_colors = false
+
+[startup]
+layout = "master-stack"
+tiled = true
+daemon = true
+
+[motion]
+layout = "off"
+workspace = "none"
+zoom = "off"
+overlays = "off"
+
+[dock]
+left = ["workspaces"]
+right = ["notifications"]
+
+[dock.tabs]
+style = "pill"
+separator = ""
+active_fg = "bg"
+active_bg = "accent"
+active_bold = true
+active_underline = false
+inactive_fg = "accent"
+
+[dock.clock]
+format = "Mon 2 Jan  15:04"

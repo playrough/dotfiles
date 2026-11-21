@@ -10,7 +10,7 @@ insert_hint = "#{{colors.tertiary.default.hex_stripped}}80"
 backdrop = "#{{colors.surface_variant.default.hex_stripped}}FF"
 
 [colors.border]
-focused = "#{{colors.surface_tint.default.hex_stripped | darken 16}}FF"
+focused = "#{{colors.primary.default.hex_stripped}}FF"
 unfocused = "#{{colors.on_secondary.default.hex_stripped}}FF"
 outer = "#{{colors.terminal_background.default.hex_stripped}}FF"
 

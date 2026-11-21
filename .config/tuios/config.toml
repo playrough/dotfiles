@@ -19,8 +19,8 @@ dock_compact = true
 modal_dim = 5
 
 [appearance.sidebar]
-enabled = true
-sections = "sessions,terminals,files,git,agents"
+enabled = false
+sections = "sessions,terminals,git,agents"
 density = "roomy"
 file_icon_colors = false
 

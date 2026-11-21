@@ -17,6 +17,7 @@ show_clock = true
 session_colors = false
 modal_dim = 5
 shared_borders = true
+dockbar_position = "top"
 
 [appearance.sidebar]
 enabled = false

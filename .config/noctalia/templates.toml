@@ -24,12 +24,12 @@ output_path = "$XDG_CONFIG_HOME/tridactyl/themes/noctalia.css"
 [theme.templates.user.gtk3]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/gtk/gtk3.css"
 output_path = "$XDG_CONFIG_HOME/gtk-3.0/noctalia.css"
-post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh"
+post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh dark"
 
 [theme.templates.user.gtk4]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/gtk/gtk4.css"
 output_path = "$XDG_CONFIG_HOME/gtk-4.0/noctalia.css"
-post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh"
+post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh dark"
 
 [theme.templates.user.cava]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/cava.ini"

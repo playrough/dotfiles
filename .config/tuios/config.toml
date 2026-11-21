@@ -15,11 +15,11 @@ dock_workspace_tab_format = "{index}"
 
 show_clock = true
 session_colors = false
-dock_compact = true
 modal_dim = 5
+shared_borders = true
 
 [appearance.sidebar]
-enabled = true
+enabled = false
 sections = "sessions,terminals,git,agents"
 density = "roomy"
 file_icon_colors = false

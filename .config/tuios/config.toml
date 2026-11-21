@@ -47,6 +47,3 @@ active_bg = "accent"
 active_bold = true
 active_underline = false
 inactive_fg = "accent"
-
-[dock.clock]
-format = "Mon 2 Jan  15:04"

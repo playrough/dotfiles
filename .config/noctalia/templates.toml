@@ -6,7 +6,7 @@ post_hook = "pkill -SIGUSR1 nvim || true"
 [theme.templates.user.btop]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/btop.theme"
 output_path = "$XDG_CONFIG_HOME/btop/themes/noctalia.theme"
-post_hook = 'pkill -USR2 btop || true'
+post_hook = "pkill -USR2 btop || true"
 
 [theme.templates.user.fzf]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/fzf.sh"
@@ -67,3 +67,8 @@ output_path = "$XDG_CONFIG_HOME/sonora/themes/noctalia.json"
 [theme.templates.user.tuios]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/tuios.json"
 output_path = "$XDG_CONFIG_HOME/tuios/themes/noctalia.json"
+
+[theme.templates.user.herdr]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/herdr/herdr.toml"
+output_path = "$XDG_CONFIG_HOME/herdr/noctalia.toml"
+post_hook = "$XDG_CONFIG_HOME/noctalia/templates/herdr/apply.sh"

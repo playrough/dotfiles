@@ -19,10 +19,11 @@ dock_compact = true
 modal_dim = 5
 
 [appearance.sidebar]
-enabled = false
+enabled = true
 sections = "sessions,terminals,git,agents"
 density = "roomy"
 file_icon_colors = false
+show_glyphs = false
 
 [startup]
 layout = "master-stack"

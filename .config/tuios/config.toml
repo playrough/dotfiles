@@ -8,9 +8,10 @@ modal_dim = 5
 session_colors = false
 shared_borders = true
 border_style = "normal"
+motion = "none"
 
 [appearance.sidebar]
-enabled = true
+enabled = false
 sections = "sessions,terminals,agents,git"
 density = "roomy"
 show_glyphs = false
@@ -20,12 +21,6 @@ peek = false
 layout = "master-stack"
 tiled = true
 daemon = true
-
-[motion]
-layout = "off"
-workspace = "none"
-zoom = "off"
-overlays = "off"
 
 [dock]
 left = ["workspaces"]

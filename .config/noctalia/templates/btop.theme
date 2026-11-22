@@ -7,7 +7,7 @@ theme[hi_fg]="{{colors.secondary.default.hex}}"
 theme[selected_bg]="{{colors.primary.default.hex}}"
 theme[selected_fg]="{{colors.on_primary.default.hex}}"
 
-theme[inactive_fg]="{{colors.surface_container_low.default.hex}}"
+theme[inactive_fg]="{{colors.on_secondary.default.hex}}"
 
 theme[proc_misc]="{{colors.tertiary.default.hex}}"
 

@@ -52,6 +52,9 @@ notify = true
 enabled = true
 dock = false
 
+[keybindings]
+leader_key = ""
+preset = "tmux"
 
 [keybindings.prefix_mode]
 terminal_focus_left = ["h", "left"]

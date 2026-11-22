@@ -14,6 +14,7 @@ enabled = true
 sections = "sessions,terminals,agents,git"
 density = "roomy"
 show_glyphs = false
+peek = false
 
 [startup]
 layout = "master-stack"
@@ -65,3 +66,6 @@ terminal_focus_right = ["l", "right"]
 # unset j and k
 prefix_jump_notif = []
 prefix_keybinds = []
+
+[screenshot]
+preview = true

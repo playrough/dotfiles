@@ -1,13 +1,6 @@
 -- LSP: install servers via mason, configure them. Attach keymaps in lua/plugins/keymaps.lua.
 -- Diagnostic UI lives in lua/config/diagnostics.lua.
 
-vim.pack.add({
-  "https://github.com/mason-org/mason.nvim",
-  "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/mason-org/mason-lspconfig.nvim",
-  "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim",
-})
-
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({

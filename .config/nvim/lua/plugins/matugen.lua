@@ -1,7 +1,5 @@
 -- matugen: generate color palette from wallpaper into colors.json; theme reads it back.
 
-vim.pack.add({ "https://github.com/daedlock/matugen.nvim" })
-
 require("matugen").setup({
   colors_path = vim.fn.stdpath("config") .. "/colors.json",
   watch = true,

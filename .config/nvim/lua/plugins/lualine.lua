@@ -1,10 +1,5 @@
 -- lualine: statusline with matugen theme
 
-vim.pack.add({
-  "https://github.com/nvim-tree/nvim-web-devicons",
-  "https://github.com/nvim-lualine/lualine.nvim",
-})
-
 -- Helpers
 local function get_filename()
   local default_icon = "󰈚"

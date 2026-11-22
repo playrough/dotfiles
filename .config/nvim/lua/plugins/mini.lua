@@ -1,10 +1,5 @@
 -- mini.nvim: utility modules. <leader>e keymap lives in lua/plugins/keymaps.lua.
 
-vim.pack.add({
-  "https://github.com/echasnovski/mini.nvim",
-  "https://github.com/nvim-mini/mini.files",
-})
-
 require("mini.ai").setup({})
 require("mini.comment").setup({})
 require("mini.move").setup({})

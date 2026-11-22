@@ -11,7 +11,8 @@ local function build_fzf_native(path)
   return true
 end
 
--- Register before vim.pack.add() so the first install/update is caught.
+-- Specs are installed centrally in plugins/init.lua, so this only catches later
+-- installs/updates; the fallback near the bottom rebuilds if the first one was missed.
 local augroup = vim.api.nvim_create_augroup("UserTelescope", { clear = true })
 vim.api.nvim_create_autocmd("PackChanged", {
   group = augroup,
@@ -24,14 +25,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
       build_fzf_native(ev.data.path)
     end
   end,
-})
-
-vim.pack.add({
-  { src = "https://github.com/nvim-lua/plenary.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-fzf-native.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-ui-select.nvim" },
-  { src = "https://github.com/nvim-telescope/telescope-frecency.nvim" },
 })
 
 require("telescope").setup({

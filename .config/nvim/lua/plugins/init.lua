@@ -1,4 +1,7 @@
 -- Load plugins; plugins.keymaps runs last so every plugin is ready.
+-- Specs live in lua/plugins/specs.lua and are installed in one batch.
+vim.pack.add(require("plugins.specs"))
+
 require("plugins.lsp")
 require("plugins.conform")
 require("plugins.completions")

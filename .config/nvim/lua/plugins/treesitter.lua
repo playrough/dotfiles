@@ -1,13 +1,5 @@
 -- treesitter: parsers, highlighting, folding (foldexpr set in lua/config/options.lua).
 
-vim.pack.add({
-  {
-    src = "https://github.com/nvim-treesitter/nvim-treesitter",
-    branch = "main",
-    build = ":TSUpdate",
-  },
-})
-
 local treesitter = require("nvim-treesitter")
 treesitter.setup({
   install_dir = vim.fn.stdpath("data") .. "/site",
@@ -53,19 +45,19 @@ local ensure_installed = {
   "regex",
 }
 
-local config = require("nvim-treesitter.config")
-
-local already_installed = config.get_installed()
-local parsers_to_install = {}
-
-for _, parser in ipairs(ensure_installed) do
-  if not vim.tbl_contains(already_installed, parser) then
-    table.insert(parsers_to_install, parser)
-  end
+local function install_parsers()
+  treesitter.install(ensure_installed)
 end
 
-if #parsers_to_install > 0 then
-  treesitter.install(parsers_to_install)
+-- Wait for mason-tool-installer to finish before compiling parsers
+if vim.fn.executable("tree-sitter") == 1 then
+  install_parsers()
+else
+  vim.api.nvim_create_autocmd("User", {
+    pattern = "MasonToolsUpdateCompleted",
+    once = true,
+    callback = install_parsers,
+  })
 end
 
 local group = vim.api.nvim_create_augroup("TreeSitterConfig", { clear = true })

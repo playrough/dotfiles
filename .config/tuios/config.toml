@@ -51,3 +51,14 @@ enabled = false
 notify = true
 enabled = true
 dock = false
+
+
+[keybindings.prefix_mode]
+terminal_focus_left = ["h", "left"]
+focus_down = ["j", "down"]
+focus_up = ["k", "up"]
+terminal_focus_right = ["l", "right"]
+
+# unset j and k
+prefix_jump_notif = []
+prefix_keybinds = []

@@ -7,80 +7,80 @@
     "padding": {
       "left": 1,
       "right": 1,
-      "top": 1
-    }
+      "top": 1,
+    },
   },
   "display": {
-    "separator": "  "
+    "separator": "  ",
   },
   "modules": [
-    { 
-      "type": "custom"
+    {
+      "type": "custom",
     },
-    { 
-      "type": "custom"
+    {
+      "type": "custom",
     },
-    { 
-      "type": "custom"
+    {
+      "type": "custom",
     },
     {
       "type": "wm",
       "key": "{#32}WM  ",
-      "format": "{pretty-name}"
+      "format": "{pretty-name}",
     },
     {
       "type": "OS",
       "key": "{#32}OS  ",
-      "format": "{name}"
+      "format": "{name}",
     },
     {
       "type": "title",
       "key": "{#32}USR ",
-      "format": "{user-name}"
+      "format": "{user-name}",
     },
     {
       "type": "kernel",
       "key": "{#32}KER ",
-      "format": "{release}"
+      "format": "{release}",
     },
     {
       "type": "display",
       "key": "{#32}DSP ",
-      "format": "{width}x{height}@{refresh-rate}Hz"
+      "format": "{width}x{height}@{refresh-rate}Hz",
     },
     {
       "type": "cpu",
       "key": "{#32}CPU ",
-      "format": "{name:27}"
+      "format": "{name:27}",
     },
     {
       "type": "gpu",
       "key": "{#32}GPU ",
-      "format": "{name}"
+      "format": "{name}",
     },
     {
       "type": "memory",
       "key": "{#32}MEM ",
-      "format": "{used} 󰝡 {total}"
+      "format": "{used} 󰝡 {total}",
     },
     {
       "type": "disk",
       "key": "{#32}DSK ",
       "folders": "/",
-      "format": "{size-used} 󰝡 {size-total}"
+      "format": "{size-used} 󰝡 {size-total}",
     },
     {
       "type": "custom",
-      "format": ""
+      "format": "",
     },
     {
       "type": "colors",
       "key": " ",
-      "symbol": "circle"
+      "symbol": "circle",
     },
     {
       "type": "custom",
-      "format": ""
-    }
-  ]
+      "format": "",
+    },
+  ],
 }

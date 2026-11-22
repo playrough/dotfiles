@@ -112,12 +112,6 @@ awk '
     }
 ' "$colors_file" "$config_file" >"$tmp_file"
 
-changed=0
 if ! cmp -s "$config_file" "$tmp_file"; then
   cat "$tmp_file" >"$config_file"
-  changed=1
-fi
-
-if [ "$changed" -eq 1 ] && command -v herdr >/dev/null 2>&1; then
-  herdr server reload-config >/dev/null 2>&1 || true
 fi

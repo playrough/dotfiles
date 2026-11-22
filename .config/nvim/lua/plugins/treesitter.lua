@@ -14,20 +14,43 @@ treesitter.setup({
 })
 
 local ensure_installed = {
+  -- editor
+  "lua",
   "vim",
   "vimdoc",
-  "json",
-  "lua",
-  "markdown_inline",
-  "markdown",
+  "query",
+
+  -- shell
   "bash",
+  "zsh",
+
+  -- config / data
   "toml",
   "yaml",
-  "kdl",
+  "json",
+  "xml",
   "kitty",
-  "zsh",
-  "cpp",
+  "gitignore",
+
+  -- docs
+  "markdown",
+  "markdown_inline",
+
+  -- web
+  "html",
+  "css",
+  "scss",
+  "javascript",
+  "typescript",
+  "tsx",
+
+  -- systems
   "c",
+  "cpp",
+  "rust",
+  "cmake",
+  "python",
+  "regex",
 }
 
 local config = require("nvim-treesitter.config")

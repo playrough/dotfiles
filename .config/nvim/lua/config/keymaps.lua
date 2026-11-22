@@ -59,7 +59,7 @@ vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 -- Utilities ----------------------------------------------------------------
-vim.keymap.set("n", "<leader>pa", function() -- show file path
+vim.keymap.set("n", "<leader>yf", function() -- show file path
   local path = vim.fn.expand("%:p")
   vim.fn.setreg("+", path)
   vim.notify("file: " .. path)

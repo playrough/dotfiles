@@ -1,5 +1,6 @@
 -- Load plugins; plugins.keymaps runs last so every plugin is ready.
 require("plugins.lsp")
+require("plugins.conform")
 require("plugins.completions")
 require("plugins.treesitter")
 require("plugins.matugen")

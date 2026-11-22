@@ -12,17 +12,29 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-tool-installer").setup({
   ensure_installed = {
+    -- LSP servers
     "lua_ls",
-    "stylua",
     "bashls",
-    "shfmt",
     "jsonls",
-    "prettier",
-    "clangd",
-    "pyright",
-    "html",
     "cssls",
-    "tombi",
+    "html",
+    "pyright",
+    "clangd",
+    "ruff",
+
+    -- Formatters (conform)
+    "stylua",
+    "shfmt",
+    "clang-format",
+    "oxfmt",
+    "prettier",
+    "prettierd",
+
+    -- Linter (used directly by bashls, no nvim-lint needed)
+    "shellcheck",
+
+    -- Treesitter bootstrap (needed to build parsers)
+    "tree-sitter-cli",
   },
 })
 

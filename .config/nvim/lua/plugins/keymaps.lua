@@ -18,11 +18,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     map("n", "gr", vim.lsp.buf.references, "References")
     map("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
     map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Code action")
-    map("n", "<leader>f", function()
-      vim.lsp.buf.format({ async = true })
-    end, "Format buffer")
   end,
 })
+
+-- Format: conform for CLI formatters, LSP as fallback. Global so buffers without
+-- an attached server (e.g. plain markdown/sh) can still be formatted.
+vim.keymap.set({ "n", "v" }, "<leader>f", function()
+  require("conform").format({ async = true, lsp_format = "fallback" })
+end, { desc = "Format buffer/selection" })
 
 -- MiniFiles -----------------------------------------------------------------
 vim.keymap.set("n", "<leader>e", function()

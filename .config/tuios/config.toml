@@ -48,11 +48,6 @@ enabled = true
 [spotlight]
 enabled = false
 
-[notifications.agent]
-notify = true
-enabled = true
-dock = false
-
 [keybindings]
 leader_key = ""
 preset = "tmux"
@@ -66,6 +61,3 @@ terminal_focus_right = ["l", "right"]
 # unset j and k
 prefix_jump_notif = []
 prefix_keybinds = []
-
-[screenshot]
-preview = true

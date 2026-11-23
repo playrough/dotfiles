@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "notalia",
+    "mode": "system"
+  },
+  "animations": true,
+  "session": {
+    "scrollbar": false,
+    "sidebar": "auto"
+  },
+  "prompt": {
+    "editor": true,
+    "paste": "compact"
+  },
+  "attention": {
+    "notifications": true,
+    "sound": true,
+    "volume": 0.5,
+    "sounds": { "done": "", "error": "", "permission": "", "question": "", "subagent_done": "" }
+  },
+  "plugins": ["./herdr-opencode", "./tmux-bell"]
+}

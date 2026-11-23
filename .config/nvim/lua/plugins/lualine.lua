@@ -49,10 +49,12 @@ require("lualine").setup({
     globalstatus = true,
   },
   sections = {
-    lualine_a = { { "mode", icon = "", separator = { left = "" }, padding = { left = 1, right = 2 } } },
+    lualine_a = {
+      { "mode", icon = "", separator = { left = "", right = "" }, padding = { left = 1, right = 1 } },
+    },
     lualine_b = {
       "macro_recording",
-      { get_filename, padding = { left = 2, right = 1 } },
+      { get_filename, padding = { left = 1, right = 1 } },
     },
     lualine_c = {
       { "branch", icon = " " },
@@ -63,10 +65,10 @@ require("lualine").setup({
       get_lsp_client,
     },
     lualine_y = {
-      { get_cwd, padding = { left = 1, right = 2 } },
+      { get_cwd, padding = { left = 1, right = 1 } },
     },
     lualine_z = {
-      { "progress", separator = { right = "" }, padding = { left = 2, right = 1 } },
+      { "progress", separator = { left = "", right = "" }, padding = { left = 1, right = 1 } },
     },
   },
   inactive_sections = {

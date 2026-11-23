@@ -72,3 +72,8 @@ output_path = "$XDG_CONFIG_HOME/tuios/themes/noctalia.json"
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/herdr/herdr.toml"
 output_path = "$XDG_CONFIG_HOME/herdr/noctalia.toml"
 post_hook = "$XDG_CONFIG_HOME/noctalia/templates/herdr/apply.sh"
+
+[theme.templates.user.tmux]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/tmux.conf"
+output_path = "$XDG_CONFIG_HOME/tmux/noctalia.conf"
+post_hook = "source-file ~/.config/tmux/tmux.conf"

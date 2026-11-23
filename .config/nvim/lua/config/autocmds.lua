@@ -41,3 +41,11 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  pattern = "tmux",
+  callback = function()
+    vim.opt_local.synmaxcol = 0
+  end,
+})

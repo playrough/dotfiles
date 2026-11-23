@@ -1,0 +1,36 @@
+onboarding = false
+
+[theme.custom]
+accent = "#ffb877"
+panel_bg = "reset"
+sidebar_bg = "reset"
+active_row_bg = "#261e18"
+selection_bg = "#261e18"
+surface0 = "#221a14"
+surface1 = "#221a14"
+surface_dim = "#412c19"
+overlay0 = "#5a422d"
+overlay1 = "#d5c3b6"
+text = "#efe0d5"
+subtext0 = "#d5c3b6"
+mauve = "#eac16c"
+green = "#ffb877"
+yellow = "#e2c0a5"
+red = "#ffb4ab"
+blue = "#c2cb98"
+teal = "#e5bcbf"
+peach = "#ffdeab"
+
+[theme]
+name = "terminal"
+auto_switch = false
+
+[ui]
+status_indicators = "symbols"
+sidebar_collapsed_mode = "hidden"
+
+# pane_gaps = false
+# pane_outer_borders = false
+
+[terminal]
+new_cwd = "follow"

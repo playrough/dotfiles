@@ -78,3 +78,8 @@ post_hook = "$XDG_CONFIG_HOME/noctalia/templates/herdr/apply.sh"
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/tmux.conf"
 output_path = "$XDG_CONFIG_HOME/tmux/noctalia.conf"
 post_hook = "tmux source-file ~/.config/tmux/tmux.conf"
+
+[theme.templates.user.lazygit]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/lazygit/lazygit.yml"
+output_path = "$XDG_CONFIG_HOME/lazygit/themes/noctalia.yml"
+post_hook = "$XDG_CONFIG_HOME/noctalia/templates/lazygit/apply.sh"

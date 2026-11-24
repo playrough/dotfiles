@@ -7,7 +7,7 @@ accent_secondary = "#{{colors.secondary.default.hex_stripped}}FF"
 warning = "#{{colors.tertiary.default.hex_stripped}}FF"
 error = "#{{colors.error.default.hex_stripped}}FF"
 insert_hint = "#{{colors.tertiary.default.hex_stripped}}80"
-backdrop = "#{{colors.surface_variant.default.hex_stripped}}FF"
+backdrop = "#000000"
 
 [colors.border]
 focused = "#{{colors.primary_container.default.hex_stripped}}FF"

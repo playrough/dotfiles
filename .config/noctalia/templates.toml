@@ -34,6 +34,7 @@ post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh dark"
 [theme.templates.user.cava]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/cava.ini"
 output_path = "$XDG_CONFIG_HOME/cava/config"
+post_hook = "pkill -USR1 cava"
 
 [theme.templates.user.pywalfox]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/pywalfox.json"

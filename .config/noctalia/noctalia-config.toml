@@ -2,7 +2,7 @@
 enabled = true
 
 [bar.default]
-background_opacity = 0.74999998323619366
+background_opacity = 0.7499999832361937
 capsule_group = []
 center = [ "clock", "date", "spacer_11" ]
 color = "primary"
@@ -148,8 +148,8 @@ right = [ "Ctrl+l" ]
 up = [ "Ctrl+k" ]
 
 [lockscreen]
-edge_smoothness = 0.28999999351799488
-tint_intensity = 0.28999999351799488
+edge_smoothness = 0.2899999935179949
+tint_intensity = 0.2899999935179949
 transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
 
 [lockscreen_widgets]
@@ -211,7 +211,7 @@ widget_order = [
         background_opacity = 0.0
         background_radius = 12.0
         center_password_text = false
-        input_opacity = 0.59999999999999998
+        input_opacity = 0.6
         input_radius = 32.0
         layout = "compact"
         show_caps_lock = true
@@ -227,7 +227,7 @@ widget_order = [
     box_height = 128.0
     box_width = 384.0
     cx = 960.0
-    cy = 460.00003051757812
+    cy = 460.0000305175781
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -255,11 +255,11 @@ widget_order = [
         title = "Edgerunner"
 
 [notification]
-background_opacity = 0.79999998211860657
+background_opacity = 0.7999999821186066
 border_color = "on_secondary"
 
 [osd]
-background_opacity = 0.79999998211860657
+background_opacity = 0.7999999821186066
 border_color = "on_secondary"
 offset_y = 30
 position = "bottom_center"
@@ -287,7 +287,7 @@ panel_position = "center"
 enabled = [ "noctalia/wallhaven", "noctalia/translator" ]
 
 [shell]
-avatar_path = "/home/edgerunner/.config/fastfetch/logo/logo-2.png"
+avatar_path = "/home/edgerunner/.config/fastfetch/logo/logo-3.png"
 button_borders = false
 card_borders = false
 font_family = "Inter"
@@ -364,35 +364,113 @@ wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "cava", "gtk3", "gtk4", "kitty", "umbriel" ]
-    community_ids = [ "opencode", "sonora", "pywalfox", "bat", "fzf", "glow", "yazi" ]
+    community_ids = [ "opencode", "sonora", "pywalfox", "bat", "fzf", "glow", "herdr", "tuios", "yazi" ]
+    enable_builtin_templates = false
+    enable_community_templates = false
+
+        [theme.templates.user.bat]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/bat.tmTheme"
+        output_path = "$XDG_CONFIG_HOME/bat/themes/noctalia.tmTheme"
+
+        [theme.templates.user.btop]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/btop.theme"
+        output_path = "$XDG_CONFIG_HOME/btop/themes/noctalia.theme"
+        post_hook = "pkill -USR2 btop || true"
+
+        [theme.templates.user.cava]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/cava.ini"
+        output_path = "$XDG_CONFIG_HOME/cava/config"
+        post_hook = "pkill -USR1 cava"
+
+        [theme.templates.user.fzf]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/fzf.sh"
+        output_path = "$XDG_CONFIG_HOME/fzf/themes/noctalia.sh"
+
+        [theme.templates.user.gtk3]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/gtk/gtk3.css"
+        output_path = "$XDG_CONFIG_HOME/gtk-3.0/noctalia.css"
+        post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh dark"
+
+        [theme.templates.user.gtk4]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/gtk/gtk4.css"
+        output_path = "$XDG_CONFIG_HOME/gtk-4.0/noctalia.css"
+        post_hook = "$XDG_CONFIG_HOME/noctalia/templates/gtk/apply.sh dark"
+
+        [theme.templates.user.herdr]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/herdr/herdr.toml"
+        output_path = "$XDG_CONFIG_HOME/herdr/noctalia.toml"
+        post_hook = "$XDG_CONFIG_HOME/noctalia/templates/herdr/apply.sh"
+
+        [theme.templates.user.kitty]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/kitty.conf"
+        output_path = "$XDG_CONFIG_HOME/kitty/themes/noctalia.conf"
+        post_hook = "kitty +kitten themes --reload-in=all noctalia"
 
         [theme.templates.user.nvim]
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim.json"
         output_path = "$XDG_CONFIG_HOME/nvim/colors.json"
         post_hook = "pkill -SIGUSR1 nvim || true"
 
+        [theme.templates.user.opencode]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/opencode.json"
+        output_path = "$XDG_CONFIG_HOME/opencode/themes/notalia.json"
+
+        [theme.templates.user.pywalfox]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/pywalfox.json"
+        output_path = "$XDG_CACHE_HOME/wal/colors.json"
+        post_hook = "pywalfox update"
+
+        [theme.templates.user.sonora]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/sonora.json"
+        output_path = "$XDG_CONFIG_HOME/sonora/themes/noctalia.json"
+
+        [theme.templates.user.tmux]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/tmux.conf"
+        output_path = "$XDG_CONFIG_HOME/tmux/noctalia.conf"
+        post_hook = "tmux source-file ~/.config/tmux/tmux.conf"
+
+        [theme.templates.user.tridactyl]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/tridactyl.css"
+        output_path = "$XDG_CONFIG_HOME/tridactyl/themes/noctalia.css"
+
+        [theme.templates.user.tuios]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/tuios.json"
+        output_path = "$XDG_CONFIG_HOME/tuios/themes/noctalia.json"
+
+        [theme.templates.user.umbriel]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/umbriel.toml"
+        output_path = "$XDG_CONFIG_HOME/umbriel/noctalia.toml"
+
+        [theme.templates.user.yazi]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/yazi.toml"
+        output_path = "$XDG_CONFIG_HOME/yazi/flavors/noctalia.yazi/flavor.toml"
+
+        [theme.templates.user.yazi-syntax]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/yazi.tmTheme"
+        output_path = "$XDG_CONFIG_HOME/yazi/flavors/noctalia.yazi/tmtheme.xml"
+
 [wallpaper]
 directory = "/home/edgerunner/Downloads/wallpapers"
-transition = [ "melt", "pixel", "stripes", "wipe", "zoom" ]
+transition = [ "melt", "pixel" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/art/thresh.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/janna.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/art/thresh.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/janna.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/art/thresh.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/janna.jpg"
 
 [widget.audio_visualizer]
 bands = 20
-scale = 0.80000000000000004
+scale = 0.8
 show_when_idle = true
 width = 220
 
 [widget.battery]
 display_mode = "graphic"
-scale = 0.60000000000000009
+scale = 0.6000000000000001
 show_label = false
 
 [widget.clock]
@@ -510,7 +588,7 @@ visualization = "none"
 color = "secondary"
 enabled = false
 font_weight = 200
-scale = 0.80000000000000004
+scale = 0.8
 text = "—"
 type = "text"
 

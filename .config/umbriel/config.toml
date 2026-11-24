@@ -6,11 +6,7 @@
 files = []
 
 [include.optional]
-files = [
-  "opacity.toml",
-  "kitty-center.toml",
-  "noctalia.toml",
-]
+files = ["opacity.toml", "kitty-center.toml", "noctalia.toml"]
 
 # ==============================================================================
 # General
@@ -351,6 +347,11 @@ blur_optimized = false
 [[window_rule]]
 match.is_focused = false
 opacity = 0.75
+
+# Kitty full extent
+[[window_rule]]
+match.title = "^kitty"
+default_maximize = true
 
 # Noctalia settings
 [[window_rule]]

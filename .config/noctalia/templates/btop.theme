@@ -11,10 +11,10 @@ theme[inactive_fg]="{{colors.on_secondary.default.hex}}"
 
 theme[proc_misc]="{{colors.tertiary.default.hex}}"
 
-theme[cpu_box]="{{colors.outline.default.hex}}"
-theme[mem_box]="{{colors.outline.default.hex}}"
-theme[net_box]="{{colors.outline.default.hex}}"
-theme[proc_box]="{{colors.outline.default.hex}}"
+theme[cpu_box]="{{colors.outline_variant.default.hex}}"
+theme[mem_box]="{{colors.outline_variant.default.hex}}"
+theme[net_box]="{{colors.outline_variant.default.hex}}"
+theme[proc_box]="{{colors.outline_variant.default.hex}}"
 
 theme[div_line]="{{colors.outline_variant.default.hex}}"
 

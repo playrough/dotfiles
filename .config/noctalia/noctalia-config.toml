@@ -7,17 +7,7 @@ capsule_group = []
 center = [ "clock", "date", "spacer_11" ]
 color = "primary"
 concave_edge_corners = false
-end = [
-    "custom_button_3",
-    "volume",
-    "audio_visualizer",
-    "network",
-    "spacer_9",
-    "battery",
-    "spacer_10",
-    "session",
-    "spacer_13"
-]
+end = [ "custom_button_3", "volume", "spacer_12", "network", "spacer_9", "battery", "spacer_10", "session", "spacer_13" ]
 font_family = "Inter Display"
 margin_ends = "0%"
 padding = 10
@@ -262,7 +252,9 @@ border_color = "on_secondary"
 background_opacity = 0.7999999821186066
 border_color = "on_secondary"
 offset_y = 30
+orientation = "vertical"
 position = "bottom_center"
+position_vertical = "center_right"
 
 [plugin_settings."3dprogramin/mullvad"]
 panel_position = "center"
@@ -406,6 +398,11 @@ wallpaper_scheme = "m3-tonal-spot"
         output_path = "$XDG_CONFIG_HOME/kitty/themes/noctalia.conf"
         post_hook = "kitty +kitten themes --reload-in=all noctalia"
 
+        [theme.templates.user.lazygit]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/lazygit/lazygit.yml"
+        output_path = "$XDG_CONFIG_HOME/lazygit/themes/noctalia.yml"
+        post_hook = "$XDG_CONFIG_HOME/noctalia/templates/lazygit/apply.sh"
+
         [theme.templates.user.nvim]
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim.json"
         output_path = "$XDG_CONFIG_HOME/nvim/colors.json"
@@ -419,6 +416,10 @@ wallpaper_scheme = "m3-tonal-spot"
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/pywalfox.json"
         output_path = "$XDG_CACHE_HOME/wal/colors.json"
         post_hook = "pywalfox update"
+
+        [theme.templates.user.rmpc]
+        input_path = "$XDG_CONFIG_HOME/noctalia/templates/rmpc.ron"
+        output_path = "$XDG_CONFIG_HOME/rmpc/themes/noctalia.ron"
 
         [theme.templates.user.sonora]
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/sonora.json"
@@ -454,16 +455,17 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/art/janna.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/art/janna.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/art/janna.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
 
 [widget.audio_visualizer]
 bands = 20
+enabled = false
 scale = 0.8
 show_when_idle = true
 width = 220
@@ -533,6 +535,9 @@ type = "spacer"
 
 [widget.spacer_11]
 length = 200
+type = "spacer"
+
+[widget.spacer_12]
 type = "spacer"
 
 [widget.spacer_13]

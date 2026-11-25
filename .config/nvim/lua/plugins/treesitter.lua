@@ -23,6 +23,7 @@ local ensure_installed = {
   "xml",
   "kitty",
   "gitignore",
+  "ron",
 
   -- docs
   "markdown",

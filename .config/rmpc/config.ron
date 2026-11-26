@@ -175,7 +175,7 @@
                 direction: Horizontal,
                 panes: [
                     (
-                        size: "30%",
+                        size: "35%",
                         pane: Split(
                             direction: Vertical,
                             panes: [
@@ -183,27 +183,33 @@
                                     size: "100%",
                                     borders: "ALL",
                                     border_symbols: Rounded,
+                                    border_title: [(kind: Text("─ ◈ Vibe "))],
+                                    border_title_alignment: Left,
                                     pane: Pane(AlbumArt)
                                 ),
                             ],
                         ),
                     ), 
                     (
-                        size: "70%",
+                        size: "65%",
                         pane: Split(
                             direction: Vertical,
                             panes: [
                                 (
-                                    size: "100%",
+                                    size: "50%",
                                     borders: "ALL",
                                     border_symbols: Rounded,
-                                    pane: Split(
-                                        direction: Vertical,
-                                        panes: [
-                                            (size: "50%", pane: Pane(Queue)),
-                                            (size: "50%", pane: Pane(Cava)),
-                                        ],
-                                    )
+                                    border_title: [(kind: Text(" ◈ Sequence ─"))],
+                                    border_title_alignment: Right,
+                                    pane: Pane(Queue)
+                                ),
+                                (
+                                    size: "50%",
+                                    borders: "ALL",
+                                    border_symbols: Rounded,
+                                    border_title: [(kind: Text(" ◈ Resonance ─"))],
+                                    border_title_alignment: Right,
+                                    pane: Pane(Cava)
                                 ),
                             ],
                         )

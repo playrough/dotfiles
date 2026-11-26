@@ -21,7 +21,7 @@
         dir: "D",
         playlist: "P",
         marker: "M",
-        ellipsis: "...",
+        ellipsis: "  ",
         song_style: None,
         dir_style: None,
         playlist_style: None,
@@ -42,8 +42,8 @@
         use_track_when_empty: true,
     ),
     scrollbar: (
-        symbols: ["│", "█", "▲", "▼"],
-        track_style: (fg: "{{ colors.surface_variant.default.hex }}"),
+        symbols: ["│", "┃", "", ""],
+        track_style: (fg: "{{ colors.on_secondary.default.hex }}"),
         ends_style: (fg: "{{ colors.outline.default.hex }}"),
         thumb_style: (fg: "{{ colors.primary.default.hex }}"),
     ),
@@ -80,18 +80,23 @@
     ],
     song_table_format: [
         (
+            prop: (
+                kind: Group([
+                    (kind: Text("  ")),
+                    (kind: Property(Title),
+                        default: (kind: Text("Unknown"))
+                    ),
+                ]),           
+            ),
+            label_prop: (kind: Text("Title")),
+            width: "84%",
+        ),
+        (
             prop: (kind: Property(Artist),
                 default: (kind: Text("Unknown"))
             ),
             label_prop: (kind: Text("Artist")),
-            width: "20%",
-        ),
-        (
-            prop: (kind: Property(Title),
-                default: (kind: Text("Unknown"))
-            ),
-            label_prop: (kind: Text("Title")),
-            width: "65%",
+            width: "15%",
         ),
         (
             prop: (kind: Property(Album), style: (fg: "{{ colors.on_surface_variant.default.hex }}"),
@@ -105,7 +110,7 @@
                 default: (kind: Text("-"))
             ),
             label_prop: (kind: Text("Len")),
-            width: "15%",
+            width: "11%",
             alignment: Right,
         ),
     ],
@@ -226,35 +231,35 @@
                     pane: Pane(Property(content: [(kind: Property(Status(InputBuffer())), style: (fg: "{{ colors.primary.default.hex }}"), align: Left)]))
                 ),
                 (
-                    size: "8",
+                    size: "12",
                     pane: Pane(Property(content: [
                         (kind: Property(Status(RepeatV2(
-                            on_label: "󰑖",
-                            off_label: "󰑖",
+                            on_label: "󰑖 ",
+                            off_label: "󰑖 ",
                             on_style: (fg: "{{ colors.primary.default.hex }}", modifiers: "Bold"),
                             off_style: (fg: "{{ colors.outline.default.hex }}", modifiers: "Dim"),
                         )))),
                         (kind: Text(" ")),
                         (kind: Property(Status(RandomV2(
-                            on_label: "󰒝",
-                            off_label: "󰒝",
+                            on_label: "󰒝 ",
+                            off_label: "󰒝 ",
                             on_style: (fg: "{{ colors.primary.default.hex }}", modifiers: "Bold"),
                             off_style: (fg: "{{ colors.outline.default.hex }}", modifiers: "Dim"),
                         )))),
                         (kind: Text(" ")),
                         (kind: Property(Status(ConsumeV2(
-                            on_label: "󰐓",
-                            off_label: "󰐓",
-                            oneshot_label: "󰐓",
+                            on_label: "󰐓 ",
+                            off_label: "󰐓 ",
+                            oneshot_label: "󰐓 ",
                             on_style: (fg: "{{ colors.primary.default.hex }}", modifiers: "Bold"),
                             off_style: (fg: "{{ colors.outline.default.hex }}", modifiers: "Dim"),
                             oneshot_style: (fg: "{{ colors.error.default.hex }}", modifiers: "Dim"),
                         )))),
                         (kind: Text(" ")),
                         (kind: Property(Status(SingleV2(
-                            on_label: "󰑘",
-                            off_label: "󰑘",
-                            oneshot_label: "󰑘",
+                            on_label: "󰑘 ",
+                            off_label: "󰑘 ",
+                            oneshot_label: "󰑘 ",
                             on_style: (fg: "{{ colors.primary.default.hex }}", modifiers: "Bold"),
                             off_style: (fg: "{{ colors.outline.default.hex }}", modifiers: "Dim"),
                             oneshot_style: (fg: "{{ colors.error.default.hex }}", modifiers: "Bold"),

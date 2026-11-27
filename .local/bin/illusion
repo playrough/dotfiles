@@ -1,0 +1,34 @@
+#!/bin/sh
+# illusion — dựng lại tmux workspace rồi attach.
+#
+#   window 1 "main"   rmpc │ btop
+#                     shell│
+#
+# Chạy lại lần sau: nếu session đã tồn tại thì chỉ attach, không dựng lại.
+set -eu
+
+SESSION=illusion
+ROOT=$HOME
+
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  tmux select-window -t "$SESSION:main" 2>/dev/null || true
+else
+  left=$(tmux new-session -d -s "$SESSION" -n main -c "$ROOT" -P -F '#{pane_id}')
+  right=$(tmux split-window -h -t "$left" -c "$ROOT" -P -F '#{pane_id}')
+  bottom=$(tmux split-window -v -t "$left" -c "$ROOT" -P -F '#{pane_id}')
+
+  tmux send-keys -t "$right" 'btop' Enter
+  tmux send-keys -t "$left" 'rmpc' Enter
+
+  tmux select-pane -t "$bottom"
+  tmux select-pane -t "$right" -T 'btop'
+  tmux select-pane -t "$left" -T 'music'
+  tmux select-pane -t "$left"
+
+fi
+
+if [ -n "${TMUX:-}" ]; then
+  exec tmux switch-client -t "$SESSION"
+else
+  exec tmux attach -t "$SESSION"
+fi

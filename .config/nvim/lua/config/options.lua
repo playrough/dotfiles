@@ -87,7 +87,7 @@ require("vim._core.ui2").enable({
     targets = {
       default = "msg",
       empty = "cmd",
-      bufwrite = "msg",
+      bufwrite = "cmd",
       confirm = "cmd",
       emsg = "msg",
       echo = "msg",

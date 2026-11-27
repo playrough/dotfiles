@@ -80,6 +80,5 @@ alias op="opencode"
 # =========================================================
 # Tmux
 # =========================================================
-alias illusion="tmux new -s illusion"
 alias ail="tmux attach -t illusion"
 alias kil="tmux kill-session -t illusion"

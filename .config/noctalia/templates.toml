@@ -51,7 +51,7 @@ output_path = "$XDG_CONFIG_HOME/yazi/flavors/noctalia.yazi/tmtheme.xml"
 
 [theme.templates.user.opencode]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/opencode.json"
-output_path = "$XDG_CONFIG_HOME/opencode/themes/notalia.json"
+output_path = "$XDG_CONFIG_HOME/opencode/themes/noctalia.json"
 
 [theme.templates.user.umbriel]
 input_path = "$XDG_CONFIG_HOME/noctalia/templates/umbriel.toml"

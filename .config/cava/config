@@ -1,0 +1,21 @@
+[general]
+mode = 'waves'
+bars = 0
+bar_width = 1
+bar_spacing = 1
+
+[input]
+method = pulse
+source = auto
+method = pipewire
+source = auto
+
+[color]
+foreground = "#707dc2"
+gradient = 0
+horizontal_gradient = 1
+horizontal_gradient_color_1 = '#394379'
+horizontal_gradient_color_2 = '#bac3ff'
+horizontal_gradient_color_3 = '#dee0ff'
+horizontal_gradient_color_4 = '#bac3ff'
+horizontal_gradient_color_5 = '#394379'

@@ -81,49 +81,41 @@ vim.opt.diffopt:append("linematch:60")
 vim.opt.redrawtime = 10000
 vim.opt.maxmempattern = 20000
 
+-- For floating cmdline and messages
 require("vim._core.ui2").enable({
   enable = true,
   msg = {
     targets = {
-      default = "msg",
+      [""] = "msg",
       empty = "cmd",
-      bufwrite = "cmd",
+      bufwrite = "msg",
       confirm = "cmd",
-      emsg = "msg",
+      emsg = "pager",
       echo = "msg",
       echomsg = "msg",
-      echoerr = "msg",
+      echoerr = "pager",
       completion = "cmd",
-      list_cmd = "msg",
-      lua_error = "msg",
+      list_cmd = "pager",
+      lua_error = "pager",
       lua_print = "msg",
       progress = "msg",
-      rpc_error = "msg",
+      rpc_error = "pager",
       quickfix = "msg",
       search_cmd = "cmd",
       search_count = "cmd",
-      shell_cmd = "msg",
-      shell_err = "msg",
-      shell_out = "msg",
+      shell_cmd = "pager",
+      shell_err = "pager",
+      shell_out = "pager",
       shell_ret = "msg",
       undo = "msg",
-      verbose = "msg",
+      verbose = "pager",
       wildlist = "cmd",
       wmsg = "msg",
       typed_cmd = "cmd",
     },
-    cmd = {
-      height = 0.5,
-    },
-    dialog = {
-      height = 0.5,
-    },
-    msg = {
-      height = 0.5,
-      timeout = 4000,
-    },
-    pager = {
-      height = 0.5,
-    },
+    cmd = { height = 0.5 },
+    dialog = { height = 0.5 },
+    msg = { height = 0.3, timeout = 5000 },
+    pager = { height = 0.5 },
   },
 })

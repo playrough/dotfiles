@@ -253,7 +253,7 @@ background_opacity = 0.7999999821186066
 border_color = "on_secondary"
 offset_y = 30
 orientation = "vertical"
-position = "bottom_center"
+position = "top_right"
 position_vertical = "center_right"
 
 [plugin_settings."3dprogramin/mullvad"]
@@ -410,7 +410,7 @@ wallpaper_scheme = "m3-tonal-spot"
 
         [theme.templates.user.opencode]
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/opencode.json"
-        output_path = "$XDG_CONFIG_HOME/opencode/themes/notalia.json"
+        output_path = "$XDG_CONFIG_HOME/opencode/themes/noctalia.json"
 
         [theme.templates.user.pywalfox]
         input_path = "$XDG_CONFIG_HOME/noctalia/templates/pywalfox.json"
@@ -455,13 +455,13 @@ directory = "/home/edgerunner/Downloads/wallpapers"
 transition = [ "melt", "pixel" ]
 
     [wallpaper.default]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/gasia-2b-nier-automata-1.jpg"
 
     [wallpaper.last]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/gasia-2b-nier-automata-1.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/edgerunner/Downloads/wallpapers/art/al-qin-sentinels-camile14.jpg"
+    path = "/home/edgerunner/Downloads/wallpapers/art/gasia-2b-nier-automata-1.jpg"
 
 [widget.audio_visualizer]
 bands = 20
